@@ -386,6 +386,12 @@ type structure_export = {
     "options"   ? string
 };
 
+type structure_cluster = {
+    "name" : string
+    "type" ? string
+    "resources"     ? structure_resources
+};
+
 type structure_kernel = {
     "version"   : string # "kernel version to use (eg. 2.4.18-27.7.x.cernsmp)"
 };
@@ -527,12 +533,6 @@ type structure_fsdata = {
 
 type structure_resources = extensible {
     "filesystem"    ? structure_fsdata[]
-};
-
-type structure_cluster = {
-    "name" : string
-    "type" ? string
-    "resources"     ? structure_resources
 };
 
 type structure_system = {
