@@ -7,7 +7,7 @@ template quattor/client/rpms;
 
 # Used to configure the appropriate repository
 variable QUATTOR_RELEASE ?= '13.1.1';
-variable QUATTOR_PACKAGES_VERSION ?= QUATTOR_RELEASE;
+variable QUATTOR_PACKAGES_VERSION ?= QUATTOR_RELEASE + "-1";
 
 # Quattor services.
 "/software/packages"=pkg_repl("ccm",        QUATTOR_PACKAGES_VERSION,"noarch");
