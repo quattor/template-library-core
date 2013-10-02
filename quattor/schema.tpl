@@ -34,8 +34,9 @@ include { 'pan/types' };
 include { 'quattor/functions/hardware' };
 include { 'quattor/functions/validation' };
 
-# To be defined
-include { 'monitoring/lemon/schema' };
+# To enable monitoring support in the schema, uncomment next line and
+# the line adding structure_monitoring to the schema later in this file.
+#include { 'monitoring/lemon/schema' };
 
 
 
@@ -551,8 +552,9 @@ type structure_system = {
     "kernel"        ? structure_kernel
     "lcg"           ? structure_lcg
     "network"       : structure_network
-    # monitoring-related structures should go elsewhere. TBD.
-    "monitoring"    ? structure_monitoring
+    # Uncomment to enable monitoring support in the schema. Also uncomment the
+    # line related to monitoring at the beginning of this file.
+    #"monitoring"    ? structure_monitoring
     "oldnames"      ? structure_oldname[]
     "rootmail"      : type_email
     "services"      ? structure_services{}
