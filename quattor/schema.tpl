@@ -124,17 +124,17 @@ type structure_rack = {
 # Fiber channel data types
 ############################################################
 type fcahwaddr = string with is_a_fcahwaddr (SELF);
-type structure_fca = { 
-    include structure_annotation 
-    "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name" 
-    "active" ? boolean # "Is this port being used" 
+type structure_fca = {
+    include structure_annotation
+    "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name"
+    "active" ? boolean # "Is this port being used"
 };
 ############################################################
 # BMC controller
 ############################################################
-type structure_bmc = { 
-    include structure_annotation 
-    "hwaddr" ? type_hwaddr 
+type structure_bmc = {
+    include structure_annotation
+    "hwaddr" ? type_hwaddr
 };
 
 ############################################################
@@ -172,7 +172,10 @@ type structure_hardware = {
     "rack"	   ? structure_rack
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"     ? structure_raidport{}
-    
+    "console"      ? nlist
+    "scalingfactor" ? double # PBS scaling factor for RAL Tier1
+    "sysloc"       ? structure_sysloc
+    "nodename"       ? string
 };
 
 # network schema defined within component area
@@ -372,6 +375,7 @@ type structure_enclosure = {
 
 
 type structure_system = {
+    "advertise_status" ? boolean
     "aii"           ? structure_aii
     "architecture"  ? string    # with match (SELF,'i386|ia64|x86_64|sparc')
                                 # "system architecture"
@@ -392,6 +396,12 @@ type structure_system = {
     "state"         ? string with match (SELF,
         'production|standby|test|development|onloan') # "production|out-of-production|test|development|onloan"
     "vo"            ? structure_vo{}
+    "function"      ? string # DEPRECATED: next AQD plenary should not do this
+    "build"         ? string with match (SELF, 'build|blind|ready|failed|install')
+    "security"      ? structure_security
+    "users"         ? nlist
+    "eon_ids"       ? long[]
+    "provides"      ? nlist
 };
 
 
@@ -415,6 +425,7 @@ type structure_component = extensible {
     "version"           ? string with match(SELF, '^\d+.\d+.\d+$')
     "register_change"   ? element*[]
     "dependencies"      ? structure_component_dependency
+    "ncm-module"        ? string with match(SELF, '^[\w:]+$')
     "code"              ? structure_component_code
 };
 
