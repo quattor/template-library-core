@@ -14,7 +14,7 @@
 #
 
 # #
-      # symlink, 13.9.0, 1, 20130911-1927
+      # symlink, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/symlink/config-common;
@@ -24,7 +24,7 @@ include { 'components/symlink/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/symlink';
 
-#'version' = '13.9.0';
+#'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

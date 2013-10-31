@@ -14,7 +14,7 @@
 #
 
 # #
-      # sindes_getcert, 13.9.0, 1, 20130911-1927
+      # sindes_getcert, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/sindes_getcert/config;

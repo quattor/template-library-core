@@ -11,7 +11,7 @@
 
 # 
 # #
-      # libvirtd, 13.9.0, 1, 20130911-1927
+      # libvirtd, 13.1.2, 1, 20131015-1106
       #
 
 declaration template components/libvirtd/schema;

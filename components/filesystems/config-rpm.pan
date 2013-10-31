@@ -20,7 +20,7 @@ include {'components/filesystems/schema'};
 
 include {'components/fstab/config'};
 
-"/software/packages" = pkg_repl("ncm-filesystems", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-filesystems", "13.1.2-1", "noarch");
 
 "/software/components/filesystems/dependencies/post" = list ("fstab");
 "/software/components/filesystems/dependencies/pre" = list ("spma");

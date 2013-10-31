@@ -48,7 +48,7 @@ include {'components/pam/schema'};
 include {'pan/functions'};
 
 # standard component settings
-"/software/components/pam/version"    = '13.9.0';
+"/software/components/pam/version"    = '13.1.2';
 # release is not yet standard.
 #"/software/components/pam/release"    = "1";
 "/software/components/pam/active"    ?=  true;
@@ -56,7 +56,7 @@ include {'pan/functions'};
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "13.1.2-1", "noarch");
 
 
 #
