@@ -11,7 +11,7 @@
 
 # 
 # #
-      # cups, 13.9.0, 1, 20130911-1927
+      # cups, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/cups/config-common;
@@ -21,7 +21,7 @@ include { 'components/cups/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/cups';
 
-'version' = '13.9.0';
+'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

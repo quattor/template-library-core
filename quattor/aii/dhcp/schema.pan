@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# dhcp, 13.9.0, 20130930.1745.17
+# dhcp, 13.1.2, 20131015.1053.34
 #
 
 unique template quattor/aii/dhcp/schema;

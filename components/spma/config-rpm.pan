@@ -20,7 +20,7 @@ include { 'components/spma/schema' };
 include { 'components/spma/functions' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-spma", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-spma", "13.1.2-1", "noarch");
 
 
 "/software/components/spma/active" ?= true;

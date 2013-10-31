@@ -14,7 +14,7 @@
 #
 
 # #
-      # iscsitarget, 13.9.0, 1, 20130911-1927
+      # iscsitarget, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/iscsitarget/config-common;
@@ -24,7 +24,7 @@ include { 'components/iscsitarget/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/iscsitarget';
 
-#'version' = '13.9.0';
+#'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

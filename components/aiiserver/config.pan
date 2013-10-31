@@ -11,7 +11,7 @@
 
 # 
 # #
-      # aiiserver, 13.9.0, 1, 20130911-1927
+      # aiiserver, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/aiiserver/config;
