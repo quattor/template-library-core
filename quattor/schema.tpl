@@ -224,6 +224,9 @@ type structure_console = extensible {
 ############################################################
 type structure_sysloc = {
     "campus" : string
+    "building" : string
+    "city" : string
+    "continent" : string
 };
 
 ############################################################
@@ -567,6 +570,8 @@ type structure_system = {
     "security"      ? structure_security
     "users"         ? nlist
     "eon_ids"       ? long[]
+    "eon_id_maps"   ? nlist
+    "owner_eon_id"  ? long
     "provides"      ? nlist
 
 };
