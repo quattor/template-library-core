@@ -124,17 +124,17 @@ type structure_rack = {
 # Fiber channel data types
 ############################################################
 type fcahwaddr = string with is_a_fcahwaddr (SELF);
-type structure_fca = { 
-    include structure_annotation 
-    "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name" 
-    "active" ? boolean # "Is this port being used" 
+type structure_fca = {
+    include structure_annotation
+    "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name"
+    "active" ? boolean # "Is this port being used"
 };
 ############################################################
 # BMC controller
 ############################################################
-type structure_bmc = { 
-    include structure_annotation 
-    "hwaddr" ? type_hwaddr 
+type structure_bmc = {
+    include structure_annotation
+    "hwaddr" ? type_hwaddr
 };
 
 ############################################################
@@ -234,10 +234,10 @@ type structure_hardware = {
     "cpu"          ? structure_cpu[]
     "ram"          ? structure_ram[]
     "cards"        ? structure_cards
-    "rack"	   ? structure_rack
+    "rack"     ? structure_rack
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"     ? structure_raidport{}
-    "console"      ? nlist 
+    "console"      ? nlist
     "scalingfactor" ? double # PBS scaling factor for RAL Tier1
     "sysloc"       ? structure_sysloc
     "nodename"       ? string
@@ -537,7 +537,7 @@ type structure_cluster = {
 };
 
 type structure_system = {
-    "advertise_status" ? boolean 
+    "advertise_status" ? boolean
     "aii"           ? structure_aii
     "archetype"     ? structure_archetype
     "architecture"  ? string    # with match (SELF,'i386|ia64|x86_64|sparc')
@@ -567,7 +567,7 @@ type structure_system = {
     "security"      ? structure_security
     "users"         ? nlist
     "eon_ids"       ? long[]
-    "provides"      ? nlist 
+    "provides"      ? nlist
 
 };
 
