@@ -25,5 +25,5 @@ prefix "/software/packages";
 # This is done last to allow redefining some RPMs that may be provided
 # by the OS if the previous list is not suitable for a specific
 # version/arch.
-variable QUATTOR_CLIENT_OS_INCLUDE = 'config/quattor/client';
-include { QUATTOR_CLIENT_OS_INCLUDE };
+variable QUATTOR_CLIENT_OS_INCLUDE ?= 'config/quattor/client';
+include if_exists(QUATTOR_CLIENT_OS_INCLUDE);
