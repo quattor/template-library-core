@@ -30,8 +30,8 @@ type physdev_string = string with exists ("/system/blockdevices/physical_devs/" 
     + "/system/blockdevices/physical_devs");
 type parttype_string = string with ( SELF=='primary' ||
     SELF=='extended' || SELF=='logical');
-type vg_string = string with exists ("/system/blockdevices/volume_groups/" 
-    + SELF) || 
+type vg_string = string with exists ("/system/blockdevices/volume_groups/"
+    + SELF) ||
     error (SELF
 	+ "must be a path relative to /system/blockdevices/volume_groups");
 
@@ -61,7 +61,7 @@ type blockdevices_logicalvolumes_type = {
     "volume_group" : vg_string
     "stripe_size" ? long # Size of the stripe. If not used, no striping
 };
-    
+
 type blockdevices_lvm_type = {
     "device_list" : blockdev_string[] # "List of device paths"
 };
@@ -71,8 +71,8 @@ type blockdevices_lvm_type = {
 # option.
 type blockdevices_file_type = {
 	"size" : long # "Size in MB"
-	"owner" ? string # "User owning the file"
-	"group" ? string # "Group owning the file"
+	"owner" : string = "root" # "User owning the file"
+	"group" : string = "root" # "Group owning the file"
 	"permissions" ? long # "Permission bits for the file"
 };
 
@@ -89,7 +89,7 @@ type blockdevices_disk_type = {
 
 type card_port_string = string with is_card_port (SELF);
 
-# String modelling 
+# String modelling
 # New block device describing hardware RAID.
 type blockdevices_hwraid_type = {
     "device_list" : card_port_string[]
@@ -114,4 +114,3 @@ type structure_blockdevices = {
     "hwraid" ?  blockdevices_hwraid_type {}
     "tmpfs" ? blockdevices_tmpfs_type
 };
-
