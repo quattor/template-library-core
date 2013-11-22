@@ -501,7 +501,7 @@ type structure_personality = {
     # want anything else.
     "maintenance_threshold" ? long(0..100) = 50
     "backups"       ? string
-    "host_environment" : string
+    "host_environment" ? string
     "owner_eon_id" ? long
 };
 
