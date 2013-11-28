@@ -120,6 +120,12 @@ type structure_rack = {
   "row" : string
 };
 
+# BIOS version definition
+type structure_bios = {
+    "version" : string
+    "releasedate" : string
+};
+
 ############################################################
 # Fiber channel data types
 ############################################################
@@ -244,6 +250,7 @@ type structure_hardware = {
     "scalingfactor" ? double # PBS scaling factor for RAL Tier1
     "sysloc"       ? structure_sysloc
     "nodename"       ? string
+    "bios" ? structure_bios
 };
 
 # network schema defined within component area
