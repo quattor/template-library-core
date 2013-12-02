@@ -223,10 +223,14 @@ type structure_console = extensible {
 # structure_sysloc
 ############################################################
 type structure_sysloc = {
-    "campus" : string
-    "building" : string
-    "city" : string
-    "continent" : string
+    "campus"     ? string
+    "building"   ? string
+    "city"       ? string
+    "continent"  ? string
+    "room"       ? string
+    "bunker"     ? string
+    "region"     ? string
+    "dns_search_domains" ? string[]
 };
 
 ############################################################
@@ -491,12 +495,14 @@ type structure_personality = {
     # reaches 'ready'. Note that the "build" function should only
     # be used by personalities for hosts still in inventory.
     "function"      ? string with match(SELF, "(development|production|grid|qa|crash)")
-    "threshold"     : long(0..100)
+    "threshold"     ? long(0..100)
     # An alternative threshold to be applied when in maintenance mode
     # We provide a default of 50%, so you must declare the value if you
     # want anything else.
-    "maintenance_threshold" : long(0..100) = 50
+    "maintenance_threshold" ? long(0..100) = 50
     "backups"       ? string
+    "host_environment" ? string
+    "owner_eon_id" ? long
 };
 
 type structure_sys_components = {
@@ -537,6 +543,12 @@ type structure_cluster = {
     "name" : string
     "type" ? string
     "resources"     ? structure_resources
+    "members" ? type_hostname[]
+    "campus" ? string
+    "sysloc" ? structure_sysloc
+    "rack" ? structure_rack
+    "down_hosts_threshold" ? long(0..)
+    "node_index" ? long(0..)
 };
 
 type structure_system = {
@@ -573,7 +585,9 @@ type structure_system = {
     "eon_id_maps"   ? nlist
     "owner_eon_id"  ? long
     "provides"      ? nlist
-
+    "personality"   ? structure_personality
+    "host_environment" ? string
+    "features"      ? nlist
 };
 
 
