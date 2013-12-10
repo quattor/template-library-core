@@ -14,7 +14,7 @@
 #
 
 # #
-      # afsclt, 13.9.0, 1, 20130911-1927
+      # afsclt, 13.12.0, 1, 20131210-1548
       #
 
 unique template components/afsclt/config-common;
@@ -24,7 +24,7 @@ include { 'components/afsclt/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/afsclt';
 
-#'version' = '13.9.0';
+#'version' = '13.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

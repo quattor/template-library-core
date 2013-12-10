@@ -22,10 +22,10 @@ include { 'components/tomcat/schema' };
 
  
 # Package to install
-"/software/packages" = pkg_repl("ncm-tomcat", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-tomcat", "13.12.0-1", "noarch");
 
 
-'/software/components/tomcat/version' ?= '13.9.0';
+'/software/components/tomcat/version' ?= '13.12.0';
 
 "/software/components/tomcat/dependencies/pre" ?= list("spma");
 "/software/components/tomcat/active" ?= false;

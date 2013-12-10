@@ -14,7 +14,7 @@
 #
 
 # #
-      # alternatives, 13.9.0, 1, 20130911-1927
+      # alternatives, 13.12.0, 1, 20131210-1548
       #
 
 declaration template components/alternatives/schema;

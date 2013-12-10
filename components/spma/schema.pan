@@ -57,7 +57,7 @@ type SOFTWARE_REPOSITORY = {
     "includepkgs" ? string[]
     "excludepkgs" ? string[]
     "skip_if_unavailable" : boolean = false
-    "proxy" ? type_absoluteURI
+    "proxy" ? string with SELF == '' || is_absoluteURI(SELF)
 };
 
 type component_spma_type = {

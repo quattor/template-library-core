@@ -14,7 +14,7 @@
 #
 
 # #
-      # icinga, 13.9.0, 1, 20130911-1927
+      # icinga, 13.12.0, 1, 20131210-1548
       #
 
 unique template components/icinga/config-rpm;
@@ -22,7 +22,7 @@ include {'components/icinga/functions'};
 include {'components/icinga/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "13.12.0-1", "noarch");
 
 "/software/components/icinga/dependencies/pre" ?=  list ("spma");
 

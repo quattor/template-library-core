@@ -14,7 +14,7 @@
 #
 
 # #
-      # nscd, 13.9.0, 1, 20130911-1927
+      # nscd, 13.12.0, 1, 20131210-1548
       #
 
 unique template components/nscd/config-common;
@@ -24,7 +24,7 @@ include { 'components/nscd/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/nscd';
 
-#'version' = '13.9.0';
+#'version' = '13.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

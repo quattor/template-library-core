@@ -20,7 +20,7 @@ unique template components/mailaliases/config-rpm;
 include {'components/mailaliases/schema'};
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-mailaliases", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-mailaliases", "13.12.0-1", "noarch");
 
 
 # standard component settings
