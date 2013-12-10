@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 13.9.0, 20130930.1745.17
+      # ks, 13.12.0, 20131210.1550.51
       #
 
 # Template containing OS configuration and default values.
