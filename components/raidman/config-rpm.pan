@@ -14,7 +14,7 @@
 #
 
 # #
-      # raidman, 13.9.0, 1, 20130911-1927
+      # raidman, 13.12.0, 1, 20131210-1548
       #
 
 unique template components/raidman/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/raidman/config-common' };
 prefix '/software/components/raidman';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-raidman", "13.9.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-raidman", "13.12.0-1", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

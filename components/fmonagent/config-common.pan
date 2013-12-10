@@ -14,7 +14,7 @@
 #
 
 # #
-      # fmonagent, 13.9.0, 1, 20130911-1927
+      # fmonagent, 13.12.0, 1, 20131210-1548
       #
 
 unique template components/fmonagent/config-common;
@@ -24,7 +24,7 @@ include { 'components/fmonagent/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/fmonagent';
 
-#'version' = '13.9.0';
+#'version' = '13.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

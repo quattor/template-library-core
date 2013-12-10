@@ -14,7 +14,7 @@
 #
 
 # #
-      # icinga, 13.9.0, 1, 20130911-1927
+      # icinga, 13.12.0, 1, 20131210-1548
       #
 
 declaration template components/icinga/schema;
@@ -28,7 +28,7 @@ include {'quattor/schema'};
 type hoststring =  string with exists ("/software/components/icinga/hosts/" + SELF) ||
 	SELF=="*" || SELF == 'dummy';
 
-type hostgroupstring = string with exists ("/software/components/icinga/hostgroups/" + SELF) || SELF=="*";
+type hostgroupstring = string with exists ("/software/components/icinga/hostgroups/" + escape(SELF)) || SELF=="*";
 
 type commandstrings = string [] with exists ("/software/components/icinga/commands/" + SELF[0]);
 

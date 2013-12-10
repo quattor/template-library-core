@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 13.9.0, 20130930.1745.17
+      # ks, 13.12.0, 20131210.1550.51
       #
 # Structure for the component generating kickstart files.
 
@@ -54,6 +54,7 @@ type structure_ks_ks_info = {
 	"bootloader_append" ? string
 	"bootdisk_order" ? string[] # From DESYs template
 	"clearmbr"	: boolean = true
+	"enable_service" ? string[]
 	"enable_sshd"   : boolean = false
 	"clearpart"	? string []
 	"driverdisk"	? type_absoluteURI[]
@@ -75,6 +76,7 @@ type structure_ks_ks_info = {
 	"pre_install_script" ? type_absoluteURI
 	"post_install_script" ? type_absoluteURI
 	"post_reboot_script" ? type_absoluteURI
+	"repo"          ? string[]
 	"timezone"	: string
 	"selinux"	? string with match (SELF, "disabled|enforcing|permissive")
 	"xwindows"	? structure_ks_ksxinfo
