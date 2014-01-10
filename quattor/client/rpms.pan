@@ -26,4 +26,4 @@ prefix "/software/packages";
 # by the OS if the previous list is not suitable for a specific
 # version/arch.
 variable QUATTOR_CLIENT_OS_INCLUDE ?= 'config/quattor/client';
-include if_exists(QUATTOR_CLIENT_OS_INCLUDE);
+include { if_exists(QUATTOR_CLIENT_OS_INCLUDE) };
