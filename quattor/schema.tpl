@@ -558,6 +558,11 @@ type structure_cluster = {
     "node_index" ? long(0..)
 };
 
+type structure_resource = {
+    "service_address" ? nlist
+    "application" ? nlist[]
+};
+
 type structure_system = {
     "advertise_status" ? boolean
     "aii"           ? structure_aii
@@ -595,6 +600,7 @@ type structure_system = {
     "personality"   ? structure_personality
     "host_environment" ? string
     "features"      ? nlist
+    "resources"     ? structure_resource
 };
 
 
