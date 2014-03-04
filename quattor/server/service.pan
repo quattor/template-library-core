@@ -8,18 +8,18 @@ variable AII_PROFILE_PREFIX ?= '';
 include { 'quattor/aii/server/service' };
 
 # Add DHCP, TFTP, and Apache
-include { 'rpms/network_server' };
-include { 'rpms/web_server' };
+include { if_exists('rpms/network_server') };
+include { if_exists('rpms/web_server') };
 
 # Add Java
-include { 'config/os/java' };
+include { if_exists('config/os/java') };
 
 # Add LAL version of Subversion client
-include { 'config/os/svn_client' };
+include { if_exists('config/os/svn_client') };
 
 # Add YUM server
 #include { 'config/os/yum' };
 
 # Reapply OS updates
-include { 'config/os/updates' };
+include { if_exists('config/os/updates') };
 

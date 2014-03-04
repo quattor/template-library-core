@@ -7,6 +7,9 @@ variable QUATTOR_PROFILE_WORLD_READABLE ?= false;
 # Define QUATTOR_PROFILE_NAME to OBJECT+'.xml' to use legacy profile name format
 variable QUATTOR_PROFILE_NAME ?= FULL_HOSTNAME+".xml";
 
+# Define the default suffix for YUM-based variant of RPMS configuration templates
+variable RPMS_CONFIG_SUFFIX ?= '-yd';
+
 #
 # Add RPMs for Quattor Client
 #

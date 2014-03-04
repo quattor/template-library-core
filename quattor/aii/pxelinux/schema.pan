@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# pxelinux, 13.12.0, 20131210.1550.51
+# pxelinux, 14.2.1, 20140304.2357.17
 #
 unique template quattor/aii/pxelinux/schema;
 
@@ -15,7 +15,7 @@ unique template quattor/aii/pxelinux/schema;
 type structure_pxelinux_pxe_info = {
 	"initrd"	: string
 	"kernel"	: string
-	"ksdevice"	: string with match (SELF, ("^(eth[0-9]+|link|fd|bootif)$")) || is_hwaddr (SELF)
+	"ksdevice"	: string with match (SELF, ("^(eth[0-9]+|link|p[0-9]+p[0-9]+|fd|em[0-9]+|bootif)$")) || is_hwaddr (SELF)
 	"kslocation"	: type_absoluteURI
 	"label"		: string
 	"append"	? string
