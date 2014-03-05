@@ -14,7 +14,7 @@
 #
 
 # #
-      # nagios, 13.1.1, 1, 20130830-1520
+      # nagios, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/nagios/config-xml;

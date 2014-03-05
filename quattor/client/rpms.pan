@@ -6,20 +6,22 @@
 template quattor/client/rpms;
 
 # Used to configure the appropriate repository
-variable QUATTOR_RELEASE ?= '13.1.1';
-variable QUATTOR_PACKAGES_VERSION ?= QUATTOR_RELEASE + "-1";
+variable QUATTOR_RELEASE ?= '13.1.2';
+variable QUATTOR_PACKAGES_VERSION ?= QUATTOR_RELEASE+"-1";
+
+variable DEBUG = debug('Executing '+TEMPLATE+' for Quattor '+QUATTOR_RELEASE+' (pkg version='+QUATTOR_PACKAGES_VERSION+')');
 
 # Quattor services.
-"/software/packages"=pkg_repl("ccm",        QUATTOR_PACKAGES_VERSION,"noarch");
-"/software/packages"=pkg_repl("cdp-listend",QUATTOR_PACKAGES_VERSION,"noarch");
-"/software/packages"=pkg_repl("spma",       "2.1.1-1",               "noarch");
-"/software/packages"=pkg_repl("rpmt-py",    "1.2.1-1",               "noarch");
+"/software/packages"=pkg_repl("ccm",        QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("cdp-listend",QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("spma",       QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("rpmt-py",    QUATTOR_PACKAGES_VERSION, "noarch");
 
 # NCM components.
-"/software/packages"=pkg_repl("ncm-cdispd",  QUATTOR_PACKAGES_VERSION,"noarch");
-"/software/packages"=pkg_repl("ncm-ncd",     QUATTOR_PACKAGES_VERSION,"noarch");
-"/software/packages"=pkg_repl("ncm-query",   QUATTOR_PACKAGES_VERSION,"noarch");
-"/software/packages"=pkg_repl("ncm-template","1.0.17-1",              "noarch");
+"/software/packages"=pkg_repl("ncm-cdispd",  QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("ncm-ncd",     QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("ncm-query",   QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("ncm-template","1.0.17-1",               "noarch");
 
 # Various Quattor supplied dependencies.
 "/software/packages"=pkg_repl("perl-AppConfig-caf","1.9.1-1",               "noarch");

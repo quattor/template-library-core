@@ -23,4 +23,4 @@ include {'components/pvss/schema'};
 #"/software/components/pvss/dependencies/pre" = list("spma");
 "/software/components/pvss/active" = true;
 "/software/components/pvss/dispatch" ?= true;
-"/software/packages" = pkg_repl("ncm-pvss", "13.1.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pvss", "13.1.2-1", "noarch");

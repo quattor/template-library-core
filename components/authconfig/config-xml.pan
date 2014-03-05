@@ -6,12 +6,15 @@
 
 # #
 # Current developer(s):
-#   David Groep <davidg@nikhef.nl>
+#   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
 #
 
-# 
 # #
-      # authconfig, 13.1.1, 1, 20130830-1520
+# Author(s): David Groep
+#
+
+# #
+      # authconfig, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/authconfig/config-xml;

@@ -19,9 +19,9 @@ unique template components/filecopy/config-rpm;
 include { 'components/filecopy/schema' };
  
 # Package to install
-"/software/packages" = pkg_repl("ncm-filecopy", "13.1.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-filecopy", "13.1.2-1", "noarch");
 
 '/software/components/filecopy/dependencies/pre' ?= list('spma');
 
-'/software/components/filecopy/version' = '13.1.1';
+'/software/components/filecopy/version' = '13.1.2';
   

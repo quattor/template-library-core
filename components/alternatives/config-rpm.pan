@@ -14,7 +14,7 @@
 #
 
 # #
-      # alternatives, 13.1.1, 1, 20130830-1520
+      # alternatives, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/alternatives/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/alternatives/config-common' };
 prefix '/software/components/alternatives';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-alternatives", "13.1.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-alternatives", "13.1.2-1", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

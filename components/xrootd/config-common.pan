@@ -14,7 +14,7 @@
 #
 
 # #
-      # xrootd, 13.1.1, 1, 20130718-1811
+      # xrootd, 13.1.2, 1, 20131015-1127
       #
 
 unique template components/xrootd/config-common;
@@ -24,7 +24,7 @@ include { 'components/xrootd/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/xrootd';
 
-'version' = '13.1.1';
+'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

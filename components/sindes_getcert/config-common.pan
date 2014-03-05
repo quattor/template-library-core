@@ -14,7 +14,7 @@
 #
 
 # #
-      # sindes_getcert, 13.1.1, 1, 20130830-1520
+      # sindes_getcert, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/sindes_getcert/config-common;
@@ -24,7 +24,7 @@ include { 'components/sindes_getcert/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/sindes_getcert';
 
-#'version' = '13.1.1';
+#'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

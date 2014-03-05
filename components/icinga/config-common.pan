@@ -14,7 +14,7 @@
 #
 
 # #
-      # icinga, 13.1.1, 1, 20130830-1520
+      # icinga, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/icinga/config-common;
@@ -24,7 +24,7 @@ include { 'components/icinga/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/icinga';
 
-#'version' = '13.1.1';
+#'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
