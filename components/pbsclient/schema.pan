@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsclient, 13.1.1, 1, 20130718-1811
+      # pbsclient, 13.1.2, 1, 20131015-1127
       #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!

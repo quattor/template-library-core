@@ -14,7 +14,7 @@
 #
 
 # #
-      # runlevel, 13.1.1, 1, 20130830-1520
+      # runlevel, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/runlevel/config-xml;

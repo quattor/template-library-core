@@ -20,10 +20,10 @@ unique template components/ssh/config-rpm;
 include { 'components/ssh/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ssh", "13.1.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "13.1.2-1", "noarch");
 
 
-'/software/components/ssh/version' ?= '13.1.1';
+'/software/components/ssh/version' ?= '13.1.2';
 
 "/software/components/ssh/dependencies/pre" ?= list("spma");
 "/software/components/ssh/active" ?= true;

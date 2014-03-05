@@ -11,7 +11,7 @@
 
 # 
 # #
-      # postfix, 13.1.1, 1, 20130830-1520
+      # postfix, 13.1.2, 1, 20131015-1106
       #
 
 declaration template components/postfix/schema;
@@ -42,7 +42,8 @@ type postfix_lookup = {
 	http://www.postfix.org/ldap_table.5.html
 }
 type postfix_ldap_database = {
-    "server_host" : type_fqdn
+    "server_host" : type_fqdn[]
+    "server_host_protocol" ? string with match(SELF,"^ldaps?$")
     "server_port" ? type_port
     "timeout" ? long
     "search_base" : string

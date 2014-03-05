@@ -14,7 +14,7 @@
 #
 
 # #
-      # fstab, 13.1.1, 1, 20130830-1520
+      # fstab, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/fstab/config-common;
@@ -24,7 +24,7 @@ include { 'components/fstab/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/fstab';
 
-#'version' = '13.1.1';
+#'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

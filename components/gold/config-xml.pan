@@ -14,7 +14,7 @@
 #
 
 # #
-      # gold, 13.1.1, 1, 20130718-1811
+      # gold, 13.1.2, 1, 20131015-1127
       #
 
 unique template components/gold/config-xml;

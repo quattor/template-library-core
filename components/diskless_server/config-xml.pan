@@ -14,7 +14,7 @@
 #
 
 # #
-      # diskless_server, 13.1.1, 1, 20130830-1520
+      # diskless_server, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/diskless_server/config-xml;

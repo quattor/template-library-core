@@ -6,17 +6,20 @@
 
 # #
 # Current developer(s):
-#   David Groep <davidg@nikhef.nl>
+#   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
 #
 
-# 
+# #
+# Author(s): David Groep
+#
+
 
 
 unique template components/authconfig/config-rpm;
 include { 'components/authconfig/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-authconfig", "13.1.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-authconfig", "13.1.2-1", "noarch");
 
 
 "/software/components/authconfig/dependencies/pre" ?= list("spma");

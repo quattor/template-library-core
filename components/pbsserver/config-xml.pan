@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsserver, 13.1.1, 1, 20130718-1811
+      # pbsserver, 13.1.2, 1, 20131015-1127
       #
 
 unique template components/pbsserver/config-xml;

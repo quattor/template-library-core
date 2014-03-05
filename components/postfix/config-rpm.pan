@@ -11,7 +11,7 @@
 
 # 
 # #
-      # postfix, 13.1.1, 1, 20130830-1520
+      # postfix, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/postfix/config-rpm;
@@ -22,6 +22,6 @@ include { 'components/postfix/config-common' };
 prefix '/software/components/postfix';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-postfix','13.1.1-1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','13.1.2-1','noarch');
 'dependencies/pre' ?= list('spma');
 

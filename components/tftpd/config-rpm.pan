@@ -34,4 +34,4 @@ include {'components/tftpd/schema'};
 "/software/components/tftpd/server"      = "/usr/sbin/in.tftpd";
 # arguments to be passed to the server
 "/software/components/tftpd/server_args" = "-s /tftpboot";
-"/software/packages" = pkg_repl("ncm-tftpd", "13.1.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-tftpd", "13.1.2-1", "noarch");

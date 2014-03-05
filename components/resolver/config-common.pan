@@ -14,7 +14,7 @@
 #
 
 # #
-      # resolver, 13.1.1, 1, 20130830-1520
+      # resolver, 13.1.2, 1, 20131015-1106
       #
 
 unique template components/resolver/config-common;
@@ -24,7 +24,7 @@ include { 'components/resolver/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/resolver';
 
-#'version' = '13.1.1';
+#'version' = '13.1.2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

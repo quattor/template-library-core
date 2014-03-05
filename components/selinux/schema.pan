@@ -14,7 +14,7 @@
 #
 
 # #
-      # selinux, 13.1.1, 1, 20130830-1520
+      # selinux, 13.1.2, 1, 20131015-1106
       #
 
 declaration template components/selinux/schema;

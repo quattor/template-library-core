@@ -14,7 +14,7 @@
 #
 
 # #
-      # apel, 13.1.1, 1, 20130718-1811
+      # apel, 13.1.2, 1, 20131015-1127
       #
 
 unique template components/apel/config-xml;
