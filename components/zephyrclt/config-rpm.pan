@@ -14,7 +14,7 @@
 #
 
 # #
-      # zephyrclt, 13.12.0, 1, 20131210-1548
+      # zephyrclt, 14.2.1, 1, 20140304-2352
       #
 
 unique template components/zephyrclt/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/zephyrclt/config-common' };
 prefix '/software/components/zephyrclt';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-zephyrclt", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-zephyrclt", "14.2.1-1", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

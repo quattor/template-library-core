@@ -6,15 +6,15 @@
 
 # #
 # Current developer(s):
-#   njw <njw>
+#   Charles LOOMIS <loomis@lal.in2p3.fr>
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): Nick Williams
 #
 
 # #
-      # pam, 13.12.0, 1, 20131210-1548
+      # pam, 14.2.1, 1, 20140304-2349
       #
 
 unique template components/pam/config-common;
@@ -24,7 +24,7 @@ include { 'components/pam/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/pam';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

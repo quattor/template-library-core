@@ -14,7 +14,7 @@
 #
 
 # #
-      # linuxha, 13.12.0, 1, 20131210-1548
+      # linuxha, 14.2.1, 1, 20140304-2347
       #
 
 unique template components/linuxha/config-common;
@@ -24,7 +24,7 @@ include { 'components/linuxha/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/linuxha';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

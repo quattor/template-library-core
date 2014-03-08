@@ -14,7 +14,7 @@
 #
 
 # #
-      # filecopy, 13.12.0, 1, 20131210-1548
+      # filecopy, 14.2.1, 1, 20140304-2345
       #
 
 unique template components/filecopy/config;

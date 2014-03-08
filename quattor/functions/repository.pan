@@ -36,24 +36,27 @@ variable REPOSITORY_NS_DEFAULT ?= 'repository';
 #              Overrrides the default value.
 
 function add_repositories = {
-    if ((ARGC < 1) || (ARGC > 2)) {
-        error(format('add_repositories() requires 1 or 2 arguments but %d found',
-                     ARGC));
+    if ( (ARGC < 1) || (ARGC > 2) ) {
+        error('add_repositories() requires 1 or 2 arguments but '+to_string(ARGC)+' found');
     };
-    if (ARGC == 2) {
+    if ( ARGC == 2 ) {
         repos_ns = ARGV[1];
     } else {
         repos_ns = REPOSITORY_NS_DEFAULT;
     };
 
-    if (is_list(ARGV[0])) {
+    if ( is_list(ARGV[0]) ) {
         foreach (i;rep;ARGV[0]) {
             if ( length(repos_ns) > 0 ) {
-                rep_templ = format("%s/%s",repos_ns, rep);
+                rep_templ = repos_ns + '/' + rep;
             } else {
                 rep_templ = rep;
             };
-            append(create(rep_templ));
+            if ( is_defined(if_exists(rep_templ)) ) {
+                SELF[length(SELF)] = create(rep_templ);
+            } else {
+                debug('Repository template '+rep_templ+' not found.  Ignoring');
+            };
         };
     } else {
         error('ARGV[0] is defined but is not a list');

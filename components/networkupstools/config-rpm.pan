@@ -18,7 +18,7 @@ unique template components/networkupstools/config-rpm;
 
 include {'components/networkupstools/schema'};
 
-"/software/packages" = pkg_repl("ncm-networkupstools", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-networkupstools", "14.2.1-1", "noarch");
 
 "/software/components/networkupstools/dependencies/pre" = list ("spma");
 "/software/components/networkupstools/active" ?= true;

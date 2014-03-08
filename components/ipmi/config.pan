@@ -11,7 +11,7 @@
 
 # 
 # #
-      # ipmi, 13.12.0, 1, 20131210-1548
+      # ipmi, 14.2.1, 1, 20140304-2346
       #
 
 unique template components/ipmi/config;

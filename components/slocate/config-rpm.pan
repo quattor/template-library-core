@@ -14,7 +14,7 @@
 #
 
 # #
-      # slocate, 13.12.0, 1, 20131210-1548
+      # slocate, 14.2.1, 1, 20140304-2350
       #
 
 unique template components/slocate/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/slocate/config-common' };
 prefix '/software/components/slocate';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-slocate", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-slocate", "14.2.1-1", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

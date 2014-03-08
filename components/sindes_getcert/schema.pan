@@ -9,10 +9,7 @@
 #   Stijn De Weirdt <Stijn.De.Weirdt@cern.ch>
 #
 
-# #
-# Author(s): Jane SMITH, Joe DOE
-#
-
+# 
 
 
 declaration template components/sindes_getcert/schema;

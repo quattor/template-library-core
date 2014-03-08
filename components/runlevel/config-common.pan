@@ -14,7 +14,7 @@
 #
 
 # #
-      # runlevel, 13.12.0, 1, 20131210-1548
+      # runlevel, 14.2.1, 1, 20140304-2350
       #
 
 unique template components/runlevel/config-common;
@@ -24,7 +24,7 @@ include { 'components/runlevel/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/runlevel';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

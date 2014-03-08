@@ -11,7 +11,7 @@
 
 # 
 # #
-      # accounts, 13.12.0, 1, 20131210-1548
+      # accounts, 14.2.1, 1, 20140304-2343
       #
 
 unique template components/accounts/config-xml;

@@ -9,12 +9,9 @@
 #   Stijn De Weirdt <Stijn.De.Weirdt@cern.ch>
 #
 
+# 
 # #
-# Author(s): Jane SMITH, Joe DOE
-#
-
-# #
-      # sindes_getcert, 13.12.0, 1, 20131210-1548
+      # sindes_getcert, 14.2.1, 1, 20140304-2350
       #
 
 unique template components/sindes_getcert/config;

@@ -1,29 +1,62 @@
 #
 # Packages needed for a quattor client.
-# RPMs are for Scientific Linux
+# RPMs are for Scientific Linux 
 #
 
-template quattor/client/rpms;
+unique template quattor/client/rpms;
 
-variable QUATTOR_RELEASE_RPM_VERSION = format("%s.%s-%s",QUATTOR_RELEASE,0,1);
-
-# Quattor services.
-
-prefix "/software/packages";
-
-"{ccm}" = nlist();
-"{perl-Crypt-SSLeay}" = nlist(); # TODO remove when ccm has it as dependency
-"{cdp-listend}" = nlist();
-
-# NCM components.
-"{ncm-cdispd}" = nlist();
-"{ncm-ncd}" = nlist();
-"{ncm-query}" = nlist();
+# Set to true if installing the machine with AII v2 (pre-YUM)
+variable AII_V2_INSTALL ?= false;
 
 
-# Include RPMs provided by OS.
-# This is done last to allow redefining some RPMs that may be provided
-# by the OS if the previous list is not suitable for a specific
-# version/arch.
-variable QUATTOR_CLIENT_OS_INCLUDE ?= 'config/quattor/client';
-include if_exists(QUATTOR_CLIENT_OS_INCLUDE);
+include { 'quattor/client/version' };
+
+# Default version of packages in the selected OS
+include { 'rpms/package_default_versions' };
+
+
+variable AII_OSINSTALL_EXTRAPKGS ?= list(
+    'perl-CAF',
+    'perl-LC',
+    'perl-Proc-ProcessTable',
+    'perl-Set-Scalar',
+    'perl-common-sense',
+    'perl-JSON-XS',
+);
+
+'/software/packages' = {
+    # Part of the OS, installed by Anaconda as part of the base packages
+    SELF['yum-plugin-priorities'] = nlist();
+    SELF['yum-plugin-versionlock'] = nlist();
+    SELF['perl-AppConfig'] = nlist();
+    if ( AII_V2_INSTALL ) {
+        # Yum
+        # Quattor
+        pkg_repl('perl-Set-Scalar');
+        pkg_repl('perl-common-sense');
+        pkg_repl('perl-JSON-XS');
+        pkg_repl('ncm-spma', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('ccm', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('cdp-listend', QUATTOR_PACKAGES_VERSION, 'noarch');
+        # Dependencies
+        pkg_repl('perl-LC', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('perl-Proc-ProcessTable');
+        pkg_repl('perl-CAF', QUATTOR_PACKAGES_VERSION, 'noarch');
+        # NCM components.
+        pkg_repl('ncm-cdispd', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('ncm-ncd', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('ncm-query', QUATTOR_PACKAGES_VERSION, 'noarch');
+
+      } else {
+        # Quattor
+        SELF[escape('ncm-spma')] = nlist();
+        SELF[escape('ccm')] = nlist();
+        SELF[escape('cdp-listend')] = nlist();
+        SELF[escape('ncm-cdispd')] = nlist();
+        SELF[escape('ncm-ncd')] = nlist();
+        SELF[escape('ncm-query')] = nlist();
+      
+      };
+
+      SELF;
+};

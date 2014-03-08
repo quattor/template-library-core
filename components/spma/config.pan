@@ -10,11 +10,11 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
 #
 
 # #
-      # spma, 13.12.0, 1, 20131210-1548
+      # spma, 14.2.1, 1, 20140304-2350
       #
 
 unique template components/spma/config;

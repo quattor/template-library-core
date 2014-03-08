@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
 #
 
 
@@ -21,8 +21,16 @@
 
 template  components/spma/repository_cleanup;
 
-
-"/software/packages" = resolve_pkg_rep(value("/software/repositories"));
+variable AII_OSINTALL_RPM_PKGS = value('/system/aii/osinstall/ks/base_packages');
+variable AII_OSINTALL_RPM_PKGS = {
+  if ( is_defined(AII_OSINSTALL_EXTRAPKGS) ) {
+    foreach (i;pkg;AII_OSINSTALL_EXTRAPKGS) {
+      SELF[length(SELF)] = pkg;
+    };
+  };
+  SELF;
+};
+"/software/packages" = resolve_pkg_rep(value("/software/repositories"),AII_OSINTALL_RPM_PKGS);
 "/software/repositories" = purge_rep_list(value("/software/packages"));
 
 

@@ -6,11 +6,11 @@
 
 # #
 # Current developer(s):
-#   German Cancio <German.Cancio@cern.ch>
+#   Charles LOOMIS <loomis@lal.in2p3.fr>
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): German Cancio
 #
 
 

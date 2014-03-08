@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
 #
 
 
@@ -40,18 +40,41 @@ function repository_exists = {
 #
 # Automatically fill "repository" field for package list
 #
-# resolve_pkg_rep <repository list>
+# resolve_pkg_rep <repository list> [<pkg list>]
+#
+# When the second argument is specified, only the package
+# specified are resolved, if they exist in the configuration.
 #
 ########################################################
 
 function resolve_pkg_rep = {
     error=0;
     errorstr="";
-    rep_list = ARGV[0];
+    function_name='resolve_pkg_rep2';
+    if ( ARGC >= 1 ) {
+      rep_list = ARGV[0];
+    } else {
+      error(function_name+': missing required first argument (repository list)');
+    };
+    if ( ARGC >= 2 ) {
+      pkg_list = list();
+      foreach (i;name;ARGV[1]) {
+        pkg_list[length(pkg_list)] = escape(name);
+      };
+    } else {
+      pkg_list = list();
+      foreach (name;pkg_list_name;SELF) {
+        pkg_list[length(pkg_list)] = name;
+      };
+    };
     debug("Assigning repositories to packages...");
 
-    foreach (name;pkg_list_name;SELF) {
-        foreach (version;pkg_list_name_version;pkg_list_name) {
+    foreach (dummy;name;pkg_list) {
+        # Ignore a non existent package: this happens when a list of package to resolve is
+        # given explicitly. It is not a requirement that the package must exist.
+        if ( is_defined(SELF[name]) ) {
+          pkg_list_name = SELF[name];
+          foreach (version;pkg_list_name_version;pkg_list_name) {
             if (exists(pkg_list_name_version['repository'])) {
                 rep_mask = pkg_list_name_version['repository'];
                 pkg_list_name_version['repository'] = undef;
@@ -61,7 +84,7 @@ function resolve_pkg_rep = {
             foreach (arch;i;pkg_list_name_version['arch']) {
                 rep_mask = i;
 
-                debug ("Processing package " + unescape(name) + " version " + unescape(version) + " arch " + arch);
+                debug ("Processing package >>" + unescape(name) + "<< version >>" + unescape(version) + "<< arch >>" + arch + "<<");
                 id = escape(unescape(name) + "-" + unescape(version) + "-" + arch);
 
                 rep_found = false;
@@ -72,15 +95,17 @@ function resolve_pkg_rep = {
                         rep_found = true;
                         SELF[name][version]['arch'][arch] = curr_rep['name'];
                     } else {
+                        debug("Package "+unescape(id)+" not found in repository "+curr_rep["name"]);
                         in_list = next(rep_list,t,curr_rep);
                     };
                 };
-              
+
                 if( ! rep_found ) {
-                    errorstr = errorstr+"\n  name: "+unescape(name)+" version: "+unescape(version)+" arch: "+arch+"";
+                    errorstr = format("%s\nname: %s version: %s arch: %s", errorstr, unescape(name), unescape(version), arch);
                     error=error+1;
                 };
             };
+          };
         };
     };
 
@@ -90,6 +115,7 @@ function resolve_pkg_rep = {
         error ("cannot find any repository holding the following package(s): "+errorstr+"\n");
     };
 };
+
 
 ########################################################
 #

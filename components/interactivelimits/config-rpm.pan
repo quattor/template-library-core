@@ -21,7 +21,7 @@ include { 'components/interactivelimits/schema' };
 include { 'pan/functions' };
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-interactivelimits", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-interactivelimits", "14.2.1-1", "noarch");
 
 
 # standard component settings

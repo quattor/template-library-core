@@ -15,7 +15,7 @@ unique template components/aiiserver/config-rpm;
 include {'components/aiiserver/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-aiiserver", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-aiiserver", "14.2.1-1", "noarch");
 
 "/software/components/aiiserver/dependencies/pre" ?=  list ("spma");
 

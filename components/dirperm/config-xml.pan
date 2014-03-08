@@ -14,7 +14,7 @@
 #
 
 # #
-      # dirperm, 13.12.0, 1, 20131210-1548
+      # dirperm, 14.2.1, 1, 20140304-2345
       #
 
 unique template components/dirperm/config-xml;

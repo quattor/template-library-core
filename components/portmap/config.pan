@@ -14,7 +14,7 @@
 #
 
 # #
-      # portmap, 13.12.0, 1, 20131210-1548
+      # portmap, 14.2.1, 1, 20140304-2349
       #
 
 unique template components/portmap/config;

@@ -11,7 +11,7 @@
 
 # 
 # #
-      # cups, 13.12.0, 1, 20131210-1548
+      # cups, 14.2.1, 1, 20140304-2344
       #
 
 unique template components/cups/config-xml;

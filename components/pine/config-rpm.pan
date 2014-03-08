@@ -19,7 +19,7 @@ unique template components/pine/config-rpm;
 include {'components/pine/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-pine", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pine", "14.2.1-1", "noarch");
 
 
 "/software/components/pine/dependencies/pre" ?= list("spma");

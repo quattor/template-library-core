@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
 #
 
 
@@ -20,7 +20,7 @@ include { 'components/spma/schema' };
 include { 'components/spma/functions' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-spma", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-spma", "14.2.1-1", "noarch");
 
 
 "/software/components/spma/active" ?= true;

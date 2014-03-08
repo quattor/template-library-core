@@ -14,7 +14,7 @@
 #
 
 # #
-      # nfs, 13.12.0, 1, 20131210-1548
+      # nfs, 14.2.1, 1, 20140304-2348
       #
 
 unique template components/nfs/config-xml;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # syslogng, 13.12.0, 1, 20131210-1548
+      # syslogng, 14.2.1, 1, 20140304-2351
       #
 
 unique template components/syslogng/config-xml;

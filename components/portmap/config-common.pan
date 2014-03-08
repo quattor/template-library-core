@@ -14,7 +14,7 @@
 #
 
 # #
-      # portmap, 13.12.0, 1, 20131210-1548
+      # portmap, 14.2.1, 1, 20140304-2349
       #
 
 unique template components/portmap/config-common;
@@ -24,7 +24,7 @@ include { 'components/portmap/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/portmap';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

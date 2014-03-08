@@ -14,7 +14,7 @@
 #
 
 # #
-      # zephyrclt, 13.12.0, 1, 20131210-1548
+      # zephyrclt, 14.2.1, 1, 20140304-2352
       #
 
 unique template components/zephyrclt/config-common;
@@ -24,7 +24,7 @@ include { 'components/zephyrclt/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/zephyrclt';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

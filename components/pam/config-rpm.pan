@@ -6,11 +6,11 @@
 
 # #
 # Current developer(s):
-#   njw <njw>
+#   Charles LOOMIS <loomis@lal.in2p3.fr>
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): Nick Williams
 #
 
 
@@ -48,7 +48,7 @@ include {'components/pam/schema'};
 include {'pan/functions'};
 
 # standard component settings
-"/software/components/pam/version"    = '13.12.0';
+"/software/components/pam/version"    = '14.2.1';
 # release is not yet standard.
 #"/software/components/pam/release"    = "1";
 "/software/components/pam/active"    ?=  true;
@@ -56,7 +56,7 @@ include {'pan/functions'};
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "13.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "14.2.1-1", "noarch");
 
 
 #

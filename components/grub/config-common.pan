@@ -6,15 +6,15 @@
 
 # #
 # Current developer(s):
-#   German Cancio <German.Cancio@cern.ch>
+#   Charles LOOMIS <loomis@lal.in2p3.fr>
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): German Cancio
 #
 
 # #
-      # grub, 13.12.0, 1, 20131210-1548
+      # grub, 14.2.1, 1, 20140304-2346
       #
 
 unique template components/grub/config-common;
@@ -24,7 +24,7 @@ include { 'components/grub/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

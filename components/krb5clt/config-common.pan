@@ -14,7 +14,7 @@
 #
 
 # #
-      # krb5clt, 13.12.0, 1, 20131210-1548
+      # krb5clt, 14.2.1, 1, 20140304-2347
       #
 
 unique template components/krb5clt/config-common;
@@ -24,7 +24,7 @@ include { 'components/krb5clt/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/krb5clt';
 
-#'version' = '13.12.0';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
