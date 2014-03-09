@@ -116,6 +116,34 @@ function del_repositories = {
 };
 
 
+# Apply changes to repository configuration
+# Expects an nlist, indexed by the repository name
+# and containin nlists with the new values
+# FIXME: to be included into standard SPMA functions
+function repository_config = {
+    if (! is_list(SELF)) {
+        error('left side must be a list');
+    };
+    if (ARGC != 1) {
+        error('only one argument expected');
+    };
+    if (! is_nlist(ARGV[0])) {
+        error('first argument must be an nlist');
+    };
+    foreach(k1; v1; ARGV[0]) {
+        foreach(k2; v2; SELF) {
+            if (match(v2['name'], k1)) {
+                foreach(k3; v3; v1) {
+                    v2[k3] = v3;
+                    SELF[k2] = v2;
+                };
+            };
+        };
+    };
+    SELF;
+};
+
+
 # Function to generate the package_default resource 
 # used by pkg_rep from a list or nlist of repositories
 #
