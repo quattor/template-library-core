@@ -21,6 +21,8 @@ unique template components/spma/config-common;
 
 include { 'components/spma/schema' };
 
+variable PACKAGE_MANAGER = 'yum';
+
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
