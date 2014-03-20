@@ -19,13 +19,12 @@ unique template components/spma/config-rpm;
 include { 'components/spma/schema' };
 include { 'components/spma/functions' };
 
+include { 'components/spma/config-common' };
+
 # Package to install
 "/software/packages" = pkg_repl("ncm-spma", "14.2.1-1", "noarch");
 
 
-"/software/components/spma/active" ?= true;
-"/software/components/spma/dispatch" ?= true;
 "/software/components/spma/register_change" ?= list("/software/packages",
                                                     "/software/repositories");
-
 "/software/components/spma/run" ?= "yes";

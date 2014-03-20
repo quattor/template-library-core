@@ -26,9 +26,9 @@ variable AII_OSINSTALL_EXTRAPKGS ?= list(
 
 '/software/packages' = {
     # Part of the OS, installed by Anaconda as part of the base packages
-    SELF['yum-plugin-priorities'] = nlist();
-    SELF['yum-plugin-versionlock'] = nlist();
-    SELF['perl-AppConfig'] = nlist();
+    SELF[escape('yum-plugin-priorities')] = nlist();
+    SELF[escape('yum-plugin-versionlock')] = nlist();
+    SELF[escape('perl-AppConfig')] = nlist();
     if ( AII_V2_INSTALL ) {
         # Yum
         # Quattor

@@ -118,7 +118,8 @@ function del_repositories = {
 
 # Apply changes to repository configuration
 # Expects an nlist, indexed by the repository name
-# and containin nlists with the new values
+# and containin nlists with the new values.
+# Keys are interpreted as regexp and must be escaped.
 # FIXME: to be included into standard SPMA functions
 function repository_config = {
     if (! is_list(SELF)) {
@@ -130,7 +131,8 @@ function repository_config = {
     if (! is_nlist(ARGV[0])) {
         error('first argument must be an nlist');
     };
-    foreach(k1; v1; ARGV[0]) {
+    foreach(k1_e; v1; ARGV[0]) {
+        k1 = unescape(k1_e);
         foreach(k2; v2; SELF) {
             if (match(v2['name'], k1)) {
                 foreach(k3; v3; v1) {
