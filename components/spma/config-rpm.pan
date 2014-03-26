@@ -24,7 +24,7 @@ include { 'components/spma/config-common' };
 # Package to install
 "/software/packages" = pkg_repl("ncm-spma", "14.2.1-1", "noarch");
 
-
+'/software/components/spma/packager' = 'yum';
 "/software/components/spma/register_change" ?= list("/software/packages",
                                                     "/software/repositories");
 "/software/components/spma/run" ?= "yes";
