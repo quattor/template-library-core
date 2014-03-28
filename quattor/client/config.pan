@@ -3,9 +3,25 @@
 #
 template quattor/client/config;
 
+@{
+desc = Profile file format
+values = pan, xml (synonym for pan) or json
+default = xml
+required = no
+}
+variable QUATTOR_PROFILE_FORMAT ?= 'xml';
+variable QUATTOR_PROFILE_FORMAT = {
+  if ( match(SELF,'^pan') ) {
+    replace('^pan','xml',SELF);
+  } else if ( match(SELF,'^(xml|json)(\.gz)*$') ) {
+    SELF;
+  } else {
+    error(format('Invalid profile format (%s)',QUATTOR_PROFILE_FORMAT));
+  };
+};
 variable QUATTOR_PROFILE_WORLD_READABLE ?= false;
 # Define QUATTOR_PROFILE_NAME to OBJECT+'.xml' to use legacy profile name format
-variable QUATTOR_PROFILE_NAME ?= FULL_HOSTNAME+".xml";
+variable QUATTOR_PROFILE_NAME ?= format("%s.%s",FULL_HOSTNAME,QUATTOR_PROFILE_FORMAT);
 
 #
 # Add RPMs for Quattor Client
