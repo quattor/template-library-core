@@ -136,8 +136,11 @@ function repository_config = {
         foreach(k2; v2; SELF) {
             if (match(v2['name'], k1)) {
                 foreach(k3; v3; v1) {
+                  if ( exists(v2[k3]) ) {
+                    v2[k3] = merge(v2[k3],v3);
+                  } else {
                     v2[k3] = v3;
-                    SELF[k2] = v2;
+                  };
                 };
             };
         };
