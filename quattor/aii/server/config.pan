@@ -5,45 +5,65 @@ variable AII_OSINSTALL_DIR ?= undef;
 variable AII_PROFILE_PREFIX ?= undef;
 variable AII_SHELLFE_CONFIG ?= '/etc/aii/aii-shellfe.conf';
 variable AII_USE_FQDN ?= true;
+variable AII_DHCP_CONFIGURE ?= false;
+variable AII_DHCP_CONFIG_SITE ?= undef;
+variable AII_DHCP_DHCPD_CONF_FILE ?= '/etc/dhcpd.conf';
 
-variable AII_SF_CONTENTS= {
-    contents="cdburl=" + QUATTOR_PROFILE_URL + "\n";
+include { 'components/aiiserver/config' };
 
-    if (is_defined(AII_PROFILE_PREFIX) && (length(AII_PROFILE_PREFIX) > 0)) {
-        contents = contents + "profile_prefix=" + AII_PROFILE_PREFIX + "\n";
-    
-    };
+# aii-shellfe configuration
 
-    if (is_defined(AII_USE_FQDN) && AII_USE_FQDN) {
-        contents = contents + "use_fqdn=true\n";
-    };
 
-    if ( is_defined(AII_OSINSTALL_DIR) ) {
-        contents = contents + "osinstalldir = " + AII_OSINSTALL_DIR + "\n";
-    };     
+prefix '/software/components/aiiserver/aii-shellfe';
 
-    if ( is_defined(AII_NBP_DIR) ) {
-        contents = contents + "nbpdir = " + AII_NBP_DIR + "\n";
-    };     
+'cdburl' ?= QUATTOR_PROFILE_URL;
 
-    contents;
-};
+'profile_prefix' ?= if (is_defined(AII_PROFILE_PREFIX) && (length(AII_PROFILE_PREFIX) > 0)) {
+                      AII_PROFILE_PREFIX;
+                    } else {
+                      null;
+                    };
 
-"/software/components/filecopy/services" =
-  npush(escape(AII_SHELLFE_CONFIG),
-        nlist("config",AII_SF_CONTENTS,
-              "owner","root",
-              "perms","0644"));
-              
-              
-variable AII_DHCP_CONFIGURE?="false";
+'profile_format' ?= if ( is_defined(QUATTOR_PROFILE_FORMAT) ) {
+                      QUATTOR_PROFILE_FORMAT;
+                    } else {
+                      null;
+                    };     
 
-variable AII_DHCP_SERVER_INCLUDE=  {if (AII_DHCP_CONFIGURE == "true"){
-        return("config/aii/dhcp-server");
-    }
-    else {
-        return(null);
-    };
-};
+'use_fqdn' ?= if (is_defined(AII_USE_FQDN) ) {
+                if ( AII_USE_FQDN) {
+                  true;
+                } else {
+                  false;
+                };
+              } else {
+                null;
+              };
 
-include {AII_DHCP_SERVER_INCLUDE};
+'osinstalldir' ?= if ( is_defined(AII_OSINSTALL_DIR) ) {
+                    AII_OSINSTALL_DIR;
+                  } else {
+                    null;
+                  };     
+
+'nbpdir' ?= if ( is_defined(AII_NBP_DIR) ) {
+              AII_NBP_DIR;
+            } else {
+              null;
+            };     
+
+
+
+# aii-dhcp configuration
+
+prefix '/software/components/aiiserver/aii-dhcp';
+
+'dhcpconf' ?= AII_DHCP_DHCPD_CONF_FILE;
+
+'restartcmd' ?= if ( is_defined(AII_DHCP_RESTART_CMD) ) {
+                  AII_DHCP_RESTART_CMD;
+                } else {
+                  null;
+                };     
+
+include {AII_DHCP_CONFIG_SITE};
