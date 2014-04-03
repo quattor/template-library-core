@@ -1,38 +1,39 @@
-################################################################################
-# This is 'namespaces/standard/quattor/functions/hardware.tpl', a pan-templates's file
-################################################################################
-#
-# VERSION:    3.2.9-1, 25/11/09 16:16
-# AUTHOR:     Martin Bock
-# MAINTAINER: Marco Emilio Poleggi <Marco.Emilio.Poleggi@cern.ch>, German Cancio <German.Cancio.Melia@cern.ch>, Michel Jouvin <jouvin@lal.in2p3.fr>
-# LICENSE:    http://cern.ch/eu-datagrid/license.html
-#
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
-#
-# System Function Definitions for manipulating /hardware
-#
-################################################################################
 
 declaration template quattor/functions/hardware;
 
 
-############################################################
-# FUNCTION get_num_of_cores
-############################################################
+# Returns the number of cores on the current machine or another machine
+# specifified as a HW template (string) or a HW configuration (nlist)².
 function get_num_of_cores = {
-  #
-  # Get total number of cores
-  #
-  
-  core_num = 0;
-  foreach (i;cpu;value('/hardware/cpu')) {
-    if ( is_defined(cpu['cores']) ) {
-      core_num = core_num + cpu['cores'];
+    if ( ARGC == 0 ) {
+      hw_config = value('/hardware');
+    } else if ( ARGC == 1 ) {
+      if ( is_nlist(ARGV[0]) ) {
+        hw_config = ARGV[0];
+      } else if ( is_string(ARGV[0]) ) {
+        hw_config = create(ARGV[0]);
+      } else {
+        error(format('Invalid argument type (%s)',to_string(ARGV[0])));
+      }
     } else {
-      core_num = core_num + 1;
+      error(format('get_num_of_cores requires 0 or 1 argument (%s specified)',ARGC));
     };
-  };
-  core_num;
+    debug(format('%s: HW config = %s',OBJECT,to_string(hw_config)));
+
+    if ( is_defined(hw_config['cpu']) && (length(hw_config['cpu']) > 0) ) {
+      cores = 0;
+      foreach (i;cpu;hw_config['cpu']) {
+        if ( is_defined(cpu['cores']) ) {
+          cores = cores + cpu['cores'];
+        } else {
+          cores = cores + 1;
+        };
+      };
+      debug(format('%s: num of CPUs=%d, num of cores=%d',OBJECT,length(hw_config['cpu']),cores));
+    } else {
+      error('Invalid hardware configuration (no CPU defined)');
+    };
+
+    cores;
 };
+

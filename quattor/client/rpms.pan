@@ -16,7 +16,7 @@ variable DEBUG = debug('Adding packages for Quattor '+QUATTOR_RELEASE+' (pkg ver
 "/software/packages"=pkg_repl("rpmt-py",    QUATTOR_PACKAGES_VERSION, "noarch");
 
 # NCM components.
-"/software/packages"=pkg_repl("ncm-cdispd",  QUATTOR_PACKAGES_VERSION, "noarch");
+"/software/packages"=pkg_repl("ncm-cdispd",  "14.6.0-1", "noarch");
 "/software/packages"=pkg_repl("ncm-ncd",     QUATTOR_PACKAGES_VERSION, "noarch");
 "/software/packages"=pkg_repl("ncm-query",   QUATTOR_PACKAGES_VERSION, "noarch");
 "/software/packages"=pkg_repl("ncm-template","1.0.17-1",               "noarch");
