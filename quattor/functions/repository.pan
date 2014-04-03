@@ -131,15 +131,15 @@ function repository_config = {
     if (! is_nlist(ARGV[0])) {
         error('first argument must be an nlist');
     };
-    foreach(k1_e; v1; ARGV[0]) {
-        k1 = unescape(k1_e);
-        foreach(k2; v2; SELF) {
-            if (match(v2['name'], k1)) {
-                foreach(k3; v3; v1) {
-                  if ( exists(v2[k3]) ) {
-                    v2[k3] = merge(v2[k3],v3);
+    foreach(repo_pattern_e; site_params; ARGV[0]) {
+        repo_pattern = unescape(repo_pattern_e);
+        foreach(i; repository_params; SELF) {
+            if (match(repository_params['name'], repo_pattern)) {
+                foreach(config_param; config_value; site_params) {
+                  if ( exists(repository_params[config_param]) ) {
+                    repository_params[config_param] = merge(repository_params[config_param],config_value);
                   } else {
-                    v2[k3] = v3;
+                    repository_params[config_param] = config_value;
                   };
                 };
             };
