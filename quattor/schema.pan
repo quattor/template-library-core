@@ -429,6 +429,7 @@ type structure_software = {
     "components"    ? structure_component{}
     "repositories"  ? list
     "packages"      ? nlist
+    "groups"        ? nlist
 };
 
 
