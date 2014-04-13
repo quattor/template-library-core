@@ -128,3 +128,36 @@ function get_subnet_params = {
 
     error("No subnet matching address "+ipaddr+" found");
 };
+
+
+############################################################
+# This function copies the network parameters in the global
+# variable NETWORK_PARAMS (an nlist) to SELF.  SELF must be
+# a list and is usually the path /system/network/interfaces.
+############################################################
+
+function copy_network_params = {
+  if_list=value('/hardware/cards/nic');
+  if ( is_defined(if_list) ) {
+    foreach (if_name;v;if_list) {
+      if ( if_name == boot_nic()) {
+        net_params = NETWORK_PARAMS;
+      } else {
+        net_params = nlist();
+        net_params["onboot"] = "no";
+        net_params["bootproto"] = "dhcp";
+        if ( exists(MTU[if_name])) {
+          net_params["mtu"] = MTU[if_name];
+        };
+      };
+      net_params["set_hwaddr"] = true;
+      SELF[if_name] = net_params;
+    };
+  } else {
+    error('No network interface defined in the configuration');
+  };
+  SELF;
+};
+
+
+
