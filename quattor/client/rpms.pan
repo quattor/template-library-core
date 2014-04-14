@@ -15,15 +15,6 @@ include { 'quattor/client/version' };
 include { 'rpms/package_default_versions' };
 
 
-variable AII_OSINSTALL_EXTRAPKGS ?= list(
-    'perl-CAF',
-    'perl-LC',
-    'perl-Proc-ProcessTable',
-    'perl-Set-Scalar',
-    'perl-common-sense',
-    'perl-JSON-XS',
-);
-
 '/software/packages' = {
     # Part of the OS, installed by Anaconda as part of the base packages
     if ( is_defined(OS_VERSION_PARAMS['majorversion']) && (OS_VERSION_PARAMS['majorversion'] == '5') ) {
