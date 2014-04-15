@@ -17,9 +17,6 @@ include { 'config/os/java' };
 # Add LAL version of Subversion client
 include { 'config/os/svn_client' };
 
-# Add YUM server
-#include { 'config/os/yum' };
-
 # Reapply OS updates
 include { 'config/os/updates' };
 
