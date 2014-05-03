@@ -162,6 +162,65 @@ type structure_cards = {
 } with is_valid_card_ports (SELF);
 
 ############################################################
+# structure_serial_console
+############################################################
+type structure_serial_console = {
+    include structure_annotation
+    "parity" ? string with match(SELF, "^(n|p)$")
+    "speed"  ? long
+    "unit"   ? long
+    "word"   ? long(7..8)
+};
+
+############################################################
+# structure_telnet_console
+############################################################
+type structure_telnet_console = {
+    "port" : long = 23
+    "fqdn" : string
+};
+############################################################
+# structure_ipmi_console
+############################################################
+type structure_ipmi_console = {
+    "fqdn"      ? string
+    "hwaddr"    : type_hwaddr
+};
+############################################################
+# structure_ssh_console
+############################################################
+type structure_ssh_console = {
+    "fqdn"      ? string
+    "hwaddr"    : type_hwaddr
+};
+############################################################
+# structure_bmc_console
+############################################################
+type structure_bmc_console = {
+    "fqdn"      ? string
+    "hwaddr"    : type_hwaddr
+};
+############################################################
+# structure_dpc_console
+############################################################
+type structure_dpc_console = {
+    "fqdn"      ? string
+    "hwaddr"    : type_hwaddr
+};
+############################################################
+# structure_console
+############################################################
+type structure_console = extensible {
+    "serial" ? structure_serial_console
+    "telnet" ? structure_telnet_console
+    "ssh"    ? structure_ssh_console
+    "ipmi"   ? structure_ipmi_console
+    "dpc"    ? structure_dpc_console
+    "bmc"    ? structure_dpc_console
+    "preferred" : string[]
+};
+
+############################################################
 # structure_hardware
 ############################################################
 type structure_hardware = {
@@ -171,13 +230,12 @@ type structure_hardware = {
     "cards"        ? structure_cards
     "rack"	   ? structure_rack
     # Obsolete field, use the appropriate "cards" sub-field instead!!
-    "harddisks"     ? structure_raidport{}
-    
+    "harddisks"    ? structure_raidport{}
+    "console"      ? structure_console
 };
 
 # network schema defined within component area
 include {"components/network/core-schema"};
-
 
 
 ############################################################
