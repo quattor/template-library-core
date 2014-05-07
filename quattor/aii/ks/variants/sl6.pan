@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 14.2.2-SNAPSHOT, 20140305.0947.43
+      # ks, 14.4.0-rc3-SNAPSHOT, 20140507.1518.05
       #
 
 # Template containing OS configuration and default values.
@@ -29,5 +29,3 @@ template quattor/aii/ks/variants/sl6;
   SELF;
 };
 
-#add needed packages for @INC at post-install step :
-"/system/aii/osinstall/ks/extra_packages" ?= push("perl-CAF", "perl-LC");
