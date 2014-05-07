@@ -14,7 +14,7 @@
 #
 
 # #
-      # diskless_server, 14.2.1, 1, 20140304-2345
+      # diskless_server, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141720, 20140507-1516
       #
 
 unique template components/diskless_server/config-common;
@@ -24,7 +24,7 @@ include { 'components/diskless_server/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/diskless_server';
 
-#'version' = '14.2.1';
+#'version' = '14.4.0-rc3-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

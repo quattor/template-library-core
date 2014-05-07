@@ -23,5 +23,5 @@ include {'components/diskless_server/schema'};
 #"/software/components/diskless_server/dependencies/pre" = list("spma");
 "/software/components/diskless_server/active" = true;
 "/software/components/diskless_server/dispatch" ?= true;
-"/software/packages" = pkg_repl("diskless_server", "14.2.1-14.2.1", "noarch");
-"/software/packages" = pkg_repl("ncm-diskless_server", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("diskless_server", "14.4.0-14.4.0", "noarch");
+"/software/packages" = pkg_repl("ncm-diskless_server", "14.4.0-rc3_SNAPSHOT20140507141720", "noarch");

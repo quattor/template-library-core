@@ -14,9 +14,10 @@
 #
 
 # #
-      # tftpd, 14.2.1, 1, 20140304-2351
+      # tftpd, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141730, 20140507-1516
       #
 
 unique template components/tftpd/config;
 
+include { 'components/tftpd/config-common' };
 include { 'components/tftpd/config-rpm' };

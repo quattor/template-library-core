@@ -14,7 +14,7 @@
 #
 
 # #
-      # state, 14.2.1, 1, 20140304-2351
+      # state, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141729, 20140507-1516
       #
 
 unique template components/state/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/state/config-common' };
 prefix '/software/components/state';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-state", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-state", "14.4.0-rc3_SNAPSHOT20140507141729", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

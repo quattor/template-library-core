@@ -14,9 +14,10 @@
 #
 
 # #
-      # alternatives, 14.2.1, 1, 20140304-2344
+      # alternatives, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141722, 20140507-1516
       #
 
 unique template components/alternatives/config;
 
+include { 'components/alternatives/config-common' };
 include { 'components/alternatives/config-rpm' };

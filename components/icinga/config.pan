@@ -14,9 +14,10 @@
 #
 
 # #
-      # icinga, 14.2.1, 1, 20140304-2346
+      # icinga, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141730, 20140507-1516
       #
 
 unique template components/icinga/config;
 
+include { 'components/icinga/config-common' };
 include { 'components/icinga/config-rpm' };

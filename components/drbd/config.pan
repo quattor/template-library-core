@@ -14,9 +14,10 @@
 #
 
 # #
-      # drbd, 14.2.1, 1, 20140304-2345
+      # drbd, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141724, 20140507-1516
       #
 
 unique template components/drbd/config;
 
+include { 'components/drbd/config-common' };
 include { 'components/drbd/config-rpm' };

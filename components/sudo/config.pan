@@ -14,9 +14,10 @@
 #
 
 # #
-      # sudo, 14.2.1, 1, 20140304-2351
+      # sudo, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141731, 20140507-1516
       #
 
 unique template components/sudo/config;
 
+include { 'components/sudo/config-common' };
 include { 'components/sudo/config-rpm' };

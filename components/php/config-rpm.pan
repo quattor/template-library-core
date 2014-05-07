@@ -21,13 +21,13 @@ unique template components/php/config-rpm;
 include {'components/php/schema'};
  
    # Package to install
-"/software/packages" = pkg_repl("ncm-php", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-php", "14.4.0-rc3_SNAPSHOT20140507141720", "noarch");
 
 
    "/software/components/php/active" ?= false;
    "/software/components/php/dispatch" ?= false;
 
-"/software/packages" = pkg_repl("ncm-php", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-php", "14.4.0-rc3_SNAPSHOT20140507141720", "noarch");
 
 
 

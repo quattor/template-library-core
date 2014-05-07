@@ -21,7 +21,7 @@ unique template components/krb5clt/config-rpm;
 include {'components/krb5clt/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-krb5clt", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-krb5clt", "14.4.0-rc3_SNAPSHOT20140507141725", "noarch");
 
  
 "/software/components/krb5clt/dependencies/pre" ?= list("spma");

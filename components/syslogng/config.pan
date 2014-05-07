@@ -14,9 +14,10 @@
 #
 
 # #
-      # syslogng, 14.2.1, 1, 20140304-2351
+      # syslogng, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141715, 20140507-1516
       #
 
 unique template components/syslogng/config;
 
+include { 'components/syslogng/config-common' };
 include { 'components/syslogng/config-rpm' };

@@ -15,6 +15,7 @@ unique template components/accounts/config;
 
 include { 'components/accounts/schema' };
 include { 'components/accounts/functions' };
+include { 'components/accounts/config-common' };
 include { 'components/accounts/config-rpm' };
 
 # Package to install

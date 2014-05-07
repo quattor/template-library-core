@@ -25,7 +25,7 @@ unique template components/srvtab/config-rpm;
 include {'components/srvtab/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-srvtab", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-srvtab", "14.4.0-rc3_SNAPSHOT20140507141716", "noarch");
 
  
 "/software/components/srvtab/active" ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # portmap, 14.2.1, 1, 20140304-2349
+      # portmap, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141717, 20140507-1516
       #
 
 unique template components/portmap/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/portmap/config-common' };
 prefix '/software/components/portmap';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-portmap", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-portmap", "14.4.0-rc3_SNAPSHOT20140507141717", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

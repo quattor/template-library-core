@@ -14,7 +14,7 @@
 #
 
 # #
-      # nsca, 14.2.1, 1, 20140304-2348
+      # nsca, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141719, 20140507-1516
       #
 
 unique template components/nsca/config-xml;

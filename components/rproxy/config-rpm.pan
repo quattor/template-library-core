@@ -14,7 +14,7 @@
 #
 
 # #
-      # rproxy, 14.2.1, 1, 20140304-2350
+      # rproxy, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141728, 20140507-1516
       #
 
 unique template components/rproxy/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/rproxy/config-common' };
 prefix '/software/components/rproxy';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-rproxy", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-rproxy", "14.4.0-rc3_SNAPSHOT20140507141728", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

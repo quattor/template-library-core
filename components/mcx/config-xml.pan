@@ -14,7 +14,7 @@
 #
 
 # #
-      # mcx, 14.2.1, 1, 20140304-2347
+      # mcx, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141706, 20140507-1516
       #
 
 unique template components/mcx/config-xml;

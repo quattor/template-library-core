@@ -14,7 +14,7 @@
 #
 
 # #
-      # portmap, 14.2.1, 1, 20140304-2349
+      # portmap, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141717, 20140507-1516
       #
 
 unique template components/portmap/config-xml;

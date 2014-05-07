@@ -14,9 +14,10 @@
 #
 
 # #
-      # autofs, 14.2.1, 1, 20140304-2344
+      # autofs, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141722, 20140507-1516
       #
 
 unique template components/autofs/config;
 
+include { 'components/autofs/config-common' };
 include { 'components/autofs/config-rpm' };

@@ -14,9 +14,10 @@
 #
 
 # #
-      # ldconf, 14.2.1, 1, 20140304-2347
+      # ldconf, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141715, 20140507-1516
       #
 
 unique template components/ldconf/config;
 
+include { 'components/ldconf/config-common' };
 include { 'components/ldconf/config-rpm' };

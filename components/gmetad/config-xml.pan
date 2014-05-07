@@ -14,7 +14,7 @@
 #
 
 # #
-      # gmetad, 14.2.1, 1, 20140304-2346
+      # gmetad, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141725, 20140507-1516
       #
 
 unique template components/gmetad/config-xml;

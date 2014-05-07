@@ -14,7 +14,7 @@
 #
 
 # #
-      # shorewall, 14.2.1, 1, 20140304-2350
+      # shorewall, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141716, 20140507-1516
       #
 
 unique template components/shorewall/config-xml;

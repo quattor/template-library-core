@@ -14,7 +14,7 @@
 #
 
 # #
-      # xen, 14.2.1, 1, 20140304-2352
+      # xen, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141721, 20140507-1516
       #
 
 unique template components/xen/config-common;
@@ -24,7 +24,7 @@ include { 'components/xen/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/xen';
 
-#'version' = '14.2.1';
+#'version' = '14.4.0-rc3-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

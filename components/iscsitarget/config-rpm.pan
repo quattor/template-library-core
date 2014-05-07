@@ -21,4 +21,4 @@ include {'components/iscsitarget/schema'};
 
 "/software/components/iscsitarget/active" ?= true;
 
-"/software/packages" = pkg_repl("ncm-iscsitarget", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-iscsitarget", "14.4.0-rc3_SNAPSHOT20140507141719", "noarch");

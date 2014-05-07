@@ -19,8 +19,8 @@ unique template components/ldconf/config-rpm;
 include {'components/ldconf/schema'};
  
 # Package to install
-"/software/packages" = pkg_repl("ncm-ldconf", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-ldconf", "14.4.0-rc3_SNAPSHOT20140507141715", "noarch");
 
 '/software/components/ldconf/dependencies/pre' ?= list('spma');
 
-'/software/components/ldconf/version' = '14.2.1';
+'/software/components/ldconf/version' = '14.4.0';

@@ -14,9 +14,10 @@
 #
 
 # #
-      # cdp, 14.2.1, 1, 20140304-2344
+      # cdp, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141713, 20140507-1516
       #
 
 unique template components/cdp/config;
 
+include { 'components/cdp/config-common' };
 include { 'components/cdp/config-rpm' };

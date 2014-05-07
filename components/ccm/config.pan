@@ -11,9 +11,10 @@
 
 # 
 # #
-      # ccm, 14.2.1, 1, 20140304-2344
+      # ccm, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141710, 20140507-1516
       #
 
 unique template components/ccm/config;
 
+include { 'components/ccm/config-common' };
 include { 'components/ccm/config-rpm' };

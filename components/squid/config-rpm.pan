@@ -19,7 +19,7 @@ unique template components/squid/config-rpm;
 include {'components/squid/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-squid", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-squid", "14.4.0-rc3_SNAPSHOT20140507141716", "noarch");
 
 
 # Common settings

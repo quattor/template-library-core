@@ -14,9 +14,10 @@
 #
 
 # #
-      # ntpd, 14.2.1, 1, 20140304-2348
+      # ntpd, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141723, 20140507-1516
       #
 
 unique template components/ntpd/config;
 
+include { 'components/ntpd/config-common' };
 include { 'components/ntpd/config-rpm' };

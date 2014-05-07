@@ -14,9 +14,10 @@
 #
 
 # #
-      # modprobe, 14.2.1, 1, 20140304-2347
+      # modprobe, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141726, 20140507-1516
       #
 
 unique template components/modprobe/config;
 
+include { 'components/modprobe/config-common' };
 include { 'components/modprobe/config-rpm' };

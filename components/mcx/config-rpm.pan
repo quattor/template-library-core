@@ -27,7 +27,7 @@ unique template components/mcx/config-rpm;
 include { 'components/mcx/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mcx", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-mcx", "14.4.0-rc3_SNAPSHOT20140507141706", "noarch");
 
  
 "/software/components/mcx/dependencies/pre" ?= list("directoryservices");

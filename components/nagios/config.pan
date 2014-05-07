@@ -14,9 +14,10 @@
 #
 
 # #
-      # nagios, 14.2.1, 1, 20140304-2347
+      # nagios, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141708, 20140507-1516
       #
 
 unique template components/nagios/config;
 
+include { 'components/nagios/config-common' };
 include { 'components/nagios/config-rpm' };

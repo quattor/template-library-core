@@ -13,4 +13,5 @@
 
 unique template components/cups/config;
 
+include { 'components/cups/config-common' };
 include {'components/cups/config-rpm'};

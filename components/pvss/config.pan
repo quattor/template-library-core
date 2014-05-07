@@ -14,9 +14,10 @@
 #
 
 # #
-      # pvss, 14.2.1, 1, 20140304-2349
+      # pvss, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141727, 20140507-1516
       #
 
 unique template components/pvss/config;
 
+include { 'components/pvss/config-common' };
 include { 'components/pvss/config-rpm' };

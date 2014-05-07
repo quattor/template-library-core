@@ -14,9 +14,10 @@
 #
 
 # #
-      # useraccess, 14.2.1, 1, 20140304-2352
+      # useraccess, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141731, 20140507-1516
       #
 
 unique template components/useraccess/config;
 
+include { 'components/useraccess/config-common' };
 include { 'components/useraccess/config-rpm' };

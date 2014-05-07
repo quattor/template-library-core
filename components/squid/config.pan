@@ -14,9 +14,10 @@
 #
 
 # #
-      # squid, 14.2.1, 1, 20140304-2351
+      # squid, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141716, 20140507-1516
       #
 
 unique template components/squid/config;
 
+include { 'components/squid/config-common' };
 include { 'components/squid/config-rpm' };

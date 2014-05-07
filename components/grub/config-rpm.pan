@@ -22,7 +22,7 @@ include {'components/grub/schema'};
 include {'pan/functions'};
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-grub", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-grub", "14.4.0-rc3_SNAPSHOT20140507141710", "noarch");
 
 
 # standard component settings

@@ -14,9 +14,10 @@
 #
 
 # #
-      # postgresql, 14.2.1, 1, 20140304-2349
+      # postgresql, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141714, 20140507-1516
       #
 
 unique template components/postgresql/config;
 
+include { 'components/postgresql/config-common' };
 include { 'components/postgresql/config-rpm' };

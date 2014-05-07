@@ -20,9 +20,9 @@ unique template components/sshkeys/config-rpm;
 include { 'components/sshkeys/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-sshkeys", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-sshkeys", "14.4.0-rc3_SNAPSHOT20140507141723", "noarch");
 
 '/software/components/sshkeys/dependencies/pre' ?= list('spma');
 
-'/software/components/sshkeys/version' = '14.2.1';
+'/software/components/sshkeys/version' = '14.4.0';
 

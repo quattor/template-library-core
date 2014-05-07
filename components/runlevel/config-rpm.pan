@@ -21,7 +21,7 @@ unique template components/runlevel/config-rpm;
 include {'components/runlevel/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-runlevel", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-runlevel", "14.4.0-rc3_SNAPSHOT20140507141720", "noarch");
 
  
 "/software/components/runlevel/dependencies/pre" ?= list("spma");

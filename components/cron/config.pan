@@ -14,9 +14,10 @@
 #
 
 # #
-      # cron, 14.2.1, 1, 20140304-2344
+      # cron, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141713, 20140507-1516
       #
 
 unique template components/cron/config;
 
+include { 'components/cron/config-common' };
 include { 'components/cron/config-rpm' };

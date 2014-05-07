@@ -16,15 +16,14 @@
 
 
 unique template components/spma/config-rpm;
-include { 'components/spma/schema' };
-include { 'components/spma/functions' };
 
-include { 'components/spma/config-common' };
+# Set prefix to root of component configuration.
+prefix '/software/components/spma';
+"/software/groups" ?= nlist();
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-spma", "14.2.1-1", "noarch");
+'packages' = pkg_repl("ncm-spma", "14.4.0-rc3_SNAPSHOT20140507141729", "noarch");
 
-'/software/components/spma/packager' = 'yum';
-"/software/components/spma/register_change" ?= list("/software/packages",
-                                                    "/software/repositories");
-"/software/components/spma/run" ?= "yes";
+'packager' = 'yum';
+'register_change' ?= list("/software/packages",
+                          "/software/repositories");

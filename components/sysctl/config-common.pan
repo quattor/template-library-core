@@ -14,7 +14,7 @@
 #
 
 # #
-      # sysctl, 14.2.1, 1, 20140304-2351
+      # sysctl, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141730, 20140507-1516
       #
 
 unique template components/sysctl/config-common;
@@ -24,7 +24,7 @@ include { 'components/sysctl/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/sysctl';
 
-#'version' = '14.2.1';
+#'version' = '14.4.0-rc3-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

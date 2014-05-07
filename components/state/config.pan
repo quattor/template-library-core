@@ -14,9 +14,10 @@
 #
 
 # #
-      # state, 14.2.1, 1, 20140304-2351
+      # state, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141729, 20140507-1516
       #
 
 unique template components/state/config;
 
+include { 'components/state/config-common' };
 include { 'components/state/config-rpm' };

@@ -14,9 +14,10 @@
 #
 
 # #
-      # metaconfig, 14.2.1, 1, 20140304-2347
+      # metaconfig, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141705, 20140507-1516
       #
 
 unique template components/metaconfig/config;
 
+include { 'components/metaconfig/config-common' };
 include { 'components/metaconfig/config-rpm' };

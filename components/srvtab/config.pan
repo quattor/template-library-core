@@ -14,9 +14,10 @@
 #
 
 # #
-      # srvtab, 14.2.1, 1, 20140304-2351
+      # srvtab, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141716, 20140507-1516
       #
 
 unique template components/srvtab/config;
 
+include { 'components/srvtab/config-common' };
 include { 'components/srvtab/config-rpm' };

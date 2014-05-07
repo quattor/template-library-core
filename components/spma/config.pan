@@ -14,9 +14,15 @@
 #
 
 # #
-      # spma, 14.2.1, 1, 20140304-2350
+      # spma, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141729, 20140507-1516
       #
 
 unique template components/spma/config;
 
-include { 'components/spma/config-rpm' };
+variable CONFIG_MODULES_CONFIG_SUFFIX ?= 'rpm';
+
+include { 'components/spma/schema' };
+include { 'components/spma/functions' };
+
+include { 'components/spma/config-common' };
+include { 'components/spma/config-'+CONFIG_MODULES_CONFIG_SUFFIX };

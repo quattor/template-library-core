@@ -14,9 +14,10 @@
 #
 
 # #
-      # selinux, 14.2.1, 1, 20140304-2350
+      # selinux, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141718, 20140507-1516
       #
 
 unique template components/selinux/config;
 
+include { 'components/selinux/config-common' };
 include { 'components/selinux/config-rpm' };

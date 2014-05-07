@@ -14,9 +14,10 @@
 #
 
 # #
-      # openldap, 14.2.1, 1, 20140304-2348
+      # openldap, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141717, 20140507-1516
       #
 
 unique template components/openldap/config;
 
+include { 'components/openldap/config-common' };
 include { 'components/openldap/config-rpm' };

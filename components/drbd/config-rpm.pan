@@ -25,10 +25,10 @@ unique template components/drbd/config-rpm;
 include { 'components/drbd/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-drbd", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-drbd", "14.4.0-rc3_SNAPSHOT20140507141724", "noarch");
 
  
-'/software/components/drbd/version' ?= '14.2.1';
+'/software/components/drbd/version' ?= '14.4.0';
 
 "/software/components/drbd/dependencies/pre" ?= list("spma");
 "/software/components/drbd/active" ?= true;

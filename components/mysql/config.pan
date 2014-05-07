@@ -14,9 +14,10 @@
 #
 
 # #
-      # mysql, 14.2.1, 1, 20140304-2347
+      # mysql, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141715, 20140507-1516
       #
 
 unique template components/mysql/config;
 
+include { 'components/mysql/config-common' };
 include { 'components/mysql/config-rpm' };

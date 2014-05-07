@@ -14,18 +14,13 @@
 #
 
 # #
-      # spma, 14.2.1, 1, 20140304-2350
+      # spma, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141729, 20140507-1516
       #
 
 unique template components/spma/config-ips;
 
-include { 'components/spma/schema' };
-
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
-
-#'version' = '14.2.1';
-#'package' = 'NCM::Component';
 
 #
 # Configure SPMA appropriately for Solaris 11
@@ -38,8 +33,3 @@ prefix '/software/components/spma';
                          '/software/uninstall');
 'flagfile' = '/var/tmp/spma-run-flag';
 
-#
-# Make active
-#
-'active' ?= true;
-'dispatch' ?= true;

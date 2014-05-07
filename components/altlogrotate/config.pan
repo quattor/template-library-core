@@ -14,9 +14,10 @@
 #
 
 # #
-      # altlogrotate, 14.2.1, 1, 20140304-2344
+      # altlogrotate, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141722, 20140507-1516
       #
 
 unique template components/altlogrotate/config;
 
+include { 'components/altlogrotate/config-common' };
 include { 'components/altlogrotate/config-rpm' };

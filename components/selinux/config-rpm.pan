@@ -14,7 +14,7 @@
 #
 
 # #
-      # selinux, 14.2.1, 1, 20140304-2350
+      # selinux, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141718, 20140507-1516
       #
 
 unique template components/selinux/config-rpm;
@@ -25,7 +25,7 @@ include { 'components/selinux/config-common' };
 prefix '/software/components/selinux';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-selinux", "14.2.1-1", "noarch");
+"/software/packages" = pkg_repl("ncm-selinux", "14.4.0-rc3_SNAPSHOT20140507141718", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

@@ -14,7 +14,7 @@
 #
 
 # #
-      # syslog, 14.2.1, 1, 20140304-2351
+      # syslog, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141715, 20140507-1516
       #
 
 unique template components/syslog/config-common;
@@ -24,7 +24,7 @@ include { 'components/syslog/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/syslog';
 
-#'version' = '14.2.1';
+#'version' = '14.4.0-rc3-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

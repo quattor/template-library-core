@@ -24,10 +24,9 @@ type structure_aiishellfe = {
 	"profile_prefix" ? string
 	"noaction"	? boolean
 	"use_fqdn"	: boolean = true
-	"ca_file"	? string
-	"key_file"	? string
-	"cert_file"	? string
 	"profile_format" : string = "xml"
+        "osinstalldir"  ? string
+        "nbpdir"        ? string
 };
 
 type structure_aiidhcp = {

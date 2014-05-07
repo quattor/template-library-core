@@ -14,9 +14,10 @@
 #
 
 # #
-      # hostsaccess, 14.2.1, 1, 20140304-2346
+      # hostsaccess, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141710, 20140507-1516
       #
 
 unique template components/hostsaccess/config;
 
+include { 'components/hostsaccess/config-common' };
 include { 'components/hostsaccess/config-rpm' };
