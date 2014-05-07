@@ -14,7 +14,7 @@
 #
 
 # #
-      # wmsclient, 14.2.1, 1, 20140304-2355
+      # wmsclient, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141757, 20140507-1517
       #
 
 unique template components/wmsclient/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/wmsclient/config-common' };
 prefix '/software/components/wmsclient';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wmsclient','14.2.1-1','noarch');
+'/software/packages' = pkg_repl('ncm-wmsclient','14.4.0-rc3_SNAPSHOT20140507141757','noarch');
 'dependencies/pre' ?= list('spma');
 

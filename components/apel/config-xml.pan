@@ -14,7 +14,7 @@
 #
 
 # #
-      # apel, 14.2.1, 1, 20140304-2352
+      # apel, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141747, 20140507-1517
       #
 
 unique template components/apel/config-xml;

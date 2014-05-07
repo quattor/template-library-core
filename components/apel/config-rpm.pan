@@ -14,7 +14,7 @@
 #
 
 # #
-      # apel, 14.2.1, 1, 20140304-2352
+      # apel, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141747, 20140507-1517
       #
 
 unique template components/apel/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/apel/config-common' };
 prefix '/software/components/apel';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-apel','14.2.1-1','noarch');
+'/software/packages' = pkg_repl('ncm-apel','14.4.0-rc3_SNAPSHOT20140507141747','noarch');
 'dependencies/pre' ?= list('spma');
 

@@ -14,7 +14,7 @@
 #
 
 # #
-      # gsissh, 14.2.1, 1, 20140304-2353
+      # gsissh, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141753, 20140507-1517
       #
 
 unique template components/gsissh/config-xml;

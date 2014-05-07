@@ -14,7 +14,7 @@
 #
 
 # #
-      # dcache, 14.2.1, 1, 20140304-2352
+      # dcache, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141750, 20140507-1517
       #
 
 unique template components/dcache/config-common;
@@ -24,7 +24,7 @@ include { 'components/dcache/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/dcache';
 
-'version' = '14.2.1';
+'version' = '14.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # lcmaps, 14.2.1, 1, 20140304-2354
+      # lcmaps, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141754, 20140507-1517
       #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!

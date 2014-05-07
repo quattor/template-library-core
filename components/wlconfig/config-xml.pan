@@ -14,7 +14,7 @@
 #
 
 # #
-      # wlconfig, 14.2.1, 1, 20140304-2355
+      # wlconfig, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141757, 20140507-1517
       #
 
 unique template components/wlconfig/config-xml;

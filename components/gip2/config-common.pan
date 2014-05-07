@@ -14,7 +14,7 @@
 #
 
 # #
-      # gip2, 14.2.1, 1, 20140304-2353
+      # gip2, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141751, 20140507-1517
       #
 
 unique template components/gip2/config-common;
@@ -24,7 +24,7 @@ include { 'components/gip2/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/gip2';
 
-'version' = '14.2.1';
+'version' = '14.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

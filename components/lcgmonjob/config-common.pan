@@ -14,7 +14,7 @@
 #
 
 # #
-      # lcgmonjob, 14.2.1, 1, 20140304-2354
+      # lcgmonjob, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141754, 20140507-1517
       #
 
 unique template components/lcgmonjob/config-common;
@@ -24,7 +24,7 @@ include { 'components/lcgmonjob/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/lcgmonjob';
 
-'version' = '14.2.1';
+'version' = '14.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
