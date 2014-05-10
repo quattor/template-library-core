@@ -128,3 +128,72 @@ function get_subnet_params = {
 
     error("No subnet matching address "+ipaddr+" found");
 };
+
+
+############################################################
+# This function configures all the network interfaces
+# declared in /hardware/cards/nic. Parameters are taken
+# from variable NETWORK_PARAMS (nlist) for the main (boot)
+# interface, others are configured with dhcp. For every
+# interface, it there is an entry in variable MTU, it is
+# also applied to the interface.
+############################################################
+
+@{
+desc = nlist defining a non default MTU size for each interface in the system.\
+ nlist keys can be an interface name, an interface type (e.g. eth, em), DEFAULT or BOOT.\
+ BOOT entry is applied to main interface (no explicit value must exist for it).\
+ DEFAULT entrye is applied to all interfaces without an explicit value defined.
+values = MTU size (integer) for the interface or undef to prevent explicit definition of the MTU size.
+default = none
+required = no
+}
+variable MTU ?= nlist();
+
+function copy_network_params = {
+  if_list=value('/hardware/cards/nic');
+  if ( is_nlist(if_list) ) {
+    foreach (if_name;v;if_list) {
+      if ( if_name == boot_nic() ) {
+        net_params = NETWORK_PARAMS;
+      } else {
+        net_params = nlist();
+        net_params["onboot"] = "no";
+        net_params["bootproto"] = "dhcp";
+      };
+
+      mtu_size = undef;
+      if_type = replace('\d+$','',if_name);
+      if ( exists(MTU["BOOT"]) && (if_name == boot_nic()) ) {
+        if ( !is_defined(MTU[if_name]) ) {
+          mtu_size = MTU["BOOT"];
+        } else {
+          error(format("MTU size defined '%s': MTU['BOOT'] entry not allowed",if_name));
+        };
+      } else if ( exists(MTU[if_name])) {
+        mtu_size = MTU[if_name];
+      } else if ( exists(MTU[if_type])) {
+        mtu_size = MTU[if_type];
+      } else if ( exists(MTU["DEFAULT"])) {
+        mtu_size = MTU["DEFAULT"];
+      };
+      if ( is_defined(mtu_size) ) {
+        net_params["mtu"] = mtu_size;
+      };
+
+      net_params["set_hwaddr"] = true;
+      SELF[if_name] = net_params;
+    };
+
+  } else if ( !is_defined(if_list) ) {
+    error("No network interface defined in the configuration");
+
+  } else {
+    error("/hardware/cards/nic must be a nlist");
+  };
+
+  SELF;
+};
+
+
+
