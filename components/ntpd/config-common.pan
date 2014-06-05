@@ -14,7 +14,7 @@
 #
 
 # #
-      # ntpd, 14.5.0-rc8, rc8_1, 20140605-1139
+      # ntpd, 14.5.0-rc9, rc9_1, 20140605-1524
       #
 
 unique template components/ntpd/config-common;
@@ -24,7 +24,7 @@ include { 'components/ntpd/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ntpd';
 
-#'version' = '14.5.0-rc8';
+#'version' = '14.5.0-rc9';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

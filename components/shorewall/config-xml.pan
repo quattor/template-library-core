@@ -14,7 +14,7 @@
 #
 
 # #
-      # shorewall, 14.5.0-rc8, rc8_1, 20140605-1139
+      # shorewall, 14.5.0-rc9, rc9_1, 20140605-1524
       #
 
 unique template components/shorewall/config-xml;

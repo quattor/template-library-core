@@ -14,7 +14,7 @@
 #
 
 # #
-      # ganglia, 14.5.0-rc8, rc8_1, 20140605-1139
+      # ganglia, 14.5.0-rc9, rc9_1, 20140605-1524
       #
 
 unique template components/ganglia/config-common;
@@ -24,7 +24,7 @@ include { 'components/ganglia/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ganglia';
 
-#'version' = '14.5.0-rc8_1';
+#'version' = '14.5.0-rc9_1';
 'package' = 'NCM::Component';
 
 'active' ?= true;

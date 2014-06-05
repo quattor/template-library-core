@@ -14,7 +14,7 @@
 #
 
 # #
-      # mysql, 14.5.0-rc8, rc8_1, 20140605-1139
+      # mysql, 14.5.0-rc9, rc9_1, 20140605-1524
       #
 
 unique template components/mysql/config-xml;
