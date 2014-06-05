@@ -14,7 +14,7 @@
 #
 
 # #
-      # lcas, 14.5.0-rc7, rc7_1, 20140605-1101
+      # lcas, 14.5.0-rc8, rc8_1, 20140605-1140
       #
 
 unique template components/lcas/config-common;
