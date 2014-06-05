@@ -14,7 +14,7 @@
 #
 
 # #
-      # xrootd, 14.5.0-rc8, rc8_1, 20140605-1140
+      # xrootd, 14.5.0-rc9, rc9_1, 20140605-1525
       #
 
 unique template components/xrootd/config-xml;
