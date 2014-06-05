@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 14.5.0-rc8, 20140605.1140.25
+      # ks, 14.5.0-rc9, 20140605.1525.53
       #
 # Structure for the component generating kickstart files.
 
