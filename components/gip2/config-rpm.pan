@@ -14,7 +14,7 @@
 #
 
 # #
-      # gip2, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141751, 20140507-1517
+      # gip2, 14.5.0-rc7, rc7_1, 20140605-1101
       #
 
 unique template components/gip2/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/gip2/config-common' };
 prefix '/software/components/gip2';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gip2','14.4.0-rc3_SNAPSHOT20140507141751','noarch');
+'/software/packages' = pkg_repl('ncm-gip2','14.5.0-rc7_1','noarch');
 'dependencies/pre' ?= list('spma');
 

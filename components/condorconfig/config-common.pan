@@ -14,7 +14,7 @@
 #
 
 # #
-      # condorconfig, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141749, 20140507-1517
+      # condorconfig, 14.5.0-rc7, rc7_1, 20140605-1101
       #
 
 unique template components/condorconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/condorconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/condorconfig';
 
-'version' = '14.4.0';
+'version' = '14.5.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

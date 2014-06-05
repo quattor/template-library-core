@@ -14,7 +14,7 @@
 #
 
 # #
-      # wmslb, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141758, 20140507-1517
+      # wmslb, 14.5.0-rc7, rc7_1, 20140605-1101
       #
 #
 
@@ -308,7 +308,7 @@ type wmslb_component_service_wmproxy_loadmonitor_opts = {
 #};
 
 type wmslb_component_service_wmproxy_opts = {
-#  'ApacheLogLevel'               ? string with match(SELF,'emerg|alert|crit|error|warn|notice|info|debug')
+  'ApacheLogLevel'               ? string with match(SELF,'emerg|alert|crit|error|warn|notice|info|debug')
   'ArgusAuthz'                   ? boolean
   'ArgusPepEndpoints'            ? string{}
   'AsyncJobStart'                ? boolean

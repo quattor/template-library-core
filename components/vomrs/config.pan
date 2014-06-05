@@ -14,7 +14,7 @@
 #
 
 # #
-      # vomrs, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141757, 20140507-1517
+      # vomrs, 14.5.0-rc7, rc7_1, 20140605-1101
       #
 
 unique template components/vomrs/config;
