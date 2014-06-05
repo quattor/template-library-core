@@ -19,7 +19,7 @@ unique template components/modprobe/config-rpm;
 include { 'components/modprobe/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-modprobe", "14.5.0-rc7_1", "noarch");
+"/software/packages" = pkg_repl("ncm-modprobe", "14.5.0-rc8_1", "noarch");
 
 
 "/software/components/modprobe/dependencies/pre" ?= list("spma");

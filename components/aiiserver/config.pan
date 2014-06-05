@@ -11,7 +11,7 @@
 
 # 
 # #
-      # aiiserver, 14.5.0-rc7, rc7_1, 20140605-1100
+      # aiiserver, 14.5.0-rc8, rc8_1, 20140605-1139
       #
 
 unique template components/aiiserver/config;
@@ -19,12 +19,12 @@ unique template components/aiiserver/config;
 include {'components/aiiserver/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-aiiserver", "14.5.0-rc7_1", "noarch");
+"/software/packages" = pkg_repl("ncm-aiiserver", "14.5.0-rc8_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/aiiserver';
 
-#'version' = '14.5.0-rc7';
+#'version' = '14.5.0-rc8';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

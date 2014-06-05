@@ -14,7 +14,7 @@
 #
 
 # #
-      # chkconfig, 14.5.0-rc7, rc7_1, 20140605-1100
+      # chkconfig, 14.5.0-rc8, rc8_1, 20140605-1139
       #
 
 unique template components/chkconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/chkconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/chkconfig';
 
-#'version' = '14.5.0-rc7';
+#'version' = '14.5.0-rc8';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

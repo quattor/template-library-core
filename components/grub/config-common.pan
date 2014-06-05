@@ -14,7 +14,7 @@
 #
 
 # #
-      # grub, 14.5.0-rc7, rc7_1, 20140605-1100
+      # grub, 14.5.0-rc8, rc8_1, 20140605-1139
       #
 
 unique template components/grub/config-common;
@@ -24,7 +24,7 @@ include { 'components/grub/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';
 
-#'version' = '14.5.0-rc7';
+#'version' = '14.5.0-rc8';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
