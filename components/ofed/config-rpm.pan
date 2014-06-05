@@ -19,10 +19,10 @@ unique template components/ofed/config-rpm;
 include { 'components/ofed/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ofed", "14.4.0-rc3_SNAPSHOT20140507141717", "noarch");
+"/software/packages" = pkg_repl("ncm-ofed", "14.5.0-rc7_1", "noarch");
 
 
-'/software/components/ofed/version' ?= '14.4.0';
+'/software/components/ofed/version' ?= '14.5.0';
 
 "/software/components/ofed/dependencies/pre" ?= list("spma");
 "/software/components/ofed/active" ?= true;

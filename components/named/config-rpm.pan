@@ -28,10 +28,10 @@ unique template components/named/config-rpm;
 include { 'components/named/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-named", "14.4.0-rc3_SNAPSHOT20140507141726", "noarch");
+"/software/packages" = pkg_repl("ncm-named", "14.5.0-rc7_1", "noarch");
 
  
-'/software/components/named/version' ?= '14.4.0';
+'/software/components/named/version' ?= '14.5.0';
 
 "/software/components/named/dependencies/pre" ?= list("spma");
 "/software/components/named/active" ?= true;

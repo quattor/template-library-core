@@ -17,10 +17,10 @@ unique template components/ipmi/config-rpm;
 include { 'components/ipmi/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ipmi", "14.4.0-rc3_SNAPSHOT20140507141713", "noarch");
+"/software/packages" = pkg_repl("ncm-ipmi", "14.5.0-rc7_1", "noarch");
 
 
-'/software/components/ipmi/version' = '14.4.0';
+'/software/components/ipmi/version' = '14.5.0';
 
 "/software/components/ipmi/dependencies/post" ?= list("spma");
 "/software/components/ipmi/active" ?= true;

@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): John Monteiro
 #
 
 
@@ -19,11 +19,8 @@ unique template components/ntpd/config-rpm;
 include { 'components/ntpd/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ntpd", "14.4.0-rc3_SNAPSHOT20140507141723", "noarch");
+"/software/packages" = pkg_repl("ncm-ntpd", "14.5.0-rc7_1", "noarch");
 
-
-'/software/components/ntpd/version' ?= '14.4.0';
+'/software/components/ntpd/version' ?= '14.5.0';
 
 "/software/components/ntpd/dependencies/pre" ?= list("spma");
-"/software/components/ntpd/active" ?= true;
-"/software/components/ntpd/dispatch" ?= true;

@@ -46,8 +46,8 @@ include { "pan/functions" };
 # standard component settings
 "/software/components/download/active"   ?= true ;
 "/software/components/download/dispatch" ?= false ;
-"/software/components/download/version"  = '14.4.0';
+"/software/components/download/version"  = '14.5.0';
 "/software/components/download/release"  = "1";
 
-"/software/packages" = pkg_repl("ncm-download", "14.4.0-rc3_SNAPSHOT20140507141709", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "14.5.0-rc7_1", "noarch");
 

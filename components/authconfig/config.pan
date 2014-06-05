@@ -14,7 +14,7 @@
 #
 
 # #
-      # authconfig, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141719, 20140507-1516
+      # authconfig, 14.5.0-rc7, rc7_1, 20140605-1100
       #
 
 unique template components/authconfig/config;

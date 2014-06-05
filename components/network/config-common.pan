@@ -14,7 +14,7 @@
 #
 
 # #
-      # network, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141726, 20140507-1516
+      # network, 14.5.0-rc7, rc7_1, 20140605-1100
       #
 
 unique template components/network/config-common;
@@ -24,7 +24,7 @@ include { 'components/network/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/network';
 
-'version' = '14.4.0';
+'version' = '14.5.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

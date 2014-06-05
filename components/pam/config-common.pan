@@ -14,7 +14,7 @@
 #
 
 # #
-      # pam, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141723, 20140507-1516
+      # pam, 14.5.0-rc7, rc7_1, 20140605-1100
       #
 
 unique template components/pam/config-common;
@@ -24,7 +24,7 @@ include { 'components/pam/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/pam';
 
-#'version' = '14.4.0-rc3-SNAPSHOT';
+#'version' = '14.5.0-rc7';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

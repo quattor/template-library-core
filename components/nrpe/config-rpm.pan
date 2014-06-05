@@ -21,7 +21,7 @@ unique template components/nrpe/config-rpm;
 include {'components/nrpe/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-nrpe", "14.4.0-rc3_SNAPSHOT20140507141730", "noarch");
+"/software/packages" = pkg_repl("ncm-nrpe", "14.5.0-rc7_1", "noarch");
 
 "/software/components/nrpe/dependencies/pre" ?=  list ("spma");
 
