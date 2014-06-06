@@ -49,5 +49,5 @@ include { "pan/functions" };
 "/software/components/download/version"  = '14.5.0';
 "/software/components/download/release"  = "1";
 
-"/software/packages" = pkg_repl("ncm-download", "14.5.0-rc10_1", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "14.5.0-rc11_1", "noarch");
 

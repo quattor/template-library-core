@@ -14,7 +14,7 @@
 #
 
 # #
-      # fsprobe, 14.5.0-rc10, rc10_1, 20140606-1155
+      # fsprobe, 14.5.0-rc11, rc11_1, 20140606-1524
       #
 
 unique template components/fsprobe/config-xml;
