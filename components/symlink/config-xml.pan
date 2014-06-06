@@ -14,7 +14,7 @@
 #
 
 # #
-      # symlink, 14.5.0-rc9, rc9_1, 20140605-1524
+      # symlink, 14.5.0-rc10, rc10_1, 20140606-1155
       #
 
 unique template components/symlink/config-xml;

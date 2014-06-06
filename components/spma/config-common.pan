@@ -14,7 +14,7 @@
 #
 
 # #
-      # spma, 14.5.0-rc9, rc9_1, 20140605-1524
+      # spma, 14.5.0-rc10, rc10_1, 20140606-1155
       #
 
 unique template components/spma/config-common;
@@ -22,7 +22,7 @@ unique template components/spma/config-common;
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '14.5.0-rc9';
+#'version' = '14.5.0-rc10';
 #'package' = 'NCM::Component';
 
 'run' ?= "yes";

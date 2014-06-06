@@ -11,7 +11,7 @@
 
 # 
 # #
-      # postfix, 14.5.0-rc9, rc9_1, 20140605-1524
+      # postfix, 14.5.0-rc10, rc10_1, 20140606-1155
       #
 
 unique template components/postfix/config-rpm;
@@ -22,6 +22,6 @@ include { 'components/postfix/config-common' };
 prefix '/software/components/postfix';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-postfix','14.5.0-rc9_1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','14.5.0-rc10_1','noarch');
 'dependencies/pre' ?= list('spma');
 

@@ -14,7 +14,7 @@
 #
 
 # #
-      # cdp, 14.5.0-rc9, rc9_1, 20140605-1524
+      # cdp, 14.5.0-rc10, rc10_1, 20140606-1155
       #
 
 unique template components/cdp/config-common;
@@ -24,7 +24,7 @@ include { 'components/cdp/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/cdp';
 
-#'version' = '14.5.0-rc9';
+#'version' = '14.5.0-rc10';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # autofs, 14.5.0-rc9, rc9_1, 20140605-1524
+      # autofs, 14.5.0-rc10, rc10_1, 20140606-1155
       #
 
 unique template components/autofs/config-common;
@@ -24,7 +24,7 @@ include { 'components/autofs/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/autofs';
 
-#'version' = '14.5.0-rc9';
+#'version' = '14.5.0-rc10';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
