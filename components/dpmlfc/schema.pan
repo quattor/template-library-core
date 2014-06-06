@@ -14,7 +14,7 @@
 #
 
 # #
-      # dpmlfc, 14.5.0-rc10, rc10_1, 20140606-1156
+      # dpmlfc, 14.5.0-rc11, rc11_1, 20140606-1525
       #
 #
 
@@ -118,6 +118,7 @@ type dpmlfc_component_node_config = {
         "allowCoreDump" ? boolean
         "threads" ? long
         "maxOpenFiles" ? long
+        "globusThreadModel" : string = "pthread"
 } with component_dpmlfc_node_config_valid(SELF);
 
 type dpmlfc_component_dpm_node_config = {

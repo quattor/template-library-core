@@ -14,7 +14,7 @@
 #
 
 # #
-      # xrootd, 14.5.0-rc10, rc10_1, 20140606-1156
+      # xrootd, 14.5.0-rc11, rc11_1, 20140606-1525
       #
 #
 
@@ -187,6 +187,7 @@ type xrootd_component_fed_options = {
   'localRedirectParams' ? string
   "monitoringOptions" ? string
   "reportingOptions" ? string
+  "siteName" ? string
 };
 
 type xrootd_component_instances = {
@@ -204,9 +205,11 @@ type xrootd_component_global_options = {
   "daemonUser" : string
   "daemonGroup" : string
   "restartServices" : boolean = true
+  "mallocArenaMax" ? long
   "MonALISAHost" ? string
   "monitoringOptions" ? string
   "reportingOptions" ? string
+  "siteName" ? string
   "cmsdInstances" ? xrootd_component_instances{}
   "xrootdInstances" ? xrootd_component_instances{}
   "federations" ? xrootd_component_fed_options{}
