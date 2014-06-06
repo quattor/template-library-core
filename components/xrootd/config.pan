@@ -14,7 +14,7 @@
 #
 
 # #
-      # xrootd, 14.5.0-rc11, rc11_1, 20140606-1525
+      # xrootd, 14.5.0, 1, 20140606-1647
       #
 
 unique template components/xrootd/config;
@@ -30,6 +30,6 @@ prefix '/software/components/xrootd';
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-xrootd','14.5.0-rc11_1','noarch');
+'/software/packages' = pkg_repl('ncm-xrootd','14.5.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 

@@ -14,7 +14,7 @@
 #
 
 # #
-      # wmsclient, 14.5.0-rc11, rc11_1, 20140606-1525
+      # wmsclient, 14.5.0, 1, 20140606-1647
       #
 
 unique template components/wmsclient/config-common;

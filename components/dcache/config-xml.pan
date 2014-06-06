@@ -14,7 +14,7 @@
 #
 
 # #
-      # dcache, 14.5.0-rc11, rc11_1, 20140606-1525
+      # dcache, 14.5.0, 1, 20140606-1647
       #
 
 unique template components/dcache/config-xml;

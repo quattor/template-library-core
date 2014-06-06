@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsclient, 14.5.0-rc11, rc11_1, 20140606-1525
+      # pbsclient, 14.5.0, 1, 20140606-1647
       #
 
 unique template components/pbsclient/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/pbsclient/config-common' };
 prefix '/software/components/pbsclient';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-pbsclient','14.5.0-rc11_1','noarch');
+'/software/packages' = pkg_repl('ncm-pbsclient','14.5.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 
