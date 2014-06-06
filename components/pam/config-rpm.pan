@@ -56,7 +56,7 @@ include {'pan/functions'};
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "14.5.0-rc11_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "14.5.0-1", "noarch");
 
 
 #

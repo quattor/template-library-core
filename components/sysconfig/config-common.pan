@@ -14,7 +14,7 @@
 #
 
 # #
-      # sysconfig, 14.5.0-rc11, rc11_1, 20140606-1524
+      # sysconfig, 14.5.0, 1, 20140606-1646
       #
 
 unique template components/sysconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/sysconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/sysconfig';
 
-#'version' = '14.5.0-rc11';
+#'version' = '14.5.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

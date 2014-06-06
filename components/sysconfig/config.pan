@@ -14,7 +14,7 @@
 #
 
 # #
-      # sysconfig, 14.5.0-rc11, rc11_1, 20140606-1524
+      # sysconfig, 14.5.0, 1, 20140606-1646
       #
 
 unique template components/sysconfig/config;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # nfs, 14.5.0-rc11, rc11_1, 20140606-1524
+      # nfs, 14.5.0, 1, 20140606-1646
       #
 
 unique template components/nfs/config-xml;
