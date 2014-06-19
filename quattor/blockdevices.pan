@@ -35,12 +35,30 @@ type vg_string = string with exists ("/system/blockdevices/volume_groups/"
     error (SELF
 	+ "must be a path relative to /system/blockdevices/volume_groups");
 
+# parted partition flags (from info parted)
+type blockdevices_partition_flags = {
+    "bios_grub" ? boolean
+    "legacy_boot" ? boolean
+    "boot" ? boolean
+    "lba" ? boolean
+    "root" ? boolean
+    "swap" ? boolean
+    "hidden" ? boolean
+    "raid" ? boolean
+    "LVM" ? boolean
+    "PALO" ? boolean
+    "PREP" ? boolean
+    "DIAG" ? boolean
+};
+
 type blockdevices_partition_type = {
 	# Device holding the partition
 	"holding_dev" : physdev_string
 	"size" ? long # "Size in MB"
 	"ksopts" ? string # "Kickstart options for disk e.g. --grow, only for installation (AII)"
 	"type" : parttype_string = "primary"
+	"offset" ? long(0..)
+	"flags" ? blockdevices_partition_flags
 };
 
 #
@@ -71,8 +89,8 @@ type blockdevices_lvm_type = {
 # option.
 type blockdevices_file_type = {
 	"size" : long # "Size in MB"
-	"owner" ? string # "User owning the file"
-	"group" ? string # "Group owning the file"
+	"owner" : string = "root" # "User owning the file"
+	"group" : string = "root" # "Group owning the file"
 	"permissions" ? long # "Permission bits for the file"
 };
 
