@@ -7,4 +7,3 @@ include { 'quattor/aii/dhcp/rpms' };
 include { 'quattor/aii/ks/rpms' };
 include { 'quattor/aii/pxelinux/rpms' };
 
-'/software/packages/{cdb-sync}' ?= nlist();
