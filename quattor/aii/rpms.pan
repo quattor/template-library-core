@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # server, 14.6.0, 20140704-1558
+      # server, 14.6.0, 20140704-1606
       #
 
 # Template adding aii-server rpm to the configuration
