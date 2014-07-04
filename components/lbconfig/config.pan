@@ -14,7 +14,7 @@
 #
 
 # #
-      # lbconfig, 14.6.0, 1, 20140704-1558
+      # lbconfig, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/lbconfig/config;

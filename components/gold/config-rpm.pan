@@ -14,7 +14,7 @@
 #
 
 # #
-      # gold, 14.6.0, 1, 20140704-1558
+      # gold, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/gold/config-rpm;

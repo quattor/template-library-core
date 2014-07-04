@@ -14,7 +14,7 @@
 #
 
 # #
-      # gsissh, 14.6.0, 1, 20140704-1558
+      # gsissh, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/gsissh/config-common;

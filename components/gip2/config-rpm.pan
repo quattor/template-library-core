@@ -14,7 +14,7 @@
 #
 
 # #
-      # gip2, 14.6.0, 1, 20140704-1558
+      # gip2, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/gip2/config-rpm;

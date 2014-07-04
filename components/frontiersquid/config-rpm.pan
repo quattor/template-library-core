@@ -14,7 +14,7 @@
 #
 
 # #
-      # frontiersquid, 14.6.0, 1, 20140704-1558
+      # frontiersquid, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/frontiersquid/config-rpm;

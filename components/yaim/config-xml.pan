@@ -14,7 +14,7 @@
 #
 
 # #
-      # yaim, 14.6.0, 1, 20140704-1558
+      # yaim, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/yaim/config-xml;

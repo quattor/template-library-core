@@ -14,7 +14,7 @@
 #
 
 # #
-      # moab, 14.6.0, 1, 20140704-1558
+      # moab, 14.6.0, 1, 20140704-1606
       #
 
 unique template components/moab/config-xml;
