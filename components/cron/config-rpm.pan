@@ -7,20 +7,18 @@
 # #
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
+#   Mark Wilson <Mark.Wilson@morganstanley.com>
 #
 
-# #
-# Author(s): Jane SMITH, Joe DOE
-#
-
+# 
 
 
 unique template components/cron/config-rpm;
 include { 'components/cron/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-cron", "14.5.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-cron", "14.6.0-1", "noarch");
 
 '/software/components/cron/dependencies/pre' ?= list('spma');
 
-'/software/components/cron/version' = '14.5.0';
+'/software/components/cron/version' = '14.6.0';

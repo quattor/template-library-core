@@ -11,7 +11,7 @@
 
 # 
 # #
-      # nrpe, 14.5.0, 1, 20140606-1646
+      # nrpe, 14.6.0, 1, 20140704-1557
       #
 
 unique template components/nrpe/config-common;
@@ -21,7 +21,7 @@ include { 'components/nrpe/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/nrpe';
 
-#'version' = '14.5.0';
+#'version' = '14.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

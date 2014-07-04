@@ -14,7 +14,7 @@
 #
 
 # #
-      # openvpn, 14.5.0, 1, 20140606-1646
+      # openvpn, 14.6.0, 1, 20140704-1557
       #
 
 unique template components/openvpn/config-common;
@@ -24,7 +24,7 @@ include { 'components/openvpn/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/openvpn';
 
-#'version' = '14.5.0';
+#'version' = '14.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

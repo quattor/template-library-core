@@ -14,7 +14,7 @@
 #
 
 # #
-      # hostsfile, 14.5.0, 1, 20140606-1646
+      # hostsfile, 14.6.0, 1, 20140704-1557
       #
 
 unique template components/hostsfile/config-xml;

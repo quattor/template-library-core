@@ -7,14 +7,12 @@
 # #
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
+#   Mark Wilson <Mark.Wilson@morganstanley.com>
 #
 
+# 
 # #
-# Author(s): Jane SMITH, Joe DOE
-#
-
-# #
-      # cron, 14.5.0, 1, 20140606-1646
+      # cron, 14.6.0, 1, 20140704-1557
       #
 
 unique template components/cron/config-common;
@@ -24,8 +22,16 @@ include { 'components/cron/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/cron';
 
-#'version' = '14.5.0';
+#'version' = '14.6.0';
 #'package' = 'NCM::Component';
 
+'securitypath' ?= {
+    if (exists('/system/archetype/os') &&
+            value('/system/archetype/os') == 'solaris') {
+        '/etc/cron.d';
+    } else {
+        '/etc';
+    };
+};
 'active' ?= true;
 'dispatch' ?= true;
