@@ -14,7 +14,7 @@
 #
 
 # #
-      # vomsclient, 14.5.0, 1, 20140606-1647
+      # vomsclient, 14.6.0, 1, 20140704-1558
       #
 
 unique template components/vomsclient/config-common;
@@ -24,7 +24,7 @@ include { 'components/vomsclient/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/vomsclient';
 
-'version' = '14.5.0';
+'version' = '14.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

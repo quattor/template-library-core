@@ -14,7 +14,7 @@
 #
 
 # #
-      # gold, 14.5.0, 1, 20140606-1647
+      # gold, 14.6.0, 1, 20140704-1558
       #
 
 unique template components/gold/config-common;
@@ -24,7 +24,7 @@ include { 'components/gold/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/gold';
 
-'version' = '14.5.0';
+'version' = '14.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

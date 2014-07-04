@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsknownhosts, 14.5.0, 1, 20140606-1647
+      # pbsknownhosts, 14.6.0, 1, 20140704-1558
       #
 
 unique template components/pbsknownhosts/config-xml;
