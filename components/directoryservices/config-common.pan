@@ -14,7 +14,7 @@
 #
 
 # #
-      # directoryservices, 14.6.0, 1, 20140704-1557
+      # directoryservices, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/directoryservices/config-common;

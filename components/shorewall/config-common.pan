@@ -14,7 +14,7 @@
 #
 
 # #
-      # shorewall, 14.6.0, 1, 20140704-1557
+      # shorewall, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/shorewall/config-common;

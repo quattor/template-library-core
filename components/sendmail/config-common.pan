@@ -14,7 +14,7 @@
 #
 
 # #
-      # sendmail, 14.6.0, 1, 20140704-1557
+      # sendmail, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/sendmail/config-common;

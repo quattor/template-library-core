@@ -11,7 +11,7 @@
 
 # 
 # #
-      # postfix, 14.6.0, 1, 20140704-1557
+      # postfix, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/postfix/config-rpm;

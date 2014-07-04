@@ -14,7 +14,7 @@
 #
 
 # #
-      # etcservices, 14.6.0, 1, 20140704-1557
+      # etcservices, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/etcservices/config;

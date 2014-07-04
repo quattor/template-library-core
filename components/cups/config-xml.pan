@@ -11,7 +11,7 @@
 
 # 
 # #
-      # cups, 14.6.0, 1, 20140704-1557
+      # cups, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/cups/config-xml;

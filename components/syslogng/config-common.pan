@@ -14,7 +14,7 @@
 #
 
 # #
-      # syslogng, 14.6.0, 1, 20140704-1557
+      # syslogng, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/syslogng/config-common;

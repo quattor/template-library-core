@@ -14,7 +14,7 @@
 #
 
 # #
-      # sudo, 14.6.0, 1, 20140704-1557
+      # sudo, 14.6.0, 1, 20140704-1605
       #
 
 unique template components/sudo/config-common;
