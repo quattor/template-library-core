@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 14.5.0, 20140606.1647.56
+      # ks, 14.6.0, 20140704.1558.27
       #
 # Structure for the component generating kickstart files.
 
@@ -41,7 +41,8 @@ type structure_ks_ksfirewall = {
 # Information needed for logging into syslog
 # Anaconda syslog uses UDP
 type structure_ks_logging = {
-    "host" : type_hostname
+    # when host is defined, anaconda syslog will be configured
+    "host" ? type_hostname 
     "port" : type_port = 514
     "level" ? string with match(SELF, "^(debug|warning|error|critical|info)$")
 
@@ -55,6 +56,8 @@ type structure_ks_logging = {
     "method" : string = 'netcat' with match(SELF, '^(bash|netcat)$') 
     # via tcp or udp
     "protocol" : string = 'udp' with match(SELF, '^(tcp|udp)$')
+} with {
+    (! SELF['send_aiilogs']) || is_defined(SELF['host'])
 };
 
 # Information needed for creating the Kickstart file
@@ -106,6 +109,11 @@ type structure_ks_ks_info = {
     "part_label" : boolean = false # Does the "part" stanza support the --label option?
     # Set to true if volgroup statement is required in KS config file (must not be present for SL6+)
     'volgroup_required' : boolean = false
+    
+    'version' : string = '11.1' # anaconda version, default is for EL5.0 support 
+    'cmdline' ? boolean # use cmdline instead of text mode
+    'eula' ? boolean # agree with EULA (EL7+)
+    'packagesinpost' ? boolean
 };
 
 bind "/system/aii/osinstall/ks" = structure_ks_ks_info;

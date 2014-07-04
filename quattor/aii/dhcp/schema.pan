@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# dhcp, 14.5.0, 20140606.1647.56
+# dhcp, 14.6.0, 20140704.1558.27
 #
 
 unique template quattor/aii/dhcp/schema;
