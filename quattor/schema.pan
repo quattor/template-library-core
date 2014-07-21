@@ -383,7 +383,7 @@ type structure_cluster = {
 };
 
 type structure_kernel = {
-    "version"   : string # "kernel version to use (eg. 2.4.18-27.7.x.cernsmp)"
+    "version"   ? string # "kernel version to use (eg. 2.4.18-27.7.x.cernsmp)"
 };
 
 type structure_oldname = {
@@ -439,7 +439,7 @@ type structure_system = {
     "filesystems"   ? structure_filesystem[]
     "blockdevices" ? structure_blockdevices
     "glite"         ? structure_glite
-    "kernel"        ? structure_kernel
+    "kernel"        : structure_kernel         # required by ncm-grub
     "lcg"           ? structure_lcg
     "network"       : structure_network
     # monitoring-related structures should go elsewhere. TBD.
