@@ -14,7 +14,7 @@
 #
 
 # #
-      # authconfig, 13.1.2, 1, 20131015-1106
+      # authconfig, 14.2.1, 1, 20140331-0944
       #
 
 unique template components/authconfig/config;

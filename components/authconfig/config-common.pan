@@ -14,7 +14,7 @@
 #
 
 # #
-      # authconfig, 13.1.2, 1, 20131015-1106
+      # authconfig, 14.2.1, 1, 20140331-0944
       #
 
 unique template components/authconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/authconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/authconfig';
 
-#'version' = '13.1.2';
+#'version' = '14.2.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

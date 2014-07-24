@@ -14,7 +14,7 @@
 #
 
 # #
-      # metaconfig, 13.1.2, 1, 20131015-1106
+      # metaconfig, 14.2.1, 1, 20140401-1232
       #
 
 unique template components/metaconfig/config-xml;
