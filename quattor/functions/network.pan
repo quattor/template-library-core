@@ -164,11 +164,18 @@ function copy_network_params = {
 
       mtu_size = undef;
       if_type = replace('\d+$','',if_name);
+      # In the case of the boot interface, doesn't allow an explicit declaration of
+      # the MTU value both for the boot interface name and for the BOOT entry. If
+      # one of them is undefined, take the explicit one.
       if ( exists(MTU["BOOT"]) && (if_name == boot_nic()) ) {
-        if ( !is_defined(MTU[if_name]) ) {
-          mtu_size = MTU["BOOT"];
-        } else {
-          error(format("MTU size defined '%s': MTU['BOOT'] entry not allowed",if_name));
+        if ( is_defined(MTU["BOOT"]) ) {
+          if ( is_defined(MTU[if_name]) ) {
+            error(format("MTU size defined for '%s' (%d): MTU['BOOT'] entry (%d) not allowed",if_name,MTU[if_name],MTU["BOOT"]));
+          } else {
+            mtu_size = MTU["BOOT"];
+          };
+        } else if ( is_defined(MTU[if_name]) ) {
+          mtu_size = MTU[if_name];
         };
       } else if ( exists(MTU[if_name])) {
         mtu_size = MTU[if_name];
