@@ -14,7 +14,7 @@
 #
 
 # #
-      # vomsclient, 14.8.0-rc2, rc2_1, 20140901-1511
+      # vomsclient, 14.8.0-rc3, rc3_1, 20140901-1845
       #
 
 unique template components/vomsclient/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/vomsclient/config-common' };
 prefix '/software/components/vomsclient';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-vomsclient','14.8.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-vomsclient','14.8.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 

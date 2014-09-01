@@ -14,7 +14,7 @@
 #
 
 # #
-      # vomrs, 14.8.0-rc2, rc2_1, 20140901-1511
+      # vomrs, 14.8.0-rc3, rc3_1, 20140901-1845
       #
 
 unique template components/vomrs/config-common;
