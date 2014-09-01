@@ -25,7 +25,7 @@ unique template components/sendmail/config-rpm;
 include { 'components/sendmail/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-sendmail", "14.5.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-sendmail", "14.8.0-rc3_SNAPSHOT20140901141111", "noarch");
 
  
 "/software/components/sendmail/dependencies/pre" ?= list("spma");

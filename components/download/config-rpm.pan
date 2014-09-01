@@ -7,13 +7,15 @@
 # #
 # Current developer(s):
 #   Nick Williams <nick.williams@morganstanley.com>
+#   Mark Wilson <Mark.Wilson@morganstanley.com>
 #
 
 # 
-
-# http://eu-datagrid.web.cern.ch/eu-datagrid/license.html. 
-# 
-# THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS 
+# #
+      # download, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141104, 20140901-1511
+      #
+#
+# THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
 # CONTRIBUTED IN CONNECTION WITH THIS PROGRAM.
 #
 # THIS SOFTWARE IS LICENSED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -32,22 +34,15 @@
 # THIS OR ANOTHER EQUIVALENT DISCLAIMER AS WELL AS ANY OTHER LICENSE
 # TERMS THAT MAY APPLY.
 #
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
-        
-        
+
 unique template components/download/config-rpm;
 
 include { "components/download/schema" };
 
 include { "pan/functions" };
 
-# standard component settings
-"/software/components/download/active"   ?= true ;
-"/software/components/download/dispatch" ?= false ;
-"/software/components/download/version"  = '14.5.0';
-"/software/components/download/release"  = "1";
+# standard rpm settings
+"/software/components/download/version"  = '14.8.0';
+"/software/components/download/release"  = "rc3_SNAPSHOT20140901141104";
 
-"/software/packages" = pkg_repl("ncm-download", "14.5.0-1", "noarch");
-
+"/software/packages" = pkg_repl("ncm-download", "14.8.0-rc3_SNAPSHOT20140901141104", "noarch");

@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): Luis Fernando Muñoz Mejías, Nick Williams, Loic Brarda
 #
 
 
@@ -20,7 +20,7 @@ include {'components/sudo/functions'};
 
 # Package to install:
 # Package to install
-"/software/packages" = pkg_repl("ncm-sudo", "14.5.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-sudo", "14.8.0-rc3_SNAPSHOT20140901141112", "noarch");
 
  # This component should be run after ncm-accounts, if present.
 "/software/components/sudo/dependencies/pre" = {

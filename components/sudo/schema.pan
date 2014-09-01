@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): Luis Fernando Muñoz Mejías, Nick Williams, Loic Brarda
 #
 
 

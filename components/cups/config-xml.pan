@@ -11,7 +11,7 @@
 
 # 
 # #
-      # cups, 14.4.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140507141732, 20140507-1516
+      # cups, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141112, 20140901-1511
       #
 
 unique template components/cups/config-xml;

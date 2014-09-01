@@ -7,14 +7,12 @@
 # #
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
+#   Mark Wilson <Mark.Wilson@morganstanley.com>
 #
 
+# 
 # #
-# Author(s): Jane SMITH, Joe DOE
-#
-
-# #
-      # cron, 14.5.0, 1, 20140606-1646
+      # cron, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141106, 20140901-1511
       #
 
 unique template components/cron/config;

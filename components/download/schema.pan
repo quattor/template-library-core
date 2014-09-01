@@ -7,13 +7,15 @@
 # #
 # Current developer(s):
 #   Nick Williams <nick.williams@morganstanley.com>
+#   Mark Wilson <Mark.Wilson@morganstanley.com>
 #
 
 # 
-
-# http://eu-datagrid.web.cern.ch/eu-datagrid/license.html. 
-# 
-# THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS 
+# #
+      # download, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141104, 20140901-1511
+      #
+#
+# THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
 # CONTRIBUTED IN CONNECTION WITH THIS PROGRAM.
 #
 # THIS SOFTWARE IS LICENSED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -32,9 +34,6 @@
 # THIS OR ANOTHER EQUIVALENT DISCLAIMER AS WELL AS ANY OTHER LICENSE
 # TERMS THAT MAY APPLY.
 #
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
 
 declaration template components/download/schema;
 

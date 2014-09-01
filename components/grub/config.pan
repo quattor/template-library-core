@@ -14,10 +14,23 @@
 #
 
 # #
-      # grub, 14.5.0, 1, 20140606-1646
+      # grub, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141105, 20140901-1511
       #
 
 unique template components/grub/config;
 
-include { 'components/grub/config-common' };
-include { 'components/grub/config-rpm' };
+include { 'components/grub/schema' };
+
+# Package to install.
+'/software/packages' = pkg_repl('ncm-grub', '14.8.0-rc3_SNAPSHOT20140901141105', 'noarch');
+
+# Set prefix to root of component configuration.
+prefix '/software/components/grub';
+
+'version' = '14.8.0-rc3-SNAPSHOT';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' = append('spma');
+# Do not register for changes to /system/kernel/version as it is optional
+'register_change' = append('/system/kernel');
+

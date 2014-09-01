@@ -10,11 +10,11 @@
 #
 
 # #
-# Author(s): Jane SMITH, Joe DOE
+# Author(s): Luis Fernando Muñoz Mejías, Nick Williams, Loic Brarda
 #
 
 # #
-      # sudo, 14.5.0, 1, 20140606-1646
+      # sudo, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141112, 20140901-1511
       #
 
 unique template components/sudo/config;

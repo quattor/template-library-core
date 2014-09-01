@@ -14,10 +14,21 @@
 #
 
 # #
-      # named, 14.5.0, 1, 20140606-1646
+      # named, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141110, 20140901-1511
       #
 
 unique template components/named/config;
 
-include { 'components/named/config-common' };
-include { 'components/named/config-rpm' };
+include { 'components/named/schema' };
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-named", "14.8.0-rc3_SNAPSHOT20140901141110", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/named';
+
+'version' ?= '14.8.0';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= append('spma');
+ 

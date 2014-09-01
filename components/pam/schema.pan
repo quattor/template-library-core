@@ -6,18 +6,14 @@
 
 # #
 # Current developer(s):
-#   Charles LOOMIS <loomis@lal.in2p3.fr>
+#   Nathan Dimmock <nathan.dimmock@morganstanley.com>
 #
 
 # #
-# Author(s): Nick Williams
+# Author(s): Nick Williams, Nathan Dimmock
 #
 
 
-# it under the terms of the EU DataGrid Software License.  You should
-# have received a copy of the license with this program, and the license
-# is published at http://eu-datagrid.web.cern.ch/eu-datagrid/license.html.
-#
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
 # CONTRIBUTED IN CONNECTION WITH THIS PROGRAM.
 #

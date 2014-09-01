@@ -19,10 +19,10 @@ unique template components/mysql/config-rpm;
 include { 'components/mysql/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "14.5.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "14.8.0-rc3_SNAPSHOT20140901141107", "noarch");
 
  
-'/software/components/mysql/version' ?= '14.5.0';
+'/software/components/mysql/version' ?= '14.8.0';
 
 "/software/components/mysql/dependencies/pre" ?= list("spma");
 "/software/components/mysql/active" ?= true;

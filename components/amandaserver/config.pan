@@ -14,7 +14,7 @@
 #
 
 # #
-      # amandaserver, 14.5.0, 1, 20140606-1646
+      # amandaserver, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141109, 20140901-1511
       #
 
 unique template components/amandaserver/config;
