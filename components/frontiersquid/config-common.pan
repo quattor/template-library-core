@@ -14,7 +14,7 @@
 #
 
 # #
-      # frontiersquid, 14.5.0, 1, 20140606-1647
+      # frontiersquid, 14.8.0-rc2, rc2_1, 20140901-1511
       #
 
 unique template components/frontiersquid/config-common;
@@ -24,7 +24,7 @@ include { 'components/frontiersquid/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/frontiersquid';
 
-'version' = '14.5.0';
+'version' = '14.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

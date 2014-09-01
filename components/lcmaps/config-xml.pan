@@ -14,7 +14,7 @@
 #
 
 # #
-      # lcmaps, 14.5.0, 1, 20140606-1647
+      # lcmaps, 14.8.0-rc2, rc2_1, 20140901-1511
       #
 
 unique template components/lcmaps/config-xml;

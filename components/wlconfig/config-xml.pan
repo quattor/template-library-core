@@ -14,7 +14,7 @@
 #
 
 # #
-      # wlconfig, 14.5.0, 1, 20140606-1647
+      # wlconfig, 14.8.0-rc2, rc2_1, 20140901-1511
       #
 
 unique template components/wlconfig/config-xml;

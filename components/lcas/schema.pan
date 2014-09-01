@@ -14,7 +14,7 @@
 #
 
 # #
-      # lcas, 14.5.0, 1, 20140606-1647
+      # lcas, 14.8.0-rc2, rc2_1, 20140901-1511
       #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!

@@ -14,7 +14,7 @@
 #
 
 # #
-      # gip2, 14.5.0, 1, 20140606-1647
+      # gip2, 14.8.0-rc2, rc2_1, 20140901-1511
       #
 #
 
@@ -30,6 +30,11 @@ type structure_gip2_ldif = {
     'ldifFile'              : string
     'entries'               : structure_gip2_attribute{}{}
     'staticInfoArgs'        ? string
+};
+
+type structure_gip2_standardOutput = {
+    'command'               : string = '/bin/echo'
+    'arguments'             : string = '-n'
 };
 
 type gip2_component = {
@@ -52,6 +57,7 @@ type gip2_component = {
     'provider'              ? string{}
     'scripts'               ? string{}
     'stubs'                 ? structure_gip2_attribute{}{}{}
+    'standardOutput'        ? structure_gip2_standardOutput{}
     'external'              ? string[]
 };
 
