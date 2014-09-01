@@ -22,7 +22,7 @@ include {'components/fsprobe/functions'};
 
 # Package to install:
 # Package to install
-"/software/packages" = pkg_repl("ncm-fsprobe", "14.8.0-rc3_SNAPSHOT20140901141110", "noarch");
+"/software/packages" = pkg_repl("ncm-fsprobe", "14.8.0-rc4_SNAPSHOT20140901174525", "noarch");
 
  # This component should be run after ncm-accounts, if present.
 "/software/components/fsprobe/dependencies/pre" = {

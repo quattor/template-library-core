@@ -19,7 +19,7 @@ unique template components/sysconfig/config-rpm;
 include { 'components/sysconfig/schema' };
  
 # Package to install
-"/software/packages" = pkg_repl("ncm-sysconfig", "14.8.0-rc3_SNAPSHOT20140901141108", "noarch");
+"/software/packages" = pkg_repl("ncm-sysconfig", "14.8.0-rc4_SNAPSHOT20140901174523", "noarch");
 
 '/software/components/sysconfig/dependencies/pre' ?= list('spma');
 

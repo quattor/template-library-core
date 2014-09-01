@@ -14,7 +14,7 @@
 #
 
 # #
-      # interactivelimits, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141108, 20140901-1511
+      # interactivelimits, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174523, 20140901-1845
       #
 
 unique template components/interactivelimits/config;

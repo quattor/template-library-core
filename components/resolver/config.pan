@@ -14,7 +14,7 @@
 #
 
 # #
-      # resolver, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141109, 20140901-1511
+      # resolver, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174524, 20140901-1845
       #
 
 unique template components/resolver/config;

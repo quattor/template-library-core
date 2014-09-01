@@ -14,7 +14,7 @@
 #
 
 # #
-      # shorewall, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141107, 20140901-1511
+      # shorewall, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174522, 20140901-1845
       #
 
 unique template components/shorewall/config-common;
@@ -24,7 +24,7 @@ include { 'components/shorewall/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/shorewall';
 
-#'version' = '14.8.0-rc3-SNAPSHOT';
+#'version' = '14.8.0-rc4-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

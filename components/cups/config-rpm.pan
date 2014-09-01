@@ -11,7 +11,7 @@
 
 # 
 # #
-      # cups, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141112, 20140901-1511
+      # cups, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174527, 20140901-1845
       #
 
 unique template components/cups/config-rpm;
@@ -22,6 +22,6 @@ include { 'components/cups/config-common' };
 prefix '/software/components/cups';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-cups','14.8.0-rc3_SNAPSHOT20140901141112','noarch');
+'/software/packages' = pkg_repl('ncm-cups','14.8.0-rc4_SNAPSHOT20140901174527','noarch');
 'dependencies/pre' ?= list('spma');
 

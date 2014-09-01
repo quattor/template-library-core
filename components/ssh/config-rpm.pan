@@ -20,7 +20,7 @@ unique template components/ssh/config-rpm;
 include { 'components/ssh/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ssh", "14.8.0-rc3_SNAPSHOT20140901141104", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "14.8.0-rc4_SNAPSHOT20140901174519", "noarch");
 
 
 '/software/components/ssh/version' ?= '14.8.0';

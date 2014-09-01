@@ -14,7 +14,7 @@
 #
 
 # #
-      # ganglia, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141112, 20140901-1511
+      # ganglia, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174527, 20140901-1845
       #
 
 unique template components/ganglia/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/ganglia/config-common' };
 prefix '/software/components/ganglia';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-ganglia','14.8.0-rc3_SNAPSHOT20140901141112','noarch');
+'/software/packages' = pkg_repl('ncm-ganglia','14.8.0-rc4_SNAPSHOT20140901174527','noarch');
 'dependencies/pre' ?= list('spma');
 

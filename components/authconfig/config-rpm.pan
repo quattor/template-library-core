@@ -19,7 +19,7 @@ unique template components/authconfig/config-rpm;
 include { 'components/authconfig/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-authconfig", "14.8.0-rc3_SNAPSHOT20140901141108", "noarch");
+"/software/packages" = pkg_repl("ncm-authconfig", "14.8.0-rc4_SNAPSHOT20140901174524", "noarch");
 
 
 "/software/components/authconfig/dependencies/pre" ?= list("spma");

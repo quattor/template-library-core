@@ -14,7 +14,7 @@
 #
 
 # #
-      # network, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141111, 20140901-1511
+      # network, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174526, 20140901-1845
       #
 
 declaration template components/network/schema;

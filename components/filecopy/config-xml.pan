@@ -14,7 +14,7 @@
 #
 
 # #
-      # filecopy, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141105, 20140901-1511
+      # filecopy, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174520, 20140901-1845
       #
 
 unique template components/filecopy/config-xml;

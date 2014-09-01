@@ -14,7 +14,7 @@
 #
 
 # #
-      # grub, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141105, 20140901-1511
+      # grub, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174520, 20140901-1845
       #
 
 unique template components/grub/config;
@@ -22,12 +22,12 @@ unique template components/grub/config;
 include { 'components/grub/schema' };
 
 # Package to install.
-'/software/packages' = pkg_repl('ncm-grub', '14.8.0-rc3_SNAPSHOT20140901141105', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '14.8.0-rc4_SNAPSHOT20140901174520', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';
 
-'version' = '14.8.0-rc3-SNAPSHOT';
+'version' = '14.8.0-rc4-SNAPSHOT';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' = append('spma');

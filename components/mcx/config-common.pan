@@ -14,7 +14,7 @@
 #
 
 # #
-      # mcx, 14.8.0-rc3-SNAPSHOT, rc3_SNAPSHOT20140901141103, 20140901-1511
+      # mcx, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174518, 20140901-1845
       #
 
 unique template components/mcx/config-common;
@@ -24,7 +24,7 @@ include { 'components/mcx/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/mcx';
 
-#'version' = '14.8.0-rc3-SNAPSHOT';
+#'version' = '14.8.0-rc4-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
