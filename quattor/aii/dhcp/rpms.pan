@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# dhcp, 14.8.0-rc4, 20140904.1735.22
+# dhcp, 14.8.0-rc4, 20140904.1743.12
 #
 
 # Template adding aii-dhcp rpm to the configuration
