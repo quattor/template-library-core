@@ -14,7 +14,7 @@
 #
 
 # #
-      # hostsfile, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163504, 20140904-1735
+      # hostsfile, 14.8.0-rc4, rc4_1, 20140904-1742
       #
 
 unique template components/hostsfile/config;

@@ -11,7 +11,7 @@
 
 # 
 # #
-      # ipmi, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163506, 20140904-1735
+      # ipmi, 14.8.0-rc4, rc4_1, 20140904-1742
       #
 
 unique template components/ipmi/config;

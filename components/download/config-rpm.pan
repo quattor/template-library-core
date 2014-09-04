@@ -12,7 +12,7 @@
 
 # 
 # #
-      # download, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163504, 20140904-1735
+      # download, 14.8.0-rc4, rc4_1, 20140904-1742
       #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
@@ -43,6 +43,6 @@ include { "pan/functions" };
 
 # standard rpm settings
 "/software/components/download/version"  = '14.8.0';
-"/software/components/download/release"  = "rc5_SNAPSHOT20140904163504";
+"/software/components/download/release"  = "rc4_1";
 
-"/software/packages" = pkg_repl("ncm-download", "14.8.0-rc5_SNAPSHOT20140904163504", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "14.8.0-rc4_1", "noarch");

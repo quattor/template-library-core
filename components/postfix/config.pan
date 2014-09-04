@@ -11,7 +11,7 @@
 
 # 
 # #
-      # postfix, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163505, 20140904-1735
+      # postfix, 14.8.0-rc4, rc4_1, 20140904-1742
       #
 
 unique template components/postfix/config;

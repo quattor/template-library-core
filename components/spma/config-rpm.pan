@@ -21,7 +21,7 @@ unique template components/spma/config-rpm;
 prefix '/software';
 'groups' ?= nlist();
 # Package to install
-'packages' = pkg_repl("ncm-spma", "14.8.0-rc5_SNAPSHOT20140904163511", "noarch");
+'packages' = pkg_repl("ncm-spma", "14.8.0-rc4_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';

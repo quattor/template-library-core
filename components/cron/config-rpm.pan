@@ -17,7 +17,7 @@ unique template components/cron/config-rpm;
 include { 'components/cron/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-cron", "14.8.0-rc5_SNAPSHOT20140904163506", "noarch");
+"/software/packages" = pkg_repl("ncm-cron", "14.8.0-rc4_1", "noarch");
 
 '/software/components/cron/dependencies/pre' ?= list('spma');
 
