@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# pxelinux, 14.8.0-rc4, 20140904.1743.12
+# pxelinux, 14.8.0-rc4, 20140904.1839.56
 #
 template quattor/aii/pxelinux/config;
 
