@@ -14,7 +14,7 @@
 #
 
 # #
-      # icinga, 14.8.0-rc4, rc4_1, 20140904-1742
+      # icinga, 14.8.0-rc4, rc4_1, 20140904-1839
       #
 
 template components/icinga/functions;

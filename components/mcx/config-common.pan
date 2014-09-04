@@ -14,7 +14,7 @@
 #
 
 # #
-      # mcx, 14.8.0-rc4, rc4_1, 20140904-1742
+      # mcx, 14.8.0-rc4, rc4_1, 20140904-1839
       #
 
 unique template components/mcx/config-common;

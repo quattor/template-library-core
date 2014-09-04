@@ -14,7 +14,7 @@
 #
 
 # #
-      # altlogrotate, 14.8.0-rc4, rc4_1, 20140904-1742
+      # altlogrotate, 14.8.0-rc4, rc4_1, 20140904-1839
       #
 
 unique template components/altlogrotate/config;
