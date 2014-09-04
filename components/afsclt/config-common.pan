@@ -14,7 +14,7 @@
 #
 
 # #
-      # afsclt, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174525, 20140901-1845
+      # afsclt, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163510, 20140904-1735
       #
 
 unique template components/afsclt/config-common;
@@ -24,7 +24,7 @@ include { 'components/afsclt/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/afsclt';
 
-#'version' = '14.8.0-rc4-SNAPSHOT';
+#'version' = '14.8.0-rc5-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

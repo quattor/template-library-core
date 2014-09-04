@@ -25,7 +25,7 @@ include {'components/amandaserver/schema'};
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-amandaserver", "14.8.0-rc4_SNAPSHOT20140901174524", "noarch");
+"/software/packages" = pkg_repl("ncm-amandaserver", "14.8.0-rc5_SNAPSHOT20140904163509", "noarch");
 
 "/software/components/amandaserver/dependencies/pre" ?=  list ("spma");
 

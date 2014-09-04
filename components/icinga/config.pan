@@ -14,7 +14,7 @@
 #
 
 # #
-      # icinga, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174527, 20140901-1845
+      # icinga, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163511, 20140904-1735
       #
 
 unique template components/icinga/config;

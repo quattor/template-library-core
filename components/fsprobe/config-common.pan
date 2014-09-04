@@ -14,7 +14,7 @@
 #
 
 # #
-      # fsprobe, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174525, 20140901-1845
+      # fsprobe, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163510, 20140904-1735
       #
 
 unique template components/fsprobe/config-common;
@@ -24,7 +24,7 @@ include { 'components/fsprobe/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/fsprobe';
 
-#'version' = '14.8.0-rc4-SNAPSHOT';
+#'version' = '14.8.0-rc5-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -26,7 +26,7 @@ unique template components/chkconfig/config-rpm;
 include { 'components/chkconfig/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-chkconfig", "14.8.0-rc4_SNAPSHOT20140901174521", "noarch");
+"/software/packages" = pkg_repl("ncm-chkconfig", "14.8.0-rc5_SNAPSHOT20140904163506", "noarch");
 
  
 "/software/components/chkconfig/dependencies/pre" ?= list("spma");

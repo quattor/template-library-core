@@ -14,7 +14,7 @@
 #
 
 # #
-      # pnp4nagios, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174520, 20140901-1845
+      # pnp4nagios, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163505, 20140904-1735
       #
 
 unique template components/pnp4nagios/config-xml;

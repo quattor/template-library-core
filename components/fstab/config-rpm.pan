@@ -18,7 +18,7 @@ unique template components/fstab/config-rpm;
 
 include {'components/fstab/schema'};
 
-"/software/packages" = pkg_repl("ncm-fstab", "14.8.0-rc4_SNAPSHOT20140901174522", "noarch");
+"/software/packages" = pkg_repl("ncm-fstab", "14.8.0-rc5_SNAPSHOT20140904163507", "noarch");
 
 "/software/components/fstab/dependencies/pre" = list ("spma");
 "/software/components/fstab/active" ?= true;

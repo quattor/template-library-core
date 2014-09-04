@@ -14,7 +14,7 @@
 #
 
 # #
-      # useraccess, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174527, 20140901-1845
+      # useraccess, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163512, 20140904-1735
       #
 
 unique template components/useraccess/config-common;
@@ -24,7 +24,7 @@ include { 'components/useraccess/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/useraccess';
 
-#'version' = '14.8.0-rc4-SNAPSHOT';
+#'version' = '14.8.0-rc5-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # metaconfig, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174518, 20140901-1845
+      # metaconfig, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163503, 20140904-1735
       #
 
 unique template components/metaconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/metaconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/metaconfig';
 
-#'version' = '14.8.0-rc4-SNAPSHOT';
+#'version' = '14.8.0-rc5-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

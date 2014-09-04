@@ -14,7 +14,7 @@
 #
 
 # #
-      # ldconf, 14.8.0-rc4-SNAPSHOT, rc4_SNAPSHOT20140901174522, 20140901-1845
+      # ldconf, 14.8.0-rc5-SNAPSHOT, rc5_SNAPSHOT20140904163507, 20140904-1735
       #
 
 unique template components/ldconf/config-xml;
