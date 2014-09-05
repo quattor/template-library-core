@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# dhcp, 14.8.0-rc4, 20140904.1839.56
+# dhcp, 14.8.0-rc5, 20140905.1421.58
 #
 template quattor/aii/dhcp/config;
 
