@@ -11,7 +11,7 @@
 
 # 
 # #
-      # ccm, 14.8.0-rc4, rc4_1, 20140904-1839
+      # ccm, 14.8.0-rc5, rc5_1, 20140905-1421
       #
 
 unique template components/ccm/config-common;
@@ -21,7 +21,7 @@ include { 'components/ccm/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ccm';
 
-#'version' = '14.8.0-rc4';
+#'version' = '14.8.0-rc5';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
