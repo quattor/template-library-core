@@ -14,7 +14,7 @@
 #
 
 # #
-      # maui, 14.8.0-rc5, rc5_1, 20140905-1421
+      # maui, 14.8.0-rc6, rc6_1, 20140908-1633
       #
 
 unique template components/maui/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/maui/config-common' };
 prefix '/software/components/maui';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-maui','14.8.0-rc5_1','noarch');
+'/software/packages' = pkg_repl('ncm-maui','14.8.0-rc6_1','noarch');
 'dependencies/pre' ?= list('spma');
 
