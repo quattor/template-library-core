@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsknownhosts, 14.8.0-rc6, rc6_1, 20140908-1633
+      # pbsknownhosts, 14.8.0, 1, 20140908-1650
       #
 
 unique template components/pbsknownhosts/config-common;

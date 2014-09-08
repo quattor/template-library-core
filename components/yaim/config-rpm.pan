@@ -14,7 +14,7 @@
 #
 
 # #
-      # yaim, 14.8.0-rc6, rc6_1, 20140908-1633
+      # yaim, 14.8.0, 1, 20140908-1650
       #
 
 unique template components/yaim/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/yaim/config-common' };
 prefix '/software/components/yaim';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-yaim','14.8.0-rc6_1','noarch');
+'/software/packages' = pkg_repl('ncm-yaim','14.8.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 

@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsknownhosts, 14.8.0-rc6, rc6_1, 20140908-1633
+      # pbsknownhosts, 14.8.0, 1, 20140908-1650
       #
 
 unique template components/pbsknownhosts/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/pbsknownhosts/config-common' };
 prefix '/software/components/pbsknownhosts';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-pbsknownhosts','14.8.0-rc6_1','noarch');
+'/software/packages' = pkg_repl('ncm-pbsknownhosts','14.8.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 
