@@ -14,7 +14,7 @@
 #
 
 # #
-      # openvpn, 14.8.0-rc6, rc6_1, 20140908-1633
+      # openvpn, 14.8.0, 1, 20140908-1649
       #
 
 unique template components/openvpn/config;

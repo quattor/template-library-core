@@ -14,7 +14,7 @@
 #
 
 # #
-      # network, 14.8.0-rc6, rc6_1, 20140908-1633
+      # network, 14.8.0, 1, 20140908-1649
       #
 
 declaration template components/network/schema;

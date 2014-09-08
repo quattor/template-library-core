@@ -12,7 +12,7 @@
 
 # 
 # #
-      # download, 14.8.0-rc6, rc6_1, 20140908-1633
+      # download, 14.8.0, 1, 20140908-1649
       #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS

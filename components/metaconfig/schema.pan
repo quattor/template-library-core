@@ -14,7 +14,7 @@
 #
 
 # #
-      # metaconfig, 14.8.0-rc6, rc6_1, 20140908-1633
+      # metaconfig, 14.8.0, 1, 20140908-1649
       #
 
 declaration template components/metaconfig/schema;

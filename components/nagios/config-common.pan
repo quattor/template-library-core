@@ -14,7 +14,7 @@
 #
 
 # #
-      # nagios, 14.8.0-rc6, rc6_1, 20140908-1633
+      # nagios, 14.8.0, 1, 20140908-1649
       #
 
 unique template components/nagios/config-common;
@@ -24,7 +24,7 @@ include { 'components/nagios/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/nagios';
 
-#'version' = '14.8.0-rc6';
+#'version' = '14.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
