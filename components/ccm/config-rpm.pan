@@ -16,7 +16,7 @@ unique template components/ccm/config-rpm;
 include {'components/ccm/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ccm", "14.8.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ccm", "14.8.0-rc6_1", "noarch");
 
 '/software/components/ccm/dependencies/pre' ?= list('spma');
 

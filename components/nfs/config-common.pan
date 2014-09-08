@@ -14,7 +14,7 @@
 #
 
 # #
-      # nfs, 14.8.0-rc5, rc5_1, 20140905-1421
+      # nfs, 14.8.0-rc6, rc6_1, 20140908-1633
       #
 
 unique template components/nfs/config-common;
@@ -24,7 +24,7 @@ include { 'components/nfs/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/nfs';
 
-#'version' = '14.8.0-rc5';
+#'version' = '14.8.0-rc6';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-      # gmetad, 14.8.0-rc5, rc5_1, 20140905-1421
+      # gmetad, 14.8.0-rc6, rc6_1, 20140908-1633
       #
 
 unique template components/gmetad/config;
