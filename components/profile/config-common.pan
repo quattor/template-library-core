@@ -11,7 +11,7 @@
 
 # 
 # #
-      # profile, 14.8.0, 1, 20140908-1649
+      # profile, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 unique template components/profile/config-common;
@@ -21,7 +21,7 @@ include { 'components/profile/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/profile';
 
-#'version' = '14.8.0';
+#'version' = '14.10.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

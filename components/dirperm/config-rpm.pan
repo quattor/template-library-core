@@ -19,9 +19,9 @@ unique template components/dirperm/config-rpm;
 include { "components/dirperm/schema" };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "14.8.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "14.10.0-rc1_1", "noarch");
 
 '/software/components/dirperm/dependencies/pre' ?= list('spma');
 
-'/software/components/dirperm/version' = '14.8.0';
+'/software/components/dirperm/version' = '14.10.0';
  

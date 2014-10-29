@@ -14,10 +14,20 @@
 #
 
 # #
-      # mysql, 14.8.0, 1, 20140908-1649
+      # mysql, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 unique template components/mysql/config;
 
-include { 'components/mysql/config-common' };
-include { 'components/mysql/config-rpm' };
+include { 'components/mysql/schema' };
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-mysql", "14.10.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/mysql';
+
+'active' ?= true;
+'dispatch' ?= true;
+'version' = '14.10.0';
+

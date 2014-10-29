@@ -14,7 +14,7 @@
 #
 
 # #
-      # fstab, 14.8.0, 1, 20140908-1649
+      # fstab, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 unique template components/fstab/config;

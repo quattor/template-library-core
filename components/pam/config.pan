@@ -14,7 +14,7 @@
 #
 
 # #
-      # pam, 14.8.0, 1, 20140908-1649
+      # pam, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 ##########################################################################
@@ -26,7 +26,7 @@ unique template components/pam/config;
 include {'components/pam/schema'};
 
 # standard component settings
-"/software/components/pam/version"    = '14.8.0';
+"/software/components/pam/version"    = '14.10.0';
 "/software/components/pam/active"    ?=  true;
 "/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";

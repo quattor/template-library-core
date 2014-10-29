@@ -14,7 +14,7 @@
 #
 
 # #
-      # hostsfile, 14.8.0, 1, 20140908-1649
+      # hostsfile, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 unique template components/hostsfile/config-common;
@@ -24,7 +24,7 @@ include { 'components/hostsfile/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/hostsfile';
 
-#'version' = '14.8.0';
+#'version' = '14.10.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

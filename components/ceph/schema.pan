@@ -11,7 +11,7 @@
 
 # 
 # #
-      # ceph, 14.8.0, 1, 20140908-1649
+      # ceph, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 declaration template components/ceph/schema;
@@ -165,9 +165,16 @@ function is_bucket = {
     true;
 };
 
+@{ ceph daemon config parameters @}
+type ceph_daemon_config = { 
+    'osd_journal_size'  ? long(0..) 
+    'osd_objectstore'   ? string
+};
+
 @{ type for a generic ceph daemon @}
 type ceph_daemon = {
     'up'    : boolean = true
+    'config'? ceph_daemon_config
 };
 
 @{ ceph monitor-specific type @}

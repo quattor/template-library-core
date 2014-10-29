@@ -14,7 +14,7 @@
 #
 
 # #
-      # syslogng, 14.8.0, 1, 20140908-1649
+      # syslogng, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 
 unique template components/syslogng/config-common;
@@ -24,7 +24,7 @@ include { 'components/syslogng/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/syslogng';
 
-#'version' = '14.8.0';
+#'version' = '14.10.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
