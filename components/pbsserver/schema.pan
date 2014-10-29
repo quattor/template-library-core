@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsserver, 14.8.0, 1, 20140908-1650
+      # pbsserver, 14.10.0-rc1, rc1_1, 20141029-1800
       #
 #
 
@@ -137,6 +137,8 @@ type pbs_server_attlist = {
     'checkpoint_dir'    ? string
 
     'moab_array_compatible' ? boolean
+    
+    'authorized_users'	  ? string
 };
 
 type pbs_server = {
