@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 14.8.0, 20140908.1650.17
+      # ks, 14.10.0-rc1, 20141029.1800.55
       #
 
 # Template containing the Kickstart-related configuration and default
