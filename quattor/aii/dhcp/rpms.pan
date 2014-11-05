@@ -7,11 +7,11 @@
 # ${developer-info
 # ${author-info}
 # #
-# dhcp, 14.10.0-rc1, 20141029.1800.55
+# dhcp, 14.10.0-rc2, 20141105.1011.26
 #
 
 # Template adding aii-dhcp rpm to the configuration
 
 unique template quattor/aii/dhcp/rpms;
 
-"/software/packages"=pkg_repl("aii-dhcp","14.10.0-rc1_1","noarch");
+"/software/packages"=pkg_repl("aii-dhcp","14.10.0-rc2_1","noarch");
