@@ -14,7 +14,7 @@
 #
 
 # #
-      # glitestartup, 14.10.0-rc1, rc1_1, 20141029-1800
+      # glitestartup, 14.10.0-rc2, rc2_1, 20141105-1011
       #
 
 unique template components/glitestartup/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/glitestartup/config-common' };
 prefix '/software/components/glitestartup';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-glitestartup','14.10.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-glitestartup','14.10.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 

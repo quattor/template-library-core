@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsserver, 14.10.0-rc1, rc1_1, 20141029-1800
+      # pbsserver, 14.10.0-rc2, rc2_1, 20141105-1011
       #
 
 unique template components/pbsserver/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/pbsserver/config-common' };
 prefix '/software/components/pbsserver';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-pbsserver','14.10.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-pbsserver','14.10.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 

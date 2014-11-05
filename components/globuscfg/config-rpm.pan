@@ -14,7 +14,7 @@
 #
 
 # #
-      # globuscfg, 14.10.0-rc1, rc1_1, 20141029-1800
+      # globuscfg, 14.10.0-rc2, rc2_1, 20141105-1011
       #
 
 unique template components/globuscfg/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/globuscfg/config-common' };
 prefix '/software/components/globuscfg';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-globuscfg','14.10.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-globuscfg','14.10.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 
