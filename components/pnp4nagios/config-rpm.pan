@@ -25,7 +25,7 @@ include {'components/pnp4nagios/schema'};
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-pnp4nagios", "14.10.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pnp4nagios", "14.10.0-rc2_1", "noarch");
 
 "/software/components/pnp4nagios/dependencies/pre" ?=  if (exists("/software/components/icinga")) {
 		list ("icinga");

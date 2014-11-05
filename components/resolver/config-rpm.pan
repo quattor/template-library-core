@@ -52,5 +52,5 @@ include { 'pan/functions' };
 "/software/components/resolver/version" = '14.10.0';
 #"/software/components/resolver/release" = "2";
 
-"/software/packages" = pkg_repl("ncm-resolver", "14.10.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-resolver", "14.10.0-rc2_1", "noarch");
 

@@ -14,7 +14,7 @@
 #
 
 # #
-      # metaconfig, 14.10.0-rc1, rc1_1, 20141029-1800
+      # metaconfig, 14.10.0-rc2, rc2_1, 20141105-1011
       #
 
 declaration template components/metaconfig/schema;
@@ -23,11 +23,14 @@ include { 'quattor/schema' };
 
 type metaconfig_extension = extensible {};
 
+type caf_service_action = string with match(SELF, '^(restart|reload|stop_sleep_start)$');
+
 type metaconfig_config =  {
      'mode' : long = 0644
      'owner' : string = 'root'
      'group' : string = 'root'
      'daemon' ? string[]
+     'daemons' ? caf_service_action{}
      'module' : string
      'backup' ? string
      'preamble' ? string

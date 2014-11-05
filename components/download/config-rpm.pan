@@ -12,7 +12,7 @@
 
 # 
 # #
-      # download, 14.10.0-rc1, rc1_1, 20141029-1800
+      # download, 14.10.0-rc2, rc2_1, 20141105-1011
       #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
@@ -43,6 +43,6 @@ include { "pan/functions" };
 
 # standard rpm settings
 "/software/components/download/version"  = '14.10.0';
-"/software/components/download/release"  = "rc1_1";
+"/software/components/download/release"  = "rc2_1";
 
-"/software/packages" = pkg_repl("ncm-download", "14.10.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "14.10.0-rc2_1", "noarch");

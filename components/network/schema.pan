@@ -14,7 +14,7 @@
 #
 
 # #
-      # network, 14.10.0-rc1, rc1_1, 20141029-1800
+      # network, 14.10.0-rc2, rc2_1, 20141105-1011
       #
 
 declaration template components/network/schema;
