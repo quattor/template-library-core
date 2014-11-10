@@ -14,7 +14,7 @@
 #
 
 # #
-      # altlogrotate, 14.10.0-rc2, rc2_1, 20141105-1011
+      # altlogrotate, 14.10.0-rc3, rc3_1, 20141110-1446
       #
 
 unique template components/altlogrotate/config-common;
@@ -24,7 +24,7 @@ include { 'components/altlogrotate/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/altlogrotate';
 
-#'version' = '14.10.0-rc2';
+#'version' = '14.10.0-rc3';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
