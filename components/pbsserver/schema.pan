@@ -14,7 +14,7 @@
 #
 
 # #
-      # pbsserver, 14.10.0-rc2, rc2_1, 20141105-1011
+      # pbsserver, 14.10.0-rc3, rc3_1, 20141110-1446
       #
 #
 
@@ -99,6 +99,8 @@ type pbs_server_attlist = {
     'mom_job_sync'        ? boolean = true
     
     'next_job_number'     ? long(0..)
+
+    'no_mail_force'       ? boolean
 
     'node_check_rate'     ? long(10..) = 600
     'node_pack'           ? boolean
@@ -209,6 +211,7 @@ type pbs_queue_attlist = {
     'resources_min.pmem'     ? string
     'resources_min.pvmem'    ? string
     'resources_min.vmem'     ? string
+    'resources_min.walltime' ? string
     
     'started'                ? boolean
 

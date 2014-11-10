@@ -14,7 +14,7 @@
 #
 
 # #
-      # dpmlfc, 14.10.0-rc2, rc2_1, 20141105-1011
+      # dpmlfc, 14.10.0-rc3, rc3_1, 20141110-1446
       #
 
 unique template components/dpmlfc/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/dpmlfc/config-common' };
 prefix '/software/components/dpmlfc';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dpmlfc','14.10.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-dpmlfc','14.10.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 
