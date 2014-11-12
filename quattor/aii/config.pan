@@ -8,7 +8,7 @@
 # ${developer-info
 # ${author-info}
 # #
-      # server, 14.10.0-rc3, 20141110-1446
+      # server, 14.10.0-rc4, 20141112-1119
       #
 #
 # This file is the standard aii configuration. It only performs some
