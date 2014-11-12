@@ -11,7 +11,7 @@
 
 # 
 # #
-      # ipmi, 14.10.0-rc3, rc3_1, 20141110-1446
+      # ipmi, 14.10.0-rc4, rc4_1, 20141112-1118
       #
 
 unique template components/ipmi/config-common;
@@ -21,7 +21,7 @@ include { 'components/ipmi/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ipmi';
 
-#'version' = '14.10.0-rc3';
+#'version' = '14.10.0-rc4';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
