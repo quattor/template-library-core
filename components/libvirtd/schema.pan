@@ -11,7 +11,7 @@
 
 # 
 # #
-      # libvirtd, 14.10.0-rc4, rc4_1, 20141112-1118
+      # libvirtd, 14.10.0, 1, 20141114-1519
       #
 
 declaration template components/libvirtd/schema;

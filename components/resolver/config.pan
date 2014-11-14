@@ -14,7 +14,7 @@
 #
 
 # #
-      # resolver, 14.10.0-rc4, rc4_1, 20141112-1118
+      # resolver, 14.10.0, 1, 20141114-1519
       #
 
 unique template components/resolver/config;
