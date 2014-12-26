@@ -3,11 +3,11 @@ declaration template quattor/types/hardware;
 include { 'pan/types' };
 include { 'quattor/functions/hardware' };
 
-#######################################################################
-# structure_annotation
-#
-# optional hardware specific information
-#######################################################################
+@{
+    structure_annotation
+
+    optional hardware specific information
+}
 type structure_annotation = {
    "name"         ? string # "product name"
    "type"         ? string # "product type"
@@ -23,38 +23,33 @@ type structure_annotation = {
    "lang"         ? string # "language of the product"
    "power"        ? long   # "power in watts"
    "location"     ? string # "location of the hardware"
-   # ...
-   # please do add your stuff here and enhance it by whatever you need!
 };
 
 
-############################################################
-# structure_ram
-############################################################
+@{
+    structure_ram
+}
 type structure_ram = {
     include structure_annotation
-#     "name" : string
     "size" : long # "Size of module in MB"
-    # usually given in N*MB or N*GB or (possibly) N*TB as defined in pan/units
     "data_rate" ? string
 };
 
 
-############################################################
-# structure_cpu
-############################################################
+@{
+structure_cpu
+}
 type structure_cpu = {
     include structure_annotation
     "speed"  : long # "CPU clock speed in MHz"
     # Number of cores on each CPU chip, defaults to 1.
     "cores" : long(1..) = 1
-    # usually given in N * MHz or N * GHz as defined in pan/units
 };
 
 
-############################################################
-# structure_nic
-############################################################
+@{
+    structure_nic
+}
 type structure_nic = {
     include structure_annotation
     "hwaddr"       : type_hwaddr
@@ -68,35 +63,34 @@ type structure_nic = {
     "role"         ? string = ''
 };
 
-############################################################
-# Rack definition
-############################################################
+@{
+    Rack definition
+}
 type structure_rack = {
   "name" : string
 };
 
-############################################################
-# Fiber channel data types
-############################################################
+@{
+    Fiber channel data types
+}
 type fcahwaddr = string with is_a_fcahwaddr (SELF);
 type structure_fca = { 
     include structure_annotation 
     "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name" 
     "active" ? boolean # "Is this port being used" 
 };
-############################################################
-# BMC controller
-############################################################
+
+@{
+    BMC controller
+}
 type structure_bmc = { 
     include structure_annotation 
     "hwaddr" ? type_hwaddr 
 };
 
-############################################################
-# structure_cards
-############################################################
-# New structure_cards, merging CERN's development for other hardware,
-# not just NIC.
+@{
+    structure_cards
+}
 type structure_cards = {
     # Indexed by device name (eth0, venet0...)
     "nic" : structure_nic{}
@@ -116,9 +110,9 @@ type structure_cards = {
     "bmc" ? structure_bmc[]
 } with is_valid_card_ports (SELF);
 
-############################################################
-# structure_serial_console
-############################################################
+@{
+    structure_serial_console
+}
 type structure_serial_console = {
     include structure_annotation
     "parity" ? string with match(SELF, "^(n|p)$")
@@ -127,44 +121,53 @@ type structure_serial_console = {
     "word"   ? long(7..8)
 };
 
-############################################################
-# structure_telnet_console
-############################################################
+@{
+    structure_telnet_console
+}
 type structure_telnet_console = {
     "port" : long = 23
     "fqdn" : string
 };
-############################################################
-# structure_ipmi_console
-############################################################
+
+@{
+    structure_generic_network_console
+}
+type structure_generic_network_console = {
+    "fqdn"      ? string
+    "hwaddr"    : type_hwaddr
+};
+
+@{
+    structure_ipmi_console
+}
 type structure_ipmi_console = {
-    "fqdn"      ? string
-    "hwaddr"    : type_hwaddr
+    include structure_generic_network_console
 };
-############################################################
-# structure_ssh_console
-############################################################
+
+@{
+    structure_ssh_console
+}
 type structure_ssh_console = {
-    "fqdn"      ? string
-    "hwaddr"    : type_hwaddr
+    include structure_generic_network_console
 };
-############################################################
-# structure_bmc_console
-############################################################
+
+@{
+    structure_bmc_console
+}
 type structure_bmc_console = {
-    "fqdn"      ? string
-    "hwaddr"    : type_hwaddr
+    include structure_generic_network_console
 };
-############################################################
-# structure_dpc_console
-############################################################
+
+@{
+    structure_dpc_console
+}
 type structure_dpc_console = {
-    "fqdn"      ? string
-    "hwaddr"    : type_hwaddr
+    include structure_generic_network_console
 };
-############################################################
-# structure_console
-############################################################
+
+@{
+    structure_console
+}
 type structure_console = extensible {
     "serial" ? structure_serial_console
     "telnet" ? structure_telnet_console
@@ -175,42 +178,43 @@ type structure_console = extensible {
     "preferred" : string[]
 };
 
-############################################################
-# structure_hardware
-############################################################
+@{
+    structure_hardware
+}
 type structure_hardware = {
     include structure_annotation
     "cpu"          ? structure_cpu[]
     "ram"          ? structure_ram[]
     "cards"        ? structure_cards
     "rack"     ? structure_rack
+    "console"      ? structure_console
+
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"    ? structure_raidport{}
-    "console"      ? structure_console
 };
 
-
-############################################################
-# structure_enclosure
-#
-# describe a "box" as a collection of several nodes. We distinguish
-# 3 types of enclosures:
-#   blade       -> physical boxes with intelligence, such as, NIC, disk, etc
-#   dump        -> physical boxes with no intelligence (just power unit)
-#   hypervisor  -> virtual machines
-# Each enclosure describes a parent-child relation, where "children" lists
-# profile names which must exist. Warning! If you have a node called 'foo',
-# use 'foo' as a profile name, *not* 'profile_foo' which raises a validation
-# error; however, to allow a smooth transition, each name will be transparently
-# matched against 'foo' and 'profile_foo', which are considered to be the same.
-# The optional "maxchildren", if set, is used for validating the children
-# list's size when defined: it must satisfy
-#   "maxchildren" >= length("children")
-# this allow to describe an empty enclosure by defining *only*
-#   "/system/enclosure/type" = "...";
-#   "/system/enclosure/maxchildren" = 0;
-############################################################
-final variable ENC_TYPES = 'blade|dumb|hypervisor';
+@{
+    structure_enclosure
+    
+    describe a "box" as a collection of several nodes. We distinguish
+    3 types of enclosures:
+      blade       -> physical boxes with intelligence, such as, NIC, disk, etc
+      dump        -> physical boxes with no intelligence (just power unit)
+      hypervisor  -> virtual machines
+    Each enclosure describes a parent-child relation, where "children" lists
+    profile names which must exist. Warning! If you have a node called 'foo',
+    use 'foo' as a profile name, *not* 'profile_foo' which raises a validation
+    error; however, to allow a smooth transition, each name will be transparently
+    matched against 'foo' and 'profile_foo', which are considered to be the same.
+    The optional "maxchildren", if set, is used for validating the children
+    list's size when defined: it must satisfy
+      "maxchildren" >= length("children")
+    this allow to describe an empty enclosure by defining *only*
+      "/system/enclosure/type" = "...";
+      "/system/enclosure/maxchildren" = 0;
+}
+# TODO is it ok to define variables in declartaion templates?
+final variable ENC_TYPES = '^(blade|dumb|hypervisor)$';
 type structure_enclosure = {
     "type"          : string with match(SELF, ENC_TYPES)
                         || error("enclosure type must be one of: "+ENC_TYPES)
