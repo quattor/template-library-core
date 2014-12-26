@@ -1,11 +1,12 @@
 declaration template quattor/types/grid;
 
+include { 'pan/types' };
 
-############################################################
-# structure_edg*
-#
-# type definition for EDG (legacy support for DataGrid)
-############################################################
+@{
+    structure_edg*
+
+    type definition for EDG (legacy support for DataGrid)
+}
 type structure_edg_config = {
     "EDG_LOCATION"              ? string
     "EDG_LOCATION_VAR"          ? string
@@ -25,11 +26,11 @@ type structure_edg = {
 };
 
 
-############################################################
-# structure_glite*
-#
-# type definition for gLite
-############################################################
+@{
+    structure_glite*
+
+    type definition for gLite
+}
 type structure_glite_config = {
     "GLITE_LOCATION"      : string = '/opt/glite'
     "GLITE_LOCATION_VAR"  : string = '/var/glite'
@@ -45,11 +46,11 @@ type structure_glite = {
 };
 
 
-############################################################
-# structure_lcg*
-#
-# type definition for LCG
-############################################################
+@{
+    structure_lcg*
+
+    type definition for LCG
+}
 type structure_lcg_config = {
     "LCG_LOCATION"      ? string
     "LCG_LOCATION_VAR"  ? string
@@ -61,9 +62,9 @@ type structure_lcg = {
 };
 
 
-############################################################
-# structure_vo_*
-############################################################
+@{
+    structure_vo_*
+}
 type structure_vo_auth = {
     "uri"   : type_hostURI
     "user"  : string
