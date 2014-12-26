@@ -1,6 +1,9 @@
+@{
+    AII types
+}
+
 declaration template quattor/types/aii;
 
-# AII definitions
 
 type structure_aii_module = extensible {
     "dummy" ? string
