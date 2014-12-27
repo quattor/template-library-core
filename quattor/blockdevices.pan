@@ -4,7 +4,7 @@
 
 declaration template quattor/blockdevices;
 
-include { 'quattor/physdevices' };
+include 'quattor/physdevices';
 
 type blockdev_string = string with exists ("/system/blockdevices/" + SELF)
     || error (SELF + " must be a path relative to /system/blockdevices");

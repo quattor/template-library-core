@@ -1,6 +1,6 @@
 declaration template quattor/types/grid;
 
-include { 'pan/types' };
+include 'pan/types';
 
 @{
     structure_edg*

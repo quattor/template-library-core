@@ -1,9 +1,9 @@
 declaration template quattor/schema;
 
-include { 'pan/types' };
-include { 'quattor/functions/validation' };
+include 'pan/types';
+include 'quattor/functions/validation';
 
-include { 'quattor/types/component' };
+include 'quattor/types/component';
 
 @{
     generic definition of the software tree. This is made more specific if the
@@ -17,8 +17,8 @@ type structure_software = {
 };
 
 
-include { 'quattor/types/hardware' };
-include { 'quattor/types/system' };
+include 'quattor/types/hardware';
+include 'quattor/types/system';
 
 @{
     The profile structure (i.e. the type of '/')

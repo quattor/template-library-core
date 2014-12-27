@@ -29,16 +29,16 @@ type structure_oldname = {
 };
 
 # network schema defined within component area
-include { 'components/network/core-schema' };
+include 'components/network/core-schema';
 
 # TODO: monitoring to be defined
-include { 'monitoring/lemon/schema' };
+include 'monitoring/lemon/schema';
 
-include { 'quattor/blockdevices' };
-include { 'quattor/filesystems' };
-include { 'quattor/types/aii' };
-include { 'quattor/types/grid' };
-include { 'quattor/types/hardware' };
+include 'quattor/blockdevices';
+include 'quattor/filesystems';
+include 'quattor/types/aii';
+include 'quattor/types/grid';
+include 'quattor/types/hardware';
 
 type structure_system = {
     "aii"           ? structure_aii

@@ -1,9 +1,9 @@
 declaration template quattor/types/hardware;
 
-include { 'pan/types' };
-include { 'quattor/functions/hardware' };
-include { 'quattor/types/annotation' };
-include { 'quattor/physdevices' };
+include 'pan/types';
+include 'quattor/functions/hardware';
+include 'quattor/types/annotation';
+include 'quattor/physdevices';
 
 @{
     structure_ram

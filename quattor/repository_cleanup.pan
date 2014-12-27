@@ -3,5 +3,5 @@
 }
 unique template quattor/repository_cleanup;
 
-include { 'components/spma/repository_cleanup' };
+include 'components/spma/repository_cleanup';
 

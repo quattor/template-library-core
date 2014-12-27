@@ -6,7 +6,7 @@
 }
 declaration template quattor/physdevices;
 
-include { 'quattor/types/annotation' };
+include 'quattor/types/annotation';
 
 type structure_raidport = {
     include structure_annotation

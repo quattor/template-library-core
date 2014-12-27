@@ -1,6 +1,6 @@
 declaration template quattor/types/component;
 
-include { 'quattor/functions/validation' };
+include 'quattor/functions/validation';
 
 type structure_component_dependency = {
     "pre"       ? string[] with is_component_list(SELF)
