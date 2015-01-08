@@ -14,8 +14,8 @@
 #
 
 # #
-      # metaconfig, 14.10.0, 1, 20141114-1519
-      #
+# metaconfig, 14.12.0-rc2, rc2_1, 20150108-1511
+#
 
 unique template components/metaconfig/config-rpm;
 
@@ -25,7 +25,7 @@ include { 'components/metaconfig/config-common' };
 prefix '/software/components/metaconfig';
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-metaconfig", "14.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-metaconfig", "14.12.0-rc2_1", "noarch");
 
 'dependencies/pre' ?= list('spma');
 

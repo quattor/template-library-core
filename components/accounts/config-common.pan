@@ -11,8 +11,8 @@
 
 # 
 # #
-      # accounts, 14.10.0, 1, 20141114-1519
-      #
+# accounts, 14.12.0-rc2, rc2_1, 20150108-1511
+#
 
 unique template components/accounts/config-common;
 
@@ -21,7 +21,7 @@ include { 'components/accounts/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/accounts';
 
-#'version' = '14.10.0';
+#'version' = '14.12.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

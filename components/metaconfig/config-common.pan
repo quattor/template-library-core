@@ -14,8 +14,8 @@
 #
 
 # #
-      # metaconfig, 14.10.0, 1, 20141114-1519
-      #
+# metaconfig, 14.12.0-rc2, rc2_1, 20150108-1511
+#
 
 unique template components/metaconfig/config-common;
 
@@ -24,7 +24,7 @@ include { 'components/metaconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/metaconfig';
 
-#'version' = '14.10.0';
+#'version' = '14.12.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
