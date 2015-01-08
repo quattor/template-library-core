@@ -14,7 +14,7 @@
 #
 
 # #
-      # yaim_usersconf, 14.10.0, 1, 20141114-1519
+      # yaim_usersconf, 14.12.0-rc2, rc2_1, 20150108-1513
       #
 
 unique template components/yaim_usersconf/config-common;
@@ -24,7 +24,7 @@ include { 'components/yaim_usersconf/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/yaim_usersconf';
 
-'version' = '14.10.0';
+'version' = '14.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

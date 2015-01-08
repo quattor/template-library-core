@@ -14,7 +14,7 @@
 #
 
 # #
-      # yaim, 14.10.0, 1, 20141114-1519
+      # yaim, 14.12.0-rc2, rc2_1, 20150108-1513
       #
 
 unique template components/yaim/config-xml;

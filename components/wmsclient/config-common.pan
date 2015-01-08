@@ -14,7 +14,7 @@
 #
 
 # #
-      # wmsclient, 14.10.0, 1, 20141114-1519
+      # wmsclient, 14.12.0-rc2, rc2_1, 20150108-1513
       #
 
 unique template components/wmsclient/config-common;
@@ -24,7 +24,7 @@ include { 'components/wmsclient/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/wmsclient';
 
-'version' = '14.10.0';
+'version' = '14.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

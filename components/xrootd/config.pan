@@ -14,7 +14,7 @@
 #
 
 # #
-      # xrootd, 14.10.0, 1, 20141114-1519
+      # xrootd, 14.12.0-rc2, rc2_1, 20150108-1513
       #
 
 unique template components/xrootd/config;
@@ -24,12 +24,12 @@ include { 'components/xrootd/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/xrootd';
 
-'version' = '14.10.0';
+'version' = '14.12.0';
 #'package' = 'NCM::Component';
 'active' ?= true;
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-xrootd','14.10.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-xrootd','14.12.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 
