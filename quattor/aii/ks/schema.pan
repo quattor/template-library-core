@@ -7,8 +7,8 @@
 # ${developer-info
 # ${author-info}
 # #
-      # ks, 14.10.0, 20141114.1520.03
-      #
+# ks, 14.12.0-rc2, rc2_1, 20150108-1508
+#
 # Structure for the component generating kickstart files.
 
 unique template quattor/aii/ks/schema;

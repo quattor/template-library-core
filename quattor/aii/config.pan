@@ -8,8 +8,8 @@
 # ${developer-info
 # ${author-info}
 # #
-      # server, 14.10.0, 20141114-1520
-      #
+# server, 14.12.0-rc2, rc2_1, 20150108-1508
+#
 #
 # This file is the standard aii configuration. It only performs some
 # validations, combines information that is already available, and 
