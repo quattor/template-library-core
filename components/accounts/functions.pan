@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 14.12.0-rc2, rc2_1, 20150108-1511
+# accounts, 14.12.0-rc3, rc3_1, 20150112-1043
 #
 
 declaration template components/accounts/functions;
