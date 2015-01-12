@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# ks, 14.12.0-rc2, rc2_1, 20150108-1508
+# ks, 14.12.0-rc3, rc3_1, 20150112-1044
 #
 
 # Template containing OS configuration and default values.
