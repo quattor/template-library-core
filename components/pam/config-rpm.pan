@@ -39,5 +39,5 @@
 
 unique template components/pam/config-rpm;
 
-"/software/packages" = pkg_repl("ncm-pam", "14.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "14.12.0-rc4_1", "noarch");
 

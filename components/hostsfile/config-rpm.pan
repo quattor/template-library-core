@@ -19,6 +19,6 @@ include { 'components/hostsfile/schema' };
 "/software/components/hostsfile/dispatch" ?= false;
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-hostsfile", "14.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-hostsfile", "14.12.0-rc4_1", "noarch");
 
 '/software/components/hostsfile/version' = '14.12.0';

@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 14.12.0-rc3, rc3_1, 20150112-1043
+# modprobe, 14.12.0-rc4, rc4_1, 20150112-1343
 #
 
 unique template components/modprobe/config;
