@@ -3,5 +3,5 @@
 
 unique template quattor/client/pan_compiler;
 
-'/software/packages' = pkg_repl('panc','9.3-1','noarch');
+'/software/packages' = pkg_repl('panc','10.2-1','noarch');
 
