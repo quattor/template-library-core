@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# pxelinux, 14.12.0-rc1, rc1_1, 20150305-1034
+# pxelinux, 15.2.0-rc3, rc3_1, 20150305-2151
 #
 template quattor/aii/pxelinux/config;
 
