@@ -14,8 +14,8 @@
 #
 
 # #
-      # mkgridmap, 14.12.0-rc1, rc1_1, 20150305-1034
-      #
+# mkgridmap, 15.2.0-rc3, rc3_1, 20150305-2219
+#
 #
 
 declaration template components/mkgridmap/schema;

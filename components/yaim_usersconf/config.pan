@@ -14,8 +14,8 @@
 #
 
 # #
-      # yaim_usersconf, 14.12.0-rc1, rc1_1, 20150305-1034
-      #
+# yaim_usersconf, 15.2.0-rc3, rc3_1, 20150305-2219
+#
 
 unique template components/yaim_usersconf/config;
 
