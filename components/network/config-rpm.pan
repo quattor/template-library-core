@@ -14,7 +14,7 @@
 #
 
 # #
-# network, 14.10.1-SNAPSHOT, SNAPSHOT20150305103437, 20150305-1034
+# network, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/network/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/network/config-common' };
 prefix '/software/components/network';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-network','14.10.1-SNAPSHOT20150305103437','noarch');
+'/software/packages' = pkg_repl('ncm-network','15.2.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 

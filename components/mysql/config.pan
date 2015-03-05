@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 14.10.1-SNAPSHOT, SNAPSHOT20150305103432, 20150305-1034
+# mysql, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/mysql/config;
@@ -19,13 +19,13 @@ unique template components/mysql/config;
 include { 'components/mysql/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "14.10.1-SNAPSHOT20150305103432", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "15.2.0-rc3_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';
 
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '14.10.1';
+'version' = '15.2.0';
 'dependencies/pre' ?= append('spma');
 

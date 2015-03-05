@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 14.10.1-SNAPSHOT, SNAPSHOT20150305103429, 20150305-1034
+# download, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
@@ -42,7 +42,7 @@ include { "components/download/schema" };
 include { "pan/functions" };
 
 # standard rpm settings
-"/software/components/download/version"  = '14.10.1';
-"/software/components/download/release"  = "SNAPSHOT20150305103429";
+"/software/components/download/version"  = '15.2.0';
+"/software/components/download/release"  = "rc3_1";
 
-"/software/packages" = pkg_repl("ncm-download", "14.10.1-SNAPSHOT20150305103429", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "15.2.0-rc3_1", "noarch");

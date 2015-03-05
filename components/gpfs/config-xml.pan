@@ -11,7 +11,7 @@
 
 # 
 # #
-# gpfs, 14.10.1-SNAPSHOT, SNAPSHOT20150305103434, 20150305-1034
+# gpfs, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/gpfs/config-xml;

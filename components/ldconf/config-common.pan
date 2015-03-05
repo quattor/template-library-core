@@ -11,7 +11,7 @@
 
 # 
 # #
-# ldconf, 14.10.1-SNAPSHOT, SNAPSHOT20150305103432, 20150305-1034
+# ldconf, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/ldconf/config-common;
@@ -21,7 +21,7 @@ include { 'components/ldconf/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ldconf';
 
-#'version' = '14.10.1-SNAPSHOT';
+#'version' = '15.2.0-rc3';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

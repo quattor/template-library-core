@@ -11,7 +11,7 @@
 
 # 
 # #
-# openvpn, 14.10.1-SNAPSHOT, SNAPSHOT20150305103437, 20150305-1034
+# openvpn, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/openvpn/config-xml;

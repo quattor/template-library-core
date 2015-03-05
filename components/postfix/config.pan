@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 14.10.1-SNAPSHOT, SNAPSHOT20150305103430, 20150305-1034
+# postfix, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/postfix/config;

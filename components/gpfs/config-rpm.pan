@@ -16,10 +16,10 @@ unique template components/gpfs/config-rpm;
 include { 'components/gpfs/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-gpfs", "14.10.1-SNAPSHOT20150305103434", "noarch");
+"/software/packages" = pkg_repl("ncm-gpfs", "15.2.0-rc3_1", "noarch");
 
 
-'/software/components/gpfs/version' ?= '14.10.1';
+'/software/components/gpfs/version' ?= '15.2.0';
 
 "/software/components/gpfs/dependencies/pre" ?= list("spma");
 "/software/components/gpfs/active" ?= true;

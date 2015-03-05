@@ -14,7 +14,7 @@
 #
 
 # #
-# openldap, 14.10.1-SNAPSHOT, SNAPSHOT20150305103433, 20150305-1034
+# openldap, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/openldap/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/openldap/config-common' };
 prefix '/software/components/openldap';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-openldap','14.10.1-SNAPSHOT20150305103433','noarch');
+'/software/packages' = pkg_repl('ncm-openldap','15.2.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 

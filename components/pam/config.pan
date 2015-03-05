@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 14.10.1-SNAPSHOT, SNAPSHOT20150305103436, 20150305-1034
+# pam, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 ##########################################################################
@@ -26,7 +26,7 @@ unique template components/pam/config;
 include {'components/pam/schema'};
 
 # standard component settings
-"/software/components/pam/version"    = '14.10.1';
+"/software/components/pam/version"    = '15.2.0';
 "/software/components/pam/active"    ?=  true;
 "/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";

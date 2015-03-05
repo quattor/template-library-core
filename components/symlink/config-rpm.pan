@@ -24,7 +24,7 @@ unique template components/symlink/config-rpm;
 include { 'components/symlink/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-symlink", "14.10.1-SNAPSHOT20150305103434", "noarch");
+"/software/packages" = pkg_repl("ncm-symlink", "15.2.0-rc3_1", "noarch");
 
  
 "/software/components/symlink/dependencies/pre" ?= list("spma");

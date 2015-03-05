@@ -18,11 +18,11 @@ include { 'components/accounts/functions' };
 include { 'components/accounts/config-common'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-accounts", "14.10.1-SNAPSHOT20150305103427", "noarch");
+"/software/packages" = pkg_repl("ncm-accounts", "15.2.0-rc3_1", "noarch");
 
 '/software/components/accounts/dependencies/pre' ?= list('spma');
 
-'/software/components/accounts/version' = '14.10.1';
+'/software/components/accounts/version' = '15.2.0';
 
 # Include system users and groups which shouldn't be removed
 # by default.  The machine configuration can still modify or

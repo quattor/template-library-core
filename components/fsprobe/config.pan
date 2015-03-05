@@ -11,7 +11,7 @@
 
 # 
 # #
-# fsprobe, 14.10.1-SNAPSHOT, SNAPSHOT20150305103436, 20150305-1034
+# fsprobe, 15.2.0-rc3, rc3_1, 20150305-2157
 #
 
 unique template components/fsprobe/config;
