@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 14.12.0-rc4, rc4_1, 20150112-1343
+# spma, 14.10.1-SNAPSHOT, SNAPSHOT20150305103438, 20150305-1034
 #
 
 unique template components/spma/config-ips;

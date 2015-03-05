@@ -21,7 +21,7 @@ unique template components/gmetad/config-rpm;
 include {'components/gmetad/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-gmetad", "14.12.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-gmetad", "14.10.1-SNAPSHOT20150305103437", "noarch");
 
 "/software/components/gmetad/dependencies/pre" ?=  list ("spma", "accounts");
 

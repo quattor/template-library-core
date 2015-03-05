@@ -19,8 +19,8 @@ unique template components/ntpd/config-rpm;
 include { 'components/ntpd/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-ntpd", "14.12.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ntpd", "14.10.1-SNAPSHOT20150305103436", "noarch");
 
-'/software/components/ntpd/version' ?= '14.12.0';
+'/software/components/ntpd/version' ?= '14.10.1';
 
 "/software/components/ntpd/dependencies/pre" ?= list("spma");

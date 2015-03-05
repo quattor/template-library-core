@@ -11,7 +11,7 @@
 
 # 
 # #
-# resolver, 14.12.0-rc4, rc4_1, 20150112-1343
+# resolver, 14.10.1-SNAPSHOT, SNAPSHOT20150305103435, 20150305-1034
 #
 
 unique template components/resolver/config-common;
@@ -21,7 +21,7 @@ include { 'components/resolver/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/resolver';
 
-#'version' = '14.12.0-rc4';
+#'version' = '14.10.1-SNAPSHOT';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

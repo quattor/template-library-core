@@ -11,7 +11,7 @@
 
 # 
 # #
-# ccm, 14.12.0-rc4, rc4_1, 20150112-1343
+# ccm, 14.10.1-SNAPSHOT, SNAPSHOT20150305103429, 20150305-1034
 #
 
 unique template components/ccm/config-xml;

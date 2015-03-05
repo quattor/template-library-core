@@ -17,8 +17,8 @@ include { 'components/profile/schema' };
 include { 'components/profile/functions' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-profile", "14.12.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-profile", "14.10.1-SNAPSHOT20150305103432", "noarch");
 
 '/software/components/profile/dependencies/pre' ?= list('spma');
 
-'/software/components/profile/version' ?= '14.12.0';
+'/software/components/profile/version' ?= '14.10.1';

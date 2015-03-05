@@ -23,10 +23,10 @@ unique template components/autofs/config-rpm;
 include { 'components/autofs/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-autofs", "14.12.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-autofs", "14.10.1-SNAPSHOT20150305103435", "noarch");
 
 
-'/software/components/autofs/version' = '14.12.0';
+'/software/components/autofs/version' = '14.10.1';
 
 "/software/components/autofs/dependencies/pre" ?= list("spma");
 "/software/components/autofs/active" ?= true;

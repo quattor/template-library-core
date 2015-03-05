@@ -24,7 +24,7 @@ unique template components/postgresql/config-rpm;
 include {'components/postgresql/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-postgresql", "14.12.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-postgresql", "14.10.1-SNAPSHOT20150305103432", "noarch");
 
  
  ## chkconfig is needed because the component can start postgres using the start script

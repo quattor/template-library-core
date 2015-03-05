@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 14.12.0-rc4, rc4_1, 20150112-1343
+# accounts, 14.10.1-SNAPSHOT, SNAPSHOT20150305103427, 20150305-1034
 #
 
 declaration template components/accounts/functions;
