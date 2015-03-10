@@ -1,6 +1,6 @@
 declaration template quattor/types/system;
 
-@{
+@documentation{
     system-related structures
 }
 type structure_import = {

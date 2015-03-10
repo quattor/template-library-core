@@ -2,9 +2,7 @@ declaration template quattor/types/grid;
 
 include 'pan/types';
 
-@{
-    structure_edg*
-
+@documentation{
     type definition for EDG (legacy support for DataGrid)
 }
 type structure_edg_config = {
@@ -26,9 +24,7 @@ type structure_edg = {
 };
 
 
-@{
-    structure_glite*
-
+@documentation{
     type definition for gLite
 }
 type structure_glite_config = {
@@ -46,9 +42,7 @@ type structure_glite = {
 };
 
 
-@{
-    structure_lcg*
-
+@documentation{
     type definition for LCG
 }
 type structure_lcg_config = {
@@ -62,8 +56,8 @@ type structure_lcg = {
 };
 
 
-@{
-    structure_vo_*
+@documentation{
+    type definition for Virtual Organisation (VO)
 }
 type structure_vo_auth = {
     "uri"   : type_hostURI

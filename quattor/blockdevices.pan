@@ -1,7 +1,6 @@
 @{
     Type definitions for block devices.
 }
-
 declaration template quattor/blockdevices;
 
 include 'quattor/physdevices';
@@ -19,7 +18,7 @@ type vg_string = string with exists ("/system/blockdevices/volume_groups/" + SEL
     || error (SELF + " must be a path relative to "
               + "/system/blockdevices/volume_groups");
 
-@{
+@documentation{
     parted partition flags (from "info parted")
 }
 type blockdevices_partition_flags = {
@@ -46,7 +45,7 @@ type blockdevices_partition_type = {
 	"flags" ? blockdevices_partition_flags
 };
 
-@{
+@documentation{
     Software RAID using the MD device
 }
 type blockdevices_md_type = {
@@ -56,7 +55,7 @@ type blockdevices_md_type = {
     "num_spares" ? long # "Number of spare devices"
 };
 
-@{
+@documentation{
     LVM
 }
 type blockdevices_logicalvolumes_type = {
@@ -70,7 +69,7 @@ type blockdevices_lvm_type = {
 };
 
 
-@{
+@documentation{
     Files containing filesystems, to be mounted with loopback option.
 }
 type blockdevices_file_type = {
@@ -80,7 +79,7 @@ type blockdevices_file_type = {
 	"permissions" ? long # "Permission bits for the file"
 };
 
-@{
+@documentation{
     String defining either a port or a hardware RAID unit.
 }
 type raid_device_path = string with exists ("/system/blockdevices/hwraid/"
@@ -94,7 +93,7 @@ type blockdevices_disk_type = {
 
 type card_port_string = string with is_card_port (SELF);
 
-@{
+@documentation{
     New block device describing hardware RAID.
 }
 type blockdevices_hwraid_type = {
@@ -105,7 +104,7 @@ type blockdevices_hwraid_type = {
 };
 
 
-@{
+@documentation{
     TMPFS devices (dummy devices)
 }
 type blockdevices_tmpfs_type = {

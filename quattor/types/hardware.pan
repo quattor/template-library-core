@@ -5,8 +5,8 @@ include 'quattor/functions/hardware';
 include 'quattor/types/annotation';
 include 'quattor/physdevices';
 
-@{
-    structure_ram
+@documentation{
+    RAM definition    
 }
 type structure_ram = {
     include structure_annotation
@@ -15,8 +15,8 @@ type structure_ram = {
 };
 
 
-@{
-structure_cpu
+@documentation{
+    CPU definition
 }
 type structure_cpu = {
     include structure_annotation
@@ -26,8 +26,8 @@ type structure_cpu = {
 };
 
 
-@{
-    structure_nic
+@documentation{
+    NIC definition
 }
 type structure_nic = {
     include structure_annotation
@@ -42,15 +42,15 @@ type structure_nic = {
     "role"         ? string = ''
 };
 
-@{
+@documentation{
     Rack definition
 }
 type structure_rack = {
   "name" : string
 };
 
-@{
-    Fiber channel data types
+@documentation{
+    Fiber channel definition
 }
 type fcahwaddr = string with is_a_fcahwaddr (SELF);
 type structure_fca = { 
@@ -59,7 +59,7 @@ type structure_fca = {
     "active" ? boolean # "Is this port being used" 
 };
 
-@{
+@documentation{
     BMC controller
 }
 type structure_bmc = { 
@@ -67,8 +67,8 @@ type structure_bmc = {
     "hwaddr" ? type_hwaddr 
 };
 
-@{
-    structure_cards
+@documentation{
+    Card and/or addon
 }
 type structure_cards = {
     # Indexed by device name (eth0, venet0...)
@@ -89,8 +89,8 @@ type structure_cards = {
     "bmc" ? structure_bmc[]
 } with is_valid_card_ports (SELF);
 
-@{
-    structure_serial_console
+@documentation{
+    Serial console
 }
 type structure_serial_console = {
     include structure_annotation
@@ -100,52 +100,52 @@ type structure_serial_console = {
     "word"   ? long(7..8)
 };
 
-@{
-    structure_telnet_console
+@documentation{
+    Telnet console
 }
 type structure_telnet_console = {
     "port" : long = 23
     "fqdn" : string
 };
 
-@{
-    structure_generic_network_console
+@documentation{
+    generic network console
 }
 type structure_generic_network_console = {
     "fqdn"      ? string
     "hwaddr"    : type_hwaddr
 };
 
-@{
-    structure_ipmi_console
+@documentation{
+    IPMI console
 }
 type structure_ipmi_console = {
     include structure_generic_network_console
 };
 
-@{
-    structure_ssh_console
+@documentation{
+    SSH console
 }
 type structure_ssh_console = {
     include structure_generic_network_console
 };
 
-@{
-    structure_bmc_console
+@documentation{
+    BMC console
 }
 type structure_bmc_console = {
     include structure_generic_network_console
 };
 
-@{
-    structure_dpc_console
+@documentation{
+    DPC console
 }
 type structure_dpc_console = {
     include structure_generic_network_console
 };
 
-@{
-    structure_console
+@documentation{
+    console definition
 }
 type structure_console = extensible {
     "serial" ? structure_serial_console
@@ -157,8 +157,8 @@ type structure_console = extensible {
     "preferred" : string[]
 };
 
-@{
-    structure_hardware
+@documentation{
+    Hardware definition
 }
 type structure_hardware = {
     include structure_annotation
@@ -172,9 +172,10 @@ type structure_hardware = {
     "harddisks"    ? structure_raidport{}
 };
 
-@{
-    structure_enclosure
-    
+# TODO is it ok to define variables in declartaion templates?
+final variable ENC_TYPES = '^(blade|dumb|hypervisor)$';
+
+@documentation{
     describe a "box" as a collection of several nodes. We distinguish
     3 types of enclosures:
       blade       -> physical boxes with intelligence, such as, NIC, disk, etc
@@ -192,8 +193,6 @@ type structure_hardware = {
       "/system/enclosure/type" = "...";
       "/system/enclosure/maxchildren" = 0;
 }
-# TODO is it ok to define variables in declartaion templates?
-final variable ENC_TYPES = '^(blade|dumb|hypervisor)$';
 type structure_enclosure = {
     "type"          : string with match(SELF, ENC_TYPES)
                         || error("enclosure type must be one of: "+ENC_TYPES)

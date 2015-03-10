@@ -5,7 +5,7 @@ include 'quattor/functions/validation';
 
 include 'quattor/types/component';
 
-@{
+@documentation{
     generic definition of the software tree. This is made more specific if the
     SPMA definitions are included
 }
@@ -20,7 +20,7 @@ type structure_software = {
 include 'quattor/types/hardware';
 include 'quattor/types/system';
 
-@{
+@documentation{
     The profile structure (i.e. the type of '/')
 }
 type structure_profile = {

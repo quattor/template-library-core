@@ -18,7 +18,7 @@ type structure_raidport = {
     "part_prefix" : string = ''
 };
 
-@{
+@documentation{
     Structure modelling a RAID controller
 }
 type structure_raid = {

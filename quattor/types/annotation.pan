@@ -1,9 +1,7 @@
 declaration template quattor/types/annotation;
 
 
-@{
-    structure_annotation
-
+@documentation{
     optional hardware specific information
 }
 type structure_annotation = {
