@@ -1,35 +1,17 @@
-################################################################################
-# This is 'namespaces/standard/quattor/functions/validation.tpl', a pan-templates's file
-################################################################################
-#
-# VERSION:    3.2.9, 25/11/09 16:16
-# AUTHOR:     Martin Bock
-# MAINTAINER: Marco Emilio Poleggi <Marco.Emilio.Poleggi@cern.ch>, German Cancio <German.Cancio.Melia@cern.ch>, Michel Jouvin <jouvin@lal.in2p3.fr>
-# LICENSE:    http://cern.ch/eu-datagrid/license.html
-#
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
-#
-# Validation function definitiona for the following composed types:
-#
-#     * software component
-#     * /software tree
-#     * /system tree
-#
-################################################################################
-
+@{
+    Validation function definitions for the following composed types: 
+        * software component
+        * /software tree
+        * /system tree
+}
 declaration template quattor/functions/validation;
 
-include { 'pan/functions' };
+include 'pan/functions';
 
-
-#######################################################################
-# is_component_list(list)
-#
-# checks that the argument is a list and that all the strings
-# identify existing components
-#######################################################################
+@documentation{
+    desc = checks that the argument is a list and that all the strings identify existing components
+    arg = list of valid components
+}
 function is_component_list = {
     # Check the argument.
     if (ARGC != 1) error("is_component_list requires one argument");
@@ -48,15 +30,9 @@ function is_component_list = {
     true;
 };
 
-
-
-
-#######################################################################
-# check_mount
-#
-# adds the mountpoint entry of a given resource to the mount table, if it
-# does not exist there so far, else drops an error
-#######################################################################
+@documentation{
+    desc = adds the mountpoint entry of a given resource to the mount table, if it does not exist there so far, else drops an error
+}
 function check_mount = {
     # general testing
     if( ARGC != 2 || !is_resource(ARGV[1]) ) {
@@ -81,15 +57,9 @@ function check_mount = {
     error("multiply appearing mountpoint " + partition["mountpoint"]);
 };
 
-
-#######################################################################
-# is_profile_list(profiles)
-#
-# checks that the argument <profiles> is a list and that all its
-# elements identify existing profiles. Warning! Each name in <profiles>
-# will be matched against 'foo' and 'profile_foo', which are considered to be
-# the same, but the latter form is forbidden in the input list.
-#######################################################################
+@documentation{
+    desc = checks that the argument is a list and that all its elements identify existing profiles. Each name in profiles will be matched against 'foo' and 'profile_foo', which are considered to be the same, but the latter form is forbidden in the input list.
+}
 function is_profile_list = {
     # Check the argument.
     if(ARGC != 1) error("is_profile_list: requires exactly one argument");
@@ -119,10 +89,6 @@ function is_profile_list = {
         };
         ok = next(profiles,k,v);
     };
-# I'd like to use this but it doesn't work with panc-6
-#     foreach (k; v; profiles) {
-#         ...
-#     };
 
     errors = '';
     if(errors_ni != '') errors = "\n***"+errors_ni+": not existing profile(s). ";
@@ -132,8 +98,9 @@ function is_profile_list = {
     true;
 };
 
-# Function is_a_fcahwaddr
-# Checks if the argument is a fiber-channel-style hardware address
+@documentation{
+    desc = checks if the argument is a fiber-channel-style hardware address
+}
 function is_a_fcahwaddr = {
     # Check cardinality and type of argument. 
     if (ARGC != 1 || !is_string(ARGV[0])) {
@@ -146,7 +113,9 @@ function is_a_fcahwaddr = {
 };
 
 
-# Returns true if the argument is a defined card port
+@documentation{
+    desc = returns true if the argument is a defined card port
+}
 function is_card_port = {
     path = ARGV[0];
     if (exists ("/hardware/cards/" + path) && match (path, 'ports/_\d+')) {
@@ -156,10 +125,9 @@ function is_card_port = {
 };
 
 
-# Function is_valid_card_ports.
-#
-# Returns true if all the controller and port indexes are numeric (but
-# have a leading _ to make them work as nlists.
+@documentation{
+    desc = returns true if all the controller and port indexes are numeric (but have a leading _ to make them work as nlists).
+}
 function is_valid_card_ports = {
      l = list ("raid", "ide", "sata", "scsi", "sas");
 
