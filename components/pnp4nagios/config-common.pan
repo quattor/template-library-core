@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 15.2.0-rc3, rc3_1, 20150305-2157
+# pnp4nagios, 15.2.0-rc4, rc4_1, 20150317-1257
 #
 
 unique template components/pnp4nagios/config-common;
@@ -21,7 +21,7 @@ include { 'components/pnp4nagios/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/pnp4nagios';
 
-#'version' = '15.2.0-rc3';
+#'version' = '15.2.0-rc4';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

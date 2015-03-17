@@ -11,7 +11,7 @@
 
 # 
 # #
-# iptables, 15.2.0-rc3, rc3_1, 20150305-2157
+# iptables, 15.2.0-rc4, rc4_1, 20150317-1257
 #
 
 unique template components/iptables/config-common;
@@ -21,7 +21,7 @@ include { 'components/iptables/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/iptables';
 
-#'version' = '15.2.0-rc3';
+#'version' = '15.2.0-rc4';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

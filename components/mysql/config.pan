@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 15.2.0-rc3, rc3_1, 20150305-2157
+# mysql, 15.2.0-rc4, rc4_1, 20150317-1257
 #
 
 unique template components/mysql/config;
@@ -19,7 +19,7 @@ unique template components/mysql/config;
 include { 'components/mysql/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "15.2.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "15.2.0-rc4_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';

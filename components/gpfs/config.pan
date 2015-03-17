@@ -11,10 +11,17 @@
 
 # 
 # #
-# gpfs, 15.2.0-rc3, rc3_1, 20150305-2157
+# gpfs, 15.2.0-rc4, rc4_1, 20150317-1257
 #
 
 unique template components/gpfs/config;
+include 'components/gpfs/schema';
 
-include { 'components/gpfs/config-common' };
-include { 'components/gpfs/config-rpm' };
+'/software/packages'=pkg_repl('ncm-gpfs','15.2.0-rc4_1','noarch');
+
+prefix '/software/components/gpfs';
+'dependencies/pre' ?= list ('spma');
+'active' ?= true;
+'dispatch' ?= true;
+
+bind '/software/components/gpfs' = component_gpfs;

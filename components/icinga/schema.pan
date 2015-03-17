@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 15.2.0-rc3, rc3_1, 20150305-2157
+# icinga, 15.2.0-rc4, rc4_1, 20150317-1257
 #
 
 declaration template components/icinga/schema;
@@ -201,7 +201,7 @@ type structure_icinga_servicedependency = {
 # Contact definition
 type structure_icinga_contact = {
     "alias" : string
-    "contactgroups" : contactgroupstring []
+    "contactgroups" ? contactgroupstring []
     "host_notification_period" : timeperiodstring
     "service_notification_period" : timeperiodstring
     "host_notification_options" : host_notification_string []

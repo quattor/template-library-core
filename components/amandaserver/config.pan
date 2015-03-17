@@ -11,7 +11,7 @@
 
 # 
 # #
-# amandaserver, 15.2.0-rc3, rc3_1, 20150305-2157
+# amandaserver, 15.2.0-rc4, rc4_1, 20150317-1257
 #
 
 unique template components/amandaserver/config;
