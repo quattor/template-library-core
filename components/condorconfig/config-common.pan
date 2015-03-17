@@ -14,7 +14,7 @@
 #
 
 # #
-# condorconfig, 15.2.0-rc3, rc3_1, 20150305-2219
+# condorconfig, 15.2.0-rc4, rc4_1, 20150317-1258
 #
 
 unique template components/condorconfig/config-common;
