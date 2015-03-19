@@ -14,7 +14,7 @@
 #
 
 # #
-# frontiersquid, 15.2.0-rc4, rc4_1, 20150317-1258
+# frontiersquid, 15.2.0-rc5, rc5_1, 20150319-1200
 #
 
 unique template components/frontiersquid/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/frontiersquid/config-common' };
 prefix '/software/components/frontiersquid';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-frontiersquid','15.2.0-rc4_1','noarch');
+'/software/packages' = pkg_repl('ncm-frontiersquid','15.2.0-rc5_1','noarch');
 'dependencies/pre' ?= list('spma');
 
