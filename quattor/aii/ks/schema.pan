@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# ks, 15.2.0-rc5, rc5_1, 20150319-1201
+# ks, 15.2.0-rc6, rc6_1, 20150319-2030
 #
 # Structure for the component generating kickstart files.
 

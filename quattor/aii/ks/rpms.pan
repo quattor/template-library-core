@@ -7,11 +7,11 @@
 # ${developer-info
 # ${author-info}
 # #
-# ks, 15.2.0-rc5, rc5_1, 20150319-1201
+# ks, 15.2.0-rc6, rc6_1, 20150319-2030
 #
 
 # Template adding aii-ks rpm to the configuration
 
 unique template quattor/aii/ks/rpms;
 
-"/software/packages"=pkg_repl("aii-ks","15.2.0-rc5_1","noarch");
+"/software/packages"=pkg_repl("aii-ks","15.2.0-rc6_1","noarch");
