@@ -11,7 +11,7 @@
 
 # 
 # #
-# shorewall, 15.2.0-rc4, rc4_1, 20150317-1257
+# shorewall, 15.2.0-rc5, rc5_1, 20150319-1200
 #
 
 unique template components/shorewall/config;

@@ -11,7 +11,7 @@
 
 # 
 # #
-# mcx, 15.2.0-rc4, rc4_1, 20150317-1257
+# mcx, 15.2.0-rc5, rc5_1, 20150319-1200
 #
 
 unique template components/mcx/config-common;
@@ -21,7 +21,7 @@ include { 'components/mcx/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/mcx';
 
-#'version' = '15.2.0-rc4';
+#'version' = '15.2.0-rc5';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
