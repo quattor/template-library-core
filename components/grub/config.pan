@@ -14,7 +14,7 @@
 #
 
 # #
-# grub, 15.2.0-rc5, rc5_1, 20150319-1200
+# grub, 15.2.0-rc6, rc6_1, 20150319-2029
 #
 
 unique template components/grub/config;
@@ -22,7 +22,7 @@ unique template components/grub/config;
 include { 'components/grub/schema' };
 
 # Package to install.
-'/software/packages' = pkg_repl('ncm-grub', '15.2.0-rc5_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '15.2.0-rc6_1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';

@@ -12,7 +12,7 @@
 
 # 
 # #
-# cron, 15.2.0-rc5, rc5_1, 20150319-1200
+# cron, 15.2.0-rc6, rc6_1, 20150319-2029
 #
 
 unique template components/cron/config-common;
@@ -22,7 +22,7 @@ include { 'components/cron/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/cron';
 
-#'version' = '15.2.0-rc5';
+#'version' = '15.2.0-rc6';
 #'package' = 'NCM::Component';
 
 'securitypath' ?= {

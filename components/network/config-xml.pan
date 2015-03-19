@@ -14,7 +14,7 @@
 #
 
 # #
-# network, 15.2.0-rc5, rc5_1, 20150319-1200
+# network, 15.2.0-rc6, rc6_1, 20150319-2029
 #
 
 unique template components/network/config-xml;

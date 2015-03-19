@@ -16,7 +16,7 @@ unique template components/syslog/config-rpm;
 include {'components/syslog/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-syslog", "15.2.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-syslog", "15.2.0-rc6_1", "noarch");
 
 
 "/software/components/syslog/dependencies/pre" ?= list("spma");
