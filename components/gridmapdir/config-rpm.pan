@@ -14,7 +14,7 @@
 #
 
 # #
-# gridmapdir, 15.2.0-rc6, rc6_1, 20150319-2029
+# gridmapdir, 15.2.0, 1, 20150323-1249
 #
 
 unique template components/gridmapdir/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/gridmapdir/config-common' };
 prefix '/software/components/gridmapdir';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gridmapdir','15.2.0-rc6_1','noarch');
+'/software/packages' = pkg_repl('ncm-gridmapdir','15.2.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 

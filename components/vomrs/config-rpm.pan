@@ -14,7 +14,7 @@
 #
 
 # #
-# vomrs, 15.2.0-rc6, rc6_1, 20150319-2029
+# vomrs, 15.2.0, 1, 20150323-1249
 #
 
 unique template components/vomrs/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/vomrs/config-common' };
 prefix '/software/components/vomrs';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-vomrs','15.2.0-rc6_1','noarch');
+'/software/packages' = pkg_repl('ncm-vomrs','15.2.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 

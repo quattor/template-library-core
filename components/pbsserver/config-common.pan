@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsserver, 15.2.0-rc6, rc6_1, 20150319-2029
+# pbsserver, 15.2.0, 1, 20150323-1249
 #
 
 unique template components/pbsserver/config-common;
