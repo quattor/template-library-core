@@ -18,7 +18,7 @@ include { 'components/sysctl/schema' };
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-sysctl", "15.2.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-sysctl", "15.2.0-1", "noarch");
 
  
 "/software/components/sysctl/dependencies/pre" ?= list("spma");
