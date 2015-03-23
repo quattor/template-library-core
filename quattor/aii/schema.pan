@@ -8,7 +8,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# server, 15.2.0-rc6, rc6_1, 20150319-2030
+# server, 15.2.0, 1, 20150323-1249
 #
 unique template quattor/aii/schema;
 
