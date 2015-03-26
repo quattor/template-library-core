@@ -19,4 +19,5 @@ type structure_component = extensible {
     "register_change"   ? element*[]
     "dependencies"      ? structure_component_dependency
     "code"              ? structure_component_code
+    "ncm-module"        ? string with match(SELF, '^([a-zA-Z_]\w*(?:::[a-zA-Z_]\w*)*)$')
 };
