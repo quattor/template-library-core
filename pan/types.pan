@@ -23,6 +23,7 @@
 #     * port
 #     * hostport
 #     * URI
+#     * UUID
 #     * absoluteURI
 #     * hostURI
 #     * email
@@ -1019,4 +1020,27 @@ function is_network_name = {
 ###################################################################
 type type_network_name = string with {
     is_network_name (SELF);
+};
+
+###################################################################
+# function is_uuid
+#
+# AUTHOR: Alvaro Simon <Alvaro.SimonGarcia@UGent.be>
+#
+# Defines a valid UUID.
+###################################################################
+function is_uuid = {
+    uuid = ARGV[0];
+    if(match(uuid,'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')) return(true);
+    error("Bad uuid: " + uuid);
+    return(false);
+};
+
+###################################################################
+# type_uuid
+#
+# AUTHORS: Alvaro Simon <Alvaro.SimonGarcia@UGent.be>
+###################################################################
+type type_uuid = string with {
+    (is_uuid(SELF));
 };
