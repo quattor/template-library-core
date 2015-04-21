@@ -1,9 +1,20 @@
+@maintainer{
+  name = Marco Emilio Poleggi
+  email = Marco.Emilio.Poleggi@cern.ch
+}
+@maintainer{
+  name = German Cancio
+  email = German.Cancio.Melia@cern.ch
+}
+@maintainer{
+  name = Michel Jouvin
+  email = jouvin@lal.in2p3.fr
+}
 @documentation{
 This is 'namespaces/standard/pan/types.tpl', a pan-templates's file
 
 VERSION:    3.2.7, 21/08/09 22:22
 AUTHOR:     Martin Bock
-MAINTAINER: Marco Emilio Poleggi <Marco.Emilio.Poleggi@cern.ch>, German Cancio <German.Cancio.Melia@cern.ch>, Michel Jouvin <jouvin@lal.in2p3.fr>
 LICENSE:    http://cern.ch/eu-datagrid/license.html
 
 Coding style: emulate <TAB> characters with 4 spaces, thanks!
