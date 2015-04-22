@@ -11,14 +11,6 @@
   email = jouvin@lal.in2p3.fr
 }
 @documentation{
-This is 'namespaces/standard/pan/types.tpl', a pan-templates's file
-
-VERSION:    3.2.7, 21/08/09 22:22
-AUTHOR:     Martin Bock
-LICENSE:    http://cern.ch/eu-datagrid/license.html
-
-Coding style: emulate <TAB> characters with 4 spaces, thanks!
-
 Data type and function definitions for the following basic types:
     * asndate
     * isodate
@@ -41,10 +33,6 @@ declaration template pan/types;
 
 
 @documentation{
-function is_asndate.
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 This type implements a date/time format consistent with
 ASN.1 typically used by LDAP.  The actual specification is the
 "GeneralizedTime" format as specified on page 38 of the X.208
@@ -156,21 +144,12 @@ function is_asndate = {
 };
 
 
-@documentation{
-type_asndate
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_asndate = string with {
     is_asndate(SELF);
 };
 
 
 @documentation{
-function is_isodate
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 This type implements a date/time format consistent with
 the W3C use of the datetime format.  See the document:
 
@@ -283,21 +262,12 @@ function is_isodate = {
 };
 
 
-@documentation{
-type_isodate
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_isodate = string with {
     is_isodate(SELF);
 };
 
 
 @documentation{
-function is_hwaddr
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 The hardware address is a series of six bytes encoded as hex values
 and separated with a colon or a hyphen.  Within a value you must
 use a consistent separator.
@@ -317,21 +287,12 @@ function is_hwaddr = {
 };
 
 
-@documentation{
-type_hwaddr
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_hwaddr = string with {
     is_hwaddr(SELF);
 };
 
 
 @documentation{
-function is_ipv4
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 Function to validate an IPv4 address in dotted-decimal notation.
 }
 function is_ipv4 = {
@@ -364,21 +325,12 @@ function is_ipv4 = {
 };
 
 
-@documentation{
-type_ipv4
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_ipv4 = string with {
     is_ipv4(SELF);
 };
 
 
 @documentation{
-function is_ipv6
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 Function to validate an IPv6 address.
 
 Check that this is a valid full or shortened IPv6 address.
@@ -394,8 +346,6 @@ function is_ipv6 = {
 
 
 @documentation{
-function is_ipv6_full
-
 Check that argument is a valid full IPv6 address.  This is
 eight, 16-bit numbers represented in hexadecimal notation and
 separated by colons.  Leading zeros of each field can be
@@ -414,8 +364,6 @@ function is_ipv6_full = {
 
 
 @documentation{
-function is_ipv6_short
-
 Check that argument is a valid short IPv6 address.  The shortened
 form of the IPv6 address allows a single instance of a double
 colon (::) to replace any number of contiguous zero fields.
@@ -450,21 +398,12 @@ function is_ipv6_short = {
 };
 
 
-@documentation{ 
-type_ipv6
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_ipv6 = string with {
     is_ipv6(SELF);
 };
 
 
 @documentation{
-function is_ip
-
-AUTHOR: Rafael A. Garcia Leiva <angel.leiva@uam.es>
-
 Checks that the given address is a valid IPv4 or IPv6 address.
 }
 function is_ip = {
@@ -475,21 +414,12 @@ function is_ip = {
 };
 
 
-@documentation{
-type_ip
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_ip = string with {
     is_ip(SELF);
 };
 
 
 @documentation{
-function is_fqdn
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 Function to validate a fully-qualified domain name.  Each part
 of the domain name is separated by a period.  The individual parts
 must begin with a letter or digit, end with a letter or digit, 
@@ -507,21 +437,12 @@ function is_fqdn = {
 };
 
 
-@documentation{
-type_fqdn
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_fqdn = string with {
     is_fqdn(SELF);
 };
 
 
 @documentation{
-function is_hostname
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 Validates a hostname to be either ip or fqdn.
 }
 function is_hostname = {
@@ -533,22 +454,12 @@ function is_hostname = {
 };
 
 
-@documentation{
-type_hostname
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_hostname = string with {
     is_hostname(SELF);
 };
 
 
 @documentation{
-function is_shorthostname
-
-AUTHORS: Rafael A. Garcia Leiva <angel.leiva@uam.es>
-         Martin Bock <bock@delta.ft.uam.es>
-
 Verifies that the argument is a valid short hostname.
 }
 function is_shorthostname = {
@@ -558,21 +469,13 @@ function is_shorthostname = {
     return(false);
 };
 
-@documentation{
-type_shorthostname
 
-AUTHOR: Martin Bock <bock@delta.ft.uam.es> (2004-04-27)
-}
 type type_shorthostname = string with {
     (is_shorthostname(SELF));
 };
 
 
 @documentation{
-function is_port
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 Defines a valid port number.
 }
 function is_port = {
@@ -592,21 +495,13 @@ function is_port = {
     return(true);
 };
 
-@documentation{
-type_port
 
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_port = long with {
     is_port(SELF);
 };
 
 
 @documentation{
-function is_hostport
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 Defines a host and port of the form hostname:port.
 }
 function is_hostport = {
@@ -649,21 +544,12 @@ function is_hostport = {
 };
 
 
-@documentation{
-type_hostport
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_hostport = string with {
     is_hostport(SELF);
 };
 
 
 @documentation{
-function is_URI
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 This defines an URI according to RFC2396.  Note that this is
 the most general URI which allows opaque URIs, hostbased URIs,
 and relative URIs.  You may want a more specific-type for a
@@ -757,21 +643,12 @@ function is_URI = {
 };
 
 
-@documentation{
-type_URI
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_URI = string with {
     is_URI(SELF);
 };
 
 
 @documentation{
-function is_absoluteURI
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 This defines an absolute URI according to RFC2396.  This is
 just a valid URI with the scheme explicitly included.
 }
@@ -813,21 +690,12 @@ function is_absoluteURI = {
 };
 
 
-@documentation{
-type_absoluteURI
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_absoluteURI = string with {
     is_absoluteURI(SELF);
 };
 
 
 @documentation{
-function is_hostURI
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-
 This defines an URI according to RFC2396.  A host-based URI is
 an absolute URI with a non-empty host field.
 }
@@ -888,22 +756,11 @@ function is_hostURI = {
 };
 
 
-@documentation{
-type_hostURI
-
-AUTHOR: Charles Loomis <charles.loomis@cern.ch>
-}
 type type_hostURI = string with {
       is_hostURI(SELF);
 };
 
 
-@documentation{
-function is_email
-
-AUTHORS: Piotr Poznanski <Piotr.Poznanski@cern.ch>
-         Bill Tomlin (vicariously)
-}
 function is_email = {
     # Check cardinality and type of argument.
     if (ARGC != 1 || !is_string(ARGV[0]))
@@ -936,22 +793,12 @@ function is_email = {
 };
 
 
-@documentation{
-type_email
-
-AUTHORS: Piotr Poznanski <Piotr.Poznanski@cern.ch>
-         Bill Tomlin (vicariously)
-}
 type type_email = string with {
     is_email(SELF);
 };
 
 
 @documentation{
-function is_lowercase
-
-AUTHORS: Bill Tomlin <William.Tomlin@cern.ch>
-
 If the string contains any upper case characters, return false
 }
 function is_lowercase = {
@@ -961,21 +808,12 @@ function is_lowercase = {
 };
 
 
-@documentation{
-type_lowercase
-
-AUTHORS: Bill Tomlin <William.Tomlin@cern.ch>
-}
 type type_lowercase = string with {
     is_lowercase(SELF);
 };
 
 
 @documentation{
-function is_uppercase
-
-AUTHORS: Bill Tomlin <William.Tomlin@cern.ch>
-
 If the string contains any lower case characters, return false
 }
 function is_uppercase = {
@@ -985,19 +823,12 @@ function is_uppercase = {
 };
 
 
-@documentation{
-type_uppercase
-
-AUTHORS: Bill Tomlin <William.Tomlin@cern.ch>
-}
 type type_uppercase = string with {
     is_uppercase(SELF);
 };
 
 
 @documentation{
-is_network_name
-
 Checks if the argument is in the form host.name.domain or IP,
 or .domain or IP/mask.
 }
@@ -1027,21 +858,12 @@ function is_network_name = {
 };
 
 
-@documentation{
-type_network_name
-
-AUTHORS: Bill Tomlin <William.Tomlin@cern.ch>
-}
 type type_network_name = string with {
     is_network_name (SELF);
 };
 
 
 @documentation{
-function is_uuid
-
-AUTHOR: Alvaro Simon <Alvaro.SimonGarcia@UGent.be>
-
 Defines a valid UUID according to RFC4122.
 }
 function is_uuid = {
@@ -1052,11 +874,6 @@ function is_uuid = {
 };
 
 
-@documentation{
-type_uuid
-
-AUTHORS: Alvaro Simon <Alvaro.SimonGarcia@UGent.be>
-}
 type type_uuid = string with {
     (is_uuid(SELF));
 };
