@@ -1,12 +1,12 @@
-@maintainer{
+@contributor{
   name = Marco Emilio Poleggi
   email = Marco.Emilio.Poleggi@cern.ch
 }
-@maintainer{
+@contributor{
   name = German Cancio
   email = German.Cancio.Melia@cern.ch
 }
-@maintainer{
+@contributor{
   name = Michel Jouvin
   email = jouvin@lal.in2p3.fr
 }
