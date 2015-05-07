@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# pxelinux, 15.2.0, 1, 20150323-1249
+# pxelinux, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 template quattor/aii/pxelinux/config;
 
@@ -48,11 +48,15 @@ variable AII_NBP_LABEL ?= {
     if ( !is_defined(AII_OSINSTALL_OS_VERSION) ) {
 	return(undef);
     };
-    toks =  matches(AII_OSINSTALL_OS_VERSION, '^(slc?|rhel)(\w+?)[_\-](.*)');
+    toks =  matches(AII_OSINSTALL_OS_VERSION, '^(slc?|rhel|centos|fedora)(\w+?)[_\-](.*)');
     if ( length(toks) < 4 ) {
 	label = undef;
     } else {
-	if ( toks[1] == 'sl' ) {
+	if ( toks[1] == 'centos' ) {
+	    label = 'CentOS ';
+	} else if ( toks[1] == 'fedora' ) {
+	    label = 'Fedora ';
+	} else if ( toks[1] == 'sl' ) {
 	    label = 'Scientific Linux ';
 	} else if ( toks[1] == 'slc' ) {
 	    label = 'Scientific Linux CERN ';
@@ -72,7 +76,7 @@ variable AII_NBP_LABEL ?= {
     return(AII_NBP_LABEL);
 } else {
     if ( is_defined(AII_OSINSTALL_OS_VERSION) ) {
-	return("Scientific Linux "+AII_OSINSTALL_OS_VERSION);
+	return("Linux "+AII_OSINSTALL_OS_VERSION);
     } else {
 	return(undef);
     };

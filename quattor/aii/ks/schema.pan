@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# ks, 15.2.0, 1, 20150323-1249
+# ks, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 # Structure for the component generating kickstart files.
 
@@ -67,6 +67,7 @@ type structure_ks_ks_info = {
     "auth"		: string[] = list ("enableshadow", "enablemd5")
     "bootloader_location" : string = "mbr"
     "bootloader_append" ? string
+    "bootloader_password" ? string
     "bootdisk_order" ? string[] # From DESYs template
     "clearmbr"	: boolean = true
     "enable_service" ? string[]
@@ -115,6 +116,7 @@ type structure_ks_ks_info = {
     'eula' ? boolean # agree with EULA (EL7+)
     'packagesinpost' ? boolean
     'bonding' : boolean = true # support network bonding
+    'lvmforce' ? boolean
 };
 
 bind "/system/aii/osinstall/ks" = structure_ks_ks_info;

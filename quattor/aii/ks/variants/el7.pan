@@ -1,6 +1,6 @@
 # Template containing OS configuration and default values.
 
-template quattor/aii/ks/variants/rhel7rc;
+template quattor/aii/ks/variants/el7;
 
 # Remove deprecated options 
 prefix "/system/aii/osinstall/ks";
@@ -11,6 +11,7 @@ prefix "/system/aii/osinstall/ks";
 "end_script" = "%end";
 "part_label" = true;
 "volgroup_required" = false;
+"lvmforce" = true;
 
 # el7
 "version" = "19.31";
