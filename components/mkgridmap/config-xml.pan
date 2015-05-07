@@ -14,7 +14,7 @@
 #
 
 # #
-# mkgridmap, 15.2.0, 1, 20150323-1249
+# mkgridmap, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 unique template components/mkgridmap/config-xml;
