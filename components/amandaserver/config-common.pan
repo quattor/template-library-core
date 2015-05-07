@@ -11,7 +11,7 @@
 
 # 
 # #
-# amandaserver, 15.2.0, 1, 20150323-1248
+# amandaserver, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 unique template components/amandaserver/config-common;
@@ -21,7 +21,7 @@ include { 'components/amandaserver/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/amandaserver';
 
-#'version' = '15.2.0';
+#'version' = '15.4.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

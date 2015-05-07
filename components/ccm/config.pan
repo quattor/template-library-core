@@ -11,10 +11,16 @@
 
 # 
 # #
-# ccm, 15.2.0, 1, 20150323-1248
+# ccm, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 unique template components/ccm/config;
+include 'components/ccm/schema';
 
-include { 'components/ccm/config-common' };
-include { 'components/ccm/config-rpm' };
+'/software/packages' = pkg_repl('ncm-ccm','15.4.0-rc1_1','noarch');
+
+prefix '/software/components/ccm';
+'dependencies/pre' ?= list ('spma');
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '15.4.0';

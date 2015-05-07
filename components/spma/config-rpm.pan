@@ -21,11 +21,12 @@ unique template components/spma/config-rpm;
 prefix '/software';
 'groups' ?= nlist();
 # Package to install
-'packages' = pkg_repl("ncm-spma", "15.2.0-1", "noarch");
+'packages' = pkg_repl("ncm-spma", "15.4.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
 'packager' = 'yum';
-'register_change' ?= list("/software/packages",
+'register_change' ?= list("/software/groups",
+                          "/software/packages",
                           "/software/repositories");

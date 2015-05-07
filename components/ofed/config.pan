@@ -11,10 +11,17 @@
 
 # 
 # #
-# ofed, 15.2.0, 1, 20150323-1248
+# ofed, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 unique template components/ofed/config;
 
-include { 'components/ofed/config-common' };
-include { 'components/ofed/config-rpm' };
+include 'components/ofed/schema';
+
+'/software/packages'=pkg_repl('ncm-ofed','15.4.0-rc1_1','noarch');
+
+prefix '/software/components/ofed';
+'dependencies/pre' ?= list ('spma');
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '15.4.0';

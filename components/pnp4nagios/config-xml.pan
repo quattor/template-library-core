@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 15.2.0, 1, 20150323-1248
+# pnp4nagios, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 unique template components/pnp4nagios/config-xml;

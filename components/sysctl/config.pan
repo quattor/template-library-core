@@ -10,11 +10,14 @@
 #
 
 # 
-# #
-# sysctl, 15.2.0, 1, 20150323-1248
-#
 
 unique template components/sysctl/config;
 
-include { 'components/sysctl/config-common' };
-include { 'components/sysctl/config-rpm' };
+include { 'components/sysctl/schema' };
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-sysctl", "15.4.0-rc1_1", "noarch");
+
+"/software/components/sysctl/dependencies/pre" ?= list("spma");
+"/software/components/sysctl/active" ?= true;
+"/software/components/sysctl/dispatch" ?= true;

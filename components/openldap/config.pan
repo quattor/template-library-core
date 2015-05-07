@@ -13,11 +13,15 @@
 # Author(s): Daniel Jouvenot
 #
 
-# #
-# openldap, 15.2.0, 1, 20150323-1248
-#
 
 unique template components/openldap/config;
 
-include { 'components/openldap/config-common' };
-include { 'components/openldap/config-rpm' };
+include 'components/openldap/schema';
+
+'/software/packages'=pkg_repl('ncm-openldap','15.4.0-rc1_1','noarch');
+
+prefix '/software/components/openldap';
+'dependencies/pre' ?= list ('spma');
+'active' ?= true;
+'dispatch' ?= true;
+'version' = '15.4.0';

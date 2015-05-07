@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 15.2.0, 1, 20150323-1248
+# metaconfig, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 declaration template components/metaconfig/schema;
@@ -29,7 +29,7 @@ type metaconfig_config =  {
      'mode' : long = 0644
      'owner' : string = 'root'
      'group' : string = 'root'
-     'daemon' ? string[]
+     'daemon' ? string[] with deprecated(0, "daemon property has been deprecated, daemons should be used instead")
      'daemons' ? caf_service_action{}
      'module' : string
      'backup' ? string

@@ -1,26 +1,31 @@
-################################################################################
-# This is 'TPL/schema.tpl', a ncm-openldap's file
-################################################################################
+# #
+# Software subject to following license(s):
+#   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
+#   Copyright (c) Responsible Organization
 #
-# VERSION:    1.0.0-3, 02/02/10 15:50
-# AUTHOR:     Daniel Jouvenot <jouvenot@lal.in2p3.fr>
-# MAINTAINER: Guillaume Philippon <philippo@lal.in2p3.fr>
-# LICENSE:    http://cern.ch/eu-datagrid/license.html
+
+# #
+# Current developer(s):
+#   Guillaume Philippon <philippo@lal.in2p3.fr>
 #
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
+
+# #
+# Author(s): Daniel Jouvenot
+#
+
 
 declaration template components/openldap/schema;
 
-include { 'quattor/schema' };
+include 'quattor/types/component';
 
+@documentation{
+    converts a list of named loglevels to its numeric value
+    returns undef in case of unknown entry
+    returns (whichever comes first in list)
+      0 if one of the values is 'nologging'
+      -1 if one of the values is 'any'
+}
 function openldap_loglevels_to_long = {
-    # converts a list of named loglevels to its numeric value
-    # returns undef in case of unknown entry
-    # returns (whichever comes first in list)
-    #   0 if one of the values is nologging
-    #   -1 if one the values is any
     if ( ARGC != 1 || ! is_list(ARGV[0])) {
         error('openldap_loglevel_map requires 1 list argument');
     };
@@ -64,13 +69,18 @@ function openldap_loglevels_to_long = {
     total;
 };
 
+@documentation{
+    power of 2 (up to 64k)
+}
 type long_pow2 = long with (SELF==1||SELF==2||SELF==4||SELF==8||
     SELF==16||SELF==32||SELF==64||SELF==128||SELF==256||SELF==512||
     SELF==1024||SELF==2048||SELF==4096||SELF==8192||SELF==16384||
     SELF==32768||SELF==65536||
     error("Only powers of two are accepted"));
 
-# Possible acceptable values
+@documentation{
+     Possible acceptable values
+}
 type ldap_hash = string with match(SELF, '\{(S?(SHA|MD5))\}') ||
      error ("Only secure hashes are accepted here: {SSHA, SHA, SMD5, MD5}");
 
@@ -124,6 +134,10 @@ type tls_options = {
      "CRLFile"              ? string
 };
 
+type ldap_checkpoint = {
+    "size" : long(0..)
+    "minutes" : long(0..)
+};
 
 type ldap_global = {
     "access"                    : ldap_access[] = list()
@@ -270,6 +284,7 @@ type ldap_monitoring = {
 type ldap_database = {
      "class" : ldap_database_string
      "add_content_acl" : boolean = false
+     "checkpoint" ? ldap_checkpoint
      "db_config"        ? type_db_config
      "directory"        ? string
      "extra_attrs" ? string[]

@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 15.2.0, 1, 20150323-1248
+# ceph, 15.4.0-rc1, rc1_1, 20150507-1446
 #
 
 unique template components/ceph/config-common;
@@ -21,7 +21,7 @@ include { 'components/ceph/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ceph';
 
-'version' = '15.2.0';
+'version' = '15.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
