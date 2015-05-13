@@ -14,7 +14,7 @@
 #
 
 # #
-# wlconfig, 15.4.0-rc1, rc1_1, 20150507-1446
+# wlconfig, 15.4.0-rc2, rc2_1, 20150513-1259
 #
 
 unique template components/wlconfig/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/wlconfig/config-common' };
 prefix '/software/components/wlconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wlconfig','15.4.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-wlconfig','15.4.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 

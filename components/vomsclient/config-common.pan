@@ -14,7 +14,7 @@
 #
 
 # #
-# vomsclient, 15.4.0-rc1, rc1_1, 20150507-1446
+# vomsclient, 15.4.0-rc2, rc2_1, 20150513-1259
 #
 
 unique template components/vomsclient/config-common;
