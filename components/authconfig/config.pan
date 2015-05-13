@@ -14,10 +14,35 @@
 #
 
 # #
-# authconfig, 15.4.0-rc1, rc1_1, 20150507-1446
+# authconfig, 15.4.0-rc2, rc2_1, 20150513-1258
 #
+
 
 unique template components/authconfig/config;
 
-include { 'components/authconfig/config-common' };
-include { 'components/authconfig/config-rpm' };
+include 'components/authconfig/schema';
+
+'/software/packages'=pkg_repl('ncm-authconfig','15.4.0-rc2_1','noarch');
+
+prefix '/software/components/authconfig';
+'dependencies/pre' ?= list ('spma');
+'active' ?= true;
+'dispatch' ?= true;
+
+"safemode" ?= false;
+
+"useshadow" ?= true;
+"usecache" ?= true;
+
+"usemd5" ?= true;
+"passalgorithm" ?= {
+    if (value("/software/components/authconfig/usemd5")) {
+        "md5";
+    } else {
+	    # Fall back to the most stupid option you can even imagine.
+	    # But it is portable. Huh.
+	    "descrypt";
+    };
+};
+
+

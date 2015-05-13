@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 15.4.0-rc1, rc1_1, 20150507-1446
+# ceph, 15.4.0-rc2, rc2_1, 20150513-1258
 #
 
 unique template components/ceph/config;
