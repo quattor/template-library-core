@@ -21,7 +21,7 @@ unique template components/gmond/config-rpm;
 include {'components/gmond/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-gmond", "15.4.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-gmond", "15.4.0-rc3_1", "noarch");
 
 "/software/components/gmond/dependencies/pre" ?=  list ("spma", "accounts");
 

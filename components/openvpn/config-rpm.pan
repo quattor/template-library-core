@@ -21,7 +21,7 @@ unique template components/openvpn/config-rpm;
 include {'components/openvpn/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-openvpn", "15.4.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-openvpn", "15.4.0-rc3_1", "noarch");
 
 "/software/components/openvpn/dependencies/pre" ?=  list ("spma");
 

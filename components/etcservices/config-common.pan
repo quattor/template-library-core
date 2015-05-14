@@ -11,7 +11,7 @@
 
 # 
 # #
-# etcservices, 15.4.0-rc2, rc2_1, 20150513-1258
+# etcservices, 15.4.0-rc3, rc3_1, 2015-05-14T14:58:27Z
 #
 
 unique template components/etcservices/config-common;
@@ -21,7 +21,7 @@ include { 'components/etcservices/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/etcservices';
 
-#'version' = '15.4.0-rc2';
+#'version' = '15.4.0-rc3';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
