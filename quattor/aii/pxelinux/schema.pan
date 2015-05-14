@@ -7,7 +7,7 @@
 # ${developer-info
 # ${author-info}
 # #
-# pxelinux, 15.4.0-rc2, rc2_1, 20150513-1259
+# pxelinux, 15.4.0-rc3, rc3_1, 2015-05-14T14:59:22Z
 #
 unique template quattor/aii/pxelinux/schema;
 
