@@ -16,7 +16,6 @@ include { 'rpms/package_default_versions' };
 
     # Quattor
     SELF[escape('ncm-spma')] = nlist();
-    SELF[escape('ccm')] = nlist();
     SELF[escape('cdp-listend')] = nlist();
     SELF[escape('ncm-cdispd')] = nlist();
     SELF[escape('ncm-ncd')] = nlist();
