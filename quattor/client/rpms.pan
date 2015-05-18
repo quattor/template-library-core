@@ -15,11 +15,16 @@ include { 'rpms/package_default_versions' };
     # OS-provided required packages
 
     # Quattor
-    SELF[escape('ncm-spma')] = nlist();
     SELF[escape('cdp-listend')] = nlist();
     SELF[escape('ncm-cdispd')] = nlist();
     SELF[escape('ncm-ncd')] = nlist();
     SELF[escape('ncm-query')] = nlist();
+
+    # ideally, include components/spma/config with version locked rpm
+    spma = escape('ncm-spma');
+    if(! exists(spma)) {
+        SELF[spma] = nlist();
+    };
       
     SELF;
 };
