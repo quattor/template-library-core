@@ -13,17 +13,6 @@ include { 'rpms/package_default_versions' };
 
 '/software/packages' = {
     # OS-provided required packages
-    # Part of the OS, installed by Anaconda as part of the base packages
-    if ( is_defined(OS_VERSION_PARAMS['majorversion']) && (OS_VERSION_PARAMS['majorversion'] == '5') ) {
-      SELF[escape('yum-priorities')] = nlist();
-    } else {
-      SELF[escape('yum-plugin-priorities')] = nlist();
-    };
-    SELF[escape('yum-plugin-versionlock')] = nlist();
-    SELF[escape('perl-AppConfig')] = nlist();
-    if ( OS_VERSION_PARAMS['majorversion'] == '5' ) {
-      SELF[escape('python-elementtree')] = nlist();
-    };
 
     # Quattor
     SELF[escape('ncm-spma')] = nlist();
