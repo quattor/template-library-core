@@ -21,6 +21,7 @@ type structure_aii_hooklist = {
     # Intended to be used by nbp plug-in
     "rescue" ? structure_aii_hook[]
     "install" ? structure_aii_hook[]
+    "configure" ? structure_aii_hook[]
     "remove" ? structure_aii_hook[]
     "boot" ? structure_aii_hook[]
 };
