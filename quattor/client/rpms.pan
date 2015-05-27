@@ -12,7 +12,11 @@ include { 'rpms/package_default_versions' };
 
 
 '/software/packages' = {
-    # OS-provided required packages
+    # python-elementtree is required by YUM on SL5 but not listed as a dependency
+    # of any other package
+    if ( OS_VERSION_PARAMS['majorversion'] == '5' ) {
+      SELF[escape('python-elementtree')] = nlist();
+    };
 
     # Quattor
     SELF[escape('cdp-listend')] = nlist();
