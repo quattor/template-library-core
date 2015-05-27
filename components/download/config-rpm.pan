@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 15.4.0-rc4, rc4_1, 2015-05-27T12:42:00Z
+# download, 15.4.0-rc5, rc5_1, 2015-05-27T15:51:56Z
 #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
@@ -43,6 +43,6 @@ include { "pan/functions" };
 
 # standard rpm settings
 "/software/components/download/version"  = '15.4.0';
-"/software/components/download/release"  = "rc4_1";
+"/software/components/download/release"  = "rc5_1";
 
-"/software/packages" = pkg_repl("ncm-download", "15.4.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "15.4.0-rc5_1", "noarch");

@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 15.4.0-rc4, rc4_1, 2015-05-27T12:42:00Z
+# puppet, 15.4.0-rc5, rc5_1, 2015-05-27T15:51:56Z
 #
 
 unique template components/puppet/config-common;
