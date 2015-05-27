@@ -14,7 +14,7 @@
 #
 
 # #
-# gsissh, 15.4.0-rc4, rc4_1, 2015-05-27T12:42:33Z
+# gsissh, 15.4.0-rc5, rc5_1, 2015-05-27T16:02:16Z
 #
 
 unique template components/gsissh/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/gsissh/config-common' };
 prefix '/software/components/gsissh';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gsissh','15.4.0-rc4_1','noarch');
+'/software/packages' = pkg_repl('ncm-gsissh','15.4.0-rc5_1','noarch');
 'dependencies/pre' ?= list('spma');
 
