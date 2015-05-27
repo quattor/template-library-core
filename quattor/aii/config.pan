@@ -5,10 +5,17 @@
 #   Copyright (c) Responsible Organization
 #
 
-# ${developer-info
-# ${author-info}
 # #
-# server, 15.4.0-rc3, rc3_1, 2015-05-14T14:59:22Z
+# Current developer(s):
+#   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
+#
+
+# #
+# Author(s): Michel Jouvin, Ben Jones, Gabor Gombas, Nick Williams
+#
+
+# #
+# server, 15.4.0-rc4, rc4_1, 2015-05-27T12:42:52Z
 #
 #
 # This file is the standard aii configuration. It only performs some
