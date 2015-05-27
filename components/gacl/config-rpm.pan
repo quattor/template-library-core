@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 15.4.0-rc3, rc3_1, 2015-05-14T14:59:04Z
+# gacl, 15.4.0-rc4, rc4_1, 2015-05-27T12:42:33Z
 #
 
 unique template components/gacl/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/gacl/config-common' };
 prefix '/software/components/gacl';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gacl','15.4.0-rc3_1','noarch');
+'/software/packages' = pkg_repl('ncm-gacl','15.4.0-rc4_1','noarch');
 'dependencies/pre' ?= list('spma');
 
