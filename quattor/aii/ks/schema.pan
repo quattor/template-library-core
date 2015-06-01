@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 15.4.0-rc5, rc5_1, 2015-05-27T16:03:03Z
+# ks, 15.4.0-rc9, rc9_1, 2015-06-01T17:45:06Z
 #
 # Structure for the component generating kickstart files.
 
