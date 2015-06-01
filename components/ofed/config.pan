@@ -11,14 +11,14 @@
 
 # 
 # #
-# ofed, 15.4.0-rc5, rc5_1, 2015-05-27T15:51:56Z
+# ofed, 15.4.0-rc9, rc9_1, 2015-06-01T17:38:44Z
 #
 
 unique template components/ofed/config;
 
 include 'components/ofed/schema';
 
-'/software/packages'=pkg_repl('ncm-ofed','15.4.0-rc5_1','noarch');
+'/software/packages'=pkg_repl('ncm-ofed','15.4.0-rc9_1','noarch');
 
 prefix '/software/components/ofed';
 'dependencies/pre' ?= list ('spma');

@@ -17,7 +17,7 @@ include {'components/filesystems/schema'};
 
 include {'components/fstab/config'};
 
-"/software/packages" = pkg_repl("ncm-filesystems", "15.4.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-filesystems", "15.4.0-rc9_1", "noarch");
 
 "/software/components/filesystems/dependencies/post" = list ("fstab");
 "/software/components/filesystems/dependencies/pre" = list ("spma");
