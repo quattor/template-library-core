@@ -14,7 +14,7 @@
 #
 
 # #
-# wmslb, 15.4.0-rc9, rc9_1, 2015-06-01T17:44:35Z
+# wmslb, 15.4.0-rc11, rc11_1, 2015-06-02T11:20:26Z
 #
 
 unique template components/wmslb/config-common;
