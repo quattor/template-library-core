@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 15.4.0-rc9, rc9_1, 2015-06-01T17:45:06Z
+# server, 15.4.0-rc11, rc11_1, 2015-06-02T11:20:58Z
 #
 unique template quattor/aii/schema;
 
