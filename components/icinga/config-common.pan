@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 15.4.0-rc9, rc9_1, 2015-06-01T17:38:44Z
+# icinga, 15.4.0-rc11, rc11_1, 2015-06-02T11:14:46Z
 #
 
 unique template components/icinga/config-common;
@@ -21,7 +21,7 @@ include { 'components/icinga/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/icinga';
 
-#'version' = '15.4.0-rc9';
+#'version' = '15.4.0-rc11';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 15.4.0-rc9, rc9_1, 2015-06-01T17:39:47Z
+# metaconfig, 15.4.0-rc11, rc11_1, 2015-06-02T11:15:44Z
 #
 
 unique template components/metaconfig/config-xml;

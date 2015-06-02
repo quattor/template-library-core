@@ -16,7 +16,7 @@ unique template components/cdp/config-rpm;
 include { 'components/cdp/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-cdp", "15.4.0-rc9_1", "noarch");
+"/software/packages" = pkg_repl("ncm-cdp", "15.4.0-rc11_1", "noarch");
 
 '/software/components/cdp/dependencies/pre' ?= list('spma');
 

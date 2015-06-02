@@ -14,7 +14,7 @@
 #
 
 # #
-# ntpd, 15.4.0-rc9, rc9_1, 2015-06-01T17:38:44Z
+# ntpd, 15.4.0-rc11, rc11_1, 2015-06-02T11:14:46Z
 #
 
 unique template components/ntpd/config-xml;
