@@ -14,7 +14,7 @@
 #
 
 # #
-# dhcp, 15.4.0-rc12, rc12_1, 2015-06-03T08:56:09Z
+# dhcp, 15.4.0-rc13, rc13_1, 2015-06-03T10:07:30Z
 #
 template quattor/aii/dhcp/config;
 
