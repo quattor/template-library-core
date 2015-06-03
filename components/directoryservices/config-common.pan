@@ -11,7 +11,7 @@
 
 # 
 # #
-# directoryservices, 15.4.0-rc12, rc12_1, 2015-06-03T08:50:01Z
+# directoryservices, 15.4.0-rc13, rc13_1, 2015-06-03T10:01:23Z
 #
 
 unique template components/directoryservices/config-common;
@@ -21,7 +21,7 @@ include { 'components/directoryservices/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/directoryservices';
 
-#'version' = '15.4.0-rc12';
+#'version' = '15.4.0-rc13';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

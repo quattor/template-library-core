@@ -11,7 +11,7 @@
 
 # 
 # #
-# systemd, 15.4.0-rc12, rc12_1, 2015-06-03T08:50:01Z
+# systemd, 15.4.0-rc13, rc13_1, 2015-06-03T10:01:23Z
 #
 
 unique template components/systemd/config;
@@ -19,7 +19,7 @@ include 'components/systemd/schema';
 
 bind '/software/components/systemd' = component_systemd;
 
-'/software/packages' = pkg_repl('ncm-systemd','15.4.0-rc12_1','noarch');
+'/software/packages' = pkg_repl('ncm-systemd','15.4.0-rc13_1','noarch');
 
 prefix '/software/components/systemd';
 'dependencies/pre' ?= list ('spma');
