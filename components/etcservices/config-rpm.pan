@@ -18,7 +18,7 @@ unique template components/etcservices/config-rpm;
 include {'components/etcservices/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-etcservices", "15.4.0-rc14_1", "noarch");
+"/software/packages" = pkg_repl("ncm-etcservices", "15.4.0-rc15_1", "noarch");
 
  
 "/software/components/etcservices/dependencies/pre" ?= list("spma");

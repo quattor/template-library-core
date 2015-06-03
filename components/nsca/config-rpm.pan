@@ -21,7 +21,7 @@ unique template components/nsca/config-rpm;
 include {'components/nsca/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-nsca", "15.4.0-rc14_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nsca", "15.4.0-rc15_1", "noarch");
 
 "/software/components/nsca/dependencies/pre" ?=  list ("spma", "accounts");
 
