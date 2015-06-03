@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 15.4.0-rc15, rc15_1, 2015-06-03T13:14:24Z
+# opennebula, 15.4.0, 1, 2015-06-03T15:21:52Z
 #
 
 unique template components/opennebula/config-common;
@@ -24,7 +24,7 @@ bind '/software/components/opennebula' = component_opennebula;
 # Set prefix to root of component configuration.
 prefix '/software/components/opennebula';
 
-#'version' = '15.4.0-rc15';
+#'version' = '15.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

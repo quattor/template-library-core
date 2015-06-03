@@ -17,7 +17,7 @@ include { 'components/profile/schema' };
 include { 'components/profile/functions' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-profile", "15.4.0-rc15_1", "noarch");
+"/software/packages" = pkg_repl("ncm-profile", "15.4.0-1", "noarch");
 
 '/software/components/profile/dependencies/pre' ?= list('spma');
 

@@ -11,7 +11,7 @@
 
 # 
 # #
-# nagios, 15.4.0-rc15, rc15_1, 2015-06-03T13:14:24Z
+# nagios, 15.4.0, 1, 2015-06-03T15:21:52Z
 #
 
 unique template components/nagios/config-common;
@@ -21,7 +21,7 @@ include { 'components/nagios/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/nagios';
 
-#'version' = '15.4.0-rc15';
+#'version' = '15.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
