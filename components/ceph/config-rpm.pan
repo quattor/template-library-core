@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 15.4.0-rc11, rc11_1, 2015-06-02T11:14:46Z
+# ceph, 15.4.0-rc12, rc12_1, 2015-06-03T08:50:01Z
 #
 
 unique template components/ceph/config-rpm;
@@ -22,6 +22,6 @@ include { 'components/ceph/config-common' };
 prefix '/software/components/ceph';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-ceph','15.4.0-rc11_1','noarch');
+'/software/packages' = pkg_repl('ncm-ceph','15.4.0-rc12_1','noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 

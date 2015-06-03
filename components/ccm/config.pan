@@ -11,13 +11,13 @@
 
 # 
 # #
-# ccm, 15.4.0-rc11, rc11_1, 2015-06-02T11:14:46Z
+# ccm, 15.4.0-rc12, rc12_1, 2015-06-03T08:50:01Z
 #
 
 unique template components/ccm/config;
 include 'components/ccm/schema';
 
-'/software/packages' = pkg_repl('ncm-ccm','15.4.0-rc11_1','noarch');
+'/software/packages' = pkg_repl('ncm-ccm','15.4.0-rc12_1','noarch');
 
 prefix '/software/components/ccm';
 'dependencies/pre' ?= list ('spma');
