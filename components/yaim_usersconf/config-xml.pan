@@ -14,7 +14,7 @@
 #
 
 # #
-# yaim_usersconf, 15.4.0-rc12, rc12_1, 2015-06-03T08:55:39Z
+# yaim_usersconf, 15.4.0-rc13, rc13_1, 2015-06-03T10:06:59Z
 #
 
 unique template components/yaim_usersconf/config-xml;

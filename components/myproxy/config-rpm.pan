@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 15.4.0-rc12, rc12_1, 2015-06-03T08:55:39Z
+# myproxy, 15.4.0-rc13, rc13_1, 2015-06-03T10:06:59Z
 #
 
 unique template components/myproxy/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/myproxy/config-common' };
 prefix '/software/components/myproxy';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-myproxy','15.4.0-rc12_1','noarch');
+'/software/packages' = pkg_repl('ncm-myproxy','15.4.0-rc13_1','noarch');
 'dependencies/pre' ?= list('spma');
 
