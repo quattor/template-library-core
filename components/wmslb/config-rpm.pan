@@ -14,7 +14,7 @@
 #
 
 # #
-# wmslb, 15.4.0-rc15, rc15_1, 2015-06-03T13:20:04Z
+# wmslb, 15.4.0, 1, 2015-06-03T15:27:32Z
 #
 
 unique template components/wmslb/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/wmslb/config-common' };
 prefix '/software/components/wmslb';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wmslb','15.4.0-rc15_1','noarch');
+'/software/packages' = pkg_repl('ncm-wmslb','15.4.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 
