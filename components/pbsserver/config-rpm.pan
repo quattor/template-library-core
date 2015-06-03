@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsserver, 15.4.0-rc14, rc14_1, 2015-06-03T12:08:17Z
+# pbsserver, 15.4.0-rc15, rc15_1, 2015-06-03T13:20:04Z
 #
 
 unique template components/pbsserver/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/pbsserver/config-common' };
 prefix '/software/components/pbsserver';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-pbsserver','15.4.0-rc14_1','noarch');
+'/software/packages' = pkg_repl('ncm-pbsserver','15.4.0-rc15_1','noarch');
 'dependencies/pre' ?= list('spma');
 

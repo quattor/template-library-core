@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 15.4.0-rc14, rc14_1, 2015-06-03T12:08:17Z
+# glitestartup, 15.4.0-rc15, rc15_1, 2015-06-03T13:20:04Z
 #
 
 unique template components/glitestartup/config-xml;
