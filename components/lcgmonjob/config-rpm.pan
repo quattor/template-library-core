@@ -14,7 +14,7 @@
 #
 
 # #
-# lcgmonjob, 15.4.0-rc11, rc11_1, 2015-06-02T11:20:26Z
+# lcgmonjob, 15.4.0-rc12, rc12_1, 2015-06-03T08:55:39Z
 #
 
 unique template components/lcgmonjob/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/lcgmonjob/config-common' };
 prefix '/software/components/lcgmonjob';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lcgmonjob','15.4.0-rc11_1','noarch');
+'/software/packages' = pkg_repl('ncm-lcgmonjob','15.4.0-rc12_1','noarch');
 'dependencies/pre' ?= list('spma');
 

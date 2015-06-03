@@ -14,7 +14,7 @@
 #
 
 # #
-# yaim, 15.4.0-rc11, rc11_1, 2015-06-02T11:20:26Z
+# yaim, 15.4.0-rc12, rc12_1, 2015-06-03T08:55:39Z
 #
 
 unique template components/yaim/config-common;
