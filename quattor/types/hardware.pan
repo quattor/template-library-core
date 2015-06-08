@@ -47,6 +47,9 @@ type structure_nic = {
 }
 type structure_rack = {
   "name" : string
+  "column" : string
+  "room" : string
+  "row" : string
 };
 
 @documentation{
@@ -158,6 +161,20 @@ type structure_console = extensible {
 };
 
 @documentation{
+    system location definition
+}
+type structure_sysloc = {
+    "campus"     ? string
+    "building"   ? string
+    "city"       ? string
+    "continent"  ? string
+    "room"       ? string
+    "bunker"     ? string
+    "region"     ? string
+    "dns_search_domains" ? string[]
+};
+
+@documentation{
     Hardware definition
 }
 type structure_hardware = {
@@ -167,6 +184,8 @@ type structure_hardware = {
     "cards"        ? structure_cards
     "rack"     ? structure_rack
     "console"      ? structure_console
+    "sysloc"       ? structure_sysloc
+    "nodename"     ? string
 
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"    ? structure_raidport{}
