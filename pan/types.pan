@@ -433,7 +433,7 @@ function is_fqdn = {
     if (ARGC != 1 || !is_string(ARGV[0]))
         error("usage: is_fqdn(string)");
 
-    return(match(ARGV[0],'^([a-zA-Z\d]([a-zA-Z\d-]{0,253}[a-zA-Z\d])?(\.|$))+$'));
+    return(match(ARGV[0],'(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)'));
 };
 
 
