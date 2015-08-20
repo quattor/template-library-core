@@ -829,6 +829,19 @@ type type_uppercase = string with {
 
 
 @documentation{
+Checks if the argument is a valid top level domain name (e.g. .example)
+}
+function is_top_level_domain = {
+    match(ARGV[0], '^(\.)+[a-zA-Z]{2,63}?$');
+};
+
+
+type type_top_level_domain = string with {
+    is_top_level_domain(SELF);
+};
+
+
+@documentation{
 Checks if the argument is in the form host.name.domain or IP,
 or .domain or IP/mask.
 }
@@ -837,9 +850,9 @@ function is_network_name = {
         error ("usage: is_network_name (string)");
     };
 
-    if (is_hostname (ARGV[0])) {
-        return (true);
-    };
+    if (is_hostname(ARGV[0])) return(true);
+
+    if (is_top_level_domain(ARGV[0])) return(true);
 
     # Not a hostname. Is it a IP/mask?
     hst = ARGV[0];
@@ -847,14 +860,10 @@ function is_network_name = {
     ip = substr (hst, 0, pos);
     mask = substr (hst, pos+1);
     if (is_ip (ip) && (is_ip (mask) || match (mask, '^(\d+)$'))) {
-        return (true);
-    };
-    # Not IP/mask: is it .domain?
-    if (index ('.', hst) == 0) {
-        return (is_hostname (substr (hst, 1)));
+        return(true);
     };
     # Everything failed!
-    return (false);
+    return(false);
 };
 
 
