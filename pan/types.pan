@@ -852,6 +852,11 @@ function is_network_name = {
 
     if (is_hostname(ARGV[0])) return(true);
 
+    if (is_shorthostname(ARGV[0])) {
+        deprecate(0, "Short hostnames are deprecated as valid network_names.");
+        return(true);
+    };
+
     if (is_top_level_domain(ARGV[0])) return(true);
 
     # Not a hostname. Is it a IP/mask?
