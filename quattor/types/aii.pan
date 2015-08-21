@@ -18,12 +18,16 @@ type structure_aii_hooklist = {
     "post_install" ? structure_aii_hook[]
     "post_reboot" ? structure_aii_hook[]
     "anaconda" ? structure_aii_hook[]
-    # Intended to be used by nbp plug-in
-    "rescue" ? structure_aii_hook[]
-    "install" ? structure_aii_hook[]
-    "configure" ? structure_aii_hook[]
-    "remove" ? structure_aii_hook[]
+
+    # Intended to be used by nbp/pxelinux plug-in
     "boot" ? structure_aii_hook[]
+    "configure" ? structure_aii_hook[]
+    "firmware" ? structure_aii_hook[]
+    "install" ? structure_aii_hook[]
+    "livecd" ? structure_aii_hook[]
+    "remove" ? structure_aii_hook[]
+    "rescue" ? structure_aii_hook[]
+    "status" ? structure_aii_hook[]
 };
 
 type structure_aii = extensible {
