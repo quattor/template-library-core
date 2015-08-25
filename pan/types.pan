@@ -841,6 +841,22 @@ type type_top_level_domain = string with {
 };
 
 
+function is_ipv4_netmask_pair = {
+    hst = ARGV[0];
+    pos = index ("/", hst);
+    ip = substr (hst, 0, pos);
+    mask = substr (hst, pos+1);
+    if (is_ip (ip) && (is_ip (mask) || match (mask, '^(\d+)$'))) {
+        return(true);
+    };
+};
+
+
+type type_ipv4_netmask_pair = string with {
+    is_ipv4_netmask_pair(SELF);
+};
+
+
 @documentation{
 Checks if the argument is in the form host.name.domain or IP,
 or .domain or IP/mask.
@@ -860,13 +876,8 @@ function is_network_name = {
     if (is_top_level_domain(ARGV[0])) return(true);
 
     # Not a hostname. Is it a IP/mask?
-    hst = ARGV[0];
-    pos = index ("/", hst);
-    ip = substr (hst, 0, pos);
-    mask = substr (hst, pos+1);
-    if (is_ip (ip) && (is_ip (mask) || match (mask, '^(\d+)$'))) {
-        return(true);
-    };
+    is_ipv4_netmask_pair(ARGV[0]);
+
     # Everything failed!
     return(false);
 };
