@@ -842,13 +842,15 @@ type type_top_level_domain = string with {
 
 
 function is_ipv4_netmask_pair = {
-    hst = ARGV[0];
-    pos = index ("/", hst);
-    ip = substr (hst, 0, pos);
-    mask = substr (hst, pos+1);
-    if (is_ip (ip) && (is_ip (mask) || match (mask, '^(\d+)$'))) {
-        return(true);
+    pair = split('\/', 1, ARGV[0]);
+    if (length(pair) == 2) {
+        ip = pair[0];
+        netmask = pair[1];
+        if (is_ip(ip) && (is_ip(netmask) || match(netmask, '^(\d+)$'))) {
+            return(true);
+        };
     };
+    return(false);
 };
 
 
