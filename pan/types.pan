@@ -140,7 +140,7 @@ function is_asndate = {
     };
 
     # If it gets to this point, then the date must be OK.
-    return(true);
+    true;
 };
 
 
@@ -258,7 +258,7 @@ function is_isodate = {
     };
 
     # If it gets to this point, then the date must be OK.
-    return(true);
+    true;
 };
 
 
@@ -321,7 +321,7 @@ function is_ipv4 = {
     };
 
     # OK, if it passes all of the checks.
-    return(true);
+    true;
 };
 
 
@@ -394,7 +394,7 @@ function is_ipv6_short = {
     };
 
     # If we've made it this far, then the value is bad.
-    return(false);
+    false;
 };
 
 
@@ -410,7 +410,7 @@ function is_ip = {
     ip = ARGV[0];
     if(is_ipv4(ip) || is_ipv6(ip)) return(true);
     debug("Invalid IP address: " + ip);
-    return(false);
+    false;
 };
 
 
@@ -433,7 +433,7 @@ function is_fqdn = {
     if (ARGC != 1 || !is_string(ARGV[0]))
         error("usage: is_fqdn(string)");
 
-    return(match(ARGV[0],'(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)'));
+    match(ARGV[0],'(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)');
 };
 
 
@@ -466,7 +466,7 @@ function is_shorthostname = {
     hostname = ARGV[0];
     if(match(hostname,'^[a-zA-Z\d]([0-9A-Za-z-]{0,253}[a-zA-Z\d])?$')) return(true);
     error("Bad host name: " + hostname);
-    return(false);
+    false;
 };
 
 
@@ -492,7 +492,7 @@ function is_port = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -540,7 +540,7 @@ function is_hostport = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -639,7 +639,7 @@ function is_URI = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -686,7 +686,7 @@ function is_absoluteURI = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -752,7 +752,7 @@ function is_hostURI = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -789,7 +789,7 @@ function is_email = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -850,7 +850,7 @@ function is_ipv4_netmask_pair = {
             return(true);
         };
     };
-    return(false);
+    false;
 };
 
 
@@ -881,7 +881,7 @@ function is_network_name = {
     is_ipv4_netmask_pair(ARGV[0]);
 
     # Everything failed!
-    return(false);
+    false;
 };
 
 
@@ -897,7 +897,7 @@ function is_uuid = {
     uuid = ARGV[0];
     if(match(uuid,'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')) return(true);
     error("Bad uuid: " + uuid);
-    return(false);
+    false;
 };
 
 
