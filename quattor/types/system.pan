@@ -14,11 +14,6 @@ type structure_export = {
     "options"   ? string
 };
 
-type structure_cluster = {
-    "name" : string
-    "type" ? string
-};
-
 type structure_kernel = {
     "version"   ? string # "kernel version to use (eg. 2.4.18-27.7.x.cernsmp)"
 };
@@ -37,6 +32,7 @@ include 'monitoring/lemon/schema';
 include 'quattor/blockdevices';
 include 'quattor/filesystems';
 include 'quattor/types/aii';
+include 'quattor/types/aquilon';
 include 'quattor/types/grid';
 include 'quattor/types/hardware';
 
@@ -61,4 +57,5 @@ type structure_system = {
     "state"         ? string with match (SELF,
         '^(production|standby|test|development|onloan)$') # "production|out-of-production|test|development|onloan"
     "vo"            ? structure_vo{}
+    include structure_system_aquilon
 };
