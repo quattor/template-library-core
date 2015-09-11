@@ -841,12 +841,22 @@ type type_top_level_domain = string with {
 };
 
 
+function is_ipv4_prefix_length = {
+    match(ARGV[0], '^([1-2]?[0-9]|3[0-2])$');
+};
+
+
+type type_ipv4_prefix_length = string with {
+    is_ipv4_prefix_length(SELF);
+};
+
+
 function is_ipv4_netmask_pair = {
     pair = split('\/', 1, ARGV[0]);
     if (length(pair) == 2) {
         ip = pair[0];
         netmask = pair[1];
-        if (is_ip(ip) && (is_ip(netmask) || match(netmask, '^(\d+)$'))) {
+        if (is_ip(ip) && (is_ip(netmask) || is_ipv4_prefix_length(netmask))) {
             return(true);
         };
     };
