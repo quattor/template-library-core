@@ -422,7 +422,7 @@ type type_ip = string with {
 @documentation{
 Function to validate a fully-qualified domain name.  Each part
 of the domain name is separated by a period.  The individual parts
-must begin with a letter or digit, end with a letter or digit, 
+must begin with a letter or digit, end with a letter or digit,
 and may contain letters, digits, or hyphens in the middle.
 
 The relevant RFC's for host name syntax are 952, 1053, and 1123
