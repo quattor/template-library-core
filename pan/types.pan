@@ -140,7 +140,7 @@ function is_asndate = {
     };
 
     # If it gets to this point, then the date must be OK.
-    return(true);
+    true;
 };
 
 
@@ -258,7 +258,7 @@ function is_isodate = {
     };
 
     # If it gets to this point, then the date must be OK.
-    return(true);
+    true;
 };
 
 
@@ -321,7 +321,7 @@ function is_ipv4 = {
     };
 
     # OK, if it passes all of the checks.
-    return(true);
+    true;
 };
 
 
@@ -394,7 +394,7 @@ function is_ipv6_short = {
     };
 
     # If we've made it this far, then the value is bad.
-    return(false);
+    false;
 };
 
 
@@ -410,7 +410,7 @@ function is_ip = {
     ip = ARGV[0];
     if(is_ipv4(ip) || is_ipv6(ip)) return(true);
     debug("Invalid IP address: " + ip);
-    return(false);
+    false;
 };
 
 
@@ -422,7 +422,7 @@ type type_ip = string with {
 @documentation{
 Function to validate a fully-qualified domain name.  Each part
 of the domain name is separated by a period.  The individual parts
-must begin with a letter or digit, end with a letter or digit, 
+must begin with a letter or digit, end with a letter or digit,
 and may contain letters, digits, or hyphens in the middle.
 
 The relevant RFC's for host name syntax are 952, 1053, and 1123
@@ -433,7 +433,7 @@ function is_fqdn = {
     if (ARGC != 1 || !is_string(ARGV[0]))
         error("usage: is_fqdn(string)");
 
-    return(match(ARGV[0],'^([a-zA-Z\d]([a-zA-Z\d-]{0,253}[a-zA-Z\d])?(\.|$))+$'));
+    match(ARGV[0],'(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)');
 };
 
 
@@ -466,7 +466,7 @@ function is_shorthostname = {
     hostname = ARGV[0];
     if(match(hostname,'^[a-zA-Z\d]([0-9A-Za-z-]{0,253}[a-zA-Z\d])?$')) return(true);
     error("Bad host name: " + hostname);
-    return(false);
+    false;
 };
 
 
@@ -492,7 +492,7 @@ function is_port = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -540,7 +540,7 @@ function is_hostport = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -639,7 +639,7 @@ function is_URI = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -686,7 +686,7 @@ function is_absoluteURI = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -752,7 +752,7 @@ function is_hostURI = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -789,7 +789,7 @@ function is_email = {
     };
 
     # All OK.
-    return(true);
+    true;
 };
 
 
@@ -829,6 +829,47 @@ type type_uppercase = string with {
 
 
 @documentation{
+Checks if the argument is a valid top level domain name (e.g. .example)
+}
+function is_top_level_domain = {
+    match(ARGV[0], '^(\.)+[a-zA-Z]{2,63}?$');
+};
+
+
+type type_top_level_domain = string with {
+    is_top_level_domain(SELF);
+};
+
+
+function is_ipv4_prefix_length = {
+    match(ARGV[0], '^([1-2]?[0-9]|3[0-2])$');
+};
+
+
+type type_ipv4_prefix_length = string with {
+    is_ipv4_prefix_length(SELF);
+};
+
+
+function is_ipv4_netmask_pair = {
+    pair = split('\/', 1, ARGV[0]);
+    if (length(pair) == 2) {
+        ip = pair[0];
+        netmask = pair[1];
+        if (is_ip(ip) && (is_ip(netmask) || is_ipv4_prefix_length(netmask))) {
+            return(true);
+        };
+    };
+    false;
+};
+
+
+type type_ipv4_netmask_pair = string with {
+    is_ipv4_netmask_pair(SELF);
+};
+
+
+@documentation{
 Checks if the argument is in the form host.name.domain or IP,
 or .domain or IP/mask.
 }
@@ -837,24 +878,20 @@ function is_network_name = {
         error ("usage: is_network_name (string)");
     };
 
-    if (is_hostname (ARGV[0])) {
-        return (true);
+    if (is_hostname(ARGV[0])) return(true);
+
+    if (is_shorthostname(ARGV[0])) {
+        deprecate(0, "Short hostnames are deprecated as valid network_names.");
+        return(true);
     };
 
+    if (is_top_level_domain(ARGV[0])) return(true);
+
     # Not a hostname. Is it a IP/mask?
-    hst = ARGV[0];
-    pos = index ("/", hst);
-    ip = substr (hst, 0, pos);
-    mask = substr (hst, pos+1);
-    if (is_ip (ip) && (is_ip (mask) || match (mask, '^(\d+)$'))) {
-        return (true);
-    };
-    # Not IP/mask: is it .domain?
-    if (index ('.', hst) == 0) {
-        return (is_hostname (substr (hst, 1)));
-    };
+    is_ipv4_netmask_pair(ARGV[0]);
+
     # Everything failed!
-    return (false);
+    false;
 };
 
 
@@ -870,7 +907,7 @@ function is_uuid = {
     uuid = ARGV[0];
     if(match(uuid,'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')) return(true);
     error("Bad uuid: " + uuid);
-    return(false);
+    false;
 };
 
 
