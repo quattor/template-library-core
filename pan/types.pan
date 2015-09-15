@@ -881,7 +881,7 @@ function is_network_name = {
     if (is_hostname(ARGV[0])) return(true);
 
     if (is_shorthostname(ARGV[0])) {
-        deprecate(0, "Short hostnames are deprecated as valid network_names.");
+        deprecated(0, "Short hostnames are deprecated as valid network_names.");
         return(true);
     };
 
