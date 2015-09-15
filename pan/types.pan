@@ -465,7 +465,6 @@ Verifies that the argument is a valid short hostname.
 function is_shorthostname = {
     hostname = ARGV[0];
     if(match(hostname,'^[a-zA-Z\d]([0-9A-Za-z-]{0,253}[a-zA-Z\d])?$')) return(true);
-    error("Bad host name: " + hostname);
     false;
 };
 
