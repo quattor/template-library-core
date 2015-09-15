@@ -888,7 +888,7 @@ function is_network_name = {
     if (is_top_level_domain(ARGV[0])) return(true);
 
     # Not a hostname. Is it a IP/mask?
-    is_ipv4_netmask_pair(ARGV[0]);
+    if (is_ipv4_netmask_pair(ARGV[0])) return(true);
 
     # Everything failed!
     false;
