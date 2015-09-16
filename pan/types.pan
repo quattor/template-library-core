@@ -851,7 +851,7 @@ type type_ipv4_prefix_length = string with {
 
 
 function is_ipv4_netmask_pair = {
-    pair = split('\/', 1, ARGV[0]);
+    pair = split('\/', 2, ARGV[0]);
     if (length(pair) == 2) {
         ip = pair[0];
         netmask = pair[1];
