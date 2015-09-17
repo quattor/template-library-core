@@ -846,12 +846,22 @@ type type_top_level_domain = string with {
 
 
 function is_ipv4_prefix_length = {
-    match(ARGV[0], '^([1-2]?[0-9]|3[0-2])$');
+    (to_long(ARGV[0]) >= 0 && to_long(ARGV[0]) <= 32)
 };
 
 
 type type_ipv4_prefix_length = string with {
     is_ipv4_prefix_length(SELF);
+};
+
+
+function is_ipv6_prefix_length = {
+    (to_long(ARGV[0]) >= 24 && to_long(ARGV[0]) <= 128)
+};
+
+
+type type_ipv6_prefix_length = string with {
+    is_ipv6_prefix_length(SELF);
 };
 
 
@@ -873,6 +883,24 @@ type type_ipv4_netmask_pair = string with {
 };
 
 
+function is_ipv6_network_block = {
+    pair = split('\/', 2, ARGV[0]);
+    if (length(pair) == 2) {
+        ip = pair[0];
+        size = pair[1];
+        if (is_ipv6(ip) && is_ipv6_prefix_length(size)) {
+            return(true);
+        };
+    };
+    false;
+};
+
+
+type type_ipv6_network_block = string with {
+    is_ipv6_network_block(SELF);
+};
+
+
 @documentation{
 Checks if the argument is in the form host.name.domain or IP,
 or .domain or IP/mask.
@@ -882,17 +910,23 @@ function is_network_name = {
         error ("usage: is_network_name (string)");
     };
 
+    # Is it a FQDN or an IP (v4 or v6) address?
     if (is_hostname(ARGV[0])) return(true);
 
+    # Is it a deprecated short-form hostname?
     if (is_shorthostname(ARGV[0])) {
         deprecated(0, "Short hostnames are deprecated as valid network_names.");
         return(true);
     };
 
+    # How about a valid TLD?
     if (is_top_level_domain(ARGV[0])) return(true);
 
     # Not a hostname. Is it a IP/mask?
     if (is_ipv4_netmask_pair(ARGV[0])) return(true);
+
+    # What about an IPv6 network block?
+    if (is_ipv6_network_block(ARGV[0])) return(true);
 
     # Everything failed!
     false;
