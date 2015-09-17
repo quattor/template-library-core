@@ -860,7 +860,7 @@ function is_ipv4_netmask_pair = {
     if (length(pair) == 2) {
         ip = pair[0];
         netmask = pair[1];
-        if (is_ip(ip) && (is_ip(netmask) || is_ipv4_prefix_length(netmask))) {
+        if (is_ipv4(ip) && (is_ipv4(netmask) || is_ipv4_prefix_length(netmask))) {
             return(true);
         };
     };
