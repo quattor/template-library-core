@@ -450,6 +450,11 @@ function is_hostname = {
     if (ARGC != 1 || !is_string(ARGV[0]))
         error("usage: is_hostname(string)");
 
+    if (is_shorthostname(ARGV[0])) {
+        deprecated(0, "Short hostnames are deprecated as valid hostnames.");
+        return(true);
+    };
+
     return (is_ip(ARGV[0]) || is_fqdn(ARGV[0]));
 };
 
@@ -465,7 +470,6 @@ Verifies that the argument is a valid short hostname.
 function is_shorthostname = {
     hostname = ARGV[0];
     if(match(hostname,'^[a-zA-Z\d]([0-9A-Za-z-]{0,253}[a-zA-Z\d])?$')) return(true);
-    error("Bad host name: " + hostname);
     false;
 };
 
@@ -852,7 +856,7 @@ type type_ipv4_prefix_length = string with {
 
 
 function is_ipv4_netmask_pair = {
-    pair = split('\/', 1, ARGV[0]);
+    pair = split('\/', 2, ARGV[0]);
     if (length(pair) == 2) {
         ip = pair[0];
         netmask = pair[1];
@@ -888,7 +892,7 @@ function is_network_name = {
     if (is_top_level_domain(ARGV[0])) return(true);
 
     # Not a hostname. Is it a IP/mask?
-    is_ipv4_netmask_pair(ARGV[0]);
+    if (is_ipv4_netmask_pair(ARGV[0])) return(true);
 
     # Everything failed!
     false;
