@@ -450,6 +450,11 @@ function is_hostname = {
     if (ARGC != 1 || !is_string(ARGV[0]))
         error("usage: is_hostname(string)");
 
+    if (is_shorthostname(ARGV[0])) {
+        deprecated(0, "Short hostnames are deprecated as valid hostnames.");
+        return(true);
+    };
+
     return (is_ip(ARGV[0]) || is_fqdn(ARGV[0]));
 };
 
