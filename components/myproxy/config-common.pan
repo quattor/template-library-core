@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 15.8.0-rc2, rc2_1, 2015-09-24T16:25:32Z
+# myproxy, 15.8.0-rc3, rc3_1, 2015-09-24T17:03:57Z
 #
 
 unique template components/myproxy/config-common;

@@ -14,7 +14,7 @@
 #
 
 # #
-# condorconfig, 15.8.0-rc2, rc2_1, 2015-09-24T16:25:32Z
+# condorconfig, 15.8.0-rc3, rc3_1, 2015-09-24T17:03:57Z
 #
 
 unique template components/condorconfig/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/condorconfig/config-common' };
 prefix '/software/components/condorconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-condorconfig','15.8.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-condorconfig','15.8.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 
