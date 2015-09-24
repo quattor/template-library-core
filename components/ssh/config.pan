@@ -11,14 +11,14 @@
 
 # 
 # #
-# ssh, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
+# ssh, 15.8.0-rc2, rc2_1, 2015-09-24T16:21:27Z
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "15.8.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "15.8.0-rc2_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");

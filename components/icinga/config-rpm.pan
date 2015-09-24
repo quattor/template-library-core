@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
+# icinga, 15.8.0-rc2, rc2_1, 2015-09-24T16:21:27Z
 #
 
 unique template components/icinga/config-rpm;
@@ -19,7 +19,7 @@ include {'components/icinga/functions'};
 include {'components/icinga/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "15.8.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "15.8.0-rc2_1", "noarch");
 
 "/software/components/icinga/dependencies/pre" ?=  list ("spma");
 

@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
+# ceph, 15.8.0-rc2, rc2_1, 2015-09-24T16:21:27Z
 #
 
 declaration template components/ceph/schema;
