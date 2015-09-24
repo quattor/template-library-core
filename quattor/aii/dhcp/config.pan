@@ -14,8 +14,26 @@
 #
 
 # #
-# dhcp, 15.4.0, 1, 2015-06-03T15:28:04Z
+# dhcp, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:52Z
 #
 template quattor/aii/dhcp/config;
 
-include {'quattor/aii/dhcp/schema'};
+include 'quattor/aii/dhcp/schema';
+
+# TFTP server
+# This is optional. Only it is necessary if your TFTP server is running on
+# a different machine than the DHCP server
+#
+# "/system/aii/dhcp/options/tftpserver" = "tftp.mydomain.org"
+#
+variable AII_DHCP_TFTPSERVER ?= null;
+"/system/aii/dhcp/options/tftpserver" ?= AII_DHCP_TFTPSERVER;
+
+# Additional DHCP options (optional).
+# Warning: They will be added in the host declaration of dhcpd.conf file, so
+# do not forget the ';' at the end
+#
+#"/system/aii/dhcp/addoptions" = "options blu-blo-bli bla;";
+#
+variable AII_DHCP_ADDOPTIONS ?= null;
+"/system/aii/dhcp/options/addoptions" ?= AII_DHCP_ADDOPTIONS;

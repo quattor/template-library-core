@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 15.4.0, 1, 2015-06-03T15:28:04Z
+# ks, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:52Z
 #
 # Structure for the component generating kickstart files.
 
@@ -124,6 +124,7 @@ type structure_ks_ks_info = {
     'packagesinpost' ? boolean
     'bonding' : boolean = true # support network bonding
     'lvmforce' ? boolean
+    'init_spma_ignore_deps' ? boolean
 };
 
 bind "/system/aii/osinstall/ks" = structure_ks_ks_info;

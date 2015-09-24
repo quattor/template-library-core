@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 15.4.0, 1, 2015-06-03T15:28:04Z
+# server, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:52Z
 #
 #
 # This file is the standard aii configuration. It only performs some
@@ -49,34 +49,8 @@ include { AII_OSINSTALL_GEN};
 # Including the PXE generator or equivalent
 include { AII_NBP_GEN };
 
-
-
-#################################################
-# DHCP daemon configuration (legacy from aii v1)
-#################################################
-
-#
-# TFTP server
-# This is optional. Only it is necessary if your TFTP server is running on
-# a different machine than the DHCP server
-#
-# "/system/aii/dhcp/options/tftpserver" = "tftp.mydomain.org"
-#
-variable AII_DHCP_TFTPSERVER ?= null;
-"/system/aii/dhcp/options/addoptions" ?= AII_DHCP_TFTPSERVER;
-
-#
-# Additional DHCP options (optional).
-# Warning: They will be added in the host declaration of dhcpd.conf file, so 
-# do not forget the ';' at the end
-#
-#"/system/aii/dhcp/addoptions" = "options blu-blo-bli bla;";
-#
-variable AII_DHCP_ADDOPTIONS ?= null;
-"/system/aii/dhcp/options/addoptions" ?= AII_DHCP_ADDOPTIONS;
-
-
-###################################
-# End of DHCP daemon configuration
-###################################
+# Include DHCP configuration
+# Set AII_DHCP_CONFIG to null if DHCP configuratio is managed outside AII
+variable AII_DHCP_CONFIG ?= "quattor/aii/dhcp/config";
+include { AII_DHCP_CONFIG };
 
