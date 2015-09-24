@@ -14,7 +14,7 @@
 #
 
 # #
-# lcgbdii, 15.4.0, 1, 2015-06-03T15:27:32Z
+# lcgbdii, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:02Z
 #
 
 unique template components/lcgbdii/config-common;
@@ -24,7 +24,7 @@ include { 'components/lcgbdii/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/lcgbdii';
 
-'version' = '15.4.0';
+'version' = '15.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

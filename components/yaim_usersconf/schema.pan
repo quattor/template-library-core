@@ -14,7 +14,7 @@
 #
 
 # #
-# yaim_usersconf, 15.4.0, 1, 2015-06-03T15:27:32Z
+# yaim_usersconf, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:02Z
 #
 #
 ############################################################
@@ -50,7 +50,7 @@ type structure_yaim_usersconf_vo = {
 };
 
 type yaim_usersconf_component = {
-    include component_type
+    include structure_component
     "users_conf_file"  ? string # "location of users.conf file"
     "groups_conf_file" ? string # "location of groups.conf file"
     "vo"               ? structure_yaim_usersconf_vo{}

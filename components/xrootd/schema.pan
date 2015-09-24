@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 15.4.0, 1, 2015-06-03T15:27:32Z
+# xrootd, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:02Z
 #
 #
 
@@ -190,11 +190,21 @@ type xrootd_component_fed_options = {
   "siteName" ? string
 };
 
+function is_xrootd_logKeep = {
+  if (is_long(ARGV[0])) {
+    deprecated(0, "Expressing logKeep as a long is deprecated, it should be expressed as a string.");
+    return(true);
+  };
+  return(match(ARGV[0], '^([0-9]+[k|m|g]?|fifo|hup|rtmin(\+[12])?|ttou|winch|xfsz)$'));
+};
+
+type xrootd_logKeep = property with is_xrootd_logKeep(SELF);
+
 type xrootd_component_instances = {
   "configFile" : string
   "federation" ? string
   "logFile" : string
-  "logKeep" : long = 90
+  "logKeep" : xrootd_logKeep = '90'
   "type" : string with match(SELF,'(disk|redir|fedredir)')
 };
 
