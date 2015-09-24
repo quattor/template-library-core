@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 15.4.0, 1, 2015-06-03T15:21:52Z
+# download, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
 #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
@@ -52,6 +52,7 @@ type component_download_file = {
     "capath"  ? string
     "cert" ? string
     "key" ? string
+    "timeout" ? long # seconds, overrides setting in component
 };
 
 type component_download_type = extensible {
@@ -60,6 +61,8 @@ type component_download_type = extensible {
     "proto"  ? string with match(SELF, "https?")
     "files"  ? component_download_file{}
     "proxyhosts" ? string[]
+    "head_timeout" ? long # seconds, timeout for HEAD requests which checks for changes
+    "timeout" ? long # seconds, total timeout for fetch of file, can be overridden per file
 };
 
 bind "/software/components/download" = component_download_type;

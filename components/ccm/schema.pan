@@ -14,14 +14,14 @@
 
 declaration template components/ccm/schema;
 
-include {'quattor/schema'};
-include {'pan/types'};
+include 'quattor/types/component';
+include 'pan/types';
 
 type component_ccm = {
     include structure_component
     'configFile'       : string = '/etc/ccm.conf'
     'profile'          : type_hostURI
-    'profile_failover' ? type_hostURI
+    'profile_failover' ? type_hostURI[]
     'context'          ? type_hostURI
     'debug'            : long(0..1) = 0
     'force'            : long(0..1) = 0
@@ -40,6 +40,5 @@ type component_ccm = {
     'base_url'         ? type_absoluteURI
     'dbformat'         ? string with match(SELF, "^(DB_File|CDB_File|GDBM_File)$")
     'json_typed'       ? boolean
+    'tabcompletion'    ? boolean
 };
-
-bind '/software/components/ccm' = component_ccm;

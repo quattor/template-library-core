@@ -16,7 +16,7 @@ unique template components/iptables/config-rpm;
 include { "components/iptables/schema" };
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-iptables", "15.4.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-iptables", "15.8.0-rc1_1", "noarch");
 
 
 # standard component settings

@@ -7,6 +7,7 @@
 # #
 # Current developer(s):
 #   Michel Jouvin <jouvin@lal.in2p3.fr>
+#   Vladimir Bahyl <null>
 #
 
 # 

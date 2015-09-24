@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 15.4.0, 1, 2015-06-03T15:21:52Z
+# puppet, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
 #
 
 unique template components/puppet/config-rpm;
@@ -20,6 +20,6 @@ unique template components/puppet/config-rpm;
 prefix '/software/components/puppet';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-puppet','15.4.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-puppet','15.8.0-rc1_1','noarch');
 'dependencies/pre' ?= list('spma');
 

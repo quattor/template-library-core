@@ -14,17 +14,17 @@
 #
 
 # #
-# network, 15.4.0, 1, 2015-06-03T15:21:52Z
+# network, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
 #
 
 unique template components/network/config;
 include 'components/network/schema';
 
-'/software/packages'=pkg_repl('ncm-network','15.4.0-1','noarch');
+'/software/packages'=pkg_repl('ncm-network','15.8.0-rc1_1','noarch');
 
 prefix '/software/components/network';
 'dependencies/pre' ?= list('spma');
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '15.4.0';
+'version' = '15.8.0';
 'register_change' = append("/system/network");

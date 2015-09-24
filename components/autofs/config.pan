@@ -11,10 +11,20 @@
 
 # 
 # #
-# autofs, 15.4.0, 1, 2015-06-03T15:21:52Z
+# autofs, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
 #
 
 unique template components/autofs/config;
 
-include { 'components/autofs/config-common' };
-include { 'components/autofs/config-rpm' };
+include 'components/autofs/schema';
+bind "/software/components/autofs" = component_autofs_type;
+
+# Set prefix to root of component configuration.
+prefix '/software/components/autofs';
+'active' ?= true;
+'dispatch' ?= true;
+'version' = '15.8.0';
+'dependencies/pre' ?= list("spma");
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-autofs", "15.8.0-rc1_1", "noarch");

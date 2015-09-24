@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 15.4.0, 1, 2015-06-03T15:21:52Z
+# modprobe, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
 #
 
 unique template components/modprobe/config;

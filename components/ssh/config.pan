@@ -11,10 +11,17 @@
 
 # 
 # #
-# ssh, 15.4.0, 1, 2015-06-03T15:21:52Z
+# ssh, 15.8.0-rc1, rc1_1, 2015-09-24T15:01:42Z
 #
 
 unique template components/ssh/config;
 
-include { 'components/ssh/config-common' };
-include { 'components/ssh/config-rpm' };
+include 'components/ssh/schema';
+
+"/software/packages" = pkg_repl("ncm-ssh", "15.8.0-rc1_1", "noarch");
+
+prefix '/software/components/ssh';
+'dependencies/pre' ?= list("spma");
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '15.8.0';
