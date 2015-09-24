@@ -14,7 +14,7 @@
 #
 
 # #
-# moab, 15.8.0-rc1, rc1_1, 2015-09-24T15:09:02Z
+# moab, 15.8.0-rc2, rc2_1, 2015-09-24T16:25:32Z
 #
 
 unique template components/moab/config-xml;
