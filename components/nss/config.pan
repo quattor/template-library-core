@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 15.8.0-rc2, rc2_1, 2015-09-24T16:21:27Z
+# nss, 15.8.0-rc3, rc3_1, 2015-09-24T16:59:54Z
 #
 
 ################################################################################
@@ -25,10 +25,10 @@ include { 'components/nss/schema' };
 include { 'pan/functions' };
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "15.8.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "15.8.0-rc3_1", "noarch");
 
 # standard component settings
 "/software/components/nss/active"   ?=  true ;
 "/software/components/nss/dispatch" ?=  false ;
-"/software/components/nss/version"   = "15.8.0-rc2";
+"/software/components/nss/version"   = "15.8.0-rc3";
 

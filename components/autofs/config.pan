@@ -11,7 +11,7 @@
 
 # 
 # #
-# autofs, 15.8.0-rc2, rc2_1, 2015-09-24T16:21:27Z
+# autofs, 15.8.0-rc3, rc3_1, 2015-09-24T16:59:54Z
 #
 
 unique template components/autofs/config;
@@ -27,4 +27,4 @@ prefix '/software/components/autofs';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-autofs", "15.8.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-autofs", "15.8.0-rc3_1", "noarch");

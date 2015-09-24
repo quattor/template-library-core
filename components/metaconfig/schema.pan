@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 15.8.0-rc2, rc2_1, 2015-09-24T16:22:05Z
+# metaconfig, 15.8.0-rc3, rc3_1, 2015-09-24T17:00:31Z
 #
 
 declaration template components/metaconfig/schema;
