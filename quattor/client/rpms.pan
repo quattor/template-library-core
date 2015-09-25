@@ -21,7 +21,6 @@ include { 'rpms/package_default_versions' };
     # Quattor
     SELF[escape('cdp-listend')] = nlist();
     SELF[escape('ncm-cdispd')] = nlist();
-    SELF[escape('ncm-ncd')] = nlist();
     SELF[escape('ncm-query')] = nlist();
 
     # ideally, include components/spma/config with version locked rpm
@@ -29,6 +28,11 @@ include { 'rpms/package_default_versions' };
     if(! exists(spma)) {
         SELF[spma] = nlist();
     };
+    ncd = escape('ncm-ncd');
+    if(! exists(ncd)) {
+        SELF[ncd] = nlist();
+    };
+
       
     SELF;
 };
