@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Create one big profile including all pan templates and try to compile it
-# (optional) arguments: 
+# (optional) arguments:
 #     clean: runs git clean (and will remove changes), to be used on jenkins only
 #
 rm -Rf ./build_temp
@@ -11,7 +11,29 @@ if [ "$1" == "clean" ]; then
 fi
 
 mkdir build_temp
-cat > build_temp/test.pan <<EOF 
+
+tplfiles=`find . -type f -regex '.*\.tpl' |wc -l`
+if [ $tplfiles -ne 0 ]; then
+    echo "[ERROR] found .tpl files, should be .pan only: $tplfiles"
+    exit 1
+fi
+
+# panc-annotations can have issues with multiple threads creating dirs
+echo "Testing pan annotations"
+find . -type d ! -regex '.*build_temp.*' | xargs -I '{}' mkdir -p 'build_temp/{}'
+nrpanfiles=`find . -type f -regex '.*\.pan' |wc -l`
+panfiles=`find . -type f -regex '.*\.pan'`
+panc-annotations --output-dir build_temp $panfiles
+
+nrannofiles=`find build_temp -type f -regex '.*annotation\.xml'|wc -l`
+if [ $nrpanfiles != $nrannofiles ]; then
+    echo "[ERROR]: number of annotation files is not the same as numnber of pan files."
+    exit 1
+else
+    echo "pan annotations ok"
+fi
+
+cat > build_temp/test.pan <<EOF
 object template test;
 
 # for quattor/aii/config
@@ -43,7 +65,7 @@ variable GANESHA_FSAL = 'gpfs';
 
 # can't be undef
 "/software/repositories" = append(dict(
-    
+
 ));
 
 EOF
