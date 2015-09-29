@@ -176,6 +176,21 @@ type structure_sysloc = {
 };
 
 @documentation{
+    System benchmark results
+    benchmarks is used to hold the performance benchmark for the machine 
+    i.e. HEPSpec06 score
+    this might be used to scale things such as the wall time
+    example of using this might be : 
+    variable CONDOR_WN_SCALING_FACTOR = value('/hardware/benchmarks/hepspec06') 
+          / ( 4 * get_num_of_cores()) ;
+}
+type structure_benchmark = {
+    "hepspec06" ? double
+    "HPL" ? double
+    "stream" ? double
+};
+
+@documentation{
     Hardware definition
 }
 type structure_hardware = {
@@ -187,7 +202,7 @@ type structure_hardware = {
     "console"      ? structure_console
     "sysloc"       ? structure_sysloc
     "nodename"     ? string
-
+    "benchmarks" ? structure_benchmark 
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"    ? structure_raidport{}
 };
