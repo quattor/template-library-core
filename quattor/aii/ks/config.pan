@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 15.8.0-rc3, rc3_1, 2015-09-24T17:04:16Z
+# ks, 15.8.0-rc4, rc4_1, 2015-10-07T14:55:34Z
 #
 
 # Template containing the Kickstart-related configuration and default
