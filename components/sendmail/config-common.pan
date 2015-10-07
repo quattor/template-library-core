@@ -11,7 +11,7 @@
 
 # 
 # #
-# sendmail, 15.8.0-rc3, rc3_1, 2015-09-24T16:59:54Z
+# sendmail, 15.8.0-rc4, rc4_1, 2015-10-07T14:48:46Z
 #
 
 unique template components/sendmail/config-common;
@@ -21,7 +21,7 @@ include { 'components/sendmail/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/sendmail';
 
-#'version' = '15.8.0-rc3';
+#'version' = '15.8.0-rc4';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
