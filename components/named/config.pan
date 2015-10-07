@@ -12,7 +12,7 @@
 
 # 
 # #
-# named, 15.8.0-rc4, rc4_1, 2015-10-07T14:48:46Z
+# named, 15.8.0-rc5, rc5_1, 2015-10-07T15:51:08Z
 #
 
 unique template components/named/config;
@@ -20,7 +20,7 @@ unique template components/named/config;
 include { 'components/named/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-named", "15.8.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-named", "15.8.0-rc5_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/named';
