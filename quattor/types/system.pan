@@ -46,7 +46,7 @@ type structure_system = {
     "filesystems"   ? structure_filesystem[]
     "blockdevices" ? structure_blockdevices
     "glite"         ? structure_glite
-    "kernel"        : structure_kernel
+    "kernel"        ? structure_kernel
     "lcg"           ? structure_lcg
     "network"       : structure_network
     # TODO: monitoring-related structures should go elsewhere. 
