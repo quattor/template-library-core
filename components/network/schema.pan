@@ -14,7 +14,7 @@
 #
 
 # #
-# network, 15.8.0-rc5, rc5_1, 2015-10-07T15:51:08Z
+# network, 15.8.0-rc6, rc6_1, 2015-10-23T12:33:34Z
 #
 
 declaration template components/network/schema;

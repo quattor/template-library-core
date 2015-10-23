@@ -18,7 +18,7 @@ unique template components/afsclt/config-rpm;
 include { 'components/afsclt/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-afsclt", "15.8.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-afsclt", "15.8.0-rc6_1", "noarch");
 
  
 "/software/components/afsclt/dependencies/pre" ?= list("spma");

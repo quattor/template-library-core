@@ -16,7 +16,7 @@ unique template components/sysctl/config;
 include { 'components/sysctl/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-sysctl", "15.8.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-sysctl", "15.8.0-rc6_1", "noarch");
 
 "/software/components/sysctl/dependencies/pre" ?= list("spma");
 "/software/components/sysctl/active" ?= true;
