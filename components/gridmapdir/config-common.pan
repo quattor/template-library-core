@@ -14,7 +14,7 @@
 #
 
 # #
-# gridmapdir, 15.8.0-rc5, rc5_1, 2015-10-07T15:57:40Z
+# gridmapdir, 15.8.0-rc6, rc6_1, 2015-10-23T12:37:32Z
 #
 
 unique template components/gridmapdir/config-common;
