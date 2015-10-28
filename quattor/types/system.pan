@@ -43,7 +43,7 @@ type structure_system = {
     "cluster"       ? structure_cluster
     "edg"           ? structure_edg
     "enclosure"     ? structure_enclosure
-    "filesystems"   ? structure_filesystem[]
+    "filesystems"   ? structure_filesystem[] with filesystems_uniq_paths(SELF)
     "blockdevices" ? structure_blockdevices
     "glite"         ? structure_glite
     "kernel"        : structure_kernel
