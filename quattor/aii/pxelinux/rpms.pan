@@ -14,11 +14,11 @@
 #
 
 # #
-# pxelinux, 15.8.0-rc6, rc6_1, 2015-10-23T12:37:52Z
+# pxelinux, 15.8.0, 1, 2015-10-29T11:34:36Z
 #
 
 # Template adding aii-pxelinux rpm to the configuration
 
 unique template quattor/aii/pxelinux/rpms;
 
-"/software/packages"=pkg_repl("aii-pxelinux","15.8.0-rc6_1","noarch");
+"/software/packages"=pkg_repl("aii-pxelinux","15.8.0-1","noarch");

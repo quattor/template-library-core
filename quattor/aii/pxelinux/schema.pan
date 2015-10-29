@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 15.8.0-rc6, rc6_1, 2015-10-23T12:37:52Z
+# pxelinux, 15.8.0, 1, 2015-10-29T11:34:36Z
 #
 unique template quattor/aii/pxelinux/schema;
 
