@@ -11,13 +11,13 @@
 
 # 
 # #
-# gpfs, 15.8.0-rc6, rc6_1, 2015-10-23T12:33:34Z
+# gpfs, 15.8.0, 1, 2015-10-29T11:33:30Z
 #
 
 unique template components/gpfs/config;
 include 'components/gpfs/schema';
 
-'/software/packages'=pkg_repl('ncm-gpfs','15.8.0-rc6_1','noarch');
+'/software/packages'=pkg_repl('ncm-gpfs','15.8.0-1','noarch');
 
 prefix '/software/components/gpfs';
 'dependencies/pre' ?= list ('spma');

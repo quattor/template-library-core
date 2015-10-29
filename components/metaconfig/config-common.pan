@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 15.8.0-rc6, rc6_1, 2015-10-23T12:34:11Z
+# metaconfig, 15.8.0, 1, 2015-10-29T11:34:08Z
 #
 
 unique template components/metaconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/metaconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/metaconfig';
 
-#'version' = '15.8.0-rc6';
+#'version' = '15.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
