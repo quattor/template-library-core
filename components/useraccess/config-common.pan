@@ -11,7 +11,7 @@
 
 # 
 # #
-# useraccess, 15.8.0-rc3, rc3_1, 2015-09-24T16:59:54Z
+# useraccess, 15.8.0, 1, 2015-10-29T11:33:30Z
 #
 
 unique template components/useraccess/config-common;
@@ -21,7 +21,7 @@ include { 'components/useraccess/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/useraccess';
 
-#'version' = '15.8.0-rc3';
+#'version' = '15.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

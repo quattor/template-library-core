@@ -14,7 +14,7 @@
 #
 
 # #
-# wlconfig, 15.8.0-rc3, rc3_1, 2015-09-24T17:03:57Z
+# wlconfig, 15.8.0, 1, 2015-10-29T11:34:15Z
 #
 
 unique template components/wlconfig/config-common;

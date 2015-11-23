@@ -11,12 +11,12 @@
 
 # 
 # #
-# icinga, 15.8.0-rc3, rc3_1, 2015-09-24T16:59:54Z
+# icinga, 15.8.0, 1, 2015-10-29T11:33:30Z
 #
 
 template components/icinga/functions;
 
-function has_host_or_hostgroup = {
+function icinga_has_host_or_hostgroup = {
 	v = ARGV[0];
 	if (exists (v["host_name"]) || exists (v["hostgroup_name"])) {
 		return (true);
