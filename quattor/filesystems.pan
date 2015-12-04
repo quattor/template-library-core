@@ -4,8 +4,8 @@
 declaration template quattor/filesystems;
 
 function filesystems_uniq_paths = {
-    mounts = nlist();
-    blockdevs = nlist();
+    mounts = dict();
+    blockdevs = dict();
     foreach (idx;data;SELF){
         bd = data['block_device'];
         mp = data['mountpoint'];
