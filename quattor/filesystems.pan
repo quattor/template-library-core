@@ -3,6 +3,10 @@
 }
 declaration template quattor/filesystems;
 
+@documentation{ 
+    desc = check that no duplicate mountpoints or blockdevices are used
+    arg = array of structure_filesystem, from quattor/types/system
+}
 function filesystems_uniq_paths = {
     mounts = dict();
     blockdevs = dict();
