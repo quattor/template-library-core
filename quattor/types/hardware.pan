@@ -6,7 +6,7 @@ include 'quattor/types/annotation';
 include 'quattor/physdevices';
 
 @documentation{
-    RAM definition    
+    RAM definition
 }
 type structure_ram = {
     include structure_annotation
@@ -57,18 +57,18 @@ type structure_rack = {
     Fiber channel definition
 }
 type fcahwaddr = string with is_a_fcahwaddr (SELF);
-type structure_fca = { 
-    include structure_annotation 
-    "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name" 
-    "active" ? boolean # "Is this port being used" 
+type structure_fca = {
+    include structure_annotation
+    "hwaddr" ? fcahwaddr # "IEEE fiber Channel World Wide Name"
+    "active" ? boolean # "Is this port being used"
 };
 
 @documentation{
     BMC controller
 }
-type structure_bmc = { 
-    include structure_annotation 
-    "hwaddr" ? type_hwaddr 
+type structure_bmc = {
+    include structure_annotation
+    "hwaddr" ? type_hwaddr
 };
 
 @documentation{
@@ -177,17 +177,17 @@ type structure_sysloc = {
 
 @documentation{
     System benchmark results
-    benchmarks is used to hold the performance benchmark for the machine 
+    benchmarks is used to hold the performance benchmark for the machine
     i.e. HEPSpec06 score
     this might be used to scale things such as the wall time
-    example of using this might be : 
-    variable CONDOR_WN_SCALING_FACTOR = value('/hardware/benchmarks/hepspec06') 
+    example of using this might be :
+    variable CONDOR_WN_SCALING_FACTOR = value('/hardware/benchmarks/hepspec06')
           / ( 4 * get_num_of_cores()) ;
 }
 type structure_benchmark = {
-    "hepspec06" ? double
-    "HPL" ? double
-    "stream" ? double
+    "hepspec06" ? double 
+    "HPL" ? double @{unit: Gflops}
+    "stream" ? double @{unit: MB/s TRIAD}
 };
 
 @documentation{
@@ -202,7 +202,7 @@ type structure_hardware = {
     "console"      ? structure_console
     "sysloc"       ? structure_sysloc
     "nodename"     ? string
-    "benchmarks" ? structure_benchmark 
+    "benchmarks" ? structure_benchmark
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"    ? structure_raidport{}
 };
