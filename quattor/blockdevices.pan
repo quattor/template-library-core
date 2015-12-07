@@ -53,6 +53,8 @@ type blockdevices_md_type = {
     "raid_level" : string with match (SELF,'^RAID[0156]$')
     "stripe_size" : long = 64 # "Stripe size in KB"
     "num_spares" ? long # "Number of spare devices"
+    # Declare the style of RAID metadata (superblock) to be used. This is --metadata in `man mdadm`
+    "metadata" ? string = '0.90' with index(SELF, list('0', '0.90', '1.0', '1.1', '1.2', 'ddf', 'imsm', 'default')) > 0
 };
 
 @documentation{
