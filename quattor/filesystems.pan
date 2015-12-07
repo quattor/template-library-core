@@ -3,6 +3,30 @@
 }
 declaration template quattor/filesystems;
 
+@documentation{ 
+    desc = check that no duplicate mountpoints or blockdevices are used
+    arg = array of structure_filesystem, from quattor/types/system
+}
+function filesystems_uniq_paths = {
+    mounts = dict();
+    blockdevs = dict();
+    foreach (idx;data;ARGV[0]){
+        bd = data['block_device'];
+        mp = data['mountpoint'];
+        if (exists(mounts[escape(mp)])) {
+            error(format('Duplicate mountpoint %s in filesystems', mp));
+        } else {
+            mounts[escape(mp)] = 1;
+        };
+        if (exists(blockdevs[escape(bd)])) {
+            error(format('Duplicate blockdevice %s used in filesystems', bd));
+        } else {
+            blockdevs[escape(bd)] = 1;
+        };
+    };
+    true;
+};
+
 @{
     Filestystem definition
 }
