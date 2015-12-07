@@ -185,9 +185,11 @@ type structure_sysloc = {
           / ( 4 * get_num_of_cores()) ;
 }
 type structure_benchmark = {
-    "hepspec06" ? double 
-    "HPL" ? double @{unit: Gflops}
-    "stream" ? double @{unit: MB/s TRIAD}
+    "hepspec06" ? double
+    @{unit: Gflops}
+    "HPL" ? double
+    @{unit: MB/s TRIAD}
+    "stream" ? double
 };
 
 @documentation{
