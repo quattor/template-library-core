@@ -11,10 +11,21 @@
 
 # 
 # #
-# nscd, 15.8.0, 1, 2015-10-29T11:33:30Z
+# nscd, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/nscd/config;
 
-include { 'components/nscd/config-common' };
-include { 'components/nscd/config-rpm' };
+include 'components/nscd/schema';
+
+"/software/packages" = pkg_repl("ncm-nscd", "15.12.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/nscd';
+
+'paranoia' ?= 'yes';
+'hosts/positive-time-to-live' ?= 300;
+'active' ?= true;
+'dispatch' ?= true;
+'version' = '15.12.0';
+'dependencies/pre' = list('spma');

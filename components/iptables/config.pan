@@ -11,10 +11,18 @@
 
 # 
 # #
-# iptables, 15.8.0, 1, 2015-10-29T11:33:30Z
+# iptables, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/iptables/config;
 
-include { 'components/iptables/config-common' };
-include { 'components/iptables/config-rpm' };
+include { "components/iptables/schema" };
+
+# Package to install.
+"/software/packages" = pkg_repl("ncm-iptables", "15.12.0-rc1_1", "noarch");
+
+prefix '/software/components/iptables';
+
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' = append("spma");

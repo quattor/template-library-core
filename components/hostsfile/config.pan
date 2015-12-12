@@ -11,10 +11,19 @@
 
 # 
 # #
-# hostsfile, 15.8.0, 1, 2015-10-29T11:33:30Z
+# hostsfile, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/hostsfile/config;
 
-include { 'components/hostsfile/config-common' };
-include { 'components/hostsfile/config-rpm' };
+include 'components/hostsfile/schema';
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-hostsfile", "15.12.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/hostsfile';
+
+'version' = '15.12.0';
+'active' ?= false;
+'dispatch' ?= false;

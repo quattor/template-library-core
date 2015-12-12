@@ -11,10 +11,21 @@
 
 # 
 # #
-# icinga, 15.8.0, 1, 2015-10-29T11:33:30Z
+# icinga, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/icinga/config;
 
-include { 'components/icinga/config-common' };
-include { 'components/icinga/config-rpm' };
+include 'components/icinga/schema';
+include 'components/icinga/functions';
+
+bind "/software/components/icinga" = structure_component_icinga;
+
+# Set prefix to root of component configuration.
+prefix '/software/components/icinga';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list('spma');
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-icinga", "15.12.0-rc1_1", "noarch");

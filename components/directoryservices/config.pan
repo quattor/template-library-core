@@ -11,7 +11,7 @@
 
 # 
 # #
-# directoryservices, 15.8.0, 1, 2015-10-29T11:33:30Z
+# directoryservices, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/directoryservices/config;

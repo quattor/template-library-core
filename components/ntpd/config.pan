@@ -14,10 +14,19 @@
 #
 
 # #
-# ntpd, 15.8.0, 1, 2015-10-29T11:33:30Z
+# ntpd, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/ntpd/config;
 
-include { 'components/ntpd/config-common' };
-include { 'components/ntpd/config-rpm' };
+include 'components/ntpd/schema';
+
+bind "/software/components/ntpd" = component_ntpd_type;
+
+"/software/packages" = pkg_repl("ncm-ntpd", "15.12.0-rc1_1", "noarch");
+
+prefix '/software/components/ntpd';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '15.12.0';
+'dependencies/pre' ?= list("spma");

@@ -11,10 +11,20 @@
 
 # 
 # #
-# altlogrotate, 15.8.0, 1, 2015-10-29T11:33:30Z
+# altlogrotate, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/altlogrotate/config;
 
-include { 'components/altlogrotate/config-common' };
-include { 'components/altlogrotate/config-rpm' };
+include { 'components/altlogrotate/schema' };
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-altlogrotate", "15.12.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/altlogrotate';
+
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list('spma');
+'version' = '15.12.0';

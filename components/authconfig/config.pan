@@ -14,7 +14,7 @@
 #
 
 # #
-# authconfig, 15.8.0, 1, 2015-10-29T11:33:30Z
+# authconfig, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 
@@ -22,7 +22,7 @@ unique template components/authconfig/config;
 
 include 'components/authconfig/schema';
 
-'/software/packages'=pkg_repl('ncm-authconfig','15.8.0-1','noarch');
+'/software/packages'=pkg_repl('ncm-authconfig','15.12.0-rc1_1','noarch');
 
 prefix '/software/components/authconfig';
 'dependencies/pre' ?= list ('spma');

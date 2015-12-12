@@ -11,7 +11,7 @@
 
 # 
 # #
-# ccm, 15.8.0, 1, 2015-10-29T11:33:30Z
+# ccm, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/ccm/config;
@@ -20,10 +20,10 @@ include 'components/ccm/schema';
 
 bind '/software/components/ccm' = component_ccm;
 
-'/software/packages' = pkg_repl('ncm-ccm','15.8.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-ccm','15.12.0-rc1_1','noarch');
 
 prefix '/software/components/ccm';
 'dependencies/pre' ?= list('spma');
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '15.8.0';
+'version' ?= '15.12.0';

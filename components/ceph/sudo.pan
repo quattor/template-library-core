@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 15.8.0, 1, 2015-10-29T11:33:30Z
+# ceph, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 
@@ -26,7 +26,7 @@ include 'components/sudo/config';
         "/usr/bin/python -c import sys;exec(eval(sys.stdin.readline()))", 
         "/usr/bin/python -u -c import sys;exec(eval(sys.stdin.readline()))", 
         "/bin/mkdir",
-        "/usr/bin/file -s *"
+        "/usr/bin/file -sL *"
     );
     foreach (i; cmd; sudolist){
         nl = nlist("host", "ALL",

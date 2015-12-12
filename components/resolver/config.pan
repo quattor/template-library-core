@@ -11,10 +11,19 @@
 
 # 
 # #
-# resolver, 15.8.0, 1, 2015-10-29T11:33:30Z
+# resolver, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
 #
 
 unique template components/resolver/config;
 
-include { 'components/resolver/config-common' };
-include { 'components/resolver/config-rpm' };
+include 'components/resolver/schema';
+include 'pan/functions';
+
+"/software/packages" = pkg_repl("ncm-resolver", "15.12.0-rc1_1", "noarch");
+
+prefix '/software/components/resolver';
+
+'version' = '15.12.0';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list("spma");

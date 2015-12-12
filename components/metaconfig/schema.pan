@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 15.8.0, 1, 2015-10-29T11:34:08Z
+# metaconfig, 15.12.0-rc1, rc1_1, 2015-12-12T17:20:09Z
 #
 
 declaration template components/metaconfig/schema;
@@ -29,7 +29,6 @@ type metaconfig_config =  {
      'mode' : long = 0644
      'owner' : string = 'root'
      'group' : string = 'root'
-     'daemon' ? string[] with { deprecated(0, "daemon property has been deprecated, daemons should be used instead"); true; }
      'daemons' ? caf_service_action{}
      'module' : string
      'backup' ? string
@@ -39,7 +38,5 @@ type metaconfig_config =  {
 
 type metaconfig_component = {
     include structure_component
-    'services' : metaconfig_config{}
+    'services' : metaconfig_config{} with valid_absolute_file_paths(SELF)
 };
-
-bind '/software/components/metaconfig' = metaconfig_component;
