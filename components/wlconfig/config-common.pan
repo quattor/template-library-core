@@ -14,7 +14,7 @@
 #
 
 # #
-# wlconfig, 15.8.0, 1, 2015-10-29T11:34:15Z
+# wlconfig, 15.12.0-rc1, rc1_1, 2015-12-12T17:24:51Z
 #
 
 unique template components/wlconfig/config-common;
@@ -24,7 +24,7 @@ include { 'components/wlconfig/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/wlconfig';
 
-'version' = '15.8.0';
+'version' = '15.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
