@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 15.8.0, 1, 2015-10-29T11:34:36Z
+# ks, 15.12.0-rc1, rc1_1, 2015-12-12T17:25:10Z
 #
 
 # Template containing the Kickstart-related configuration and default
@@ -349,6 +349,12 @@ variable AII_OSINSTALL_PACKAGES ?= list (
 
 
 "/system/aii/osinstall/ks/packages" ?= AII_OSINSTALL_PACKAGES;
+"/system/aii/osinstall/ks/packages" = {
+    if (value('/system/aii/osinstall/ks/selinux') == 'disabled') {
+        append('-selinux*');
+    };
+    SELF;
+};
 
 #
 # URL CGI script for acknowledge "install successful, do not install on next boot"
