@@ -14,7 +14,7 @@
 #
 
 # #
-# moab, 15.12.0-rc1, rc1_1, 2015-12-12T17:24:51Z
+# moab, 15.12.0-rc2, rc2_1, 2016-01-07T14:03:08Z
 #
 
 unique template components/moab/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/moab/config-common' };
 prefix '/software/components/moab';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-moab','15.12.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-moab','15.12.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 
