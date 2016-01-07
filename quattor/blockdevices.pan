@@ -61,7 +61,7 @@ type blockdevices_md_type = {
 };
 
 @documentation{
-    lvm cache volume and mode\
+    lvm cache volume and mode
 }
 type blockdevices_logicalvolumes_cache_type = {
     "cache_lv" : lv_string
@@ -77,7 +77,8 @@ type blockdevices_logicalvolumes_type = {
     "stripe_size" ? long # Size of the stripe. If not used, no striping
     "devices" ? blockdev_string[]
     "cache" ? blockdevices_logicalvolumes_cache_type
-    "type" ? string with match (SELF,'^(cache(-pool)|error|linear|mirror|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$)
+    "type" ? string with match (SELF,
+        '^(cache(-pool)|error|linear|mirror|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$')
 };
     
 type blockdevices_lvm_type = {
