@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 15.12.0-rc1, rc1_1, 2015-12-12T17:25:10Z
+# ks, 15.12.0-rc2, rc2_1, 2016-01-07T14:03:27Z
 #
 
 # Template containing OS configuration and default values.
