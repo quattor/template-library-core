@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
+# ceph, 15.12.0-rc2, rc2_1, 2016-01-07T13:57:35Z
 #
 
 unique template components/ceph/config-common;

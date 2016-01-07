@@ -14,7 +14,7 @@
 #
 
 # #
-# ntpd, 15.12.0-rc1, rc1_1, 2015-12-12T17:19:33Z
+# ntpd, 15.12.0-rc2, rc2_1, 2016-01-07T13:57:35Z
 #
 
 unique template components/ntpd/config;
@@ -23,7 +23,7 @@ include 'components/ntpd/schema';
 
 bind "/software/components/ntpd" = component_ntpd_type;
 
-"/software/packages" = pkg_repl("ncm-ntpd", "15.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ntpd", "15.12.0-rc2_1", "noarch");
 
 prefix '/software/components/ntpd';
 'active' ?= true;

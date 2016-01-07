@@ -18,7 +18,7 @@ include { 'components/accounts/functions' };
 include { 'components/accounts/config-common'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-accounts", "15.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-accounts", "15.12.0-rc2_1", "noarch");
 
 '/software/components/accounts/dependencies/pre' ?= list('spma');
 
