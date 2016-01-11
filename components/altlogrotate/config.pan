@@ -11,7 +11,7 @@
 
 # 
 # #
-# altlogrotate, 15.12.0-rc3, rc3_1, 2016-01-11T13:49:46Z
+# altlogrotate, 15.12.0, 1, 2016-01-11T14:30:21Z
 #
 
 unique template components/altlogrotate/config;
@@ -19,7 +19,7 @@ unique template components/altlogrotate/config;
 include { 'components/altlogrotate/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-altlogrotate", "15.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-altlogrotate", "15.12.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/altlogrotate';
