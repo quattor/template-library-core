@@ -14,7 +14,7 @@
 #
 
 # #
-# gold, 15.12.0-rc2, rc2_1, 2016-01-07T14:03:08Z
+# gold, 15.12.0-rc3, rc3_1, 2016-01-11T13:50:39Z
 #
 
 unique template components/gold/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/gold/config-common' };
 prefix '/software/components/gold';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gold','15.12.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-gold','15.12.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 

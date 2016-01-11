@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsknownhosts, 15.12.0-rc2, rc2_1, 2016-01-07T14:03:08Z
+# pbsknownhosts, 15.12.0-rc3, rc3_1, 2016-01-11T13:50:39Z
 #
 
 unique template components/pbsknownhosts/config;
