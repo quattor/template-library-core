@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsclient, 15.12.0-rc3, rc3_1, 2016-01-11T13:50:39Z
+# pbsclient, 15.12.0, 1, 2016-01-11T14:37:03Z
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
