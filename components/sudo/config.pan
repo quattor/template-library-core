@@ -14,7 +14,7 @@
 #
 
 # #
-# sudo, 15.12.0-rc2, rc2_1, 2016-01-07T13:57:35Z
+# sudo, 15.12.0-rc3, rc3_1, 2016-01-11T13:49:46Z
 #
 
 unique template components/sudo/config;

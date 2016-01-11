@@ -11,14 +11,14 @@
 
 # 
 # #
-# libvirtd, 15.12.0-rc2, rc2_1, 2016-01-07T13:57:35Z
+# libvirtd, 15.12.0-rc3, rc3_1, 2016-01-11T13:49:46Z
 #
 
 unique template components/libvirtd/config;
 
 include {'components/libvirtd/schema'};
 
-'/software/packages'=pkg_repl('ncm-libvirtd','15.12.0-rc2_1','noarch');
+'/software/packages'=pkg_repl('ncm-libvirtd','15.12.0-rc3_1','noarch');
 '/software/components/libvirtd/dependencies/pre' ?=  list ('spma');
 
 '/software/components/libvirtd/active' ?= true;
