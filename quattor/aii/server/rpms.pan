@@ -14,6 +14,7 @@ variable AIISERVER_INSTALL_YUM_TOOLS ?= true;
 include 'quattor/aii/rpms';
 include 'quattor/aii/dhcp/rpms';
 include 'quattor/aii/ks/rpms';
+include 'quattor/aii/opennebula/rpms';
 include 'quattor/aii/pxelinux/rpms';
 
 '/software/packages' = {
