@@ -7,10 +7,6 @@ unique template quattor/client/rpms;
 
 include { 'quattor/client/version' };
 
-# Default version of packages in the selected OS
-include { 'rpms/package_default_versions' };
-
-
 '/software/packages' = {
     # OS-provided required packages
     # Part of the OS, installed by Anaconda as part of the base packages
