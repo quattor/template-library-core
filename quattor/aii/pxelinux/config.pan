@@ -11,7 +11,7 @@
 #
 template quattor/aii/pxelinux/config;
 
-include {'quattor/aii/pxelinux/schema'};
+include 'quattor/aii/pxelinux/schema';
 
 
 #

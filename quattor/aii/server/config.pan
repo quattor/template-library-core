@@ -9,7 +9,7 @@ variable AII_DHCP_CONFIGURE ?= false;
 variable AII_DHCP_CONFIG_SITE ?= undef;
 variable AII_DHCP_DHCPD_CONF_FILE ?= '/etc/dhcpd.conf';
 
-include { 'components/aiiserver/config' };
+include 'components/aiiserver/config';
 
 # aii-shellfe configuration
 
@@ -66,4 +66,4 @@ prefix '/software/components/aiiserver/aii-dhcp';
                   null;
                 };     
 
-include {AII_DHCP_CONFIG_SITE};
+include AII_DHCP_CONFIG_SITE;

@@ -17,7 +17,7 @@
 
 declaration template quattor/functions/repository;
  
-include { 'pan/functions' };
+include 'pan/functions';
 
 # Default namespace to use for repository templates.
 # Must be changed using function argument.

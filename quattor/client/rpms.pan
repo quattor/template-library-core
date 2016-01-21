@@ -5,7 +5,7 @@
 
 unique template quattor/client/rpms;
 
-include { 'quattor/client/version' };
+include 'quattor/client/version';
 
 '/software/packages' = {
     # OS-provided required packages

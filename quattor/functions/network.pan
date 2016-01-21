@@ -17,7 +17,7 @@
 
 declaration template quattor/functions/network;
 
-include { 'pan/types' };
+include 'pan/types';
 
 ################################################################################
 # set_interface_defaults

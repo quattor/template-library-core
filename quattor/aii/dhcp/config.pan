@@ -11,4 +11,4 @@
 #
 template quattor/aii/dhcp/config;
 
-include {'quattor/aii/dhcp/schema'};
+include 'quattor/aii/dhcp/schema';
