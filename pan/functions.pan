@@ -26,7 +26,7 @@ function push = {
         error("push can only be applied to a list");
     };
 
-    # Cannot use merge or refernce ARGV directly
+    # Cannot use merge or reference ARGV directly
     i = 0;
     while (i<ARGC) {
         v[length(v)] = ARGV[i];
@@ -98,7 +98,7 @@ function npush = {
 function push_if = {
     # Check cardinality and first argument.
     if (ARGC == 0 || !is_boolean(ARGV[0])) {
-        error("usage: push(boolean, values...) requires at least a boolean as first argument");
+        error("usage: push_if(boolean, values...) requires at least a boolean as first argument");
     };
 
     if (ARGV[0]) {
@@ -156,13 +156,13 @@ function host_domain_from_object = {
 
     # Check the argument to ensure it is a valid domain name.
     if (!is_fqdn(ARGV[0])) {
-        error(format("host_domain_from_object: invalid default domain (%s)", ARGv[0]));
+        error(format("host_domain_from_object: invalid default domain (%s)", ARGV[0]));
     };
 
     # Check first for the old style profile names.
     m = matches(OBJECT, "^(?:profile_)?([^\\.]+)(?:\\.(.*))?$");
     size = length(m);
-    
+
     if (size >= 2 && size <=3) {
         if (! is_shorthostname(m[1])) {
             error(format("host_domain_from_object: invalid hostname (%s)", m[1]));
@@ -228,7 +228,7 @@ function hostname_from_object = {
 function domain_from_object = {
     # Check cardinality.
     if (ARGC != 1) {
-        error("usage: domain_from_object(default_domain) requires default domian as argument");
+        error("usage: domain_from_object(default_domain) requires default domain as argument");
     };
 
     host_domain = host_domain_from_object(ARGV[0]);
