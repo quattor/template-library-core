@@ -19,20 +19,12 @@ function push = {
     # Get the reference to SELF or create an empty list
     # as necessary.
     if (exists(SELF) && is_list(SELF)) {
-        v = SELF;
+        merge(SELF, ARGV);
     } else if (!exists(SELF) || !is_defined(SELF)) {
-        v = list();
+        ARGV;
     } else {
         error("push can only be applied to a list");
     };
-
-    # Cannot use merge or reference ARGV directly
-    i = 0;
-    while (i<ARGC) {
-        v[length(v)] = ARGV[i];
-        i = i + 1;
-    };
-    v;
 };
 
 
@@ -102,38 +94,23 @@ function push_if = {
     };
 
     if (ARGV[0]) {
-        # Get the reference to SELF or create an empty list
-        # as necessary.
+        delete(ARGV[0]);
+
         if (exists(SELF) && is_list(SELF)) {
-            v = SELF;
+            merge(SELF, ARGV);
         } else if (!exists(SELF) || !is_defined(SELF)) {
-            v = list();
+            ARGV;
         } else {
             error("push_if can only be applied to a list");
         };
-
-        # Merge the arguments into the given array.  Neither the
-        # first/next or merge functions can be used because the
-        # ARGV array cannot be directly referenced.
-        #
-        # Start index at one to avoid merging boolean flag.
-        i = 1;
-        while (i<ARGC) {
-            v[length(v)] = ARGV[i];
-            i = i + 1;
-        };
-
     } else {
-
         # Return either SELF or an empty list.
         if (is_defined(SELF)) {
-            v = SELF;
+            SELF;
         } else {
-            v = list();
+            list();
         };
     };
-
-    v;
 };
 
 
