@@ -251,8 +251,63 @@ function domain_from_object = {
 }
 function full_hostname_from_object = {
     # Check cardinality; leave detailed error checking to called functions.
-    if (ARGC != 1) error("usage: full_hostname_from_object(default_domain) requires default_domian as argument");
+    if (ARGC != 1) error("usage: full_hostname_from_object(default_domain) requires default_domain as argument");
 
     host_domain = host_domain_from_object(ARGV[0]);
     format("%s.%s", host_domain[0], host_domain[1]);
+};
+
+@documentation{
+    Test if (all elements of) the first argument are
+    any of the remaining arguments.
+    (If the first argument is a list, all its elements are tested).
+
+    Example:
+    is_choice_of(1, 1, 2, 3) returns true
+    is_choice_of(1, 2, 3) returns false
+
+    is_choice_of(list("b", "c"), "a", "b", "c") returns true
+    is_choice_of(list("a", "d"), "a", "b", "c") returns false
+
+    The types are not checked and are assumed to be comparable.
+        is_choice_of("1", 1, 2, 3) will give a panc error (string vs long),
+        but is_choice_of(1.0, 1, 2, 3) is true (float vs long)
+}
+function is_choice_of = {
+    if (ARGC < 2) {
+        error("usage: is_choice_of() requires at least 2 arguments");
+    };
+
+    # TODO: is it faster to make a list of ARGV and use index function?
+    if (is_list(ARGV[0])) {
+        foreach(idx; el; ARGV[0]) {
+            match = false;
+            i = 1;
+            while (i<ARGC) {
+                if (el == ARGV[i]) {
+                    match = true;
+                    # no need to check others
+                    i = ARGC;
+                } else {
+                    i = i + 1;
+                };
+            };
+
+            if (! match) {
+                # Current element does not match
+                # No reason to continue
+                return(false);
+            };
+        };
+        return(true);
+    } else {
+        i = 1;
+        while (i<ARGC) {
+            if (ARGV[0] == ARGV[i]) {
+                return(true);
+            };
+            i = i + 1;
+        };
+    };
+    false;
 };
