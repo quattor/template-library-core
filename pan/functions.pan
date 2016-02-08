@@ -48,7 +48,7 @@ function push = {
     # first/next or merge functions can be used because the
     # ARGV array cannot be directly referenced.
     i = 0;
-    while (i<ARGC) {
+    while (i < ARGC) {
         v[length(v)] = ARGV[i];
         i = i + 1;
     };
