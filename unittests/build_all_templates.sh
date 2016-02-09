@@ -74,9 +74,7 @@ variable FULL_HOSTNAME = 'test.local.domain';
 variable GANESHA_FSAL = 'gpfs';
 
 # can't be undef
-"/software/repositories" = append(dict(
-
-));
+"/software/repositories" ?= list(dict());
 
 EOF
 
@@ -117,17 +115,16 @@ find $base ! -regex '.*/unittests/.*' -type f -name *.pan | xargs sed -n "s/^\(u
 # try to compile it
 output=`panc --output-dir $build_temp --include-path $base:$build_temp $build_temp/test.pan 2>&1`
 
-# use "$output" to preserve newlines in echo
-
 # will always fail, but should be due to bind problems because there's no actual data
 ec=1
 
+# use "$output" to preserve newlines in echo
 echo "$output" | grep 'element does not exist' >& /dev/null
 if [ $? -eq 0 ]; then
     echo "$output" | grep 'bound to type' >& /dev/null
     if [ $? -eq 0 ]; then
         echo "$output"
-        echo "[OK] expected panc failure due to missing data for $nrpanfiles pan files."
+        echo "[OK] expected panc failure due to missing data (test combined $nrpanfiles pan files)."
         ec=0
     fi
 fi

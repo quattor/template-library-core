@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # compile all profiles in ./errors; all compilations must fail with
-# user initiated error (i.e. error(xyz)
+#     user initiated error (i.e. error(xyz)
+#     evaluation error from a pan builtin function
 
 # number of expected tests
-expected_tests=4
+expected_tests=5
 
 # readlink for absolute path
 here=`dirname $(readlink -f $0)`
@@ -30,7 +31,7 @@ for templ in `find $testdir -type f -name '*pan'`; do
         exit 1
     fi
 
-    grep_out=`echo $output | grep -E 'user-initiated error'`
+    grep_out=`echo $output | grep -E '(user-initiated|evaluation) error'`
     ec=$?
     if [ $ec -gt 0 ]; then
         echo "[ERROR] Test $templ error not user initiated: $output"

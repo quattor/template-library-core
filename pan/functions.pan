@@ -29,8 +29,8 @@ function push = {
 
 
 @documentation{
-    pushes zero of more pairs (key, value) into a
-    dict.  If the list does not exist or is not defined
+    pushes zero or more pairs (key, value) into a
+    dict.  If the dict does not exist or is not defined
     a new dict is created.  If the key already exists with
     a different value an error is raised.
     @syntax key:string value:element
