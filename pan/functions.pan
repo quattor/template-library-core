@@ -246,9 +246,8 @@ function full_hostname_from_object = {
     is_choice_of(list("b", "c"), "a", "b", "c") returns true
     is_choice_of(list("a", "d"), "a", "b", "c") returns false
 
-    The types are not checked and are assumed to be comparable.
-        is_choice_of("1", 1, 2, 3) will give a panc error (string vs long),
-        but is_choice_of(1.0, 1, 2, 3) is true (float vs long)
+    Comparing different types will always result in a failure
+    (see the index pan builtin function).
 }
 function is_choice_of = {
     if (ARGC < 2) {
@@ -256,35 +255,18 @@ function is_choice_of = {
     };
 
     # TODO: is it faster to make a list of ARGV and use index function?
-    if (is_list(ARGV[0])) {
-        foreach(idx; el; ARGV[0]) {
-            match = false;
-            i = 1;
-            while (i<ARGC) {
-                if (el == ARGV[i]) {
-                    match = true;
-                    # no need to check others
-                    i = ARGC;
-                } else {
-                    i = i + 1;
-                };
-            };
-
-            if (! match) {
+    el0 = ARGV[0];
+    delete(ARGV[0]);
+    if (is_list(el0)) {
+        foreach(idx; el; el0) {
+            if (index(el, ARGV) == -1) {
                 # Current element does not match
                 # No reason to continue
                 return(false);
             };
         };
-        return(true);
+        true;
     } else {
-        i = 1;
-        while (i<ARGC) {
-            if (ARGV[0] == ARGV[i]) {
-                return(true);
-            };
-            i = i + 1;
-        };
+        index(el0, ARGV) > -1;
     };
-    false;
 };

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><nlist format="pan" name="profile">
     <boolean name="a">false</boolean>
     <boolean name="b">true</boolean>
-    <boolean name="c">true</boolean>
+    <boolean name="c">false</boolean>
+    <boolean name="c2">false</boolean>
     <boolean name="la">false</boolean>
     <boolean name="lb">true</boolean>
-    <boolean name="lc">true</boolean>
+    <boolean name="lc">false</boolean>
+    <boolean name="lc2">false</boolean>
     <boolean name="ld">true</boolean>
     <boolean name="le">true</boolean>
     <boolean name="lf">true</boolean>
