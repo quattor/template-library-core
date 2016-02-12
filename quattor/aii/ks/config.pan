@@ -22,7 +22,7 @@
 
 template quattor/aii/ks/config;
 
-include {'quattor/aii/ks/schema'};
+include 'quattor/aii/ks/schema';
 
 variable AII_DOMAIN ?= value('/system/network/domainname');
 variable AII_HOSTNAME ?= value('/system/network/hostname');
@@ -402,14 +402,14 @@ variable  AII_KS_OS_MAJOR_SPECIFIC_INCLUDE ?= if ( is_defined(OS_VERSION_PARAMS[
                                                    } else {
                                                      undef;
                                                    };
-include { debug('KS specific configuration for OS major version: '+to_string(AII_KS_OS_MAJOR_SPECIFIC_INCLUDE)); AII_KS_OS_MAJOR_SPECIFIC_INCLUDE };
+include debug('KS specific configuration for OS major version: '+to_string(AII_KS_OS_MAJOR_SPECIFIC_INCLUDE)); AII_KS_OS_MAJOR_SPECIFIC_INCLUDE;
 # Existence of OS_VERSION_PARAMS['minor'] is used a a QWG signature
 variable  AII_KS_OS_MINOR_SPECIFIC_INCLUDE ?= if ( is_defined(OS_VERSION_PARAMS['minor']) ) {
                                                      if_exists('config/quattor/ks');
                                                    } else {
                                                      undef;
                                                    };
-include { debug('KS specific configuration for OS minor release: '+to_string(AII_KS_OS_MINOR_SPECIFIC_INCLUDE)); AII_KS_OS_MINOR_SPECIFIC_INCLUDE };
+include debug('KS specific configuration for OS minor release: '+to_string(AII_KS_OS_MINOR_SPECIFIC_INCLUDE)); AII_KS_OS_MINOR_SPECIFIC_INCLUDE;
 
 #
 # For more details on Kickstart options see RedHat documentation:

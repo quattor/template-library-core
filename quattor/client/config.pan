@@ -36,14 +36,14 @@ variable RPMS_CONFIG_SUFFIX ?= '-yd';
 # Add RPMs for Quattor Client
 #
 
-include { 'quattor/client/rpms' };
+include 'quattor/client/rpms';
 
 
 #
 # Configure CCM and CDP
 #
 
-include { 'components/ccm/config' };
+include 'components/ccm/config';
 
 # Don't allow QUATTOR_PROFILE_URL to be undefined : no meaningful default
 variable QUATTOR_PROFILE_URL ?= {
@@ -57,6 +57,6 @@ variable QUATTOR_PROFILE_URL ?= {
                                               0;
                                             };
 
-include { 'components/cdp/config' };
+include 'components/cdp/config';
 "/software/components/cdp/fetch" = "/usr/sbin/ccm-fetch";
 "/software/components/cdp/fetch_smear" = 30;

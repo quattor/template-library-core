@@ -21,7 +21,7 @@ variable QUATTOR_YUM_UPDATE_REPOS_USER ?= 'root';
 variable QUATTOR_YUM_UPDATE_REPOS_INTERVAL ?= 2;
 
 # Configure cron entry
-include { 'components/cron/config' };
+include 'components/cron/config';
 "/software/components/cron/entries" = {
   if ( length(QUATTOR_RPM_REPOS_ROOTS) > 0 ) {
     command = "PATH=/sbin:/bin:/usr/sbin:/usr/bin; ";
@@ -43,7 +43,7 @@ include { 'components/cron/config' };
 
 
 # Configure logrotate
-include { 'components/altlogrotate/config' };
+include 'components/altlogrotate/config';
 "/software/components/altlogrotate/entries/update_yum_repos" =
   nlist("pattern", "/var/log/"+QUATTOR_YUM_UPDATE_REPOS_CRON+".ncm-cron.log",
         "compress", true,
