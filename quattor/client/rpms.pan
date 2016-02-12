@@ -5,11 +5,7 @@
 
 unique template quattor/client/rpms;
 
-include { 'quattor/client/version' };
-
-# Default version of packages in the selected OS
-include { 'rpms/package_default_versions' };
-
+include 'quattor/client/version';
 
 '/software/packages' = {
     # python-elementtree is required by YUM on SL5 but not listed as a dependency
