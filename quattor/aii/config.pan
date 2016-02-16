@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 15.12.0, 1, 2016-01-11T14:37:26Z
+# server, 16.2.0-rc1, rc1_1, 2016-02-16T12:49:33Z
 #
 #
 # This file is the standard aii configuration. It only performs some
@@ -52,5 +52,4 @@ include AII_NBP_GEN;
 # Include DHCP configuration
 # Set AII_DHCP_CONFIG to null if DHCP configuratio is managed outside AII
 variable AII_DHCP_CONFIG ?= "quattor/aii/dhcp/config";
-include { AII_DHCP_CONFIG };
-
+include AII_DHCP_CONFIG;

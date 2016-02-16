@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 15.12.0, 1, 2016-01-11T14:37:26Z
+# ks, 16.2.0-rc1, rc1_1, 2016-02-16T12:49:33Z
 #
 
 # Template containing the Kickstart-related configuration and default
@@ -402,14 +402,14 @@ variable  AII_KS_OS_MAJOR_SPECIFIC_INCLUDE ?= if ( is_defined(OS_VERSION_PARAMS[
                                                    } else {
                                                      undef;
                                                    };
-include debug('KS specific configuration for OS major version: '+to_string(AII_KS_OS_MAJOR_SPECIFIC_INCLUDE)); AII_KS_OS_MAJOR_SPECIFIC_INCLUDE;
+include { debug('KS specific configuration for OS major version: '+to_string(AII_KS_OS_MAJOR_SPECIFIC_INCLUDE)); AII_KS_OS_MAJOR_SPECIFIC_INCLUDE };
 # Existence of OS_VERSION_PARAMS['minor'] is used a a QWG signature
 variable  AII_KS_OS_MINOR_SPECIFIC_INCLUDE ?= if ( is_defined(OS_VERSION_PARAMS['minor']) ) {
                                                      if_exists('config/quattor/ks');
                                                    } else {
                                                      undef;
                                                    };
-include debug('KS specific configuration for OS minor release: '+to_string(AII_KS_OS_MINOR_SPECIFIC_INCLUDE)); AII_KS_OS_MINOR_SPECIFIC_INCLUDE;
+include { debug('KS specific configuration for OS minor release: '+to_string(AII_KS_OS_MINOR_SPECIFIC_INCLUDE)); AII_KS_OS_MINOR_SPECIFIC_INCLUDE };
 
 #
 # For more details on Kickstart options see RedHat documentation:
