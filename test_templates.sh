@@ -68,13 +68,6 @@ variable GANESHA_FSAL = 'gpfs';
 
 ));
 
-EOF
-
-# for quattor/client/rpms
-mkdir -p build_temp/rpms
-cat > build_temp/rpms/package_default_versions.pan <<EOF
-unique template rpms/package_default_versions;
-
 variable OS_VERSION_PARAMS = dict(
     "majorversion", '6',
     "major", "sl6",
@@ -82,6 +75,15 @@ variable OS_VERSION_PARAMS = dict(
     "version", "sl6x",
     "arch", "x86_64"
 );
+
+EOF
+
+# for quattor/client/rpms
+mkdir -p build_temp/rpms
+cat > build_temp/rpms/package_default_versions.pan <<EOF
+unique template rpms/package_default_versions;
+
+#variable OS_VERSION_PARAMS already set
 
 EOF
 
