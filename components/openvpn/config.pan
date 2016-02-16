@@ -10,11 +10,16 @@
 #
 
 # 
-# #
-# openvpn, 15.12.0, 1, 2016-01-11T14:30:21Z
-#
 
 unique template components/openvpn/config;
 
-include { 'components/openvpn/config-common' };
-include { 'components/openvpn/config-rpm' };
+include 'components/openvpn/schema';
+bind "/software/components/openvpn" = structure_component_openvpn;
+   
+# Set prefix to root of component configuration.
+prefix '/software/components/openvpn';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list('spma');
+
+"/software/packages" = pkg_repl("ncm-openvpn", "16.2.0-rc1_1", "noarch");

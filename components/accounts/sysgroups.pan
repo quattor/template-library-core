@@ -10,6 +10,9 @@
 #
 
 # 
+# #
+# accounts, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
+#
 
 ############################################################
 #
@@ -26,6 +29,7 @@ unique template components/accounts/sysgroups;
     'sys' ,'',
     'dhcpd', '',
     'dhcp', '',
+    'chrony', '',
     'adm' ,'',
     'tty' ,'',
     'disk' ,'',
@@ -62,6 +66,7 @@ unique template components/accounts/sysgroups;
     'postfix' ,'',
     'postgres' ,'',
     'postdrop' ,'',
+    'polkitd', '',
     'ident' ,'',
     'nobody' ,'',
     'users' ,'',
@@ -76,9 +81,11 @@ unique template components/accounts/sysgroups;
     'usb' ,'',
     'sindes' ,'',
     'stapusr' ,'',
+    'ssh_keys', '',
     'exim' ,'',
     'stapdev' ,'',
     'lemon', '',
+    'libstoragemgmt', '',
     'haldaemon' ,'',
     'amanda', '',
     'ldap', '',
@@ -92,6 +99,7 @@ unique template components/accounts/sysgroups;
     'stap-server','',
     'amandabackup', '',
     'saslauth','',
+    'unbound', '',
     'uuidd', '',
     'webalizer', '',
     'cimsrvr', '',

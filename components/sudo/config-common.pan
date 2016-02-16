@@ -14,7 +14,7 @@
 #
 
 # #
-# sudo, 15.12.0, 1, 2016-01-11T14:30:21Z
+# sudo, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 unique template components/sudo/config-common;
@@ -24,7 +24,7 @@ include { 'components/sudo/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/sudo';
 
-#'version' = '15.12.0';
+#'version' = '16.2.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

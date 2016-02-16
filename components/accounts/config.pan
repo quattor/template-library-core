@@ -10,12 +10,29 @@
 #
 
 # 
+# #
+# accounts, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
+#
+
 
 unique template components/accounts/config;
 
-include { 'components/accounts/schema' };
-include { 'components/accounts/functions' };
-include { 'components/accounts/config-common' };
-include { 'components/accounts/config-rpm' };
+include 'components/accounts/schema';
+include 'components/accounts/functions';
+
+# Define configuration module default configuration
+prefix '/software/components/accounts';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list('spma');
+'version' = '16.2.0';
+
+# Include system users and groups which shouldn't be removed
+# by default.  The machine configuration can still modify or
+# remove them manually.
+include 'components/accounts/sysgroups';
+include 'components/accounts/sysusers';
 
 # Package to install
+"/software/packages" = pkg_repl("ncm-accounts", "16.2.0-rc1_1", "noarch");
+

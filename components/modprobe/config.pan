@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 15.12.0, 1, 2016-01-11T14:30:21Z
+# modprobe, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 unique template components/modprobe/config;
@@ -19,7 +19,7 @@ unique template components/modprobe/config;
 include 'components/modprobe/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-modprobe", "15.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-modprobe", "16.2.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/modprobe';

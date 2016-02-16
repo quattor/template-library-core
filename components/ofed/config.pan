@@ -11,17 +11,17 @@
 
 # 
 # #
-# ofed, 15.12.0, 1, 2016-01-11T14:30:21Z
+# ofed, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 unique template components/ofed/config;
 
 include 'components/ofed/schema';
 
-'/software/packages'=pkg_repl('ncm-ofed','15.12.0-1','noarch');
+'/software/packages'=pkg_repl('ncm-ofed','16.2.0-rc1_1','noarch');
 
 prefix '/software/components/ofed';
 'dependencies/pre' ?= list ('spma');
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '15.12.0';
+'version' ?= '16.2.0';

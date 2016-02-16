@@ -10,11 +10,18 @@
 #
 
 # 
-# #
-# postgresql, 15.12.0, 1, 2016-01-11T14:30:21Z
-#
 
 unique template components/postgresql/config;
 
-include { 'components/postgresql/config-common' };
-include { 'components/postgresql/config-rpm' };
+include 'components/postgresql/schema';
+
+bind "/software/components/postgresql" = component_postgresql;
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-postgresql", "16.2.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/postgresql';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list("spma");

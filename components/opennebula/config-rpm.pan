@@ -16,9 +16,9 @@ unique template components/opennebula/config-rpm;
 include {'components/opennebula/schema'};
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-opennebula", "15.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "16.2.0-rc1_1", "noarch");
 
 '/software/components/opennebula/dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
-'/software/components/opennebula/version' ?= '15.12.0';
+'/software/components/opennebula/version' ?= '16.2.0';
 

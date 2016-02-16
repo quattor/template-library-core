@@ -11,20 +11,31 @@
 
 # 
 # #
-# ceph, 15.12.0, 1, 2016-01-11T14:30:21Z
+# ceph, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 
 unique template components/ceph/ceph-user;
 
-include { 'components/accounts/config' };
+include 'components/accounts/config';
+
+# do not change uids of existing cluster
+variable CEPH_OLD_UID ?= true; # set to false for new clusters, especially infernalis and above
+variable CEPH_USER_ID = {
+    if (CEPH_OLD_UID) {
+        deprecated(0, 'ceph user should get a new uid. set final CEPH_OLD_UID = false');
+        111;
+    } else {
+        167;
+    };
+};
 
 prefix '/software/components/accounts';
 
-"groups/ceph" = nlist("gid", 111);
+"groups/ceph" = nlist("gid", CEPH_USER_ID);
 
 "users/ceph" = nlist(
-    "uid", 111,
+    "uid", CEPH_USER_ID,
     "groups", list("ceph"),
     "comment","ceph",
     "shell", "/bin/sh",

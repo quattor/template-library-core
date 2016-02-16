@@ -11,10 +11,21 @@
 
 # 
 # #
-# symlink, 15.12.0, 1, 2016-01-11T14:30:21Z
+# symlink, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 unique template components/symlink/config;
 
-include { 'components/symlink/config-common' };
-include { 'components/symlink/config-rpm' };
+include 'components/symlink/schema';
+
+"/software/packages" = pkg_repl("ncm-symlink", "16.2.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/symlink';
+
+'active' ?= true;
+'dispatch' ?= true;
+'version' = '16.2.0';
+'dependencies/pre' ?= list("spma");
+'options/exists' ?= false;
+'options/replace/none' ?= "yes";

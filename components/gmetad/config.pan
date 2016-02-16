@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmetad, 15.12.0, 1, 2016-01-11T14:30:21Z
+# gmetad, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 unique template components/gmetad/config;

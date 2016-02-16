@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 15.12.0, 1, 2016-01-11T14:30:21Z
+# pam, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 ##########################################################################
@@ -23,28 +23,32 @@
 
 unique template components/pam/config;
 
-include {'components/pam/schema'};
+include 'components/pam/schema';
 
 # standard component settings
-"/software/components/pam/version"    = '15.12.0';
+"/software/components/pam/version"    = '16.2.0';
 "/software/components/pam/active"    ?=  true;
 "/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-# Add rpm to profile
-include { 'components/pam/config-rpm' };
+"/software/packages" = pkg_repl("ncm-pam", "16.2.0-rc1_1", "noarch");
 
 # standard functions
-include {'pan/functions'};
+include 'pan/functions';
 
 #
 # Definition of functions used to configure this component
 #
 
-#
-# takes (service, type, control, module, options?)
-#
+@documentation{
+  desc = add a line to pam configuration
+  arg = service
+  arg = pamtype
+  arg = control
+  arg = module
+  arg = options, can be hash or list
+}
 function pam_add = {
 	service = ARGV[0];
 	pamtype = ARGV[1];
@@ -68,11 +72,16 @@ function pam_add = {
 		ret[service][pamtype] = list();
 	};
 	tail = length(ret[service][pamtype]);
-        options = nlist();
-        if (exists(ARGV[4])) {
-                options = ARGV[4];
-        };
-	ret[service][pamtype][tail] = nlist("control", control, "module", module, "options", options);
+	options = nlist();
+	options_list = null;
+	if (exists(ARGV[4])) {
+		if (is_list(ARGV[4])) {
+			options_list = ARGV[4];
+		} else {
+			options = ARGV[4];
+		};
+	};
+	ret[service][pamtype][tail] = nlist("control", control, "module", module, "options", options, "options_list", options_list);
 
 	return (ret);
 };

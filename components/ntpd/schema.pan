@@ -19,6 +19,7 @@ declaration template components/ntpd/schema;
 
 include 'quattor/types/component';
 include 'pan/types';
+include 'components/accounts/functions';
 
 type ntpd_clientnet_type = {
     "net"  : type_ip # Network of this machines NTP clients
@@ -161,4 +162,6 @@ type component_ntpd_type = extensible  {
     "servicename"             ? string
     "includelocalhost"        ? boolean = true
     "enablelocalhostdebug"    ? boolean = true
+    @{if the group is set, files are written with root.group ownership and 0640 permission}
+    "group"                   ? defined_group
 };

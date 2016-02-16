@@ -7,14 +7,24 @@
 # #
 # Current developer(s):
 #   Jaroslaw Polok <jaroslaw.polok@cern.ch>
+#   Alan Fitton <Alan.Fitton@morganstanley.com>
 #
 
 # 
 # #
-# afsclt, 15.12.0, 1, 2016-01-11T14:30:21Z
+# afsclt, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
 #
 
 unique template components/afsclt/config;
 
-include { 'components/afsclt/config-common' };
-include { 'components/afsclt/config-rpm' };
+include 'components/afsclt/schema';
+
+"/software/packages" = pkg_repl("ncm-afsclt", "16.2.0-rc1_1", "noarch");
+
+# Set prefix to root of component configuration.
+prefix '/software/components/afsclt';
+
+'version' = '16.2.0';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list("spma");

@@ -10,6 +10,9 @@
 #
 
 # 
+# #
+# accounts, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
+#
 
 ############################################################
 #
@@ -25,6 +28,7 @@ unique template components/accounts/sysusers;
     'daemon' ,'',
     'dhcpd', '',
     'dhcp', '',
+    'chrony', '',
     'adm' ,'',
     'lp' ,'',
     'sync' ,'',
@@ -52,6 +56,7 @@ unique template components/accounts/sysusers;
     'nscd' ,'',
     'sshd' ,'',
     'postfix' ,'',
+    'polkitd' ,'',
     'apache' ,'',
     'pcap' ,'',
     'mysql' ,'',
@@ -75,6 +80,7 @@ unique template components/accounts/sysusers;
     'hpglview' ,'',
     'sindes' ,'',
     'dialout','',
+    'ssh_keys','',
     'stap-server','',
     'amanda', '',
     'amandabackup', '',
@@ -82,6 +88,7 @@ unique template components/accounts/sysusers;
     'abrt','',
     'tss','',
     'ldap', '',
+    'libstoragemgmt', '',
     'nslcd', '',
     'oprofile', '',
     'pegasus', '',
@@ -90,6 +97,7 @@ unique template components/accounts/sysusers;
     'radiusd', '',
     'squid', '',
     'tomcat', '',
+    'unbound', '',
     'uuidd', '',
     'webalizer', '',
     'apacheds', '',
