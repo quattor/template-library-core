@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 15.12.0, 1, 2016-01-11T14:37:03Z
+# lcas, 16.2.0-rc1, rc1_1, 2016-02-16T12:49:17Z
 #
 
 unique template components/lcas/config;

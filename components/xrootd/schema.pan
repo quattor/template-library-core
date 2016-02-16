@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 15.12.0, 1, 2016-01-11T14:37:03Z
+# xrootd, 16.2.0-rc1, rc1_1, 2016-02-16T12:49:17Z
 #
 #
 
@@ -191,14 +191,10 @@ type xrootd_component_fed_options = {
 };
 
 function is_xrootd_logKeep = {
-  if (is_long(ARGV[0])) {
-    deprecated(0, "Expressing logKeep as a long is deprecated, it should be expressed as a string.");
-    return(true);
-  };
-  return(match(ARGV[0], '^([0-9]+[k|m|g]?|fifo|hup|rtmin(\+[12])?|ttou|winch|xfsz)$'));
+  match(ARGV[0], '^([0-9]+[k|m|g]?|fifo|hup|rtmin(\+[12])?|ttou|winch|xfsz)$');
 };
 
-type xrootd_logKeep = property with is_xrootd_logKeep(SELF);
+type xrootd_logKeep = string with is_xrootd_logKeep(SELF);
 
 type xrootd_component_instances = {
   "configFile" : string

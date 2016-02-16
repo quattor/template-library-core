@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsknownhosts, 15.12.0, 1, 2016-01-11T14:37:03Z
+# pbsknownhosts, 16.2.0-rc1, rc1_1, 2016-02-16T12:49:17Z
 #
 
 unique template components/pbsknownhosts/config-common;
@@ -24,7 +24,7 @@ include { 'components/pbsknownhosts/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/pbsknownhosts';
 
-'version' = '15.12.0';
+'version' = '16.2.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
