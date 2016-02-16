@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><nlist format="pan" name="profile">
+    <string name="domain_from_object">from.hostname</string>
+    <string name="full_hostname_from_object">functions.from.hostname</string>
+    <list name="host_domain_from_object">
+        <string>functions</string>
+        <string>from.hostname</string>
+    </list>
+    <string name="hostname_from_object">functions</string>
+</nlist>
