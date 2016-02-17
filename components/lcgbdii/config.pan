@@ -14,7 +14,7 @@
 #
 
 # #
-# lcgbdii, 16.2.0-rc1, rc1_1, 2016-02-16T12:49:17Z
+# lcgbdii, 16.2.0-rc2, rc2_1, 2016-02-17T15:41:17Z
 #
 
 unique template components/lcgbdii/config;
