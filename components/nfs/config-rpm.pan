@@ -16,7 +16,7 @@ unique template components/nfs/config-rpm;
 include { 'components/nfs/schema' };
  
 # Package to install
-"/software/packages" = pkg_repl("ncm-nfs", "16.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nfs", "16.2.0-rc2_1", "noarch");
 
 '/software/components/nfs/dependencies/pre' ?= list('spma');
 

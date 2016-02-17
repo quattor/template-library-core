@@ -11,7 +11,7 @@
 
 # 
 # #
-# iptables, 16.2.0-rc1, rc1_1, 2016-02-16T12:48:40Z
+# iptables, 16.2.0-rc2, rc2_1, 2016-02-17T15:40:39Z
 #
 
 unique template components/iptables/config;
@@ -19,7 +19,7 @@ unique template components/iptables/config;
 include { "components/iptables/schema" };
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-iptables", "16.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-iptables", "16.2.0-rc2_1", "noarch");
 
 prefix '/software/components/iptables';
 
