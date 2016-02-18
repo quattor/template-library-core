@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 16.2.0-rc2, rc2_1, 2016-02-17T15:40:39Z
+# pnp4nagios, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
 #
 
 unique template components/pnp4nagios/config;

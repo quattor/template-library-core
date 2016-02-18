@@ -14,7 +14,7 @@
 #
 
 # #
-# authconfig, 16.2.0-rc2, rc2_1, 2016-02-17T15:40:39Z
+# authconfig, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
 #
 
 
@@ -22,7 +22,7 @@ unique template components/authconfig/config;
 
 include 'components/authconfig/schema';
 
-'/software/packages'=pkg_repl('ncm-authconfig','16.2.0-rc2_1','noarch');
+'/software/packages'=pkg_repl('ncm-authconfig','16.2.0-rc3_1','noarch');
 
 prefix '/software/components/authconfig';
 'dependencies/pre' ?= list ('spma');

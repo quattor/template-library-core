@@ -11,7 +11,7 @@
 
 # 
 # #
-# resolver, 16.2.0-rc2, rc2_1, 2016-02-17T15:40:39Z
+# resolver, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
 #
 
 unique template components/resolver/config;
@@ -19,7 +19,7 @@ unique template components/resolver/config;
 include 'components/resolver/schema';
 include 'pan/functions';
 
-"/software/packages" = pkg_repl("ncm-resolver", "16.2.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-resolver", "16.2.0-rc3_1", "noarch");
 
 prefix '/software/components/resolver';
 

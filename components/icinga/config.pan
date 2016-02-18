@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 16.2.0-rc2, rc2_1, 2016-02-17T15:40:39Z
+# icinga, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
 #
 
 unique template components/icinga/config;
@@ -28,4 +28,4 @@ prefix '/software/components/icinga';
 'dependencies/pre' ?= list('spma');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "16.2.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "16.2.0-rc3_1", "noarch");

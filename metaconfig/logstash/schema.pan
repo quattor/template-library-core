@@ -118,24 +118,38 @@ type logstash_input_lumberjack = {
     "ssl_key_passphrase" ? string
 };
 
+@{ beats input }
+type logstash_input_beats = {
+    include logstash_input_lumberjack
+    'ssl' ? boolean
+    'congestion_threshold' ? long(0..)
+};
+
 type logstash_input_plugin = {
     "file" ? logstash_input_file
     "gelf" ? logstash_input_gelf
     "tcp" ? logstash_input_tcp
     "udp" ? logstash_input_udp
     "lumberjack" ? logstash_input_lumberjack
+    "beats" ? logstash_input_beats
 } with length(SELF) == 1;
 
 
 @{ Base for all filters }
 type logstash_name_pattern = {
     "name" : string
-    "pattern": string
+    "pattern" : string
 };
 
+type logstash_name_patterns = {
+    "name" : string
+    "pattern" : string[]
+};
+
+@{A name_patternlist is rendered differently than a name_patterns}
 type logstash_filter_name_patternlist = {
     "name" : string
-    "pattern": string[]
+    "pattern" : string[]
 };
 
 type logstash_filter_plugin_common = {
@@ -148,7 +162,7 @@ type logstash_filter_plugin_common = {
 
 type logstash_filter_grok = {
     include logstash_filter_plugin_common
-    "match" ? logstash_name_pattern[]
+    "match" ? logstash_name_patterns[]
     "break_on_match" : boolean = true
     "drop_if_match" ? boolean
     "keep_empty_captures" ? boolean
@@ -179,12 +193,15 @@ type logstash_filter_drop = {
     "periodic_flush" ? boolean
 };
 
+type logstash_filter_mutate_convert = string with match(SELF, '^(integer|float|string|boolean)$');
+
 type logstash_filter_mutate = {
     include logstash_filter_plugin_common
-    "convert" ? logstash_name_pattern[]
+    "convert" ? logstash_filter_mutate_convert{}
     "replace" ? logstash_name_pattern[]
     "rename" ? string{}
     "split" ? string{}
+    "update" ? string{}
     "exclude_tags" ? string[] with {deprecated(0, 'replace with _conditional e.g. <"tagname" not in [tags]> in 2.0'); true;}
 };
 

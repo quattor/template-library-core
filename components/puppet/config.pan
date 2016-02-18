@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 16.2.0-rc2, rc2_1, 2016-02-17T15:40:39Z
+# puppet, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
 #
 
 unique template components/puppet/config;
