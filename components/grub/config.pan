@@ -14,7 +14,7 @@
 #
 
 # #
-# grub, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
+# grub, 16.2.0, 1, 2016-02-19T15:57:52Z
 #
 
 unique template components/grub/config;
@@ -22,7 +22,7 @@ unique template components/grub/config;
 include { 'components/grub/schema' };
 
 # Package to install.
-'/software/packages' = pkg_repl('ncm-grub', '16.2.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '16.2.0-1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';

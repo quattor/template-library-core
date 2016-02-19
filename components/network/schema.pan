@@ -14,7 +14,7 @@
 #
 
 # #
-# network, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
+# network, 16.2.0, 1, 2016-02-19T15:57:52Z
 #
 
 declaration template components/network/schema;

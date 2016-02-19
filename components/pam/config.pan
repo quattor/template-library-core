@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
+# pam, 16.2.0, 1, 2016-02-19T15:57:52Z
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "16.2.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "16.2.0-1", "noarch");
 
 # standard functions
 include 'pan/functions';

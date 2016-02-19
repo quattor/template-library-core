@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 16.2.0-rc3, rc3_1, 2016-02-18T17:02:48Z
+# download, 16.2.0, 1, 2016-02-19T15:57:52Z
 #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS
@@ -43,6 +43,6 @@ include { "pan/functions" };
 
 # standard rpm settings
 "/software/components/download/version"  = '16.2.0';
-"/software/components/download/release"  = "rc3_1";
+"/software/components/download/release"  = "1";
 
-"/software/packages" = pkg_repl("ncm-download", "16.2.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "16.2.0-1", "noarch");
