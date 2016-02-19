@@ -14,7 +14,7 @@
 #
 
 # #
-# maui, 16.2.0-rc3, rc3_1, 2016-02-18T17:08:18Z
+# maui, 16.2.0, 1, 2016-02-19T16:03:03Z
 #
 
 unique template components/maui/config;
