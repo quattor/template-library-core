@@ -19,4 +19,5 @@ type structure_annotation = {
    "lang"         ? string # "language of the product"
    "power"        ? long   # "power in watts"
    "location"     ? string # "location of the hardware"
+   "tags"         ? nlist  # "user defined HW tags"
 };
