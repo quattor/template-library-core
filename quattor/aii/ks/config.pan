@@ -437,5 +437,5 @@ variable AII_OSINSTALL_BASE_PACKAGES ?= list (
 
 # Define if volgroup statement is required for LVM-based file systems.
 # Default is for SL4/5
-"/system/aii/osinstall/ks/volgroup_required" = true;
+"/system/aii/osinstall/ks/volgroup_required" ?= true;
 
