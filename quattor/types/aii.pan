@@ -30,9 +30,20 @@ type structure_aii_hooklist = {
     "status" ? structure_aii_hook[]
 };
 
+@documentation{
+    AII structure which defines the osinstall, nbp,
+    dhcp config and hooks.
+}
 type structure_aii = extensible {
     "osinstall" ? structure_aii_module{}
     "nbp" ? structure_aii_module{}
     "dhcp" ? structure_aii_module
     "hooks" ? structure_aii_hooklist
+@{
+    The "protected" value can be used to protect the install and removal.
+    By setting this value (eg. to the latest buildid), you will be asked 
+    to confirm this string as verification when trying to do install, configure or removal actions. 
+    This is done with the  --confirm option of aii-shellfe
+}
+    "protected" ? string
 };
