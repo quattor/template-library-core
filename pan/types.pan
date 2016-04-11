@@ -31,6 +31,7 @@ Data type and function definitions for the following basic types:
 
 declaration template pan/types;
 
+include 'pan/legacy';
 
 @documentation{
 This type implements a date/time format consistent with
