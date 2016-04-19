@@ -75,6 +75,7 @@ type blockdevices_logicalvolumes_type = {
     "size" ? long # "Size in MB"
     "volume_group" : vg_string
     "stripe_size" ? long # Size of the stripe. If not used, no striping
+    "chunksize" ? long = 64 # "chunk size in KB"
     "devices" ? blockdev_string[]
     "cache" ? blockdevices_logicalvolumes_cache_type
     "type" ? string with match (SELF,
