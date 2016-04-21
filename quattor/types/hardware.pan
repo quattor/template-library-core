@@ -23,6 +23,7 @@ type structure_cpu = {
     "speed"  : long # "CPU clock speed in MHz"
     # Number of cores on each CPU chip, defaults to 1.
     "cores" : long(1..) = 1
+    "max_threads" ? long(1..)
     "hyperthreading" : boolean = false
 };
 
