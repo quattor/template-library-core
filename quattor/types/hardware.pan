@@ -20,9 +20,11 @@ type structure_ram = {
 }
 type structure_cpu = {
     include structure_annotation
-    "speed"  : long # "CPU clock speed in MHz"
-    # Number of cores on each CPU chip, defaults to 1.
+    @{ desc = CPU clock speed in MHz }
+    "speed" : long
+    @{ desc = Number of cores on each CPU chip }
     "cores" : long(1..) = 1
+    @{ desc = Number of execution threads on each CPU chip, e.g. a hyperthreaded eight core chip would have 16 threads }
     "max_threads" ? long(1..)
     "hyperthreading" : boolean = false
 };
