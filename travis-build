@@ -2,7 +2,7 @@
 set -e # halt script on error
 
 rm -f /tmp/panlint.py
-wget -q https://gist.githubusercontent.com/jrha/fd364300f989df7ad323/raw/40ccf66356193d4a1436f1117a1064fe058a5717/panlint.py -O /tmp/panlint.py
+wget -q https://raw.githubusercontent.com/quattor/pan/master/panc/src/main/scripts/panlint/panlint.py -O /tmp/panlint.py
 chmod u+x /tmp/panlint.py
 
-git diff --name-only HEAD^ | grep '\.pan$' | xargs -r /tmp/panlint.py
+git diff --name-only HEAD^ | grep '\.pan$' | xargs -r /tmp/panlint.py || exit 1
