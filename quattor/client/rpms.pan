@@ -11,20 +11,15 @@ include 'quattor/client/version';
     # python-elementtree is required by YUM on SL5 but not listed as a dependency
     # of any other package
     if ( OS_VERSION_PARAMS['majorversion'] == '5' ) {
-      SELF[escape('python-elementtree')] = nlist();
+      pkg_repl('python-elementtree');
     };
 
     # Quattor
-    SELF[escape('cdp-listend')] = nlist();
-    SELF[escape('ncm-cdispd')] = nlist();
-    SELF[escape('ncm-ncd')] = nlist();
-    SELF[escape('ncm-query')] = nlist();
+    pkg_repl('cdp-listend',QUATTOR_PACKAGES_VERSION,'noarch');
+    pkg_repl('ncm-cdispd',QUATTOR_PACKAGES_VERSION,'noarch');
+    pkg_repl('ncm-ncd',QUATTOR_PACKAGES_VERSION,'noarch');
+    pkg_repl('ncm-query',QUATTOR_PACKAGES_VERSION,'noarch');
+    pkg_repl('ncm-spma',QUATTOR_PACKAGES_VERSION,'noarch');
 
-    # ideally, include components/spma/config with version locked rpm
-    spma = escape('ncm-spma');
-    if(! exists(spma)) {
-        SELF[spma] = nlist();
-    };
-      
     SELF;
 };
