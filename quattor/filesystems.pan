@@ -3,7 +3,7 @@
 }
 declaration template quattor/filesystems;
 
-@documentation{ 
+@documentation{
     desc = check that no duplicate mountpoints or blockdevices are used
     arg = array of structure_filesystem, from quattor/types/system
 }
@@ -18,7 +18,7 @@ function filesystems_uniq_paths = {
         } else {
             mounts[escape(mp)] = 1;
         };
-        if (exists(blockdevs[escape(bd)])) {
+        if (exists(blockdevs[escape(bd)]) && bd != 'tmpfs') {
             error(format('Duplicate blockdevice %s used in filesystems', bd));
         } else {
             blockdevs[escape(bd)] = 1;
