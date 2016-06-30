@@ -25,7 +25,7 @@ type pbs_server_extended_att = {
     'value' : string
 };
 
-## from man pbs_server_attributes (NOT the read only ones!)
+# from man pbs_server_attributes (NOT the read only ones!)
 type pbs_server_attlist = {
     'accounting_keep_days'? long(0..)
 
@@ -61,7 +61,7 @@ type pbs_server_attlist = {
 
     'job_nanny'           ? boolean = false
 
-    'job_start_timeout'   ? long(1..) 
+    'job_start_timeout'   ? long(1..)
 
     'job_stat_rate'       ? long(1..) = 150
 
@@ -70,8 +70,8 @@ type pbs_server_attlist = {
     'kill_delay'          ? long(0..)
 
     'lock_file'           ? string
-    'lock_file_check_time' ? long(0..) 
-    'lock_file_update_time' ? long(0..) 
+    'lock_file_check_time' ? long(0..)
+    'lock_file_update_time' ? long(0..)
 
     'log_events'          ? long(0..)
     'log_file_max_size'   ? long(0..) = 0
@@ -84,7 +84,7 @@ type pbs_server_attlist = {
     'mail_from'           ? string
     'mail_subject_fmt'    ? string
     'mail_uid'            ? long(0..)
-    
+
     'managers'            ? string
 
     'max_job_array_size'  ? long(0..)
@@ -93,9 +93,9 @@ type pbs_server_attlist = {
     'max_user_run'        ? long(0..)
     'max_user_queuable'   ? long(1..)
     'max_group_run'       ? long(0..)
-    
+
     'mom_job_sync'        ? boolean = true
-    
+
     'next_job_number'     ? long(0..)
 
     'no_mail_force'       ? boolean
@@ -105,39 +105,40 @@ type pbs_server_attlist = {
     'node_ping_rate'      ? long(10..) = 300
     'node_suffix'         ? string
 
-    'np_default'          ? long(0..) 
-    
+    'np_default'          ? long(0..)
+
     'operators'           ? string
-    
+
     'owner_purge'         ? boolean
-        
+
     'poll_jobs'           ? boolean = true
-    
+
     'query_other_jobs'    ? boolean = false
-    
-    ## following does not exist in 3.0.X (should all be like resources_available.<resource>)
+
+    # following does not exist in 3.0.X (should all be like resources_available.<resource>)
     'resources_available' ? string
     'resources_available.nodect' ? long(1..) = 2048
-    ## following 2 are actually a list of 
+
+    # following 2 are actually a list of
     'resources_default'   ? string
-    'resources_default.nodect' ? long(1..) 
+    'resources_default.nodect' ? long(1..)
     'resources_default.nodes' ? long(1..)
     'resources_max'       ? string
-    
+
     'sched_version'       ? string
     'scheduler_iteration' ? long(1..)
     'scheduling'          ? boolean
-    
+
     'server_name'         ? type_hostname
-    
+
     'submit_hosts'         ? string
-    
+
     'tcp_timeout'         ? long(1..) = 8
 
     'checkpoint_dir'    ? string
 
     'moab_array_compatible' ? boolean
-    
+
     'authorized_users'	  ? string
 
     'record_job_info' ? boolean
@@ -148,6 +149,8 @@ type pbs_server_attlist = {
     'thread_idle_seconds' ? long(-1..)
     'max_threads' ? long(0..)
     'min_threads' ? long(0..)
+
+    'legacy_vmem' ? boolean
 };
 
 type pbs_server = {
@@ -165,12 +168,12 @@ type pbs_queue_attlist = {
     'acl_logic_or'           ? boolean
     'acl_user_enable'        ? boolean
     'acl_users'              ? string
-    
+
     'alter_router'           ? boolean
-    
+
     'checkpoint_defaults'    ? string
     'checkpoint_min'         ? long(0..)
-    
+
     ## comma-separated list
     'disallowed'             ? string
 
@@ -178,15 +181,15 @@ type pbs_queue_attlist = {
 
     'from_route_only'        ? boolean
 
-    'is_transit'             ? boolean 
+    'is_transit'             ? boolean
 
     'keep_completed'         ? long(0..)
-    
+
     'kill_delay'             ? long(0..)
 
     'max_queuable'           ? long(1..)
-    'max_group_run'           ? long(0..)  
-    'max_user_run'           ? long(0..)  
+    'max_group_run'           ? long(0..)
+    'max_user_run'           ? long(0..)
     'max_user_queuable'      ? long(1..)
     'max_running'            ? long(1..)
 
@@ -224,12 +227,12 @@ type pbs_queue_attlist = {
     'resources_min.pvmem'    ? string
     'resources_min.vmem'     ? string
     'resources_min.walltime' ? string
-    
+
     'started'                ? boolean
 
     'route_destinations'	 ? string
     'route_held_jobs'        ? boolean
-    'route_lifetime'         ? long(0..)   
+    'route_lifetime'         ? long(0..)
     'route_retry_time'       ? long(0..)
     'route_waiting_jobs'     ? boolean
 };

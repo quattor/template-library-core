@@ -14,7 +14,7 @@
 #
 
 # #
-# gip2, 16.2.0, 1, 2016-02-19T16:03:03Z
+# gip2, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 unique template components/gip2/config;
@@ -22,11 +22,11 @@ unique template components/gip2/config;
 include { 'components/gip2/schema' };
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gip2','16.2.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-gip2','16.6.0-rc1_1','noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/gip2';
-'version' = '16.2.0';
+'version' = '16.6.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');

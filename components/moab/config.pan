@@ -14,7 +14,7 @@
 #
 
 # #
-# moab, 16.2.0, 1, 2016-02-19T16:03:03Z
+# moab, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 unique template components/moab/config;

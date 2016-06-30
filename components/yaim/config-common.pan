@@ -14,7 +14,7 @@
 #
 
 # #
-# yaim, 16.2.0, 1, 2016-02-19T16:03:03Z
+# yaim, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 unique template components/yaim/config-common;
@@ -24,7 +24,7 @@ include { 'components/yaim/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/yaim';
 
-'version' = '16.2.0';
+'version' = '16.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
