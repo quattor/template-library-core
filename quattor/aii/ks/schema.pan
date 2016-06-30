@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 16.2.0, 1, 2016-02-19T16:03:19Z
+# ks, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 # Structure for the component generating kickstart files.
 
@@ -71,7 +71,7 @@ type structure_ks_logging = {
 type structure_ks_ks_info = {
     "ackurl"	: type_absoluteURI
     "acklist"	? type_absoluteURI[]
-    "auth"		: string[] = list ("enableshadow", "enablemd5")
+    "auth" : string[] = list ("enableshadow", "passalgo=sha512")
     "bootloader_location" : string = "mbr"
     "bootloader_append" ? string
     "bootloader_password" ? string

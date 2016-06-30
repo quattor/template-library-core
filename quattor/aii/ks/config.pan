@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 16.2.0, 1, 2016-02-19T16:03:19Z
+# ks, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 # Template containing the Kickstart-related configuration and default
@@ -309,9 +309,9 @@ variable  AII_OSINSTALL_BOOTPROTO ?= 'dhcp';
 
 #
 # Options for authentication
-# defaults to using shadow passwords and MD5 hashing
+# defaults to using shadow passwords and sha512 hashing
 #
-variable AII_OSINSTALL_OPTION_AUTH ?= list ("enableshadow", "enablemd5");
+variable AII_OSINSTALL_OPTION_AUTH ?= list ("enableshadow", "passalgo=sha512");
 "/system/aii/osinstall/ks/auth" ?= AII_OSINSTALL_OPTION_AUTH;
 #
 # Firewall

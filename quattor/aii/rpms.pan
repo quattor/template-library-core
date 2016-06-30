@@ -14,11 +14,11 @@
 #
 
 # #
-# server, 16.2.0, 1, 2016-02-19T16:03:19Z
+# server, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 # Template adding aii-server rpm to the configuration
 
 unique template quattor/aii/rpms;
 
-"/software/packages"=pkg_repl("aii-server","16.2.0-1","noarch");
+"/software/packages"=pkg_repl("aii-server","16.6.0-rc1_1","noarch");
