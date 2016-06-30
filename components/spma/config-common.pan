@@ -10,11 +10,11 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy
 #
 
 # #
-# spma, 16.2.0, 1, 2016-02-19T15:57:52Z
+# spma, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 unique template components/spma/config-common;
@@ -22,7 +22,7 @@ unique template components/spma/config-common;
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '16.2.0';
+#'version' = '16.6.0-rc1';
 #'package' = 'NCM::Component';
 
 'run' ?= "yes";

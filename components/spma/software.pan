@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy
 #
 
 
@@ -18,6 +18,8 @@ declaration template components/spma/software;
 
 include 'pan/types';
 include 'components/spma/functions';
+
+type software_repository_url = string with match(SELF, '^(file|https?|ftp)://');
 
 type SOFTWARE_PACKAGE_REP = string with repository_exists(SELF, "/software/repositories");
 
@@ -33,7 +35,7 @@ type SOFTWARE_REPOSITORY_PACKAGE = {
 
 type SOFTWARE_REPOSITORY_PROTOCOL = {
     "name" : string  # "Protocol name"
-    "url" : string  # "URL for the given protocol"
+    "url" : software_repository_url  # "URL for the given protocol"
     "cacert" ? string  # Path to CA certificate
     "clientcert" ? string # Path to client certificate
     "clientkey" ? string # Path to client key
@@ -43,6 +45,9 @@ type SOFTWARE_REPOSITORY_PROTOCOL = {
 type SOFTWARE_REPOSITORY = {
     "enabled" : boolean = true
     "gpgcheck" : boolean = false
+    "repo_gpgcheck" ? boolean
+    "gpgkey" ? software_repository_url[]
+    "gpgcakey" ? software_repository_url
     "excludepkgs" ? string[]
     "includepkgs" ? string[]
     "name" ? string with match(SELF, '^[\w-.]+$') # "Repository name"

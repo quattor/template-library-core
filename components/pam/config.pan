@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 16.2.0, 1, 2016-02-19T15:57:52Z
+# pam, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 ##########################################################################
@@ -26,13 +26,13 @@ unique template components/pam/config;
 include 'components/pam/schema';
 
 # standard component settings
-"/software/components/pam/version"    = '16.2.0';
+"/software/components/pam/version"    = '16.6.0';
 "/software/components/pam/active"    ?=  true;
 "/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "16.2.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "16.6.0-rc1_1", "noarch");
 
 # standard functions
 include 'pan/functions';

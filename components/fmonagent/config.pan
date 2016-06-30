@@ -11,7 +11,7 @@
 
 # 
 # #
-# fmonagent, 16.2.0, 1, 2016-02-19T15:57:52Z
+# fmonagent, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 unique template components/fmonagent/config;

@@ -10,18 +10,17 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy
 #
-
 
 
 unique template components/spma/config-rpm;
 
 # Prefix for packages/groups
 prefix '/software';
-'groups' ?= nlist();
+'groups/names' ?= list();
 # Package to install
-'packages' = pkg_repl("ncm-spma", "16.2.0-1", "noarch");
+'packages' = pkg_repl("ncm-spma", "16.6.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';

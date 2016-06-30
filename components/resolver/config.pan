@@ -11,7 +11,7 @@
 
 # 
 # #
-# resolver, 16.2.0, 1, 2016-02-19T15:57:52Z
+# resolver, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
 #
 
 unique template components/resolver/config;
@@ -19,11 +19,11 @@ unique template components/resolver/config;
 include 'components/resolver/schema';
 include 'pan/functions';
 
-"/software/packages" = pkg_repl("ncm-resolver", "16.2.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-resolver", "16.6.0-rc1_1", "noarch");
 
 prefix '/software/components/resolver';
 
-'version' = '16.2.0';
+'version' = '16.6.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list("spma");

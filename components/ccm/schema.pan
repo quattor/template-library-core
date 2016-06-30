@@ -16,6 +16,7 @@ declaration template components/ccm/schema;
 
 include 'quattor/types/component';
 include 'pan/types';
+include if_exists('components/accounts/functions');
 
 @documentation {
     kerberos_principal_string is a string with format principal[/component1[/component2[...]]]@REALM
@@ -44,8 +45,7 @@ type kerberos_principal_string = string with {
     };
 
     realm = pc_r[len-1];
-    # uppercase REALM
-    if (! match(realm, '^[A-Z][A-Z.-_]*$')) {
+    if (! match(realm, '^[a-zA-Z][\w.-]*$')) {
         error("Not a valid realm " + realm);
     };
 
@@ -60,7 +60,6 @@ type kerberos_principal_string = string with {
 
     true;
 };
-
 
 type component_ccm = {
     include structure_component
@@ -81,11 +80,19 @@ type component_ccm = {
     'key_file'         ? string
     'ca_file'          ? string
     'ca_dir'           ? string
+    'group_readable'   ? string with if (path_exists('/software/components/accounts')) {is_user_or_group('group', SELF)} else {true}
     'world_readable'   : long(0..1) = 0
     'base_url'         ? type_absoluteURI
     'dbformat'         ? string with match(SELF, "^(DB_File|CDB_File|GDBM_File)$")
     'json_typed'       ? boolean
     'tabcompletion'    ? boolean
     'keep_old'         ? long(0..)
-    'trust'            ? kerberos_principal_string
+    'trust'            ? kerberos_principal_string[]
+    'principal'        ? kerberos_principal_string
+    'keytab'           ? string
+} with {
+    if(is_defined(SELF['group_readable']) && SELF['world_readable'] == 1) {
+        error("Cannot set both group_readable and enable world_readable for ccm");
+    };
+    true;
 };
