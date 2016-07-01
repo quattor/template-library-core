@@ -26,7 +26,7 @@ type structure_cpu = {
     "cores" : long(1..) = 1
     @{ desc = Number of execution threads on each CPU chip, e.g. a hyperthreaded eight core chip would have 16 threads }
     "max_threads" ? long(1..)
-    "hyperthreading" : boolean = false
+    "hyperthreading" : boolean = false with {deprecated(0, 'The hyperthreading cpu property has been deprecated, please migrate to max_threads'); true;}
 };
 
 
