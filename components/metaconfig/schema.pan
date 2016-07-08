@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
+# metaconfig, 16.6.0-rc3, rc3_1, Fri Jul 08 2016
 #
 
 declaration template components/metaconfig/schema;

@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
+# postfix, 16.6.0-rc3, rc3_1, Fri Jul 08 2016
 #
 
 unique template components/postfix/config-common;

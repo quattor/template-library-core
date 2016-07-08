@@ -14,12 +14,10 @@
 #
 
 # #
-# spma, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
+# spma, 16.6.0-rc3, rc3_1, Fri Jul 08 2016
 #
 
 unique template components/spma/config-ips;
-
-'/software/groups/names' ?= list();
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
@@ -34,4 +32,3 @@ prefix '/software/components/spma';
                          '/software/requests',
                          '/software/uninstall');
 'flagfile' = '/var/tmp/spma-run-flag';
-
