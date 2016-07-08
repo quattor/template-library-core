@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
+# ks, 16.6.0-rc3, rc3_1, Fri Jul 08 2016
 #
 # Structure for the component generating kickstart files.
 
