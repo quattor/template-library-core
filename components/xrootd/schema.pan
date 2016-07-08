@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 16.6.0-rc1, rc1_1, Thu Jun 30 2016
+# xrootd, 16.6.0-rc3, rc3_1, Fri Jul 08 2016
 #
 #
 
@@ -100,6 +100,15 @@ function xrootd_component_options_valid = {
            (!is_defined(params['n2nLibrary']) && is_defined(params['namePrefix'])) ) {
         error("Federation '"+federation+"': n2nLibrary and namePrefix must be both specified or absent");
         false;
+      };
+    };
+  };
+
+  # securityProtocol: only gsi is supported
+  if ( is_defined(SELF['securityProtocol']) ) {
+    foreach (protocol;params;SELF['securityProtocol']) {
+      if ( !match(protocol,'^gsi$') ) {
+        error(format("Invalid security protocol '%s' defined",protocol));
       };
     };
   };
@@ -204,6 +213,33 @@ type xrootd_component_instances = {
   "type" : string with match(SELF,'(disk|redir|fedredir)')
 };
 
+type xrootd_component_security_protocols = {
+  "authzfun" ? string
+  "authzfunparams" ? string
+  "authzto" ? long
+  "authzpxy" ? long
+  "ca" ? long
+  "cert" ? string
+  "certdir" ? string
+  "cipher" ? string
+  "crl" ? long
+  "crldir" ? string
+  "crlext" ? string
+  "crlrefresh" ? long
+  "digpxy" ? long
+  "exppxy" ? string
+  "gmapopt" ? long
+  "gmapto" ? long
+  "gmapfun" ? string
+  "gmapfunparams" ? string
+  "gridmap" ? string
+  "key" ? string
+  "md" ? string
+  "vomsat" ? long
+  "vomsfun" ? string
+  "vomsfunparams" ? string
+};
+
 type xrootd_component_global_options = {
   "installDir" ? string
   "configDir" : string = 'xrootd'
@@ -221,6 +257,7 @@ type xrootd_component_global_options = {
   "federations" ? xrootd_component_fed_options{}
   "tokenAuthz" ? xrootd_component_token_authz_options
   "dpm" ? xrootd_component_dpm_options
+  "securityProtocol" ? xrootd_component_security_protocols{}
 } with xrootd_component_options_valid(SELF);
 
 type xrootd_component_node_config = {
