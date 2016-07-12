@@ -30,3 +30,12 @@ final variable TB = 1024 * GB;
 
 final variable MHz = 1;
 final variable GHz = 1000 * MHz;
+
+final variable KiB = 1024;
+final variable MiB = 1024 * KiB;
+final variable GiB = 1024 * MiB;
+final variable TiB = 1024 * GiB;
+final variable PiB = 1024 * TiB;
+final variable EiB = 1024 * PiB;
+final variable ZiB = 1024 * EiB;
+final variable YiB = 1024 * ZiB;
