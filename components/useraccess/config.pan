@@ -11,7 +11,7 @@
 
 # 
 # #
-# useraccess, 16.6.0-rc3, rc3_1, Fri Jul 08 2016
+# useraccess, 16.6.0-rc4, rc4_1, Fri Jul 15 2016
 #
 
 unique template components/useraccess/config;
