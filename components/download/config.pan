@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 16.6.0-rc4, rc4_1, Fri Jul 15 2016
+# download, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
 #
 #
 # THE FOLLOWING DISCLAIMER APPLIES TO ALL SOFTWARE CODE AND OTHER MATERIALS

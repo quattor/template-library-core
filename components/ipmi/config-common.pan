@@ -11,7 +11,7 @@
 
 # 
 # #
-# ipmi, 16.6.0-rc4, rc4_1, Fri Jul 15 2016
+# ipmi, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
 #
 
 unique template components/ipmi/config-common;
@@ -21,7 +21,7 @@ include { 'components/ipmi/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/ipmi';
 
-#'version' = '16.6.0-rc4';
+#'version' = '16.6.0-rc5';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

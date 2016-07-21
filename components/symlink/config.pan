@@ -11,14 +11,14 @@
 
 # 
 # #
-# symlink, 16.6.0-rc4, rc4_1, Fri Jul 15 2016
+# symlink, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
 #
 
 unique template components/symlink/config;
 
 include 'components/symlink/schema';
 
-"/software/packages" = pkg_repl("ncm-symlink", "16.6.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-symlink", "16.6.0-rc5_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/symlink';

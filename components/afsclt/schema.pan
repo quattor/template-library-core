@@ -8,30 +8,30 @@
 # Current developer(s):
 #   Jaroslaw Polok <jaroslaw.polok@cern.ch>
 #   Alan Fitton <Alan.Fitton@morganstanley.com>
+#   Michel Jouvin <jouvin@lal.in2p3.fr>
 #
 
 # 
 # #
-# afsclt, 16.6.0-rc4, rc4_1, Fri Jul 15 2016
+# afsclt, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
 #
 
 declaration template components/afsclt/schema;
 
-include 'quattor/schema';
+include 'quattor/types/component';
 
 type component_afsclt_entry = {
    include structure_component
    
-   "thiscell"   : string         # "AFS home cell"
-   "thesecells" ? string[]       # "Cell list to authenticate to"
-   "settime"    ? boolean        # "Shall AFS client sync sys time?"
-   "cellservdb" ? string         # "Where Master CellServDB can be found"
-   "cachemount" ? string         # "AFS cache location (/usr/vice/etc/cache)"
-   "cachesize"  ? string         # "AFS cache size in kB"
-   "options"    ? nlist          # "AFS client options"
-   "enabled"    : string with match (SELF, 'yes|no') 
-   				 # "Shall AFS client be active ?"
-   "afsd_args"  ? string{} # /etc/afsd.args values for rc.afs
+   "thiscell"   : string         # AFS home cell
+   "thesecells" ? string[]       # Cell list to authenticate to
+   "settime"    ? boolean        # Shall AFS client sync sys time?
+   "cellservdb" ? string         # Where Master CellServDB can be found
+   "afs_mount"  ? string         # AFS mount point (e.g. /afs)
+   "cachemount" ? string         # AFS cache location (/usr/vice/etc/cache)
+   "cachesize"  ? string         # AFS cache size in kB
+   "enabled"    : legacy_binary_affirmation_string  # Shall AFS client be active ?
+   "afsd_args"  ? string{}       # /etc/afsd.args values for rc.afs
 };
 
 bind "/software/components/afsclt" = component_afsclt_entry;

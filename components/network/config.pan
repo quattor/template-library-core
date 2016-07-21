@@ -14,13 +14,13 @@
 #
 
 # #
-# network, 16.6.0-rc4, rc4_1, Fri Jul 15 2016
+# network, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
 #
 
 unique template components/network/config;
 include 'components/network/schema';
 
-'/software/packages'=pkg_repl('ncm-network','16.6.0-rc4_1','noarch');
+'/software/packages'=pkg_repl('ncm-network','16.6.0-rc5_1','noarch');
 
 prefix '/software/components/network';
 'dependencies/pre' ?= list('spma');
