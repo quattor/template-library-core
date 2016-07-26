@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
+# glitestartup, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
 #
 
 unique template components/glitestartup/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/glitestartup/config-common' };
 prefix '/software/components/glitestartup';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-glitestartup','16.6.0-rc5_1','noarch');
+'/software/packages' = pkg_repl('ncm-glitestartup','16.6.0-rc6_1','noarch');
 'dependencies/pre' ?= list('spma');
 
