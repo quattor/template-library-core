@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
+# pxelinux, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
 #
 template quattor/aii/pxelinux/config;
 
