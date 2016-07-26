@@ -11,14 +11,14 @@
 
 # 
 # #
-# nscd, 16.6.0-rc5, rc5_1, Thu Jul 21 2016
+# nscd, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
 #
 
 unique template components/nscd/config;
 
 include 'components/nscd/schema';
 
-"/software/packages" = pkg_repl("ncm-nscd", "16.6.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nscd", "16.6.0-rc6_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/nscd';

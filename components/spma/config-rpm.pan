@@ -20,7 +20,7 @@ unique template components/spma/config-rpm;
 prefix '/software';
 'groups' ?= dict();
 # Package to install
-'packages' = pkg_repl("ncm-spma", "16.6.0-rc5_1", "noarch");
+'packages' = pkg_repl("ncm-spma", "16.6.0-rc6_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
