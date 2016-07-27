@@ -11,7 +11,7 @@
 
 # 
 # #
-# autofs, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# autofs, 16.6.0, 1, Wed Jul 27 2016
 #
 
 unique template components/autofs/config;
@@ -27,4 +27,4 @@ prefix '/software/components/autofs';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-autofs", "16.6.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-autofs", "16.6.0-1", "noarch");

@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# postfix, 16.6.0, 1, Wed Jul 27 2016
 #
 
 unique template components/postfix/config-rpm;
@@ -22,6 +22,6 @@ include { 'components/postfix/config-common' };
 prefix '/software/components/postfix';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-postfix','16.6.0-rc6_1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','16.6.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 

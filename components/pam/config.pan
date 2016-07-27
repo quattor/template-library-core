@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# pam, 16.6.0, 1, Wed Jul 27 2016
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "16.6.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "16.6.0-1", "noarch");
 
 # standard functions
 include 'pan/functions';

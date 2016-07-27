@@ -18,7 +18,7 @@ unique template components/fmonagent/config-rpm;
 include { 'components/fmonagent/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-fmonagent", "16.6.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-fmonagent", "16.6.0-1", "noarch");
 
 
 '/software/components/fmonagent/version' ?= '16.6.0';

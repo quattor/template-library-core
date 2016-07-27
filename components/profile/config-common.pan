@@ -11,7 +11,7 @@
 
 # 
 # #
-# profile, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# profile, 16.6.0, 1, Wed Jul 27 2016
 #
 
 unique template components/profile/config-common;
@@ -21,7 +21,7 @@ include { 'components/profile/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/profile';
 
-#'version' = '16.6.0-rc6';
+#'version' = '16.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

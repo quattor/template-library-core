@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# nss, 16.6.0, 1, Wed Jul 27 2016
 #
 
 ################################################################################
@@ -25,10 +25,10 @@ include { 'components/nss/schema' };
 include { 'pan/functions' };
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "16.6.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "16.6.0-1", "noarch");
 
 # standard component settings
 "/software/components/nss/active"   ?=  true ;
 "/software/components/nss/dispatch" ?=  false ;
-"/software/components/nss/version"   = "16.6.0-rc6";
+"/software/components/nss/version"   = "16.6.0";
 

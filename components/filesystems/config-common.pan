@@ -11,7 +11,7 @@
 
 # 
 # #
-# filesystems, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# filesystems, 16.6.0, 1, Wed Jul 27 2016
 #
 
 unique template components/filesystems/config-common;
@@ -21,7 +21,7 @@ include { 'components/filesystems/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/filesystems';
 
-#'version' = '16.6.0-rc6';
+#'version' = '16.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
