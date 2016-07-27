@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 16.6.0-rc6, rc6_1, Tue Jul 26 2016
+# server, 16.6.0, 1, Wed Jul 27 2016
 #
 unique template quattor/aii/schema;
 
