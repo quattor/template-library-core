@@ -3,9 +3,9 @@ unique template quattor/aii/opennebula/default;
 include 'quattor/aii/opennebula/schema';
 include 'quattor/aii/opennebula/functions';
 
-#  undef are set via schema default
-variable OPENNEBULA_AII_FORCE ?= undef; 
-variable OPENNEBULA_AII_ONHOLD ?= undef;
+# null values are set by schema defaults
+variable OPENNEBULA_AII_FORCE ?= null;
+variable OPENNEBULA_AII_ONHOLD ?= null;
 variable OPENNEBULA_AII_FORCE_REMOVE ?= false;
 
 variable MAC_PREFIX ?= '02:00';
