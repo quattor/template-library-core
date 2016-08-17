@@ -953,3 +953,23 @@ function is_uuid = {
 type type_uuid = string with {
     (is_uuid(SELF));
 };
+
+
+@documentation{
+    desc = Checks that a string represents a valid absolute path to a file (not a directory), prints explanatory errors if invalid
+}
+function is_absolute_file_path = {
+    if (ARGC != 1 || !is_string (ARGV[0])) error("usage: is_absolute_path(string)");
+    path = ARGV[0];
+
+    if (match(path, '/$')) {
+        error(format('Path "%s" does not refer to a file, it has an invalid trailing slash', path));
+    };
+    if (match(path, '^[^/]')) {
+        error(format('Path "%s" is not absolute, leading slash is missing', path));
+    };
+
+    true;
+};
+
+type absolute_file_path = string with is_absolute_file_path(SELF);
