@@ -914,10 +914,9 @@ function is_network_name = {
     # Is it a FQDN or an IP (v4 or v6) address?
     if (is_hostname(ARGV[0])) return(true);
 
-    # Is it a deprecated short-form hostname?
+    # Is it a short-form hostname?
     if (is_shorthostname(ARGV[0])) {
-        deprecated(0, "Short hostnames are deprecated as valid network_names.");
-        return(true);
+        error("Short hostname is not a valid network_name.");
     };
 
     # How about a valid TLD?
