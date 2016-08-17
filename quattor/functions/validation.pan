@@ -1,5 +1,5 @@
 @{
-    Validation function definitions for the following composed types: 
+    Validation function definitions for the following composed types:
         * software component
         * /software tree
         * /system tree
@@ -102,14 +102,14 @@ function is_profile_list = {
     desc = checks if the argument is a fiber-channel-style hardware address
 }
 function is_a_fcahwaddr = {
-    # Check cardinality and type of argument. 
+    # Check cardinality and type of argument.
     if (ARGC != 1 || !is_string(ARGV[0])) {
 	 error("usage: is_fcahwaddr(string)");
     };
     if (match(ARGV[0],'unknown')) {
 	 return (true);
     };
-    match(ARGV[0], '^[\dA-Fa-f]{2}([:-])[\dA-Fa-f]{2}(\1[\dA-Fa-f]{2}){6}$'); 
+    match(ARGV[0], '^[\dA-Fa-f]{2}([:-])[\dA-Fa-f]{2}(\1[\dA-Fa-f]{2}){6}$');
 };
 
 
