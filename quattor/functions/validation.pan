@@ -148,17 +148,12 @@ function is_valid_card_ports = {
 
 
 @documentation{
-    desc = Checks keys of a dict are valid absolute paths to files (not directories), prints errors for all invalid paths
+    desc = Checks keys of a dict are valid absolute paths to files (not directories) using is_absolute_file_path
 }
 function valid_absolute_file_paths = {
     foreach (k; v; ARGV[0]) {
         path = unescape(k);
-        if (match(path, '/$')) {
-            error(format('Path "%s" does not refer to a file, it has an invalid trailing slash', path));
-        };
-        if (match(path, '^[^/]')) {
-            error(format('Path "%s" is not absolute, leading slash is missing', path));
-        };
+        is_absolute_file_path(path);
     };
     true;
 };
