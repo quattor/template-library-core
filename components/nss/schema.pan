@@ -17,7 +17,7 @@
 
 declaration template components/nss/schema;
 
-include { 'quattor/schema' };
+include 'quattor/types/component';
 
 type component_nss_build = {
     "script" : string

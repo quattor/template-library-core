@@ -6,12 +6,13 @@
 
 # #
 # Current developer(s):
-#   Miroslav Siket <dennis.waldron@cern.ch>
+#   Miroslav Siket <miroslav.siket@cern.ch>
+#   Dennis Waldron <dennis.waldron@cern.ch>
 #
 
 # 
 # #
-# fmonagent, 16.6.0, 1, Wed Jul 27 2016
+# fmonagent, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/fmonagent/config-common;
@@ -21,7 +22,7 @@ include { 'components/fmonagent/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/fmonagent';
 
-#'version' = '16.6.0';
+#'version' = '16.8.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -11,17 +11,9 @@
 
 # 
 
-############################################################
-#
-# type definition components/chkconfig
-#
-#
-#
-############################################################
-
 declaration template components/chkconfig/schema;
 
-include { 'quattor/schema' };
+include 'quattor/types/component';
 
 function chkconfig_allow_combinations = {
     # Check if certain combinations of service_types are allowed
@@ -38,9 +30,9 @@ function chkconfig_allow_combinations = {
     # Others combinations are still allowed (eg combining del and off,
     # where del will be preferred)
     svt_map = nlist(
-        'del',list("add","on","reset"),
-        'off',list("on","reset"),
-        'on',list("reset"),
+        'del', list("add", "on", "reset"),
+        'off', list("on", "reset"),
+        'on', list("reset"),
     );
     foreach(win_svt;svt_list;svt_map) {
         if (exists(service[win_svt])) {
@@ -51,7 +43,7 @@ function chkconfig_allow_combinations = {
             };
         };
     };
-    return(true);
+    true;
 };
 
 type service_type = {
@@ -67,7 +59,5 @@ type service_type = {
 type component_chkconfig_type = {
   include structure_component
   "service" : service_type{}
-  "default" ? string with match (SELF, 'ignore|off')
+  "default" ? string with match (SELF, '^(ignore|off)$')
 };
-
-bind "/software/components/chkconfig" = component_chkconfig_type;

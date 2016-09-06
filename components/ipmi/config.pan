@@ -11,7 +11,7 @@
 
 # 
 # #
-# ipmi, 16.6.0, 1, Wed Jul 27 2016
+# ipmi, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/ipmi/config;

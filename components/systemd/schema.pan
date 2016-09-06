@@ -80,7 +80,6 @@ http://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20S
 }
 type systemd_unitfile_config_unit = {
     'After' ? systemd_valid_unit[]
-    'After' ? systemd_valid_unit[]
     'AllowIsolate' ? boolean
     'Assert' ? systemd_unitfile_config_unit_condition
     'Before' ? systemd_valid_unit[]

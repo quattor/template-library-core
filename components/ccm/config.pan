@@ -11,7 +11,7 @@
 
 # 
 # #
-# ccm, 16.6.0, 1, Wed Jul 27 2016
+# ccm, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/ccm/config;
@@ -20,10 +20,10 @@ include 'components/ccm/schema';
 
 bind '/software/components/ccm' = component_ccm;
 
-'/software/packages' = pkg_repl('ncm-ccm','16.6.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-ccm','16.8.0-rc1_1','noarch');
 
 prefix '/software/components/ccm';
 'dependencies/pre' ?= list('spma');
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '16.6.0';
+'version' ?= '16.8.0';

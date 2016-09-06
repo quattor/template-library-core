@@ -6,7 +6,8 @@
 
 # #
 # Current developer(s):
-#   Miroslav Siket <dennis.waldron@cern.ch>
+#   Miroslav Siket <miroslav.siket@cern.ch>
+#   Dennis Waldron <dennis.waldron@cern.ch>
 #
 
 # 

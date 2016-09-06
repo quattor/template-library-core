@@ -7,11 +7,12 @@
 # #
 # Current developer(s):
 #   David Groep <davidg@nikhef.nl>
+#   Michel Jouvin <jouvin@lal.in2p3.fr>
 #
 
 # 
 # #
-# autofs, 16.6.0, 1, Wed Jul 27 2016
+# autofs, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/autofs/config;
@@ -23,8 +24,8 @@ bind "/software/components/autofs" = component_autofs_type;
 prefix '/software/components/autofs';
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '16.6.0';
+'version' = '16.8.0';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-autofs", "16.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-autofs", "16.8.0-rc1_1", "noarch");

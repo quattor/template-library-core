@@ -8,11 +8,12 @@
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
 #   Mark Wilson <Mark.Wilson@morganstanley.com>
+#   Guillaume Philippon <philippo@lal.in2p3.fr>
 #
 
 # 
 # #
-# cron, 16.6.0, 1, Wed Jul 27 2016
+# cron, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/cron/config-common;
@@ -22,7 +23,7 @@ include { 'components/cron/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/cron';
 
-#'version' = '16.6.0';
+#'version' = '16.8.0-rc1';
 #'package' = 'NCM::Component';
 
 'securitypath' ?= {

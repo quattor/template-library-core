@@ -11,10 +11,20 @@
 
 # 
 # #
-# chkconfig, 16.6.0, 1, Wed Jul 27 2016
+# chkconfig, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/chkconfig/config;
 
-include { 'components/chkconfig/config-common' };
-include { 'components/chkconfig/config-rpm' };
+include 'components/chkconfig/schema';
+
+bind "/software/components/chkconfig" = component_chkconfig_type;
+
+# Set prefix to root of component configuration.
+prefix '/software/components/chkconfig';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list("spma");
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-chkconfig", "16.8.0-rc1_1", "noarch");

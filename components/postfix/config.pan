@@ -11,10 +11,18 @@
 
 # 
 # #
-# postfix, 16.6.0, 1, Wed Jul 27 2016
+# postfix, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 unique template components/postfix/config;
 
-include { 'components/postfix/config-common' };
-include { 'components/postfix/config-rpm' };
+include 'components/postfix/schema';
+
+bind '/software/components/postfix' = postfix_component;
+
+prefix '/software/components/postfix';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list('spma');
+
+'/software/packages' = pkg_repl('ncm-postfix','16.8.0-rc1_1','noarch');

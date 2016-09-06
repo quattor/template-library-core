@@ -7,6 +7,7 @@
 # #
 # Current developer(s):
 #   David Groep <davidg@nikhef.nl>
+#   Michel Jouvin <jouvin@lal.in2p3.fr>
 #
 
 # 

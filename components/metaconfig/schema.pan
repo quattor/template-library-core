@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 16.6.0, 1, Wed Jul 27 2016
+# metaconfig, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 declaration template components/metaconfig/schema;
@@ -41,6 +41,10 @@ type metaconfig_textrender_convert = {
     'doublequote' ? boolean
     @{Convert string to singlequoted string.}
     'singlequote' ? boolean
+    @{Convert list to comma-separated string}
+    'joincomma' ? boolean
+    @{Convert list to space-separated string}
+    'joinspace' ? boolean
 } with {
     # Only one boolean conversion can be true
     boolean_conversion = list('yesno', 'YESNO', 'truefalse', 'TRUEFALSE');
@@ -65,6 +69,19 @@ type metaconfig_textrender_convert = {
             found = true;
         };
     };
+
+    # Only one list conversion can be true
+    list_conversion = list('joincomma', 'joinspace');
+    found = false;
+    foreach (idx; name; list_conversion) {
+        if(exists(SELF[name]) && SELF[name]) {
+            if(found) {
+                error('metaconfig element can only have one list conversion enabled, got '+to_string(SELF));
+            };
+            found = true;
+        };
+    };
+
     true;
 };
 
