@@ -3,8 +3,8 @@ unique template quattor/aii/opennebula/default;
 include 'quattor/aii/opennebula/schema';
 include 'quattor/aii/opennebula/functions';
 
-# null values are set by schema defaults
-variable OPENNEBULA_AII_FORCE ?= null;
+#  null values are set by schema defaults
+variable OPENNEBULA_AII_FORCE ?= null; 
 variable OPENNEBULA_AII_ONHOLD ?= null;
 variable OPENNEBULA_AII_FORCE_REMOVE ?= false;
 
@@ -36,9 +36,10 @@ bind "/system/aii/hooks" = nlist with validate_aii_opennebula_hooks('install');
 
 bind "/system/aii/hooks" = nlist with validate_aii_opennebula_hooks('remove');
 
+
 # Enable ACPI daemon
 "/system/aii/hooks/post_reboot/" = append(SELF, dict(
-    'module', OPENNEBULA_AII_MODULE_NAME
+    'module', OPENNEBULA_AII_MODULE_NAME,
 ));
 
 bind "/system/aii/hooks" = nlist with validate_aii_opennebula_hooks('post_reboot');

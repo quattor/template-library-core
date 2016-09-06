@@ -14,11 +14,11 @@
 #
 
 # #
-# ks, 16.6.0, 1, Wed Jul 27 2016
+# ks, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 
 # Template adding aii-ks rpm to the configuration
 
 unique template quattor/aii/ks/rpms;
 
-"/software/packages"=pkg_repl("aii-ks","16.6.0-1","noarch");
+"/software/packages"=pkg_repl("aii-ks","16.8.0-rc1_1","noarch");
