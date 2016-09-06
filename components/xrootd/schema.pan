@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 16.6.0, 1, Wed Jul 27 2016
+# xrootd, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 #
 
@@ -257,7 +257,7 @@ type xrootd_component_global_options = {
   "federations" ? xrootd_component_fed_options{}
   "tokenAuthz" ? xrootd_component_token_authz_options
   "dpm" ? xrootd_component_dpm_options
-  "securityProtocol" ? xrootd_component_security_protocols{}
+  "securityProtocol" ? xrootd_component_security_protocols{} 
 } with xrootd_component_options_valid(SELF);
 
 type xrootd_component_node_config = {
@@ -272,5 +272,4 @@ type xrootd_component = {
 };
 
 bind "/software/components/xrootd" = xrootd_component;
-
 

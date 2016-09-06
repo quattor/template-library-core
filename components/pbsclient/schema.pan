@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsclient, 16.6.0, 1, Wed Jul 27 2016
+# pbsclient, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
@@ -91,6 +91,8 @@ type pbsclient_component_structure_initialisation = {
     "nodefile_suffix"           ? string 
     
     "nospool_dir_list"          ? string[]
+
+    "job_oom_score_adjust"      ? long
 
     "prologalarm"               ? long 
 
