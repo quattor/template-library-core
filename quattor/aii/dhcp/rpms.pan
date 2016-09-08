@@ -14,11 +14,11 @@
 #
 
 # #
-# dhcp, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
+# dhcp, 16.8.0-rc2, rc2_1, Thu Sep 08 2016
 #
 
 # Template adding aii-dhcp rpm to the configuration
 
 unique template quattor/aii/dhcp/rpms;
 
-"/software/packages"=pkg_repl("aii-dhcp","16.8.0-rc1_1","noarch");
+"/software/packages"=pkg_repl("aii-dhcp","16.8.0-rc2_1","noarch");
