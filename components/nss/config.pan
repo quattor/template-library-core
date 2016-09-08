@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 16.8.0-rc1, rc1_1, Tue Sep 06 2016
+# nss, 16.8.0-rc2, rc2_1, Thu Sep 08 2016
 #
 
 ################################################################################
@@ -25,7 +25,7 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "16.8.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "16.8.0-rc2_1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';
