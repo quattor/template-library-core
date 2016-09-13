@@ -14,7 +14,7 @@
 #
 
 # #
-# lcmaps, 16.8.0-rc2, rc2_1, Thu Sep 08 2016
+# lcmaps, 16.8.0-rc3, rc3_1, Tue Sep 13 2016
 #
 
 unique template components/lcmaps/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/lcmaps/config-common' };
 prefix '/software/components/lcmaps';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lcmaps','16.8.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-lcmaps','16.8.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 

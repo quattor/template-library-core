@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 16.8.0-rc2, rc2_1, Thu Sep 08 2016
+# myproxy, 16.8.0-rc3, rc3_1, Tue Sep 13 2016
 #
 #
 
