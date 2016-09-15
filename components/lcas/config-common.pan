@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 16.8.0-rc3, rc3_1, Tue Sep 13 2016
+# lcas, 16.8.0, 1, Thu Sep 15 2016
 #
 
 unique template components/lcas/config-common;
