@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 16.8.0-rc3, rc3_1, Tue Sep 13 2016
+# server, 16.8.0, 1, Thu Sep 15 2016
 #
 #
 # This file is the standard aii configuration. It only performs some
