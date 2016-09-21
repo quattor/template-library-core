@@ -39,7 +39,7 @@ type structure_filesystem = {
 	"mount"		: boolean
 	"mountopts"	: string = "defaults" # "Mount options"
 	"type"		: string with match (SELF,
-			     "^(ext[2-4]|reiserfs|reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|none)$")
+			     "^(ext[2-4]|reiserfs|reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|biosboot|none)$")
 			  # "Filesystem type."
 	"quota"		? long # "Quota percentage"
 	"freq"		: long = 0 # "Dump frequency"
