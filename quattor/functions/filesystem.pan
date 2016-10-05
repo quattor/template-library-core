@@ -1,15 +1,4 @@
 ################################################################################
-# This is 'namespaces/standard/quattor/functions/filesystem.tpl', a pan-templates's file
-################################################################################
-#
-# VERSION:    3.2.9-1, 25/11/09 16:16
-# AUTHOR:     Martin Bock
-# MAINTAINER: Marco Emilio Poleggi <Marco.Emilio.Poleggi@cern.ch>, German Cancio <German.Cancio.Melia@cern.ch>, Michel Jouvin <jouvin@lal.in2p3.fr>
-# LICENSE:    http://cern.ch/eu-datagrid/license.html
-#
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
 #
 # System Function Definitions for hard disk and partitions
 #
@@ -22,15 +11,12 @@ declaration template quattor/functions/filesystem;
 # FUNCTION num_of_harddisks
 ############################################################
 function num_of_harddisks = {
-   #
-   # get resource harddisks
-   #
-   harddisks = value("/hardware/harddisks");
-   #
-   # count entries of resource harddisks
-   #
-   num_of_harddisks = length(harddisks);
-   num_of_harddisks;
+  # get resource harddisks
+  harddisks = value("/hardware/harddisks");
+
+  # count entries of resource harddisks
+  num_of_harddisks = length(harddisks);
+  num_of_harddisks;
 };
 
 ############################################################
@@ -39,46 +25,46 @@ function num_of_harddisks = {
 # returns the disk where grub must be installed
 ############################################################
 function boot_disk = {
-    base = "/hardware/harddisks";
-    dsk = value(base);
-    device = "";
-    ok = first(dsk,i,v);
-    while (ok) {
-        path = base+"/"+to_string(i)+"/boot";
-        if (exists(to_string(path))) {
-            if (value(path)) {
-                device = i;
-            };
+  base = "/hardware/harddisks";
+  dsk = value(base);
+  device = "";
+  ok = first(dsk,i,v);
+  while (ok) {
+    path = base+"/"+to_string(i)+"/boot";
+    if (exists(to_string(path))) {
+        if (value(path)) {
+            device = i;
         };
-        ok = next(dsk,i,v);
     };
-    if (length(device)>0) {
-        device;
-    } else {
-        null;
-    }
+    ok = next(dsk,i,v);
+  };
+  if (length(device)>0) {
+    device;
+  } else {
+    null;
+  }
 };
 
 # Adds a list of logical volumes to a volume group. See
 # https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
 # for more details.
 function lvs_add = {
-     function_name = 'lvs_add';
-     if (length (ARGV) != 2) {
-       error (function_name+": should get 2 arguments");
-     };
+  function_name = 'lvs_add';
+  if (length (ARGV) != 2) {
+    error (function_name+": should get 2 arguments");
+  };
 
-     vg = ARGV[0];
-     lv=ARGV[1];
+  vg = ARGV[0];
+  lv=ARGV[1];
 
-     foreach (l; sz; lv) {
-	  SELF[l]["volume_group"] = vg;
-	  if (sz != -1) {
-	       SELF[l]["size"] = sz;
-	  };
-     };
-     # Validation stuff might be added here.
-     SELF;
+  foreach (l; sz; lv) {
+    SELF[l]["volume_group"] = vg;
+    if (sz != -1) {
+        SELF[l]["size"] = sz;
+    };
+  };
+  # Validation stuff might be added here.
+  SELF;
 };
 
 # Adds a list of partitions to a disk. The third argument, if any, is
@@ -88,35 +74,35 @@ function lvs_add = {
 # https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
 # for more details.
 function partitions_add = {
-     function_name = 'partitions_add';
-     if (length (ARGV) != 2 && length (ARGV) != 3) {
-       error (function_name+": should get 2 or 3 arguments");
-     };
+  function_name = 'partitions_add';
+  if (length (ARGV) != 2 && length (ARGV) != 3) {
+    error (function_name+": should get 2 or 3 arguments");
+  };
 
-     
-     pt=ARGV[1];
-     ep=undef;
-     if (length (ARGV) == 3) {
-	  ep=ARGV[2];
-     };
+ 
+  pt=ARGV[1];
+  ep=undef;
+  if (length (ARGV) == 3) {
+      ep=ARGV[2];
+  };
 
-     foreach (p; sz; pt) {
-	  if (is_defined (ep)) {
-	       ns=matches (p, ".*[^0-9]([0-9]+)$");
-	       n=to_long (ns[1]);
-	       if (n > 4) {
-		    SELF[p]["type"] = "logical";
-	       } else if (p == ep) {
-		    SELF[p]["type"] = "extended";
-	       }; # Else, primary, which is the default
-	  };
-	  SELF[p]["holding_dev"] = ARGV[0];
-	  if (sz != -1) {
-	       SELF[p]["size"] = sz;
-	  };
-     };
-     # Validation stuff might be added here.
-     SELF;
+  foreach (p; sz; pt) {
+    if (is_defined (ep)) {
+      ns=matches (p, ".*[^0-9]([0-9]+)$");
+      n=to_long (ns[1]);
+      if (n > 4) {
+        SELF[p]["type"] = "logical";
+      } else if (p == ep) {
+        SELF[p]["type"] = "extended";
+      }; # Else, primary, which is the default
+    };
+    SELF[p]["holding_dev"] = ARGV[0];
+    if (sz != -1) {
+      SELF[p]["size"] = sz;
+    };
+  };
+  # Validation stuff might be added here.
+  SELF;
 };
 
 
