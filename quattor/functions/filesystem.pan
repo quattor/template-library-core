@@ -54,26 +54,29 @@ function lvs_add = {
   SELF;
 };
 
-# Adds a list of partitions to a disk. The third argument, if any, is
+# Adds a list of partitions to a disk. First argument is the holding device. Second argument
+# is a dict with one entry for each partition. The third argument, if any, is
 # the name of the extended partition to be used. If there is no
 # extended partition, the disk is supposed to have only primary
 # partitions. This is true with GPT labels. See
 # https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
 # for more details.
+# The values in second argument dict  can be either a number interpreted as the partition size or a dict where only
+# the keys 'size' and 'flags' are used (other keys are ignored).
 function partitions_add = {
   function_name = 'partitions_add';
   if (length (ARGV) != 2 && length (ARGV) != 3) {
-    error (function_name+": should get 2 or 3 arguments");
+    error (function_name+": requires 2 or 3 arguments");
   };
-
  
   pt=ARGV[1];
-  ep=undef;
   if (length (ARGV) == 3) {
-      ep=ARGV[2];
+    ep=ARGV[2];
+  } else {
+    ep=undef;
   };
 
-  foreach (p; sz; pt) {
+  foreach (p; params; pt) {
     if (is_defined (ep)) {
       ns=matches (p, ".*[^0-9]([0-9]+)$");
       n=to_long (ns[1]);
@@ -84,10 +87,23 @@ function partitions_add = {
       }; # Else, primary, which is the default
     };
     SELF[p]["holding_dev"] = ARGV[0];
-    if (sz != -1) {
-      SELF[p]["size"] = sz;
+    if ( is_dict(params) ) {
+      part_params = params;
+    } else {
+      debug(format('%s: %s called with an implicit size argument for partition %s (%s)', OBJECT, function_name, p, to_string(params)));
+      part_params = dict('size', params);
+    };
+    if ( is_defined(part_params['size']) && (part_params['size'] != -1) ) {
+      SELF[p]["size"] = part_params['size'];
+    };
+    # params['flags'] is a list containing the flags that must be set to true
+    if ( is_defined(part_params['flags']) ) {
+      foreach (i;flag;part_params['flags']) {
+        SELF[p]['flags'][flag] = true;
+      };
     };
   };
+  
   # Validation stuff might be added here.
   SELF;
 };
