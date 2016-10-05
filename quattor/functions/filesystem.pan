@@ -11,12 +11,7 @@ declaration template quattor/functions/filesystem;
 # FUNCTION num_of_harddisks
 ############################################################
 function num_of_harddisks = {
-  # get resource harddisks
-  harddisks = value("/hardware/harddisks");
-
-  # count entries of resource harddisks
-  num_of_harddisks = length(harddisks);
-  num_of_harddisks;
+  length(value("/hardware/harddisks"));
 };
 
 ############################################################
@@ -28,21 +23,13 @@ function boot_disk = {
   base = "/hardware/harddisks";
   dsk = value(base);
   device = "";
-  ok = first(dsk,i,v);
-  while (ok) {
+  foreach (i;v;dsk) {
     path = base+"/"+to_string(i)+"/boot";
-    if (exists(to_string(path))) {
-        if (value(path)) {
-            device = i;
-        };
+    if ( exists(to_string(path)) && value(path) ) {
+      return(i);
     };
-    ok = next(dsk,i,v);
   };
-  if (length(device)>0) {
-    device;
-  } else {
-    null;
-  }
+  null;
 };
 
 # Adds a list of logical volumes to a volume group. See
