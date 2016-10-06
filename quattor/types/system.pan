@@ -27,7 +27,7 @@ type structure_oldname = {
 include 'components/network/core-schema';
 
 # TODO: monitoring to be defined
-include 'monitoring/lemon/schema';
+include { if_exists('monitoring/lemon/schema') };
 
 include 'quattor/blockdevices';
 include 'quattor/filesystems';
@@ -50,7 +50,7 @@ type structure_system = {
     "lcg"           ? structure_lcg
     "network"       : structure_network
     # TODO: monitoring-related structures should go elsewhere. 
-    "monitoring"    ? structure_monitoring
+    "monitoring"    ? nlist
     "oldnames"      ? structure_oldname[]
     "rootmail"      : type_email
     "siterelease"   ? string
