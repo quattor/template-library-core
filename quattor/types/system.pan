@@ -26,9 +26,6 @@ type structure_oldname = {
 # network schema defined within component area
 include 'components/network/core-schema';
 
-# TODO: monitoring to be defined
-include { if_exists('monitoring/lemon/schema') };
-
 include 'quattor/blockdevices';
 include 'quattor/filesystems';
 include 'quattor/types/aii';
@@ -49,8 +46,8 @@ type structure_system = {
     "kernel"        : structure_kernel
     "lcg"           ? structure_lcg
     "network"       : structure_network
-    # TODO: monitoring-related structures should go elsewhere. 
-    "monitoring"    ? nlist
+    # Monitoring-related schemas should handle the bind to this path when they are included
+    "monitoring"    ? dict
     "oldnames"      ? structure_oldname[]
     "rootmail"      : type_email
     "siterelease"   ? string
