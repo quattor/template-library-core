@@ -161,7 +161,7 @@ type structure_console = extensible {
     "ipmi"   ? structure_ipmi_console
     "dpc"    ? structure_dpc_console
     "bmc"    ? structure_dpc_console
-    "preferred" : string[]
+    "preferred" ? string[]
 };
 
 @documentation{
