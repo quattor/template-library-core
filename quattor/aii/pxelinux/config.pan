@@ -14,11 +14,14 @@
 #
 
 # #
-# pxelinux, 16.8.0, 1, Thu Sep 15 2016
+# pxelinux, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
-template quattor/aii/pxelinux/config;
+
+unique template quattor/aii/pxelinux/config;
 
 include 'quattor/aii/pxelinux/schema';
+
+bind "/system/aii/nbp/pxelinux" = structure_pxelinux_pxe_info;
 
 @documentation{
     Use sys/pxelinux with lpxelinux.0
@@ -70,26 +73,20 @@ variable AII_NBP_LABEL ?= {
     if ( !is_defined(AII_OSINSTALL_OS_VERSION) ) {
         return(undef);
     };
+
+    labelmap = dict(
+        'centos', 'CentOS',
+        'fedora', 'Fedora',
+        'sl', 'Scientific Linux',
+        'slc', 'Scientific Linux CERN',
+        'rhel', 'Red Hat Entreprise Linux',
+    );
+
     toks =  matches(AII_OSINSTALL_OS_VERSION, '^(slc?|rhel|centos|fedora)(\w+?)[_\-](.*)');
-    if ( length(toks) < 4 ) {
+    if ( length(toks) < 4 || ! is_defined(labelmap[toks[1]])) {
         label = undef;
     } else {
-        if ( toks[1] == 'centos' ) {
-            label = 'CentOS ';
-        } else if ( toks[1] == 'fedora' ) {
-            label = 'Fedora ';
-        } else if ( toks[1] == 'sl' ) {
-            label = 'Scientific Linux ';
-        } else if ( toks[1] == 'slc' ) {
-            label = 'Scientific Linux CERN ';
-        } else if ( toks[1] == 'rhel' ) {
-            label = 'Red Hat Entreprise Linux ';
-        } else {
-            label = undef;
-        };
-        if ( is_defined(label) ) {
-            label = label + toks[2] + ' ('+ toks[3] + ')';
-        };
+        label = format("%s %s (%s)", labelmap[toks[1]], toks[2], toks[3]);
     };
     label;
 };

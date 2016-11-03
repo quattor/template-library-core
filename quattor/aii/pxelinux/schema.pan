@@ -14,11 +14,16 @@
 #
 
 # #
-# pxelinux, 16.8.0, 1, Thu Sep 15 2016
+# pxelinux, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
-unique template quattor/aii/pxelinux/schema;
 
-# PXE configuration.
+declaration template quattor/aii/pxelinux/schema;
+
+include 'pan/types';
+
+@documentation{
+    PXE configuration
+}
 type structure_pxelinux_pxe_info = {
     "initrd"	: string
     "kernel"	: string
@@ -32,5 +37,3 @@ type structure_pxelinux_pxe_info = {
     "setifnames" ? boolean
     "updates" ? type_absoluteURI
 };
-
-bind "/system/aii/nbp/pxelinux" = structure_pxelinux_pxe_info;

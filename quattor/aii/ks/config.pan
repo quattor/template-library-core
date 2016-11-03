@@ -14,15 +14,16 @@
 #
 
 # #
-# ks, 16.8.0, 1, Thu Sep 15 2016
+# ks, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
 
-# Template containing the Kickstart-related configuration and default
-# values.
+@{Template containing the Kickstart-related configuration and default values.}
 
-template quattor/aii/ks/config;
+unique template quattor/aii/ks/config;
 
 include 'quattor/aii/ks/schema';
+
+bind "/system/aii/osinstall/ks" = structure_ks_ks_info;
 
 variable AII_DOMAIN ?= value('/system/network/domainname');
 variable AII_HOSTNAME ?= value('/system/network/hostname');
@@ -438,4 +439,3 @@ variable AII_OSINSTALL_BASE_PACKAGES ?= list (
 # Define if volgroup statement is required for LVM-based file systems.
 # Default is for SL4/5
 "/system/aii/osinstall/ks/volgroup_required" = true;
-
