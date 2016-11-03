@@ -13,22 +13,14 @@
 # Author(s): Jane SMITH, Joe DOE
 #
 
-# #
-# maui, 16.8.0, 1, Thu Sep 15 2016
-#
-#
 
 declaration template components/maui/schema;
 
-include { 'quattor/schema' };
+include 'quattor/types/component';
 
 type maui_component = {
-	include structure_component
-        'configPath' ? string
-        'configFile' ? string
-        'contents' ? string
+    include structure_component
+    'configPath' ? string
+    'configFile' ? string
+    'contents' ? string
 };
-
-bind '/software/components/maui' = maui_component;
-
-

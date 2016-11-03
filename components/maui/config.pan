@@ -13,10 +13,19 @@
 # Author(s): Jane SMITH, Joe DOE
 #
 
-# #
-# maui, 16.8.0, 1, Thu Sep 15 2016
-#
 
 unique template components/maui/config;
 
-include { 'components/maui/config-rpm' };
+include 'components/maui/schema';
+
+bind '/software/components/maui' = maui_component;
+
+# Set prefix to root of component configuration.
+prefix '/software/components/maui';
+'version' = '16.10.0';
+'active' ?= true;
+'dispatch' ?= true;
+'dependencies/pre' ?= list('spma');
+
+# Install Quattor configuration module via RPM package.
+'/software/packages' = pkg_repl('ncm-maui','16.10.0-rc1_1','noarch');

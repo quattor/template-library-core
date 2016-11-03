@@ -14,7 +14,7 @@
 #
 
 # #
-# dcache, 16.8.0, 1, Thu Sep 15 2016
+# dcache, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
 
 unique template components/dcache/config-common;
@@ -24,7 +24,7 @@ include { 'components/dcache/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/dcache';
 
-'version' = '16.8.0';
+'version' = '16.10.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
