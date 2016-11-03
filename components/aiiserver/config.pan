@@ -10,25 +10,20 @@
 #
 
 # 
-# #
-# aiiserver, 16.8.0, 1, Thu Sep 15 2016
-#
 
 unique template components/aiiserver/config;
 
-include {'components/aiiserver/schema'};
+include 'components/aiiserver/schema';
+
+bind "/software/components/aiiserver" = structure_component_aiiserver;
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-aiiserver", "16.8.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-aiiserver", "16.10.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/aiiserver';
-
-#'version' = '16.8.0';
-#'package' = 'NCM::Component';
-
 'active' ?= true;
 'dispatch' ?= true;
-'dependencies/pre' ?=  list ('spma');
+'dependencies/pre' ?=  list('spma');
 # This component depends on ncm-ccm configuration for https params
 'register_change' = append('/software/components/ccm');

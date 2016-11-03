@@ -11,11 +11,24 @@
 
 # 
 # #
-# opennebula, 16.8.0, 1, Thu Sep 15 2016
+# opennebula, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
 
 unique template components/opennebula/config;
 
-include { 'components/opennebula/config-common' };
-include { 'components/opennebula/config-rpm' };
-include { 'components/opennebula/sudo' };
+
+include 'components/opennebula/schema';
+
+bind '/software/components/opennebula' = component_opennebula;
+
+# Set prefix to root of component configuration.
+prefix '/software/components/opennebula';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '16.10.0';
+'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
+
+# Package to install
+"/software/packages" = pkg_repl("ncm-opennebula", "16.10.0-rc1_1", "noarch");
+
+include 'components/opennebula/sudo';

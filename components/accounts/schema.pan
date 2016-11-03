@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 16.8.0, 1, Thu Sep 15 2016
+# accounts, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
 
 declaration template components/accounts/schema;
@@ -65,7 +65,7 @@ type structure_login_defs = {
     'pass_min_days' ? long(1..)
     'pass_min_len' ? long(1..)
     'pass_warn_age' ? long(1..)
-    'create_home' ? string with match (SELF,'yes|no')
+    'create_home' ? legacy_binary_affirmation_string
     'mail_dir' ? string
     'umask' ? string
     'userdel_cmd' ? string

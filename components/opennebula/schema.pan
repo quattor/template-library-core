@@ -21,7 +21,7 @@ type directory = string with match(SELF,'[^/]+/?$');
 
 type opennebula_mysql_db = {
     "server" ? string
-    "port" ? long(0..)
+    "port" ? type_port
     "user" ? string
     "passwd" ? string
     "db_name" ? string
@@ -206,7 +206,7 @@ allowing to generate different ports for VMs so they do not collide.
 type opennebula_vnc_ports = {
     @{VNC port pool for automatic VNC port assignment,
     if possible the port will be set to START + VMID}
-    "start" : long = 5900
+    "start" : long(5900..65535) = 5900
     "reserved" ? long
 } = dict() with {deprecated(0, "VNC_BASE_PORT is deprecated since OpenNebula 5.0"); true;};
 
@@ -307,7 +307,6 @@ shared DS is also supported
 }
 type opennebula_datastore = {
     include opennebula_ceph_datastore
-    "name"                      : string
     "bridge_list"               ? string[]  # mandatory for ceph ds, lvm ds, ..
     "datastore_capacity_check"  : boolean = true
     "disk_type"                 : string = 'RBD'
@@ -317,7 +316,6 @@ type opennebula_datastore = {
 } = dict() with is_consistent_datastore(SELF);
 
 type opennebula_vnet = {
-    "name" : string
     "bridge" : string
     "vn_mad" : string = 'dummy' with match (SELF, '^(802.1Q|ebtables fw|ovswitch|vxlan|vcenter|dummy)$')
     "gateway" ? type_ipv4
@@ -340,18 +338,16 @@ By default new users are assigned to the users group.
 }
 type opennebula_user = {
     "ssh_public_key" ? string[]
-    "user" : string 
     "password" ? string
     "group" ? string
-};
+} = dict();
 
 @documentation{
 Set a group name and an optional decription
 }
 type opennebula_group = {
-    "group" : string
     "description" ? string
-};
+} = dict();
 
 type opennebula_remoteconf_ceph = {
     "pool_name" : string
@@ -390,7 +386,7 @@ type opennebula_oned = {
     "scripts_remote_dir" : directory = '/var/tmp/one'
     "log" : opennebula_log
     "federation" : opennebula_federation
-    "port" : long = 2633
+    "port" : type_port = 2633
     "vnc_base_port" : long = 5900
     "network_size" : long = 254
     "mac_prefix" : string = '02:00'
@@ -473,26 +469,34 @@ type opennebula_instance_types = {
     "description" ? string
 } = dict();
 
+@documentation{ 
+type for opennebula service common RPC attributes. 
+}
+type opennebula_rpc_service = {
+    @{OpenNebula daemon RPC contact information}
+    "one_xmlrpc" : type_absoluteURI = 'http://localhost:2633/RPC2'
+    @{authentication driver to communicate with OpenNebula core}
+    "core_auth" : string = 'cipher' with match (SELF, '^(cipher|x509)$')
+};
 
 @documentation{
 Type that sets the OpenNebula
 sunstone_server.conf file
 }
 type opennebula_sunstone = {
+    include opennebula_rpc_service
     "env" : string = 'prod' with match (SELF, '^(prod|dev)$')
     "tmpdir" : directory = '/var/tmp'
-    "one_xmlrpc" : type_absoluteURI = 'http://localhost:2633/RPC2'
     "host" : type_ipv4 = '127.0.0.1'
-    "port" : long = 9869
+    "port" : type_port = 9869
     "sessions" : string = 'memory' with match (SELF, '^(memory|memcache)$')
     "memcache_host" : string = 'localhost'
-    "memcache_port" : long = 11211
+    "memcache_port" : type_port = 11211
     "memcache_namespace" : string = 'opennebula.sunstone'
     "debug_level" : long (0..3) = 3
     "auth" : string = 'opennebula' with match (SELF, '^(sunstone|opennebula|x509|remote)$')
-    "core_auth" : string = 'cipher' with match (SELF, '^(cipher|x509)$')
     "encode_user_password" ? boolean
-    "vnc_proxy_port" : long = 29876
+    "vnc_proxy_port" : type_port = 29876
     "vnc_proxy_support_wss" : string = 'no' with match (SELF, '^(no|yes|only)$')
     "vnc_proxy_cert" : string = ''
     "vnc_proxy_key" : string = ''
@@ -512,6 +516,46 @@ type opennebula_sunstone = {
         dict("name", "large-x8", "cpu", 8, "vcpu", 8, "memory", 8192, "description", "General purpose instance for high-load servers"),
     )
     "routes" : string[] = list("oneflow", "vcenter", "support")
+};
+
+@documentation{
+Type that sets the OpenNebula
+oneflow-server.conf file
+}
+type opennebula_oneflow = {
+    include opennebula_rpc_service
+    @{host where OneFlow server will run}
+    "host" : type_ipv4 = '127.0.0.1'
+    @{port where OneFlow server will run}
+    "port" : type_port = 2474
+    @{time in seconds between Life Cycle Manager steps}
+    "lcm_interval" : long = 30
+    @{default cooldown period after a scale operation, in seconds}
+    "default_cooldown" : long = 300
+    @{default shutdown action
+    terminate : OpenNebula >= 5.0.0
+    shutdown  : OpenNebula < 5.0.0
+    }
+    "shutdown_action" : string = 'terminate' with match (SELF, '^(shutdown|shutdown-hard|terminate|terminate-hard)$')
+    @{default numner of virtual machines that will receive the given call in each interval
+    defined by action_period, when an action is performed on a role}
+    "action_number" : long(1..) = 1
+    "action_period" : long(1..) = 60
+    @{default name for the Virtual Machines created by OneFlow.
+    You can use any of the following placeholders:
+        $SERVICE_ID
+        $SERVICE_NAME
+        $ROLE_NAME
+        $VM_NUMBER
+    }
+    "vm_name_template" : string = '$ROLE_NAME_$VM_NUMBER_(service_$SERVICE_ID)'
+    @{log debug level
+        0 = ERROR
+        1 = WARNING
+        2 = INFO 
+        3 = DEBUG
+    }
+    "debug_level" : long(0..3) = 2
 };
 
 @documentation{
@@ -536,7 +580,7 @@ Type that sets the OpenNebula conf
 to contact to ONE RPC server
 }
 type opennebula_rpc = {
-    "port" : long(0..) = 2633
+    "port" : type_port = 2633
     "host" : string = 'localhost'
     "user" : string = 'oneadmin'
     "password" : string
@@ -561,15 +605,16 @@ datastores, vnets, hosts names, etc
 }
 type component_opennebula = {
     include structure_component
-    'datastores'    ? opennebula_datastore[1..]
-    'groups'        ? opennebula_group[]
-    'users'         ? opennebula_user[]
-    'vnets'         ? opennebula_vnet[]
+    'datastores'    ? opennebula_datastore{}
+    'groups'        ? opennebula_group{}
+    'users'         ? opennebula_user{}
+    'vnets'         ? opennebula_vnet{}
     'hosts'         ? string[]
     'rpc'           ? opennebula_rpc
     'untouchables'  ? opennebula_untouchables
     'oned'          ? opennebula_oned
     'sunstone'      ? opennebula_sunstone
+    'oneflow'       ? opennebula_oneflow
     'kvmrc'         ? opennebula_kvmrc
     'ssh_multiplex' : boolean = true
     'cfg_group'     ? string

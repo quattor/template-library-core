@@ -11,7 +11,7 @@
 
 # 
 # #
-# fstab, 16.8.0, 1, Thu Sep 15 2016
+# fstab, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
 #
 
 unique template components/fstab/config;
