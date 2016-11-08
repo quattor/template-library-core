@@ -1,15 +1,4 @@
 ################################################################################
-# This is 'namespaces/standard/quattor/functions/filesystem.tpl', a pan-templates's file
-################################################################################
-#
-# VERSION:    3.2.9-1, 25/11/09 16:16
-# AUTHOR:     Martin Bock
-# MAINTAINER: Marco Emilio Poleggi <Marco.Emilio.Poleggi@cern.ch>, German Cancio <German.Cancio.Melia@cern.ch>, Michel Jouvin <jouvin@lal.in2p3.fr>
-# LICENSE:    http://cern.ch/eu-datagrid/license.html
-#
-################################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-################################################################################
 #
 # System Function Definitions for hard disk and partitions
 #
@@ -18,115 +7,118 @@
 declaration template quattor/functions/filesystem;
 
 
-############################################################
-# FUNCTION num_of_harddisks
-############################################################
+@documentation{
+    desc = returns the number of hard disk in the configuration
+    arg = none
+}
 function num_of_harddisks = {
-   #
-   # get resource harddisks
-   #
-   harddisks = value("/hardware/harddisks");
-   #
-   # count entries of resource harddisks
-   #
-   num_of_harddisks = length(harddisks);
-   num_of_harddisks;
+  length(value("/hardware/harddisks"));
 };
 
-############################################################
-# FINCTION boot_disk
-#
-# returns the disk where grub must be installed
-############################################################
+@documentation{
+    desc = returns the disk where grub must be installed
+    arg = none
+}
 function boot_disk = {
-    base = "/hardware/harddisks";
-    dsk = value(base);
-    device = "";
-    ok = first(dsk,i,v);
-    while (ok) {
-        path = base+"/"+to_string(i)+"/boot";
-        if (exists(to_string(path))) {
-            if (value(path)) {
-                device = i;
-            };
-        };
-        ok = next(dsk,i,v);
+  base = "/hardware/harddisks";
+  dsk = value(base);
+  foreach (i;v;dsk) {
+    path = format("%s/%s/boot", base, i);
+    if ( exists(to_string(path)) && value(path) ) {
+      return(i);
     };
-    if (length(device)>0) {
-        device;
-    } else {
-        null;
-    }
+  };
+  null;
 };
 
-# Adds a list of logical volumes to a volume group. See
-# https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
-# for more details.
+@documentation{
+    desc = Adds a list of logical volumes to a volume group. For more details, see \
+ https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
+    arg = volume group, list of logical groups to add
+}
 function lvs_add = {
-     function_name = 'lvs_add';
-     if (length (ARGV) != 2) {
-       error (function_name+": should get 2 arguments");
-     };
+  function_name = 'lvs_add';
+  if (length (ARGV) != 2) {
+    error (function_name+": should get 2 arguments");
+  };
 
-     vg = ARGV[0];
-     lv=ARGV[1];
+  vg = ARGV[0];
+  lv = ARGV[1];
 
-     foreach (l; sz; lv) {
-	  SELF[l]["volume_group"] = vg;
-	  if (sz != -1) {
-	       SELF[l]["size"] = sz;
-	  };
-     };
-     # Validation stuff might be added here.
-     SELF;
+  foreach (l; sz; lv) {
+    SELF[l]["volume_group"] = vg;
+    if (sz != -1) {
+        SELF[l]["size"] = sz;
+    };
+  };
+  # Validation stuff might be added here.
+  SELF;
 };
 
-# Adds a list of partitions to a disk. The third argument, if any, is
+@documentation{
+    desc = Adds a list of partitions to a disk
+    arg = holding device, list of partitions to creatd, optionally id of the extended partition,
+}
+# First argument is the holding device. Second argument
+# is a dict with one entry for each partition. The third argument, if any, is
 # the name of the extended partition to be used. If there is no
 # extended partition, the disk is supposed to have only primary
 # partitions. This is true with GPT labels. See
 # https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
 # for more details.
+# The values in second argument dict  can be either a number interpreted as the partition size or a dict where only
+# the keys 'size' and 'flags' are used (other keys are ignored).
 function partitions_add = {
-     function_name = 'partitions_add';
-     if (length (ARGV) != 2 && length (ARGV) != 3) {
-       error (function_name+": should get 2 or 3 arguments");
-     };
+  function_name = 'partitions_add';
+  if (length (ARGV) != 2 && length (ARGV) != 3) {
+    error (function_name+": requires 2 or 3 arguments");
+  };
+ 
+  pt=ARGV[1];
+  if (length (ARGV) == 3) {
+    ep = ARGV[2];
+  } else {
+    ep = undef;
+  };
 
-     
-     pt=ARGV[1];
-     ep=undef;
-     if (length (ARGV) == 3) {
-	  ep=ARGV[2];
-     };
-
-     foreach (p; sz; pt) {
-	  if (is_defined (ep)) {
-	       ns=matches (p, ".*[^0-9]([0-9]+)$");
-	       n=to_long (ns[1]);
-	       if (n > 4) {
-		    SELF[p]["type"] = "logical";
-	       } else if (p == ep) {
-		    SELF[p]["type"] = "extended";
-	       }; # Else, primary, which is the default
-	  };
-	  SELF[p]["holding_dev"] = ARGV[0];
-	  if (sz != -1) {
-	       SELF[p]["size"] = sz;
-	  };
-     };
-     # Validation stuff might be added here.
-     SELF;
+  foreach (p; params; pt) {
+    if (is_defined (ep)) {
+      ns = matches (p, "[^0-9]([0-9]+)$");
+      n = to_long (ns[1]);
+      if (n > 4) {
+        SELF[p]["type"] = "logical";
+      } else if (p == ep) {
+        SELF[p]["type"] = "extended";
+      }; # Else, primary, which is the default
+    };
+    SELF[p]["holding_dev"] = ARGV[0];
+    if ( is_dict(params) ) {
+      part_params = params;
+    } else {
+      debug(format('%s: %s called with an implicit size argument for partition %s (%s)', OBJECT, function_name, p, to_string(params)));
+      part_params = dict('size', params);
+    };
+    if ( is_defined(part_params['size']) && (part_params['size'] != -1) ) {
+      SELF[p]["size"] = part_params['size'];
+    };
+    # params['flags'] is a list containing the flags that must be set to true
+    if ( is_defined(part_params['flags']) ) {
+      foreach (i;flag;part_params['flags']) {
+        SELF[p]['flags'][flag] = true;
+      };
+    };
+  };
+  
+  SELF;
 };
 
 
-# Function to modify an existing entry in filesystem list or add it if it doesn't exist yet.
-#
-#          '/system/filesystems' = filesystem_mod(filesystems);
-#
-# Arguments :
-#    - filesystems : list of structure_filesystem entries. If there is only one entry, a structure_filesystem
-#                    (nlist) may be passed as argument. 
+@documentation{
+    desc = modify an existing entry in filesystem list or add it if it doesn't exist yet
+    arg = list of structure_filesystem entries. If there is only one entry, a structure_filesystem \
+ (dict) may be passed as argument
+}
+# Calling sequence: '/system/filesystems' = filesystem_mod(filesystems);
 #
 # For each entry in the list, an entry with the same mountpoint is replaced. If not entry with the
 # same entry already exists, a new entry is added at the end of the list. Thus order of list 'filesystems'
@@ -136,15 +128,15 @@ function filesystem_mod = {
   function_name = 'filesystem_mod';
 
   # Check the argument.  Code below uses fslist as a list of
-  # nlists, each containing file system parameters.
+  # dicts, each containing file system parameters.
   if ( ARGC != 1 ) {
     error(function_name + ': usage: filesystem_mod(filesystems)');
-  } else if ( is_nlist(ARGV[0]) ) {
+  } else if ( is_dict(ARGV[0]) ) {
     fslist = list(ARGV[0]);
   } else if ( is_list(ARGV[0]) ) {
     fslist = ARGV[0];
   } else {
-    error(function_name+': argument must be a list of nlist or a nlist');
+    error(function_name+': argument must be a list of dict or a dict');
   };
 
   # Ensure that SELF exists and is a list.
@@ -187,12 +179,11 @@ function filesystem_mod = {
 };
 
 
-# Function to delete one or more filesystem from the filesystem list.
-#
-#          '/system/filesystems' = filesystem_mod(mountpoints);
-#
-# Arguments :
-#    - mountpoints : one or list of mountpoints (string) to remove from filesystem list.
+@documentation{
+    desc = delete one or more filesystem from the filesystem list
+    arg = one or a list of mountpoints (string) to remove from filesystem list
+}
+# Calling sequence: '/system/filesystems' = filesystem_del(mountpoints);
 #
 # For each mount point, if it is present in the filesystem list, remove it. If it is not
 # present, silently ignore.
