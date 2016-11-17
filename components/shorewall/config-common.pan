@@ -11,7 +11,7 @@
 
 # 
 # #
-# shorewall, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
+# shorewall, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
 #
 
 unique template components/shorewall/config-common;
@@ -21,7 +21,7 @@ include { 'components/shorewall/schema' };
 # Set prefix to root of component configuration.
 prefix '/software/components/shorewall';
 
-#'version' = '16.10.0-rc1';
+#'version' = '16.10.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

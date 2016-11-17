@@ -14,15 +14,15 @@
 #
 
 # #
-# spma, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
+# spma, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
 #
 
 unique template components/spma/config;
 
-variable CONFIG_MODULES_CONFIG_SUFFIX ?= 'rpm';
+variable SPMA_BACKEND ?= 'yum';
 
-include { 'components/spma/schema' };
-include { 'components/spma/functions' };
+include format('components/spma/%s/schema', SPMA_BACKEND);
+include 'components/spma/functions';
 
-include { 'components/spma/config-common' };
-include { 'components/spma/config-'+CONFIG_MODULES_CONFIG_SUFFIX };
+include 'components/spma/config-common';
+include format('components/spma/%s/config', SPMA_BACKEND);

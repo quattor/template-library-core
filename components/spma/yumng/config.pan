@@ -13,18 +13,22 @@
 # Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy
 #
 
-# #
-# spma, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
-#
 
-unique template components/spma/config-common;
+unique template components/spma/yumng/config;
+
+# Prefix for packages/groups
+prefix '/software';
+
+# Package to install
+'packages' = pkg_repl("ncm-spma", "16.10.0-rc2_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '16.10.0-rc2';
-#'package' = 'NCM::Component';
+'packager' = 'yumng';
 
-'run' ?= "yes";
-'active' ?= true;
-'dispatch' ?= true;
+'register_change' ?= list(
+    "/software/groups",
+    "/software/packages",
+    "/software/repositories",
+);

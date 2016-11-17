@@ -17,14 +17,29 @@
 # spma, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
 #
 
-unique template components/spma/config-common;
+unique template components/spma/ips/config;
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '16.10.0-rc2';
-#'package' = 'NCM::Component';
+#
+# Configure SPMA appropriately for Solaris 11
+#
+'packager' = 'ips';
 
-'run' ?= "yes";
-'active' ?= true;
-'dispatch' ?= true;
+'pkgpaths' = list(
+    '/software/catalogues',
+    '/software/requests',
+);
+
+'uninstpaths' = list(
+    '/software/uninstall',
+);
+
+'register_change' = list(
+    '/software/catalogues',
+    '/software/requests',
+    '/software/uninstall',
+);
+
+'flagfile' = '/var/tmp/spma-run-flag';

@@ -34,7 +34,7 @@ type syslog_level = string with match(SELF, '^(emerg|alert|crit|err|warning|noti
 
 type systemd_skip = {
     "service" : boolean = false
-};
+} = dict();
 
 type systemd_unit_architecture = string with match(SELF, '^(native|x86(-64)?|ppc(64)?(-le)?|ia64|parisc(64)?|s390x?|sparc(64)?)|mips(-le)?|alpha|arm(64)?(-be)?|sh(64)?|m86k|tilegx|cris$');
 

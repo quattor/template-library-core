@@ -14,7 +14,7 @@
 #
 
 
-declaration template components/spma/yum/schema;
+declaration template components/spma/yumng/schema;
 
 include 'components/spma/schema';
 
@@ -22,6 +22,7 @@ type SOFTWARE_GROUP = {
     "default" : boolean = true
     "mandatory" : boolean = true
     "optional" : boolean = false
+    "names" : string[] = list()
 };
 
 type spma_yum_plugin_fastestmirror = {
@@ -80,4 +81,4 @@ type component_spma_yum = {
 };
 
 bind "/software/components/spma" = component_spma_yum;
-bind "/software/groups" = SOFTWARE_GROUP{};
+bind "/software/groups" = SOFTWARE_GROUP;
