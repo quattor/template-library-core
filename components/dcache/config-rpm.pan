@@ -14,7 +14,7 @@
 #
 
 # #
-# dcache, 16.10.0-rc1, rc1_1, Thu Nov 03 2016
+# dcache, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
 #
 
 unique template components/dcache/config-rpm;
@@ -25,6 +25,6 @@ include { 'components/dcache/config-common' };
 prefix '/software/components/dcache';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dcache','16.10.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-dcache','16.10.0-rc2_1','noarch');
 'dependencies/pre' ?= list('spma');
 
