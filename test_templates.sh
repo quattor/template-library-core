@@ -21,8 +21,8 @@ fi
 # panc-annotations can have issues with multiple threads creating dirs
 echo "Testing pan annotations"
 find . -type d ! -regex '.*build_temp.*' | xargs -I '{}' mkdir -p 'build_temp/{}'
-nrpanfiles=`find . -type f -regex '.*\.pan' |wc -l`
-panfiles=`find . -type f -regex '.*\.pan'`
+nrpanfiles=`find . -type f -regex '.*\.pan' | grep -v yumng | wc -l`
+panfiles=`find . -type f -regex '.*\.pan' | grep -v yumng`
 panc-annotations --output-dir build_temp $panfiles
 
 nrannofiles=`find build_temp -type f -regex '.*annotation\.xml'|wc -l`
@@ -94,9 +94,9 @@ unique template rpms/web_server;
 EOF
 
 # make one big test.pan
-find pan -type f ! -regex '^./build_temp/.*' -name *.pan | xargs sed -n "s/^declaration[ ]\+template[ ]\+\(.*\);/include '\1';/p" | sort >> build_temp/test.pan
-find . -type f ! -regex '^./pan/.*' ! -regex '^./build_temp/.*' -name *.pan | xargs sed -n "s/^declaration[ ]\+template[ ]\+\(.*\);/include '\1';/p" | sort >> build_temp/test.pan
-find . -type f ! -regex '^./build_temp/.*' -name *.pan | xargs sed -n "s/^\(unique[ ]\+\)\?template[ ]\+\(.*\);/include '\2';/p" |sort >> build_temp/test.pan
+find pan -type f ! -regex '^./build_temp/.*' -name *.pan | grep -v yumng | xargs sed -n "s/^declaration[ ]\+template[ ]\+\(.*\);/include '\1';/p" | sort >> build_temp/test.pan
+find . -type f ! -regex '^./pan/.*' ! -regex '^./build_temp/.*' -name *.pan | grep -v yumng | xargs sed -n "s/^declaration[ ]\+template[ ]\+\(.*\);/include '\1';/p" | sort >> build_temp/test.pan
+find . -type f ! -regex '^./build_temp/.*' -name *.pan | grep -v yumng | xargs sed -n "s/^\(unique[ ]\+\)\?template[ ]\+\(.*\);/include '\2';/p" |sort >> build_temp/test.pan
 
 # try to compile it
 output=`panc --output-dir build_temp --include-path .:build_temp build_temp/test.pan 2>&1`
