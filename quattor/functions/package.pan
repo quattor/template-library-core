@@ -1,6 +1,13 @@
 declaration template quattor/functions/package;
 
-# Compare package versions
+@{
+desc = function to compare 2 package versions in the form x.y.z-r. It properly handles \
+ number comparison of each element (10 is considered greater than 2) and it also accepts \
+ letters in one of the element (a string comparison is done for the element in this case).
+args = the two version strings to compare.
+return_value = -1 if the first argument is greater than the first one, 0 if they are equal \
+ and 1 if the second argument is greated than the first.
+}
 function pkg_compare_version = {
     if (ARGC > 1) {
         v1p = ARGV[0];
