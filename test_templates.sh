@@ -93,14 +93,6 @@ unique template rpms/web_server;
 
 EOF
 
-# Fix missing monitoring/lemon/schema
-mkdir -p build_temp/monitoring/lemon
-cat  > build_temp/monitoring/lemon/schema.pan <<EOF
-declaration template monitoring/lemon/schema;
-type structure_monitoring = {};
-
-EOF
-
 # make one big test.pan
 find pan -type f ! -regex '^./build_temp/.*' -name *.pan | xargs sed -n "s/^declaration[ ]\+template[ ]\+\(.*\);/include '\1';/p" | sort >> build_temp/test.pan
 find . -type f ! -regex '^./pan/.*' ! -regex '^./build_temp/.*' -name *.pan | xargs sed -n "s/^declaration[ ]\+template[ ]\+\(.*\);/include '\1';/p" | sort >> build_temp/test.pan
