@@ -1,6 +1,31 @@
 declaration template quattor/functions/package;
 
-# Compare package versions
+# The value for the constants are historical and a bit misleading. Be sure to use the constant names
+# rather than the valueis.
+@{
+desc = value returned by pkg_compare_version() when the version in the first arugment is greater \
+ than the second.
+}
+final variable PKG_VERSION_GREATER = -1;
+@{
+desc = value returned by pkg_compare_version() when the version in the two version arguments are equal
+}
+final variable PKG_VERSION_EQUAL = 0;
+@{
+desc = value returned by pkg_compare_version() when the version in the first arugment is lower \
+ than the second.
+}
+final variable PKG_VERSION_LESS = 1;
+
+
+@{
+desc = function to compare 2 package versions in the form x.y.z-r. It properly handles \
+ number comparison of each element (10 is considered greater than 2) and it also accepts \
+ letters in one of the element (an alphanumeric value is considered less than a number).
+args = the two version strings to compare.
+return_value = -1 if the first argument is greater than the first one, 0 if they are equal \
+ and 1 if the second argument is greated than the first.
+}
 function pkg_compare_version = {
     if (ARGC > 1) {
         v1p = ARGV[0];
@@ -8,7 +33,7 @@ function pkg_compare_version = {
     } else {
         error('need two arguments');
     };
-    ans = 0;
+    ans = PKG_VERSION_EQUAL;
     release = false;
     # split alphanumeric sections into alphabetic and numeric sections
     tmps = replace('([A-Za-z])([0-9])', '$1.$2', v1p);
@@ -36,7 +61,7 @@ function pkg_compare_version = {
     v1l = split('[^A-Za-z0-9]', v1);
     v2l = split('[^A-Za-z0-9]', v2);
     # iterate over sections
-    for (i = 0; ans == 0 && i < length(v2l); i = i + 1) {
+    for (i = 0; ans == PKG_VERSION_EQUAL && i < length(v2l); i = i + 1) {
         # convert to long if possible
         if (match(v2l[i], '^[0-9]+$')) {
             v2l[i] = replace('^0+(.+)$', '$1', v2l[i]);
@@ -53,26 +78,26 @@ function pkg_compare_version = {
                 v1l[i] = tmpl;
             };
             # longs are greater than strings
-            if (ans == 0 && is_string(v1l[i]) && is_long(v2l[i])) {
-                ans = 1;
+            if (ans == PKG_VERSION_EQUAL && is_string(v1l[i]) && is_long(v2l[i])) {
+                ans = PKG_VERSION_LESS;
             };
-            if (ans == 0 && is_long(v1l[i]) && is_string(v2l[i])) {
-                ans = -1;
+            if (ans == PKG_VERSION_EQUAL && is_long(v1l[i]) && is_string(v2l[i])) {
+                ans = PKG_VERSION_GREATER;
             };
-            if (ans == 0 && v1l[i] < v2l[i]) {
-                ans = 1;
+            if (ans == PKG_VERSION_EQUAL && v1l[i] < v2l[i]) {
+                ans = PKG_VERSION_LESS;
             };
-            if (ans == 0 && v1l[i] > v2l[i]) {
-                ans = -1;
+            if (ans == PKG_VERSION_EQUAL && v1l[i] > v2l[i]) {
+                ans = PKG_VERSION_GREATER;
             };
         } else {
             # v2 has more elements, all previous sections are equal
-            ans = 1;
+            ans = PKG_VERSION_LESS;
         };
     };
     debug('pkg_compare_version: ' + to_string(v1l) + ' , ' + to_string(v2l) + ' = ' + to_string(ans));
     # Do another recursion with releases if all previous sections are equal
-    if (ans == 0 && release) {
+    if (ans == PKG_VERSION_EQUAL && release) {
         ans = pkg_compare_version(r1, r2);
     };
     ans;
