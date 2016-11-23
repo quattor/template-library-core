@@ -11,7 +11,7 @@
 
 # 
 # #
-# nfs, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
+# nfs, 16.10.0-rc3, rc3_1, Wed Nov 23 2016
 #
 
 unique template components/nfs/config;
@@ -26,4 +26,4 @@ prefix '/software/components/nfs';
 'version' = '16.10.0';
 'dependencies/pre' ?= list('spma');
 
-"/software/packages" = pkg_repl("ncm-nfs", "16.10.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nfs", "16.10.0-rc3_1", "noarch");

@@ -11,7 +11,7 @@
 
 # 
 # #
-# directoryservices, 16.10.0-rc2, rc2_1, Thu Nov 17 2016
+# directoryservices, 16.10.0-rc3, rc3_1, Wed Nov 23 2016
 #
 
 unique template components/directoryservices/config;
