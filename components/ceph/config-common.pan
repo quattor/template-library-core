@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 16.10.0-rc3, rc3_1, Wed Nov 23 2016
+# ceph, 16.10.0-rc4, rc4_1, Thu Nov 24 2016
 #
 
 unique template components/ceph/config-common;

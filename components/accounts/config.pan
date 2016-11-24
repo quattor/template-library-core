@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 16.10.0-rc3, rc3_1, Wed Nov 23 2016
+# accounts, 16.10.0-rc4, rc4_1, Thu Nov 24 2016
 #
 
 
@@ -34,5 +34,5 @@ include 'components/accounts/sysgroups';
 include 'components/accounts/sysusers';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-accounts", "16.10.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-accounts", "16.10.0-rc4_1", "noarch");
 
