@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 16.10.0-rc4, rc4_1, Thu Nov 24 2016
+# puppet, 16.10.0, 1, Mon Nov 28 2016
 #
 
 declaration template components/puppet/schema;

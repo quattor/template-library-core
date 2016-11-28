@@ -16,7 +16,7 @@ unique template components/shorewall/config-rpm;
 include { 'components/shorewall/schema' };
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-shorewall", "16.10.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-shorewall", "16.10.0-1", "noarch");
 
 
 '/software/components/shorewall/version' ?= '16.10.0';
