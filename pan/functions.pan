@@ -17,7 +17,7 @@
 
 declaration template pan/functions;
 
-include { 'pan/types' };
+include 'pan/types';
 
 ############################################################
 ##=
@@ -52,7 +52,7 @@ function push = {
         v[length(v)] = ARGV[i];
         i = i + 1;
     };
-    return(v);
+    v;
 };
 
 
@@ -60,15 +60,15 @@ function push = {
 ##=
 ## @function npush
 ## @# pushes zero of more pairs (key, value) into a
-##+nlist.  If the list does not exist or is not defined
-##+a new nlist is created.  If the key already exists with
+##+dict.  If the list does not exist or is not defined
+##+a new dict is created.  If the key already exists with
 ##+a different value an error is raised.
 ## @syntax key:string value:element
 ## @param:key key for the entry
 ## @param:value value for the entry
 ## @example
-##+# "/data" will contain nlist("one",1,"two",2,"three",3)
-##+"/data" = nlist("one",1);
+##+# "/data" will contain dict("one",1,"two",2,"three",3)
+##+"/data" = dict("one",1);
 ##+"/data" = npush("two",2,"three",3);
 ##=
 ############################################################
@@ -80,26 +80,26 @@ function npush = {
     };
 
     # Determine what initial value to use.
-    if (exists(SELF) && is_nlist(SELF)) {
+    if (exists(SELF) && is_dict(SELF)) {
         v = SELF;
     } else if (!exists(SELF) || !is_defined(SELF)) {
-        v = nlist();
+        v = dict();
     } else {
-        error("npush can only be applied to a nlist");
+        error("npush can only be applied to a dict");
     };
 
-    # Create a new nlist from the given values.
-    n = nlist();
+    # Create a new dict from the given values.
+    n = dict();
     index = 0;
     while (index < ARGC) {
         if (!is_string(ARGV[index]))
-        error("key is not a string: "+to_string(ARGV[index]));
-        n[ARGV[index]] = ARGV[index+1];
+        error(format("key is not a string: %s", ARGV[index]));
+        n[ARGV[index]] = ARGV[index + 1];
         index = index + 2;
     };
 
     # Returned the merged values.
-    return(merge(v,n));
+    merge(v, n);
 };
 
 
@@ -156,7 +156,7 @@ function push_if = {
         };
     };
 
-    return(v);
+    v;
 };
 
 
@@ -178,22 +178,22 @@ function hostname_from_object = {
     if (ARGC != 0) error("usage: hostname_from_object()");
 
     # Check first for the old style profile names.
-    m = matches(OBJECT,"profile_([^\\.]+)(\\.(.*))?");
+    m = matches(OBJECT, "profile_([^\\.]+)(\\.(.*))?");
     if (length(m) >= 2) {
         if (is_shorthostname(m[1])) {
             return(m[1]);
         } else {
-            error("hostname_from_object: invalid hostname ("+m[1]+")");
+            error(format("hostname_from_object: invalid hostname (%s)", m[1]));
         };
     };
 
     # Check without the profile prefix.
-    m = matches(OBJECT,"([^\\.]+)(\\.(.*))?");
+    m = matches(OBJECT, "([^\\.]+)(\\.(.*))?");
     if (length(m) >= 2) {
         if (is_shorthostname(m[1])) {
             return(m[1]);
         } else {
-            error("hostname_from_object: invalid hostname ("+m[1]+")");
+            error(format("hostname_from_object: invalid hostname (%s)", m[1]));
         };
     };
 
@@ -223,26 +223,26 @@ function domain_from_object = {
 
     # Check the argument to ensure it is a valid domain name.
     if (!is_fqdn(ARGV[0])) {
-        error("domain_from_object: invalid default domain ("+ARGV[0]+")");
+        error(format("domain_from_object: invalid default domain (%s)", ARGV[0]));
     };
 
     # Check if the name matches.  We can include the 'profile_' in
     # the host part if it exists.  We only need the domain here.
-    m = matches(OBJECT,"([^\\.]+)(\\.(.*))?");
+    m = matches(OBJECT, "([^\\.]+)(\\.(.*))?");
     size = length(m);
     if (size >= 2) {
         if (size >= 4) {
             if (is_fqdn(m[3])) {
                 return(m[3]);
             } else {
-                error("domain_from_object: invalid domain name ("+m[3]+")");
+                error(format("domain_from_object: invalid domain name (%s)", m[3]));
             };
         } else {
             return(ARGV[0]);
         };
     } else {
         error("domain_from_object: can't match domain name from object");
-        };
+    };
 };
 
 
@@ -265,6 +265,6 @@ function full_hostname_from_object = {
     # Check cardinality; leave detailed error checking to called functions.
     if (ARGC != 1) error("usage: full_hostname_from_object(default_domain)");
 
-    return(hostname_from_object()+"."+domain_from_object(ARGV[0]));
+    format("%s.%s", hostname_from_object(), domain_from_object(ARGV[0]));
 };
 
