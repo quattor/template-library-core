@@ -302,7 +302,7 @@ function is_ipv4 = {
         error("usage: is_ipv4(string)");
 
     ip = ARGV[0];
-    result = matches(ip,'^(\d+)\.(\d+)\.(\d+)\.(\d+)$');
+    result = matches(ip, '^(\d+)\.(\d+)\.(\d+)\.(\d+)$');
     if(length(result) != 5) {
         debug("is_ipv4: invalid IPv4 address: " + ip);
         return(false);
@@ -360,7 +360,7 @@ function is_ipv6_full = {
     # No need to check values of individual fields because pattern
     # excludes all illegal values.
     ip = ARGV[0];
-    return(match(ip,'^[\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4}){7}$'));
+    return(match(ip, '^[\dA-Fa-f]{1,4}(:[\dA-Fa-f]{1,4}){7}$'));
 };
 
 
@@ -380,8 +380,8 @@ function is_ipv6_short = {
 
     # Addresses which begin or end with a double-colon (are these
     # really legal?).
-    if (match(ip,'^:(:[\dA-Fa-f]{1,4}){1,7}$') ||
-        match(ip,'^([\dA-Fa-f]{1,4}:){1,7}:$')) {
+    if (match(ip, '^:(:[\dA-Fa-f]{1,4}){1,7}$') ||
+        match(ip, '^([\dA-Fa-f]{1,4}:){1,7}:$')) {
         return(true);
     };
 
@@ -389,8 +389,8 @@ function is_ipv6_short = {
     # The second expression essentially counts the total number of
     # fields and ensures that it doesn't exceed 7 (at least one must
     # be omitted because of the double-colon).
-    if (match(ip,'^([\dA-Fa-f]{1,4}:)+(:[\dA-Fa-f]{1,4})+$') &&
-        match(ip,'^([\dA-Fa-f]{1,4}:{1,2}){1,6}[\dA-Fa-f]{1,4}$')) {
+    if (match(ip, '^([\dA-Fa-f]{1,4}:)+(:[\dA-Fa-f]{1,4})+$') &&
+        match(ip, '^([\dA-Fa-f]{1,4}:{1,2}){1,6}[\dA-Fa-f]{1,4}$')) {
         return(true);
     };
 
@@ -434,7 +434,7 @@ function is_fqdn = {
     if (ARGC != 1 || !is_string(ARGV[0]))
         error("usage: is_fqdn(string)");
 
-    match(ARGV[0],'(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)');
+    match(ARGV[0], '(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)');
 };
 
 
@@ -470,7 +470,7 @@ Verifies that the argument is a valid short hostname.
 }
 function is_shorthostname = {
     hostname = ARGV[0];
-    if(match(hostname,'^[a-zA-Z\d]([0-9A-Za-z-]{0,253}[a-zA-Z\d])?$')) return(true);
+    if(match(hostname, '^[a-zA-Z\d]([0-9A-Za-z-]{0,253}[a-zA-Z\d])?$')) return(true);
     false;
 };
 
@@ -591,33 +591,33 @@ function is_URI = {
     # Assign matched value to each variable. Each field has separator stripped.
     # E.g. fragment will NOT have a hash at the beginning.
     if (nmatch >= 2) scheme = result[2];
-    if (nmatch >=4) authority = result[4];
+    if (nmatch >= 4) authority = result[4];
     if (nmatch >= 5) path = result[5];
     if (nmatch >= 7) query = result[7];
     if (nmatch >= 9) fragment = result[9];
 
     # Validate the scheme.  An empty scheme is allowed for relative URIs.
-    if (!match(scheme,'^([a-zA-Z][a-zA-Z\d\.+-]*)?$')) {
+    if (!match(scheme, '^([a-zA-Z][a-zA-Z\d\.+-]*)?$')) {
         error("is_URI: illegal scheme in URI");
         return(false);
     };
 
     # Validate the query. Expression is the same for query and fragment.
     # An empty string is valid.
-    if(!match(fragment,"^([\\w\\d;/\\?:@&=+$,\\.!~\\*\\(\\)'-]|(%[\\da-fA-F]{2}))*")) {
+    if(!match(fragment, "^([\\w\\d;/\\?:@&=+$,\\.!~\\*\\(\\)'-]|(%[\\da-fA-F]{2}))*")) {
         error("is_URI: illegal character in query");
         return(false);
     };
 
     # Validate the fragment.
-    if (!match(fragment,"^([\\w\\d;/\\?:@&=+$,\\.!~\\*\\(\\)'-]|(%[\\da-fA-F]{2}))*")) {
+    if (!match(fragment, "^([\\w\\d;/\\?:@&=+$,\\.!~\\*\\(\\)'-]|(%[\\da-fA-F]{2}))*")) {
         error("is_URI: illegal character in fragment");
         return(false);
     };
 
     # Validate the authority field.  Check the easier pattern which has
     # no substructure.
-    if(match(authority,"([\\w\\d\\.!~\\*\\(\\);:@&=+\\$,'-]|(%[\\da-fA-F]{2}))+")) {
+    if(match(authority, "([\\w\\d\\.!~\\*\\(\\);:@&=+\\$,'-]|(%[\\da-fA-F]{2}))+")) {
         return(true);
     };
 
@@ -625,8 +625,10 @@ function is_URI = {
     # subfields and verify each of them.  The user info and port parts need
     # no further validation.  An empty string is valid, so the regular
     # expression must include this.
-    result =
-        matches(authority,"^(?:([\\w\\d\\.!~\\*\\(\\);:&=+\\$,'-]|(?:%[\\da-fA-F]{2}))+@)?([a-zA-Z\\d\\.-]*)(:\\d+)?$");
+    result = matches(
+        authority,
+        "^(?:([\\w\\d\\.!~\\*\\(\\);:&=+\\$,'-]|(?:%[\\da-fA-F]{2}))+@)?([a-zA-Z\\d\\.-]*)(:\\d+)?$"
+    );
 
     # Must match at least one field.  Unmatched terminal fields will not
     # be defined.
@@ -734,7 +736,7 @@ function is_hostURI = {
     # Assign matched value to each variable. Each field has separator stripped.
     # E.g. fragment will NOT have a hash at the beginning.
     authority = '';
-    if (nmatch >=4) authority = result[4];
+    if (nmatch >= 4) authority = result[4];
 
     # Split out the authority subfields and verify each of them.  The user
     # info and port parts need no further validation.
@@ -762,7 +764,7 @@ function is_hostURI = {
 
 
 type type_hostURI = string with {
-      is_hostURI(SELF);
+    is_hostURI(SELF);
 };
 
 
@@ -772,7 +774,7 @@ function is_email = {
         error("usage: is_email(string)");
 
     # Pull out the components of the address.
-    results = matches(ARGV[0],'^([\w\.-]+)@([\w\.-]+)$');
+    results = matches(ARGV[0], '^([\w\.-]+)@([\w\.-]+)$');
 
     # Check that the length is OK.
     if (length(results) != 3) {
@@ -943,7 +945,7 @@ Defines a valid UUID according to RFC4122.
 }
 function is_uuid = {
     uuid = ARGV[0];
-    if(match(uuid,'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')) return(true);
+    if(match(uuid, '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')) return(true);
     error("Bad uuid: " + uuid);
     false;
 };
