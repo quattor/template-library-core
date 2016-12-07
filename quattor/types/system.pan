@@ -54,5 +54,6 @@ type structure_system = {
     "state"         ? string with match (SELF,
         '^(production|standby|test|development|onloan)$') # "production|out-of-production|test|development|onloan"
     "vo"            ? structure_vo{}
+    "opennebula"    ? dict
     include structure_system_aquilon
 };
