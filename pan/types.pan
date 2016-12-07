@@ -979,4 +979,14 @@ type absolute_file_path = string with is_absolute_file_path(SELF);
 @documentation{
     desc = Type that enforces the existence of a named interface.
 }
-type valid_interface = string with exists('/system/network/interfaces/' + SELF);
+type valid_interface = string with {
+    if (exists(format('/system/network/interfaces/%s', ARGV[0]))) {
+        return(true);
+    };
+    foreach(ifc; attr; value('/system/network/interfaces')) {
+        if (attr['device'] == ARGV[0]){
+            return(true);
+        };
+    };
+    false;
+};
