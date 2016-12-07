@@ -972,3 +972,9 @@ function is_absolute_file_path = {
 };
 
 type absolute_file_path = string with is_absolute_file_path(SELF);
+
+
+@documentation{
+    desc = Type that enforces the existence of a named interface.
+}
+type valid_interface = string with exists('/system/network/interfaces/' + SELF);
