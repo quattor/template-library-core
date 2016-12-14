@@ -14,7 +14,7 @@
 #
 
 # #
-# dhcp, 16.10.0, 1, Mon Nov 28 2016
+# dhcp, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template quattor/aii/dhcp/schema;
