@@ -121,6 +121,15 @@ type blockdevices_hwraid_type = {
     "stripe_size" ? long # "Stripe size in KB"
 };
 
+@documentation{
+    VXVM devices
+}
+type blockdevices_vxvm_type = {
+    "dev_path" : string
+    "disk_group" : string
+    "volume" : string
+    "size" ? long
+};
 
 @documentation{
     TMPFS devices (dummy devices)
@@ -136,5 +145,6 @@ type structure_blockdevices = {
     "partitions" ? blockdevices_partition_type {}
     "files" ? blockdevices_file_type {}
     "hwraid" ?  blockdevices_hwraid_type {}
+    "vxvm" ? blockdevices_vxvm_type {}
     "tmpfs" ? blockdevices_tmpfs_type
 };
