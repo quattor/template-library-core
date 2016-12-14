@@ -14,31 +14,31 @@
 #
 
 # #
-# vomsclient, 16.10.0, 1, Mon Nov 28 2016
+# vomsclient, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 #
 
 declaration template components/vomsclient/schema;
 
-include { 'quattor/schema' };
-include { 'pan/types' };
+include 'quattor/schema';
+include 'pan/types';
 
 type structure_vomsclient_voms_info = {
-	'name' ? string
-	'host' : type_fqdn
-	'port' : type_port
-	'cert' : string
-	'oldcert' ? string
+    'name' ? string
+    'host' : type_fqdn
+    'port' : type_port
+    'cert' : string
+    'oldcert' ? string
         'DN' ? string
         'issuer' ? string
 };
 
 type vomsclient_component = {
-	include structure_component
-	'lscfile' ? boolean
-	'vomsCertsDir' ? string
-	'vomsServersDir' ? string
-	'vos' ? structure_vomsclient_voms_info[]{}
+    include structure_component
+    'lscfile' ? boolean
+    'vomsCertsDir' ? string
+    'vomsServersDir' ? string
+    'vos' ? structure_vomsclient_voms_info[]{}
 };
 
 bind '/software/components/vomsclient' = vomsclient_component;

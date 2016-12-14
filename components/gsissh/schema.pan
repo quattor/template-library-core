@@ -14,30 +14,30 @@
 #
 
 # #
-# gsissh, 16.10.0, 1, Mon Nov 28 2016
+# gsissh, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 #
 
 declaration template components/gsissh/schema;
 
-include { 'quattor/schema' };
-include { 'pan/types' };
+include 'quattor/schema';
+include 'pan/types';
 
 type structure_gsissh_server = {
-	'port' : type_port
-	'options' ? string{}
+    'port' : type_port
+    'options' ? string{}
 };
 
 type structure_gsissh_client = {
-	'options' ? string{}
+    'options' ? string{}
 };
 
 type gsissh_component = {
-	include structure_component
-	'globus_location' ? string
-	'gpt_location' ? string
-	'server' ? structure_gsissh_server
-	'client' ? structure_gsissh_client
+    include structure_component
+    'globus_location' ? string
+    'gpt_location' ? string
+    'server' ? structure_gsissh_server
+    'client' ? structure_gsissh_client
 };
 
 bind '/software/components/gsissh' = gsissh_component;

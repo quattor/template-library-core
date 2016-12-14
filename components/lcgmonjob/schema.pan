@@ -14,18 +14,18 @@
 #
 
 # #
-# lcgmonjob, 16.10.0, 1, Mon Nov 28 2016
+# lcgmonjob, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 #
 
 declaration template components/lcgmonjob/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
 type lcgmonjob_component = {
-	include structure_component
-	'EDG_LOCATION' : string
-	'LCG_LOCATION' : string
+    include structure_component
+    'EDG_LOCATION' : string
+    'LCG_LOCATION' : string
 };
 
 bind '/software/components/lcgmonjob' = lcgmonjob_component;

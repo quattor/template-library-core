@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 16.10.0, 1, Mon Nov 28 2016
+# gacl, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
@@ -23,12 +23,12 @@
 
 declaration template components/gacl/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
 type gacl_component = {
-  include structure_component
-  
-  'aclFile'     : string = '/opt/glite/etc/glite_wms_wmproxy.gacl'
+    include structure_component
+
+    'aclFile' : string = '/opt/glite/etc/glite_wms_wmproxy.gacl'
 };
 
 bind "/software/components/gacl" = gacl_component;

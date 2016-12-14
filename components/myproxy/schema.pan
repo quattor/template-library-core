@@ -14,13 +14,13 @@
 #
 
 # #
-# myproxy, 16.10.0, 1, Mon Nov 28 2016
+# myproxy, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 #
 
 declaration template components/myproxy/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
 # Function to validate component configuration, in particular
 # ensure than obsolete trustedDNs is not specified as the same
@@ -28,7 +28,7 @@ include { 'quattor/schema' };
 
 function component_myproxy_options_valid = {
     if ( is_defined(SELF['trustedDNs']) && (is_defined(SELF['authorizedDNs']) || is_defined(SELF['defaultDNs'])) ) {
-        error('trustedDNs is obsolete and cannot be mixed with authorizedDNs and defaultDNs');  
+        error('trustedDNs is obsolete and cannot be mixed with authorizedDNs and defaultDNs');
     };
     true;
 };
@@ -43,7 +43,7 @@ type myproxy_component_policies = {
 
 type myproxy_component = {
     include structure_component
-    'flavor' : string = 'edg' with match(SELF,'^(edg|glite)$')
+    'flavor' : string = 'edg' with match(SELF, '^(edg|glite)$')
     'confFile' ? string = 'opt/edg/etc/edg-myproxy.conf'
     'daemonName' : string = 'myproxy' with match(SELF, '^(myproxy|myproxy-server)$')
     'trustedDNs' ? string[]

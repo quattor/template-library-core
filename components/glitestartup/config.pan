@@ -14,9 +14,9 @@
 #
 
 # #
-# glitestartup, 16.10.0, 1, Mon Nov 28 2016
+# glitestartup, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/glitestartup/config;
 
-include { 'components/glitestartup/config-rpm' };
+include 'components/glitestartup/config-rpm';

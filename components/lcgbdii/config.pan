@@ -14,9 +14,9 @@
 #
 
 # #
-# lcgbdii, 16.10.0, 1, Mon Nov 28 2016
+# lcgbdii, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/lcgbdii/config;
 
-include { 'components/lcgbdii/config-rpm' };
+include 'components/lcgbdii/config-rpm';
