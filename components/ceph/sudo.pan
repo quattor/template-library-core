@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 16.10.0, 1, Mon Nov 28 2016
+# ceph, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 
@@ -20,22 +20,23 @@ unique template components/ceph/sudo;
 include 'components/sudo/config';
 
 
-"/software/components/sudo/privilege_lines" = { 
+"/software/components/sudo/privilege_lines" = {
     sudolist = list(
-        "/usr/bin/ceph-deploy", 
-        "/usr/bin/python -c import sys;exec(eval(sys.stdin.readline()))", 
-        "/usr/bin/python -u -c import sys;exec(eval(sys.stdin.readline()))", 
+        "/usr/bin/ceph-deploy",
+        "/usr/bin/python -c import sys;exec(eval(sys.stdin.readline()))",
+        "/usr/bin/python -u -c import sys;exec(eval(sys.stdin.readline()))",
         "/bin/mkdir",
         "/usr/bin/file -sL *"
     );
     foreach (i; cmd; sudolist){
-        nl = nlist("host", "ALL",
-                   "options", "NOPASSWD:",
-                   "run_as", "ALL",
-                   "user", "ceph");
+        nl = nlist(
+            "host", "ALL",
+            "options", "NOPASSWD:",
+            "run_as", "ALL",
+            "user", "ceph",
+        );
         nl["cmd"] = cmd;
         append(nl);
-    };  
+    };
     SELF;
 };
-

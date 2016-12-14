@@ -11,10 +11,10 @@
 
 # 
 # #
-# ldconf, 16.10.0, 1, Mon Nov 28 2016
+# ldconf, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/ldconf/config;
 
-include { 'components/ldconf/config-common' };
-include { 'components/ldconf/config-rpm' };
+include 'components/ldconf/config-common';
+include 'components/ldconf/config-rpm';

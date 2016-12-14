@@ -11,10 +11,10 @@
 
 # 
 # #
-# ipmi, 16.10.0, 1, Mon Nov 28 2016
+# ipmi, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/ipmi/config;
 
-include { 'components/ipmi/config-common' };
-include { 'components/ipmi/config-rpm' };
+include 'components/ipmi/config-common';
+include 'components/ipmi/config-rpm';

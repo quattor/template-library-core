@@ -15,10 +15,10 @@ type structure_route = {
     Interface alias
 }
 type structure_interface_alias = {
-    "ip"      ? type_ip
+    "ip" ? type_ip
     "netmask" : type_ip
     "broadcast" ? type_ip
-    "fqdn"    ? type_fqdn
+    "fqdn" ? type_fqdn
 };
 
 @documentation{
@@ -29,7 +29,7 @@ type structure_bonding_options = {
     "miimon" : long
     "updelay" ? long
     "downdelay" ? long
-    "primary" ? string with exists("/system/network/interfaces/" + SELF)
+    "primary" ? valid_interface
     "lacp_rate" ? long(0..1)
     "xmit_hash_policy" ? string with match (SELF, '^(0|1|2|layer(2|2\+3|3\+4))$')
 } with {
@@ -64,20 +64,20 @@ type structure_bridging_options = {
     interface ethtool offload
 }
 type structure_ethtool_offload = {
-    "rx"            ? string with match (SELF, '^on|off$')
-    "tx"            ? string with match (SELF, '^on|off$')
-    "tso"           ? string with match (SELF, '^on|off$')
-    "gro"           ? string with match (SELF, '^on|off$')
+    "rx" ? string with match (SELF, '^on|off$')
+    "tx" ? string with match (SELF, '^on|off$')
+    "tso" ? string with match (SELF, '^on|off$')
+    "gro" ? string with match (SELF, '^on|off$')
 };
 
 @documentation{
     interface ethtool ring
 }
 type structure_ethtool_ring = {
-    "rx"            ? long
-    "tx"            ? long
-    "rx-mini"       ? long
-    "rx-jumbo"      ? long
+    "rx" ? long
+    "tx" ? long
+    "rx-mini" ? long
+    "rx-jumbo" ? long
 };
 
 @documentation{
@@ -100,43 +100,43 @@ type structure_ethtool_wol = string with match (SELF, '^p|u|m|b|a|g|s|d$');
     ethtool
 }
 type structure_ethtool = {
-    "wol"       ? structure_ethtool_wol
-    "autoneg"   ? string with match (SELF, '^on|off$')
-    "duplex"    ? string with match (SELF, '^half|full$')
-    "speed"     ? long
+    "wol" ? structure_ethtool_wol
+    "autoneg" ? string with match (SELF, '^on|off$')
+    "duplex" ? string with match (SELF, '^half|full$')
+    "speed" ? long
 };
 
 @documentation{
     interface
 }
 type structure_interface = {
-    "ip"      ? type_ip
+    "ip" ? type_ip
     "gateway" ? type_ip
     "netmask" ? type_ip
     "broadcast" ? type_ip
-    "driver"  ? string
+    "driver" ? string
     "bootproto" ? string
     "onboot" ? string
-    "type"    ? string with match(SELF, '^(Ethernet|Bridge|Tap|xDSL|OVS(Bridge|Port|IntPort|Bond|Tunnel|PatchPort))$')
-    "device"  ? string
+    "type" ? string with match(SELF, '^(Ethernet|Bridge|Tap|xDSL|OVS(Bridge|Port|IntPort|Bond|Tunnel|PatchPort))$')
+    "device" ? string
     "master" ? string
-    "mtu"       ? long
-    "route"   ? structure_route[]
+    "mtu" ? long
+    "route" ? structure_route[]
     "aliases" ? structure_interface_alias{}
     "set_hwaddr" ? boolean
-    "bridge"    ? string with exists ("/system/network/interfaces/" + SELF)
+    "bridge" ? valid_interface
     "bonding_opts" ? structure_bonding_options
-    "offload"   ? structure_ethtool_offload
-    "ring"      ? structure_ethtool_ring
-    "ethtool"   ? structure_ethtool
+    "offload" ? structure_ethtool_offload
+    "ring" ? structure_ethtool_ring
+    "ethtool" ? structure_ethtool
 
     "vlan" ? boolean
-    "physdev"    ? string with exists ("/system/network/interfaces/" + SELF)
+    "physdev" ? valid_interface
 
     "fqdn" ? string
     "network_environment" ? string
     "network_type" ? string
-    "nmcontrolled"     ? boolean
+    "nmcontrolled" ? boolean
 
     "linkdelay" ? long # LINKDELAY
     "stp" ? boolean # enable/disable stp on bridge (true: STP=on)
@@ -144,7 +144,7 @@ type structure_interface = {
     "bridging_opts" ? structure_bridging_options
 
     "bond_ifaces" ? string[]
-    "ovs_bridge" ? string with exists ("/system/network/interfaces/" + SELF)
+    "ovs_bridge" ? valid_interface
     "ovs_extra" ? string
     "ovs_opts" ? string # See ovs-vswitchd.conf.db(5) for documentation
     "ovs_patch_peer" ? string
@@ -179,9 +179,9 @@ type structure_interface = {
             error("bond_ifaces is defined but the type of interface is not defined as OVSBond");
         };
         foreach (i;iface;bond_ifaces) {
-             if ( !exists("/system/network/interfaces/" + iface) ) {
-                 error("The " + iface + " interface is used by bond_ifaces, but does not exist");
-             };
+            if ( !exists("/system/network/interfaces/" + iface) ) {
+                error("The " + iface + " interface is used by bond_ifaces, but does not exist");
+            };
         };
     };
     true;
@@ -197,28 +197,28 @@ type structure_router = string[];
     IPv6 global settings
 }
 type structure_ipv6 = {
-    "enabled" ?  boolean
-    "default_gateway"  ? type_ip
-    "gatewaydev"       ? string with exists ("/system/network/interfaces/" + SELF) # sets IPV6_DEFAULTDEV
+    "enabled" ? boolean
+    "default_gateway" ? type_ip
+    "gatewaydev" ? valid_interface # sets IPV6_DEFAULTDEV
 };
 
 @documentation{
     network
 }
 type structure_network = {
-    "domainname"       : type_fqdn
-    "hostname"         : type_shorthostname
-    "realhostname"     ? type_fqdn
-    "default_gateway"  ? type_ip
-    "gatewaydev"       ? string with exists ("/system/network/interfaces/" + SELF)
-    "interfaces"       : structure_interface{}
-    "nameserver"       ? type_ip[]
-    "nisdomain"        ? string(1..64) with match(SELF, '^\S+$')
-    "nozeroconf"       ? boolean
-    "set_hwaddr"       ? boolean
-    "nmcontrolled"     ? boolean
-    "allow_nm"         ? boolean
-    "primary_ip"       ? string
-    "routers"          ? structure_router{}
-    "ipv6"             ? structure_ipv6
+    "domainname" : type_fqdn
+    "hostname" : type_shorthostname
+    "realhostname" ? type_fqdn
+    "default_gateway" ? type_ip
+    "gatewaydev" ? valid_interface
+    "interfaces" : structure_interface{}
+    "nameserver" ? type_ip[]
+    "nisdomain" ? string(1..64) with match(SELF, '^\S+$')
+    "nozeroconf" ? boolean
+    "set_hwaddr" ? boolean
+    "nmcontrolled" ? boolean
+    "allow_nm" ? boolean
+    "primary_ip" ? string
+    "routers" ? structure_router{}
+    "ipv6" ? structure_ipv6
 };

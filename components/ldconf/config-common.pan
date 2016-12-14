@@ -11,17 +11,17 @@
 
 # 
 # #
-# ldconf, 16.10.0, 1, Mon Nov 28 2016
+# ldconf, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/ldconf/config-common;
 
-include { 'components/ldconf/schema' };
+include 'components/ldconf/schema';
 
 # Set prefix to root of component configuration.
 prefix '/software/components/ldconf';
 
-#'version' = '16.10.0';
+#'version' = '16.12.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

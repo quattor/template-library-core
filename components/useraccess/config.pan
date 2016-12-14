@@ -11,10 +11,10 @@
 
 # 
 # #
-# useraccess, 16.10.0, 1, Mon Nov 28 2016
+# useraccess, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/useraccess/config;
 
-include { 'components/useraccess/config-common' };
-include { 'components/useraccess/config-rpm' };
+include 'components/useraccess/config-common';
+include 'components/useraccess/config-rpm';

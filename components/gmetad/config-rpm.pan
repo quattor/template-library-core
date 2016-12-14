@@ -18,10 +18,10 @@
 #
 ################################################################################
 unique template components/gmetad/config-rpm;
-include {'components/gmetad/schema'};
+include 'components/gmetad/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-gmetad", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-gmetad", "16.12.0-rc1_1", "noarch");
 
 "/software/components/gmetad/dependencies/pre" ?=  list ("spma", "accounts");
 

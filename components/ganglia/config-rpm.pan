@@ -14,17 +14,17 @@
 #
 
 # #
-# ganglia, 16.10.0, 1, Mon Nov 28 2016
+# ganglia, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/ganglia/config-rpm;
 
-include { 'components/ganglia/config-common' };
+include 'components/ganglia/config-common';
 
 # Set prefix to root of component configuration.
 prefix '/software/components/ganglia';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-ganglia','16.10.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-ganglia','16.12.0-rc1_1','noarch');
 'dependencies/pre' ?= list('spma');
 

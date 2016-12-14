@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 16.10.0, 1, Mon Nov 28 2016
+# icinga, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 declaration template components/icinga/schema;
@@ -507,7 +507,7 @@ type structure_component_icinga = {
     "general" : structure_icinga_icinga_cfg
     "cgi" : structure_icinga_cgi_cfg
     "serviceextinfo" ? structure_icinga_serviceextinfo []
-    "servicedependencies" ?  structure_icinga_servicedependency []
+    "servicedependencies" ? structure_icinga_servicedependency []
     "timeperiods" : structure_icinga_timeperiod {}
     "contacts" : structure_icinga_contact {}
     "contactgroups" : structure_icinga_contactgroup {}

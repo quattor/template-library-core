@@ -11,17 +11,17 @@
 
 # 
 # #
-# fstab, 16.10.0, 1, Mon Nov 28 2016
+# fstab, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/fstab/config-common;
 
-include { 'components/fstab/schema' };
+include 'components/fstab/schema';
 
 # Set prefix to root of component configuration.
 prefix '/software/components/fstab';
 
-#'version' = '16.10.0';
+#'version' = '16.12.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

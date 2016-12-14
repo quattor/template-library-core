@@ -15,13 +15,13 @@
 ################################################################################
 
 unique template components/etcservices/config-rpm;
-include {'components/etcservices/schema'};
+include 'components/etcservices/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-etcservices", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-etcservices", "16.12.0-rc1_1", "noarch");
 
- 
+
 "/software/components/etcservices/dependencies/pre" ?= list("spma");
 "/software/components/etcservices/active" ?= true;
 "/software/components/etcservices/dispatch" ?= true;
- 
+

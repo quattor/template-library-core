@@ -11,10 +11,10 @@
 
 # 
 # #
-# hostsaccess, 16.10.0, 1, Mon Nov 28 2016
+# hostsaccess, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
 #
 
 unique template components/hostsaccess/config;
 
-include { 'components/hostsaccess/config-common' };
-include { 'components/hostsaccess/config-rpm' };
+include 'components/hostsaccess/config-common';
+include 'components/hostsaccess/config-rpm';

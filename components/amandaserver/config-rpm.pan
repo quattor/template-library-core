@@ -18,11 +18,11 @@
 #
 ################################################################################
 unique template components/amandaserver/config-rpm;
-include {'components/amandaserver/schema'};
+include 'components/amandaserver/schema';
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-amandaserver", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-amandaserver", "16.12.0-rc1_1", "noarch");
 
 "/software/components/amandaserver/dependencies/pre" ?=  list ("spma");
 

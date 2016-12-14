@@ -14,7 +14,7 @@
 
 declaration template components/ofed/schema;
 
-include 'quattor/types/component' ;
+include 'quattor/types/component';
 
 ## openib options (OPENIBOPTS)
 type component_ofed_openib_options = {
@@ -58,8 +58,8 @@ type component_ofed_openib_modules = {
     "rdma_ucm" : boolean = true
 
     ## IPoIB
-    "ipoib"  : boolean = true
-    "e_ipoib"  : boolean = false
+    "ipoib" : boolean = true
+    "e_ipoib" : boolean = false
 
     ## SDP (Socket Direct Protocol)
     "sdp" : boolean = false
