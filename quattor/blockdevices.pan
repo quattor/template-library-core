@@ -8,7 +8,7 @@ include 'quattor/physdevices';
 type blockdev_string = string with exists ("/system/blockdevices/" + SELF)
     || error (SELF + " must be a path relative to /system/blockdevices");
 
-type physdev_string = string with exists ("/system/blockdevices/physical_devs/" + SELF) 
+type physdev_string = string with exists ("/system/blockdevices/physical_devs/" + SELF)
     || error (SELF + " must be a path relative to "
               + "/system/blockdevices/physical_devs");
 
@@ -81,7 +81,7 @@ type blockdevices_logicalvolumes_type = {
     "type" ? string with match (SELF,
         '^(cache(-pool)|error|linear|mirror|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$')
 };
-    
+
 type blockdevices_lvm_type = {
     "device_list" : blockdev_string[] # "List of device paths"
 };
@@ -103,10 +103,30 @@ type blockdevices_file_type = {
 type raid_device_path = string with exists ("/system/blockdevices/hwraid/"
     + SELF) || is_card_port (SELF);
 
+@documentation{
+    blockdevice validation check based on device size
+}
+type blockdevices_validate_size = {
+    @{allowed absolute margin (in MiB) compared to configured size}
+    "diff" ? long(0..)
+    @{allowed relative margin compared to configured size}
+    "fraction" ? double
+};
+
+@documentation{
+    blockdevice validation check
+}
+type blockdevices_validate = {
+    @{size-based validation}
+    "size" ? blockdevices_validate_size
+};
+
 type blockdevices_disk_type = {
     "device_path" ? raid_device_path
     "label" : string with match (SELF, ("^(none|msdos|gpt|aix|bsd)$"))
     "readahead" ? long # Blocks for readahead
+    @{enable validation checks}
+    "validate" ? blockdevices_validate
 };
 
 type card_port_string = string with is_card_port (SELF);
