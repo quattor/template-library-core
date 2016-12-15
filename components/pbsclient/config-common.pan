@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsclient, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# pbsclient, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 unique template components/pbsclient/config-common;

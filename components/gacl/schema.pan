@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# gacl, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
