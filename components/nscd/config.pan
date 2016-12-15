@@ -11,14 +11,14 @@
 
 # 
 # #
-# nscd, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# nscd, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 unique template components/nscd/config;
 
 include 'components/nscd/schema';
 
-"/software/packages" = pkg_repl("ncm-nscd", "16.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nscd", "16.12.0-rc2_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/nscd';

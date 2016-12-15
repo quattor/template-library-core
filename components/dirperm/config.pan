@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# dirperm, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 unique template components/dirperm/config;
@@ -19,7 +19,7 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "16.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "16.12.0-rc2_1", "noarch");
 
 prefix '/software/components/dirperm';
 

@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# accounts, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 declaration template components/accounts/functions;
@@ -82,8 +82,8 @@ type defined_group = string with is_user_or_group("group", SELF);
 function create_group = {
     function_name = 'create_group';
 
-    if ( ARGC != 2 || ! is_nlist(ARGV[1]) ) {
-        error(function_name + ' requires 2 argument (string,nlist)');
+    if ( ARGC != 2 || ! is_dict(ARGV[1]) ) {
+        error(function_name + ' requires 2 argument (string,dict)');
     };
     groupname = ARGV[0];
     group_params = ARGV[1];
@@ -115,8 +115,8 @@ function create_group = {
 function create_user = {
     function_name = 'create_user';
 
-    if ( ARGC != 2 || ! is_nlist(ARGV[1]) ) {
-        error(function_name + ' requires 2 argument (string,nlist)');
+    if ( ARGC != 2 || ! is_dict(ARGV[1]) ) {
+        error(function_name + ' requires 2 argument (string,dict)');
     };
     username = ARGV[0];
     user_params = ARGV[1];
@@ -159,7 +159,7 @@ function create_user = {
                 if ( groupname == username &&
                     exists(user_params['uid']) &&
                     !exists(user_params['poolStart']) ) {
-                        accounts = create_group(groupname, nlist('gid', user_params['uid']));
+                        accounts = create_group(groupname, dict('gid', user_params['uid']));
                 } else {
                     if (ACCOUNTS_IGNORE_MISSING_GROUPS) {
                         delete(user_params['groups'][i]);
@@ -178,13 +178,13 @@ function create_user = {
 };
 
 
-# create_accounts_from_db(userList:nlist,
+# create_accounts_from_db(userList:dict,
 #                      users:list:optional,
 #                      accountType:optional)
 #
 # Return Value : structure_accounts
 #
-# Function to create users or groups from a nlist containing user or group characteristics.
+# Function to create users or groups from a dict containing user or group characteristics.
 # User/group characteristics must be provided as structure_userinfo/structure_groupinfo.
 #
 # Second parameter, if presents, gives the list of users to create from user_list.
@@ -196,8 +196,8 @@ function create_user = {
 
 function create_accounts_from_db = {
     function_name = 'create_accounts';
-    if ( ARGC < 1 || ARGC > 3 || ! is_nlist(ARGV[0]) ) {
-        error(function_name + ' requires at least 1 argument (nlist)');
+    if ( ARGC < 1 || ARGC > 3 || ! is_dict(ARGV[0]) ) {
+        error(function_name + ' requires at least 1 argument (dict)');
     };
     accounts_db = ARGV[0];
 

@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# pam, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "16.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "16.12.0-rc2_1", "noarch");
 
 # standard functions
 include 'pan/functions';
@@ -58,21 +58,21 @@ function pam_add = {
         error("PAM module " + module + " is not a registered module");
     };
 
-    if (is_nlist(SELF)) {
+    if (is_dict(SELF)) {
         ret = SELF;
     } else {
-        ret = nlist();
+        ret = dict();
     };
 
     if (!exists(ret[service])) {
-        ret[service] = nlist();
+        ret[service] = dict();
     };
 
     if (!exists(ret[service][pamtype])) {
         ret[service][pamtype] = list();
     };
     tail = length(ret[service][pamtype]);
-    options = nlist();
+    options = dict();
     options_list = null;
     if (exists(ARGV[4])) {
         if (is_list(ARGV[4])) {
@@ -81,7 +81,7 @@ function pam_add = {
             options = ARGV[4];
         };
     };
-    ret[service][pamtype][tail] = nlist("control", control, "module", module, "options", options, "options_list", options_list);
+    ret[service][pamtype][tail] = dict("control", control, "module", module, "options", options, "options_list", options_list);
 
     return (ret);
 };
@@ -95,7 +95,7 @@ function pam_add_stack = {
     if (!exists("/software/components/pam/services/" + stacked)) {
         error("PAM service " + stacked + " is not known");
     };
-    options = nlist("service", stacked);
+    options = dict("service", stacked);
     pam_add(ARGV[0], ARGV[1], ARGV[2], "stack", options);
 };
 
@@ -137,11 +137,11 @@ function pam_add_listfile_acl = {
 
     aclbase = value("/software/components/pam/acldir");
     filename = aclbase+"/" + service + "." + sense;
-    opts = nlist("onerr", onerr, "file", filename, "item", itemtype, "sense", sense);
+    opts = dict("onerr", onerr, "file", filename, "item", itemtype, "sense", sense);
     ret = pam_add(service, pamtype, control, "listfile", opts);
     # Now, grab the entry that was just put at the end of the list and
     # add in the ACL information.
-    ret[service][pamtype][length(ret[service][pamtype])-1][sense] = nlist("filename", filename, "items", items);
+    ret[service][pamtype][length(ret[service][pamtype])-1][sense] = dict("filename", filename, "items", items);
     return (ret);
 };
 
@@ -158,10 +158,10 @@ function pam_add_access_file = {
         error("PAM access configuration key (" + key + ") is already defined");
     };
 
-    if (is_nlist(SELF)) {
+    if (is_dict(SELF)) {
         ret = SELF;
     } else {
-        ret = nlist();
+        ret = dict();
     };
 
     ret[key]["filename"] = filename;
@@ -183,13 +183,13 @@ function pam_add_access_lastacl = {
         error("PAM access configuration (" + key + ") is unknown");
     };
 
-    if (is_nlist(SELF)) {
+    if (is_dict(SELF)) {
         ret = SELF;
     } else {
-        ret = nlist();
+        ret = dict();
     };
 
-    ret[key]["lastacl"] = nlist("permission", permission, "users", users, "origins", origins);
+    ret[key]["lastacl"] = dict("permission", permission, "users", users, "origins", origins);
 
     return (ret);
 };
@@ -209,10 +209,10 @@ function pam_add_access_acl = {
         error("PAM access configuration (" + key + ") is unknown");
     };
 
-    if (is_nlist(SELF)) {
+    if (is_dict(SELF)) {
         ret = SELF;
     } else {
-        ret = nlist();
+        ret = dict();
     };
 
     if(!exists(ret[key][acl])) {
@@ -230,7 +230,7 @@ function pam_add_access_acl = {
         };
 
     tail = length(ret[key][acl]);
-    ret[key][acl][tail] = nlist("permission", permission, "users", users, "origins", origins);
+    ret[key][acl][tail] = dict("permission", permission, "users", users, "origins", origins);
 
     return(ret);
 };

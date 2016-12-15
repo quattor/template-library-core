@@ -45,7 +45,7 @@ type component_ofed_openib_options = {
     "node_desc_time_before_update" : long(0..) = 10
     "post_start_delay" : long(0..) = 0
 
-} = nlist();
+} = dict();
 
 ## openib modules (OPENIBMODULES)
 type component_ofed_openib_modules = {
@@ -77,7 +77,7 @@ type component_ofed_openib_modules = {
 
     "mlx4_vnic" : boolean = false
     "mlx4_fc" : boolean = false
-} = nlist();
+} = dict();
 
 ## openib modules (OPENIBHARDWARE)
 type component_ofed_openib_hardware = {
@@ -102,7 +102,7 @@ type component_ofed_openib_hardware = {
     "cxgb3" : boolean = false
     ## NetEffect
     "nes" : boolean = false
-} = nlist();
+} = dict();
 
 
 type component_ofed_openib = {
@@ -114,7 +114,7 @@ type component_ofed_openib = {
 
     ## at least one needs to be on
     "hardware" : component_ofed_openib_hardware
-} = nlist();
+} = dict();
 
 type component_ofed_type = {
     include structure_component

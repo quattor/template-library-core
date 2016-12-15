@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsaccess, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# hostsaccess, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 unique template components/hostsaccess/config-common;
@@ -21,7 +21,7 @@ include 'components/hostsaccess/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/hostsaccess';
 
-#'version' = '16.12.0-rc1';
+#'version' = '16.12.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

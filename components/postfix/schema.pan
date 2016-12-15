@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# postfix, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 declaration template components/postfix/schema;
@@ -520,8 +520,8 @@ type postfix_main = {
     "smtpd_recipient_limit" ? long
     "smtpd_recipient_overshoot_limit" ? long
     "smtpd_recipient_restrictions" ? string[]
-    "smtpd_reject_unlisted_recipient" ? boolean
-    "smtpd_reject_unlisted_sender" ? boolean
+    "smtpd_reject_udicted_recipient" ? boolean
+    "smtpd_reject_udicted_sender" ? boolean
     "smtpd_restriction_classes" ? string
     "smtpd_sasl_auth_enable" ? boolean
     "smtpd_sasl_authenticated_header" ? boolean
@@ -612,7 +612,7 @@ type postfix_main = {
     "virtual_minimum_uid" ? long
     "virtual_transport" ? string
     "virtual_uid_maps" ? string
-} = nlist();
+} = dict();
 
 @{
     Define multiple Postfix databases

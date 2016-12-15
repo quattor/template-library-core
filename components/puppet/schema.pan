@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# puppet, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 declaration template components/puppet/schema;
@@ -52,9 +52,9 @@ type puppet_hieradata = extensible {};
 type puppet_component = {
     include structure_component
     "modules" ? puppet_module{}
-    "nodefiles" : puppet_nodefile{}= nlist(escape("quattor_default.pp"), nlist("contents", "hiera_include('classes')"))
-    "puppetconf" : puppet_puppetconf = nlist("main", nlist("logdir", "/var/log/puppet", "rundir", "/var/run/puppet"))
-    "hieraconf" : puppet_hieraconf = nlist(escape(":backends"), list("yaml"), escape(":yaml"), nlist(escape(":datadir"), "/etc/puppet/hieradata"), escape(":hierarchy"), list("quattor"))
+    "nodefiles" : puppet_nodefile{}= dict(escape("quattor_default.pp"), dict("contents", "hiera_include('classes')"))
+    "puppetconf" : puppet_puppetconf = dict("main", dict("logdir", "/var/log/puppet", "rundir", "/var/run/puppet"))
+    "hieraconf" : puppet_hieraconf = dict(escape(":backends"), list("yaml"), escape(":yaml"), dict(escape(":datadir"), "/etc/puppet/hieradata"), escape(":hierarchy"), list("quattor"))
     "hieradata" ? puppet_hieradata
 };
 

@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# metaconfig, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 declaration template components/metaconfig/schema;
@@ -97,7 +97,7 @@ type metaconfig_config =  {
     'preamble' ? string
     'contents' : metaconfig_extension
     'convert' ? metaconfig_textrender_convert
-} = nlist();
+} = dict();
 
 type metaconfig_component = {
     include structure_component

@@ -14,7 +14,7 @@
 #
 
 # #
-# ganglia, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# ganglia, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 @author{
@@ -120,12 +120,12 @@ type globals_client_ganglia = {
 
 type client_ganglia = {
     'config_file' : string = '/etc/ganglia/gmond.conf'
-    'globals' : globals_client_ganglia = nlist()
-    'cluster' : cluster_client_ganglia = nlist()
-    'host' : host_client_ganglia = nlist()
-    'udp_send_channel' : udp_send_channel_client_ganglia = nlist()
-    'udp_recv_channel' : udp_recv_channel_client_ganglia = nlist()
-    'tcp_accept_channel' : udp_accept_channel_client_ganglia = nlist()
+    'globals' : globals_client_ganglia = dict()
+    'cluster' : cluster_client_ganglia = dict()
+    'host' : host_client_ganglia = dict()
+    'udp_send_channel' : udp_send_channel_client_ganglia = dict()
+    'udp_recv_channel' : udp_recv_channel_client_ganglia = dict()
+    'tcp_accept_channel' : udp_accept_channel_client_ganglia = dict()
     'modules' ? modules_client_ganglia[]
     'includes' ? string[]
     'collection_groups' : collection_groups_client_ganglia[] = list()

@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# ceph, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 
@@ -29,7 +29,7 @@ include 'components/sudo/config';
         "/usr/bin/file -sL *"
     );
     foreach (i; cmd; sudolist){
-        nl = nlist(
+        nl = dict(
             "host", "ALL",
             "options", "NOPASSWD:",
             "run_as", "ALL",

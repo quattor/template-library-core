@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 16.12.0-rc1, rc1_1, Wed Dec 14 2016
+# accounts, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
 #
 
 declaration template components/accounts/schema;
@@ -21,7 +21,7 @@ include 'quattor/schema';
 function has_unique_attr = {
     values = ARGV[0];
     attr = ARGV[1];
-    seen_attrs = nlist();
+    seen_attrs = dict();
 
     foreach(ni;el;values) {
         if( exists(seen_attrs[format('x%s', el[attr])])) {
