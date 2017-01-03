@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
+# download, 16.12.0-rc3, rc3_1, Tue Jan 03 2017
 #
 
 declaration template components/download/schema;

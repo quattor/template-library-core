@@ -12,7 +12,7 @@
 
 # 
 # #
-# download, 16.12.0-rc2, rc2_1, Thu Dec 15 2016
+# download, 16.12.0-rc3, rc3_1, Tue Jan 03 2017
 #
 
 unique template components/download/config;
@@ -26,6 +26,6 @@ prefix '/software/components/download';
 'active' ?= true;
 'dispatch' ?= true;
 'version' = '16.12.0';
-'release' = 'rc2_1';
+'release' = 'rc3_1';
 
-"/software/packages" = pkg_repl("ncm-download", "16.12.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-download", "16.12.0-rc3_1", "noarch");
