@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 16.12.0-rc3, rc3_1, Tue Jan 03 2017
+# icinga, 16.12.0, 1, Wed Jan 04 2017
 #
 
 declaration template components/icinga/schema;

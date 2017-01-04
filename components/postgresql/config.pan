@@ -18,7 +18,7 @@ include 'components/postgresql/schema';
 bind "/software/components/postgresql" = component_postgresql;
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-postgresql", "16.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-postgresql", "16.12.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/postgresql';

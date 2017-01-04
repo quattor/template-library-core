@@ -11,7 +11,7 @@
 
 # 
 # #
-# interactivelimits, 16.12.0-rc3, rc3_1, Tue Jan 03 2017
+# interactivelimits, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/interactivelimits/config;
@@ -23,7 +23,7 @@ bind "/software/components/interactivelimits" = component_interactivelimits_type
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-interactivelimits", "16.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-interactivelimits", "16.12.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/interactivelimits';
