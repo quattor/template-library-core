@@ -14,7 +14,7 @@
 #
 
 # #
-# lcgbdii, 16.12.0-rc3, rc3_1, Tue Jan 03 2017
+# lcgbdii, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/lcgbdii/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lcgbdii/config-common';
 prefix '/software/components/lcgbdii';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lcgbdii', '16.12.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lcgbdii', '16.12.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
