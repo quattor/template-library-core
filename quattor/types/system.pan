@@ -35,7 +35,7 @@ include 'quattor/types/hardware';
 
 type structure_system = {
     "aii"           ? structure_aii
-    "architecture"  ? string with match (SELF,'i386|ia64|x86_64|sparc')
+    "architecture"  ? string with match (SELF, 'i386|ia64|x86_64|sparc')
                                 # "system architecture"
     "cluster"       ? structure_cluster
     "edg"           ? structure_edg
