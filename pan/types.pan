@@ -990,3 +990,8 @@ type valid_interface = string with {
     };
     false;
 };
+
+@documentation{
+    desc = CPU architectures understood by Quattor
+}
+type cpu_architecture = string with match (SELF, '^(i386|ia64|x86_64|sparc|aarch64|ppc64(le)?)$');

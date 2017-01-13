@@ -13,7 +13,7 @@ type structure_annotation = {
     "version"      ? string # "product version"
     "chipset"      ? string # "product chipset"
     "serialnumber" ? string # "product serialnumber"
-    "arch"         ? string # "product architecture" i386, amd64, m68k, ...
+    "arch"         ? cpu_architecture # "product architecture" i386, amd64, m68k, ...
     "bus"          ? string # "bus of peripheral"
     "clock"        ? long   # "clock of peripheral"
     "lang"         ? string # "language of the product"
