@@ -32,6 +32,7 @@ include 'quattor/types/aii';
 include 'quattor/types/aquilon';
 include 'quattor/types/grid';
 include 'quattor/types/hardware';
+include 'quattor/types/os';
 
 type structure_system = {
     "aii"           ? structure_aii
@@ -48,6 +49,7 @@ type structure_system = {
     # Monitoring-related schemas should handle the bind to this path when they are included
     "monitoring"    ? dict
     "oldnames"      ? structure_oldname[]
+    "os" ? structure_os
     "rootmail"      : type_email
     "siterelease"   ? string
     "state"         ? string with match (SELF,
