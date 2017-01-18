@@ -29,10 +29,18 @@ type structure_cluster = {
     "down_hosts_threshold" ? long(0..)
     "node_index" ? long(0..)
 };
- 
+
+type structure_archetype_os = {
+    @{ Name of OS (i.e. aq --osname or aqdb OperatingSystem.name) }
+    "name" : string
+    @{ Version of OS (i.e. aq --osversion or aqdb OperatingSystem.version) }
+    "version" : string
+};
+
 type structure_archetype = {
     "name"          : string # e.g. "aquilon"
-    "os"            ? string # e.g. "linux"
+    @{ Details of operating system as defined by aquilon broker }
+    "os"            ? structure_archetype_os
     "model"         ? string # e.g. "4.0.1-x86_64"
     "filesystem-layout" ? string with if_exists("archetype/filesystem-layouts/" + SELF) != ""
     "archlist"      ? string[] # e.g. fs sysname list for model,
@@ -115,7 +123,7 @@ type structure_security = {
     "class"         : string with if_exists("archetype/security/" + SELF) != ""
     "svcwhitelist"  ? list
 };
- 
+
 type structure_system_aquilon = {
     "advertise_status" ? boolean
     "archetype"     ? structure_archetype
