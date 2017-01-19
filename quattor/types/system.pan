@@ -19,11 +19,6 @@ type structure_kernel = {
     "version"   ? string
 };
 
-type structure_oldname = {
-    "name" : string
-    "date" : string
-};
-
 # network schema defined within component area
 include 'components/network/core-schema';
 
@@ -51,7 +46,6 @@ type structure_system = {
     "network"       : structure_network
     @{Monitoring-related schemas should handle the bind to this path when they are included.}
     "monitoring"    ? dict
-    "oldnames"      ? structure_oldname[]
     "os" ? structure_os
     "rootmail"      : type_email
     "siterelease"   ? string
