@@ -5,7 +5,7 @@ declaration template quattor/types/metadata;
 type structure_branch = {
     "author" ? string
     "name" : string
-    "type" : string
+    "type" : string with match(SELF, "^(domain|sandbox)$")
     @{id/hash of (last) commit}
     "commit-id" ? string
     @{timestamp (in seconds since 1970), e.g. timestamp of last git commit}
