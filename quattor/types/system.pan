@@ -41,7 +41,7 @@ type structure_system = {
     "filesystems"   ? structure_filesystem[] with filesystems_uniq_paths(SELF)
     "blockdevices" ? structure_blockdevices
     "glite"         ? structure_glite
-    "kernel"        : structure_kernel
+    "kernel"        ? structure_kernel
     "lcg"           ? structure_lcg
     "network"       : structure_network
     @{Monitoring-related schemas should handle the bind to this path when they are included.}
