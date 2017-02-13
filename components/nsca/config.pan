@@ -11,10 +11,10 @@
 
 # 
 # #
-# nsca, 16.10.0, 1, Mon Nov 28 2016
+# nsca, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/nsca/config;
 
-include { 'components/nsca/config-common' };
-include { 'components/nsca/config-rpm' };
+include 'components/nsca/config-common';
+include 'components/nsca/config-rpm';

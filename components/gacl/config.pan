@@ -14,9 +14,9 @@
 #
 
 # #
-# gacl, 16.10.0, 1, Mon Nov 28 2016
+# gacl, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/gacl/config;
 
-include { 'components/gacl/config-rpm' };
+include 'components/gacl/config-rpm';

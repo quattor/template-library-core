@@ -11,10 +11,10 @@
 
 # 
 # #
-# pnp4nagios, 16.10.0, 1, Mon Nov 28 2016
+# pnp4nagios, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/pnp4nagios/config;
 
-include { 'components/pnp4nagios/config-common' };
-include { 'components/pnp4nagios/config-rpm' };
+include 'components/pnp4nagios/config-common';
+include 'components/pnp4nagios/config-rpm';

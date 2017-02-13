@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 16.10.0, 1, Mon Nov 28 2016
+# ks, 16.12.0, 1, Wed Jan 04 2017
 #
 
 # Template containing OS configuration and default values.

@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 16.10.0, 1, Mon Nov 28 2016
+# accounts, 16.12.0, 1, Wed Jan 04 2017
 #
 
 
@@ -25,7 +25,7 @@ prefix '/software/components/accounts';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
-'version' = '16.10.0';
+'version' = '16.12.0';
 
 # Include system users and groups which shouldn't be removed
 # by default.  The machine configuration can still modify or
@@ -34,5 +34,5 @@ include 'components/accounts/sysgroups';
 include 'components/accounts/sysusers';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-accounts", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-accounts", "16.12.0-1", "noarch");
 

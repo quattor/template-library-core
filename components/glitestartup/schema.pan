@@ -14,38 +14,38 @@
 #
 
 # #
-# glitestartup, 16.10.0, 1, Mon Nov 28 2016
+# glitestartup, 16.12.0, 1, Wed Jan 04 2017
 #
 #
 
 declaration template components/glitestartup/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
-include { 'pan/types' };
+include 'pan/types';
 
 type glitestartup_component_service = {
-  'args' ? string = ''
+    'args' ? string = ''
 };
 
 type glitestartup_component_post_restart = {
-  'cmd'            : string
-  'expectedStatus' ? long
+    'cmd' : string
+    'expectedStatus' ? long
 };
 
 type glitestartup_component = {
-  include structure_component
+    include structure_component
 
-  'configFile'      : string = '/opt/glite/etc/gLiteservices'
-  'initScript'      : string = '/etc/rc.d/init.d/gLite'
-  'disableOutput'   ? boolean
-  'disableError'    ? boolean
-  'restartEnv'      ? string[]
-  'postRestart'     ? glitestartup_component_post_restart[]
-  'restartServices' ? boolean
-  'createProxy'     : boolean = true
-  'scriptPaths'     : string[] = list('/opt/glite/etc/init.d')
-  'services'        : glitestartup_component_service{}
+    'configFile' : string = '/opt/glite/etc/gLiteservices'
+    'initScript' : string = '/etc/rc.d/init.d/gLite'
+    'disableOutput' ? boolean
+    'disableError' ? boolean
+    'restartEnv' ? string[]
+    'postRestart' ? glitestartup_component_post_restart[]
+    'restartServices' ? boolean
+    'createProxy' : boolean = true
+    'scriptPaths' : string[] = list('/opt/glite/etc/init.d')
+    'services' : glitestartup_component_service{}
 };
 
 bind '/software/components/glitestartup' = glitestartup_component;

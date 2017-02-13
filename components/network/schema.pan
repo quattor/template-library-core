@@ -14,16 +14,16 @@
 #
 
 # #
-# network, 16.10.0, 1, Mon Nov 28 2016
+# network, 16.12.0, 1, Wed Jan 04 2017
 #
 
 declaration template components/network/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
 
 type component_network_type = {
-	include structure_component
+    include structure_component
 };
 
 

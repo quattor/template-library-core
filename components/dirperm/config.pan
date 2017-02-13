@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 16.10.0, 1, Mon Nov 28 2016
+# dirperm, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/dirperm/config;
@@ -19,12 +19,12 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "16.12.0-1", "noarch");
 
 prefix '/software/components/dirperm';
 
 'dependencies/pre' ?= list('spma');
 'register_change' ?= list('/system/filesystems');
-'version' = '16.10.0';
+'version' = '16.12.0';
 'active' ?= true;
 'dispatch' ?= true;

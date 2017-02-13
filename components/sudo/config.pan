@@ -14,10 +14,10 @@
 #
 
 # #
-# sudo, 16.10.0, 1, Mon Nov 28 2016
+# sudo, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/sudo/config;
 
-include { 'components/sudo/config-common' };
-include { 'components/sudo/config-rpm' };
+include 'components/sudo/config-common';
+include 'components/sudo/config-rpm';

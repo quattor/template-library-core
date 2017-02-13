@@ -14,7 +14,7 @@
 #
 
 # #
-# authconfig, 16.10.0, 1, Mon Nov 28 2016
+# authconfig, 16.12.0, 1, Wed Jan 04 2017
 #
 
 
@@ -22,7 +22,9 @@ unique template components/authconfig/config;
 
 include 'components/authconfig/schema';
 
-'/software/packages'=pkg_repl('ncm-authconfig','16.10.0-1','noarch');
+bind "/software/components/authconfig" = component_authconfig_type;
+
+'/software/packages' = pkg_repl('ncm-authconfig', '16.12.0-1', 'noarch');
 
 prefix '/software/components/authconfig';
 'dependencies/pre' ?= list ('spma');
@@ -39,10 +41,8 @@ prefix '/software/components/authconfig';
     if (value("/software/components/authconfig/usemd5")) {
         "md5";
     } else {
-	    # Fall back to the most stupid option you can even imagine.
-	    # But it is portable. Huh.
-	    "descrypt";
+        # Fall back to the most stupid option you can even imagine.
+        # But it is portable. Huh.
+        "descrypt";
     };
 };
-
-

@@ -18,11 +18,11 @@
 #
 ################################################################################
 unique template components/syslogng/config-rpm;
-include {'components/syslogng/schema'};
+include 'components/syslogng/schema';
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-syslogng", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-syslogng", "16.12.0-1", "noarch");
 
 "/software/components/syslogng/dependencies/pre" ?=  list ("spma");
 

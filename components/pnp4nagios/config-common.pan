@@ -11,17 +11,17 @@
 
 # 
 # #
-# pnp4nagios, 16.10.0, 1, Mon Nov 28 2016
+# pnp4nagios, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/pnp4nagios/config-common;
 
-include { 'components/pnp4nagios/schema' };
+include 'components/pnp4nagios/schema';
 
 # Set prefix to root of component configuration.
 prefix '/software/components/pnp4nagios';
 
-#'version' = '16.10.0';
+#'version' = '16.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

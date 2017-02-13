@@ -11,10 +11,10 @@
 
 # 
 # #
-# profile, 16.10.0, 1, Mon Nov 28 2016
+# profile, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/profile/config;
 
-include { 'components/profile/config-common' };
-include { 'components/profile/config-rpm' };
+include 'components/profile/config-common';
+include 'components/profile/config-rpm';

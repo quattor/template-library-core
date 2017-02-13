@@ -14,9 +14,9 @@
 #
 
 # #
-# condorconfig, 16.10.0, 1, Mon Nov 28 2016
+# condorconfig, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/condorconfig/config;
 
-include { 'components/condorconfig/config-rpm' };
+include 'components/condorconfig/config-rpm';

@@ -12,21 +12,21 @@
 
 # 
 # #
-# named, 16.10.0, 1, Mon Nov 28 2016
+# named, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/named/config;
 
-include { 'components/named/schema' };
+include 'components/named/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-named", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-named", "16.12.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/named';
 
-'version' ?= '16.10.0';
+'version' ?= '16.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= append('spma');
- 
+

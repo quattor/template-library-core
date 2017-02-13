@@ -11,10 +11,10 @@
 
 # 
 # #
-# nrpe, 16.10.0, 1, Mon Nov 28 2016
+# nrpe, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/nrpe/config;
 
-include { 'components/nrpe/config-common' };
-include { 'components/nrpe/config-rpm' };
+include 'components/nrpe/config-common';
+include 'components/nrpe/config-rpm';

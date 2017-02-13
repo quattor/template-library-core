@@ -11,7 +11,7 @@
 
 # 
 # #
-# nfs, 16.10.0, 1, Mon Nov 28 2016
+# nfs, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/nfs/config;
@@ -19,11 +19,11 @@ unique template components/nfs/config;
 include 'components/nfs/schema';
 
 bind '/software/components/nfs' = component_nfs;
-    
+
 prefix '/software/components/nfs';
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '16.10.0';
+'version' = '16.12.0';
 'dependencies/pre' ?= list('spma');
 
-"/software/packages" = pkg_repl("ncm-nfs", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-nfs", "16.12.0-1", "noarch");

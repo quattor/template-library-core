@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 16.10.0, 1, Mon Nov 28 2016
+# postfix, 16.12.0, 1, Wed Jan 04 2017
 #
 
 declaration template components/postfix/schema;
@@ -23,8 +23,8 @@ include 'quattor/types/component';
 }
 type postfix_lookup_type_string = string with
     match (SELF, "^(btree|cdb|cidr|dbm|environ|fail|hash|internal|ldap" +
-	   "|memcache|mysql|netinfo|nis|nisplus|pcre|pgsql|proxy|regexp" +
-	   "|sdbm|socketmap|sqlite|static|tcp|texthash|unix)$") ||
+        "|memcache|mysql|netinfo|nis|nisplus|pcre|pgsql|proxy|regexp" +
+        "|sdbm|socketmap|sqlite|static|tcp|texthash|unix)$") ||
     error ("Wrong Postfix lookup type. See http://www.postfix.org/DATABASE_README.html for details");
 
 @{
@@ -39,11 +39,11 @@ type postfix_lookup = {
 
 @{
     Description of a Postfix LDAP database. See
-	http://www.postfix.org/ldap_table.5.html
+    http://www.postfix.org/ldap_table.5.html
 }
 type postfix_ldap_database = {
     "server_host" : type_fqdn[]
-    "server_host_protocol" ? string with match(SELF,"^ldaps?$")
+    "server_host_protocol" ? string with match(SELF, "^ldaps?$")
     "server_port" ? type_port
     "timeout" ? long
     "search_base" : string
@@ -520,8 +520,8 @@ type postfix_main = {
     "smtpd_recipient_limit" ? long
     "smtpd_recipient_overshoot_limit" ? long
     "smtpd_recipient_restrictions" ? string[]
-    "smtpd_reject_unlisted_recipient" ? boolean
-    "smtpd_reject_unlisted_sender" ? boolean
+    "smtpd_reject_udicted_recipient" ? boolean
+    "smtpd_reject_udicted_sender" ? boolean
     "smtpd_restriction_classes" ? string
     "smtpd_sasl_auth_enable" ? boolean
     "smtpd_sasl_authenticated_header" ? boolean
@@ -612,7 +612,7 @@ type postfix_main = {
     "virtual_minimum_uid" ? long
     "virtual_transport" ? string
     "virtual_uid_maps" ? string
-} = nlist();
+} = dict();
 
 @{
     Define multiple Postfix databases

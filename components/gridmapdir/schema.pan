@@ -14,22 +14,22 @@
 #
 
 # #
-# gridmapdir, 16.10.0, 1, Mon Nov 28 2016
+# gridmapdir, 16.12.0, 1, Wed Jan 04 2017
 #
 #
 
 declaration template components/gridmapdir/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
 type gridmapdir_component = {
-  include structure_component
-  'gridmapdir'       : string 
-  'poolaccounts'     : long(0..0){}
-  'sharedGridmapdir' ? string
-  'owner'            : string = 'root'
-  'group'            : string = 'root'
-  'perms'            : string = '0755'
+    include structure_component
+    'gridmapdir' : string
+    'poolaccounts' : long(0..0){}
+    'sharedGridmapdir' ? string
+    'owner' : string = 'root'
+    'group' : string = 'root'
+    'perms' : string = '0755'
 };
 
 bind '/software/components/gridmapdir' = gridmapdir_component;

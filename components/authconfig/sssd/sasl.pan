@@ -24,18 +24,18 @@
 
 }
 
-declaration template components/authconfig/sssd-sasl;
+declaration template components/authconfig/sssd/sasl;
 
 type sssd_sasl = {
     "mech" ? string
     "authid" ? string
     "realm" ? string
     "canonicalize" ? boolean
-    "minssf" ?  long
+    "minssf" ? long
 };
 
 type sssd_krb5 = {
     "keytab" ? string
     "init_creds" ? boolean
-    "ticket_lifetime" ?  long
+    "ticket_lifetime" ? long
 };

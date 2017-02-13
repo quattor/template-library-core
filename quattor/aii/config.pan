@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 16.10.0, 1, Mon Nov 28 2016
+# server, 16.12.0, 1, Wed Jan 04 2017
 #
 #
 # This file is the standard aii configuration. It only performs some

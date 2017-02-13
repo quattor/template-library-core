@@ -14,10 +14,10 @@
 #
 
 # #
-# ganglia, 16.10.0, 1, Mon Nov 28 2016
+# ganglia, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/ganglia/config;
 
-include { 'components/ganglia/config-common' };
-include { 'components/ganglia/config-rpm' };
+include 'components/ganglia/config-common';
+include 'components/ganglia/config-rpm';

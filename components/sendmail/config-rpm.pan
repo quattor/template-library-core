@@ -17,15 +17,15 @@
 #
 #
 ############################################################
- 
+
 unique template components/sendmail/config-rpm;
-include { 'components/sendmail/schema' };
+include 'components/sendmail/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-sendmail", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-sendmail", "16.12.0-1", "noarch");
 
- 
+
 "/software/components/sendmail/dependencies/pre" ?= list("spma");
 "/software/components/sendmail/active" ?= true;
 "/software/components/sendmail/dispatch" ?= true;
- 
+

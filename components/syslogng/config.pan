@@ -11,10 +11,10 @@
 
 # 
 # #
-# syslogng, 16.10.0, 1, Mon Nov 28 2016
+# syslogng, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/syslogng/config;
 
-include { 'components/syslogng/config-common' };
-include { 'components/syslogng/config-rpm' };
+include 'components/syslogng/config-common';
+include 'components/syslogng/config-rpm';

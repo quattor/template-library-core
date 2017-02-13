@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 16.10.0, 1, Mon Nov 28 2016
+# ceph, 16.12.0, 1, Wed Jan 04 2017
 #
 
 
@@ -32,9 +32,9 @@ variable CEPH_USER_ID = {
 
 prefix '/software/components/accounts';
 
-"groups/ceph" = nlist("gid", CEPH_USER_ID);
+"groups/ceph" = dict("gid", CEPH_USER_ID);
 
-"users/ceph" = nlist(
+"users/ceph" = dict(
     "uid", CEPH_USER_ID,
     "groups", list("ceph"),
     "comment","ceph",

@@ -14,17 +14,17 @@
 #
 
 # #
-# wlconfig, 16.10.0, 1, Mon Nov 28 2016
+# wlconfig, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/wlconfig/config-rpm;
 
-include { 'components/wlconfig/config-common' };
+include 'components/wlconfig/config-common';
 
 # Set prefix to root of component configuration.
 prefix '/software/components/wlconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wlconfig','16.10.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-wlconfig', '16.12.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

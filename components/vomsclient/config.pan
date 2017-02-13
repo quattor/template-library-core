@@ -14,9 +14,9 @@
 #
 
 # #
-# vomsclient, 16.10.0, 1, Mon Nov 28 2016
+# vomsclient, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/vomsclient/config;
 
-include { 'components/vomsclient/config-rpm' };
+include 'components/vomsclient/config-rpm';

@@ -14,9 +14,9 @@
 #
 
 # #
-# lcas, 16.10.0, 1, Mon Nov 28 2016
+# lcas, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/lcas/config;
 
-include { 'components/lcas/config-rpm' };
+include 'components/lcas/config-rpm';

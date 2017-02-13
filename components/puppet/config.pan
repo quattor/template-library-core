@@ -11,11 +11,11 @@
 
 # 
 # #
-# puppet, 16.10.0, 1, Mon Nov 28 2016
+# puppet, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/puppet/config;
 
-include { 'components/puppet/config-common' };
+include 'components/puppet/config-common';
 
-include { 'components/puppet/config-rpm' };
+include 'components/puppet/config-rpm';

@@ -13,10 +13,10 @@
 
 # 
 # #
-# cron, 16.10.0, 1, Mon Nov 28 2016
+# cron, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/cron/config;
 
-include { 'components/cron/config-common' };
-include { 'components/cron/config-rpm' };
+include 'components/cron/config-common';
+include 'components/cron/config-rpm';

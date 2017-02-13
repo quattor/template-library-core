@@ -18,11 +18,11 @@
 #
 ################################################################################
 unique template components/nagios/config-rpm;
-include {'components/nagios/functions'};
-include {'components/nagios/schema'};
+include 'components/nagios/functions';
+include 'components/nagios/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-nagios", "16.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-nagios", "16.12.0-1", "noarch");
 
 "/software/components/nagios/dependencies/pre" ?=  list ("spma");
 

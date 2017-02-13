@@ -11,10 +11,10 @@
 
 # 
 # #
-# mcx, 16.10.0, 1, Mon Nov 28 2016
+# mcx, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/mcx/config;
 
-include { 'components/mcx/config-common' };
-include { 'components/mcx/config-rpm' };
+include 'components/mcx/config-common';
+include 'components/mcx/config-rpm';

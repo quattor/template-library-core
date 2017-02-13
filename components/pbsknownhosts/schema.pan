@@ -14,26 +14,26 @@
 #
 
 # #
-# pbsknownhosts, 16.10.0, 1, Mon Nov 28 2016
+# pbsknownhosts, 16.12.0, 1, Wed Jan 04 2017
 #
 #
 
 declaration template components/pbsknownhosts/schema;
 
-include { 'quattor/schema' };
+include 'quattor/schema';
 
 type pbsknownhosts_component = {
-	include structure_component
-	'configFile'       : string = '/opt/edg/etc/edg-pbs-knownhosts.conf'
-	'pbsbin'           : string = '/usr/bin'
-	'nodes'            : string = ''
-	'keytypes'         : string = 'rsa1,rsa,dsa'
-	'knownhosts'       : string = '/etc/ssh/ssh_known_hosts'
-	'knownhostsscript' ? string
-	'targets'          ? string[]
-	'shostsConfigFile' ? string
-	'shosts'           ? string
-	'shostsscript'     ? string
+    include structure_component
+    'configFile' : string = '/opt/edg/etc/edg-pbs-knownhosts.conf'
+    'pbsbin' : string = '/usr/bin'
+    'nodes' : string = ''
+    'keytypes' : string = 'rsa1,rsa,dsa'
+    'knownhosts' : string = '/etc/ssh/ssh_known_hosts'
+    'knownhostsscript' ? string
+    'targets' ? string[]
+    'shostsConfigFile' ? string
+    'shosts' ? string
+    'shostsscript' ? string
 };
 
 bind '/software/components/pbsknownhosts' = pbsknownhosts_component;

@@ -14,17 +14,17 @@
 #
 
 # #
-# globuscfg, 16.10.0, 1, Mon Nov 28 2016
+# globuscfg, 16.12.0, 1, Wed Jan 04 2017
 #
 
 unique template components/globuscfg/config-common;
 
-include { 'components/globuscfg/schema' };
+include 'components/globuscfg/schema';
 
 # Set prefix to root of component configuration.
 prefix '/software/components/globuscfg';
 
-'version' = '16.10.0';
+'version' = '16.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
