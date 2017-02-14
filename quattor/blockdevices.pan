@@ -10,17 +10,18 @@ type blockdev_string = string with exists ("/system/blockdevices/" + SELF)
 
 type physdev_string = string with exists ("/system/blockdevices/physical_devs/" + SELF)
     || error (SELF + " must be a path relative to "
-              + "/system/blockdevices/physical_devs");
+                + "/system/blockdevices/physical_devs");
 
 type parttype_string = string with match (SELF, '^(primary|extended|logical)$');
 
 type vg_string = string with exists ("/system/blockdevices/volume_groups/" + SELF)
     || error (SELF + " must be a path relative to "
-              + "/system/blockdevices/volume_groups");
+                + "/system/blockdevices/volume_groups");
 
 type lv_string = string with exists ("/system/blockdevices/logical_volumes/" + SELF)
     || error (SELF + " must be a path relative to "
-              + "/system/blockdevices/logical_volumes");
+                + "/system/blockdevices/logical_volumes");
+
 @documentation{
     parted partition flags (from "info parted")
 }
@@ -40,12 +41,12 @@ type blockdevices_partition_flags = {
 };
 
 type blockdevices_partition_type = {
-	"holding_dev" : physdev_string # "Device holding the partition"
-	"size" ? long # "Size in MB"
-	"ksopts" ? string # "Kickstart options for disk e.g. --grow, only for installation (AII)"
-	"type" : parttype_string = "primary"
-	"offset" ? long(0..)
-	"flags" ? blockdevices_partition_flags
+    "holding_dev" : physdev_string # "Device holding the partition"
+    "size" ? long # "Size in MB"
+    "ksopts" ? string # "Kickstart options for disk e.g. --grow, only for installation (AII)"
+    "type" : parttype_string = "primary"
+    "offset" ? long(0..)
+    "flags" ? blockdevices_partition_flags
 };
 
 @documentation{
@@ -53,7 +54,7 @@ type blockdevices_partition_type = {
 }
 type blockdevices_md_type = {
     "device_list" : blockdev_string[] # "List of device paths"
-    "raid_level" : string with match (SELF,'^RAID[0156]$')
+    "raid_level" : string with match (SELF, '^RAID[0156]$')
     "stripe_size" : long = 64 # "Stripe size in KB"
     "num_spares" ? long # "Number of spare devices"
     # Declare the style of RAID metadata (superblock) to be used. This is --metadata in `man mdadm`
@@ -78,8 +79,8 @@ type blockdevices_logicalvolumes_type = {
     "chunksize" ? long = 64 # "chunk size in KB"
     "devices" ? blockdev_string[]
     "cache" ? blockdevices_logicalvolumes_cache_type
-    "type" ? string with match (SELF,
-        '^(cache(-pool)|error|linear|mirror|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$')
+    "type" ? string with match (SELF, '^(cache(-pool)|error|linear|mirror'+
+        '|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$')
 };
 
 type blockdevices_lvm_type = {
@@ -91,17 +92,17 @@ type blockdevices_lvm_type = {
     Files containing filesystems, to be mounted with loopback option.
 }
 type blockdevices_file_type = {
-	"size" : long # "Size in MB"
-	"owner" : string = "root" # "User owning the file"
-	"group" : string = "root" # "Group owning the file"
-	"permissions" ? long # "Permission bits for the file"
+    "size" : long # "Size in MB"
+    "owner" : string = "root" # "User owning the file"
+    "group" : string = "root" # "Group owning the file"
+    "permissions" ? long # "Permission bits for the file"
 };
 
 @documentation{
     String defining either a port or a hardware RAID unit.
 }
-type raid_device_path = string with exists ("/system/blockdevices/hwraid/"
-    + SELF) || is_card_port (SELF);
+type raid_device_path = string with
+    exists ("/system/blockdevices/hwraid/" + SELF) || is_card_port (SELF);
 
 @documentation{
     blockdevice validation check based on device size
@@ -123,7 +124,7 @@ type blockdevices_validate = {
 
 type blockdevices_disk_type = {
     "device_path" ? raid_device_path
-    "label" : string with match (SELF, ("^(none|msdos|gpt|aix|bsd)$"))
+    "label" : string with match (SELF, "^(none|msdos|gpt|aix|bsd)$")
     "readahead" ? long # Blocks for readahead
     @{enable validation checks}
     "validate" ? blockdevices_validate
@@ -136,7 +137,7 @@ type card_port_string = string with is_card_port (SELF);
 }
 type blockdevices_hwraid_type = {
     "device_list" : card_port_string[]
-    "raid_level" ? string with match (SELF,'^(RAID1|RAID5|RAID6|JBOD)$')
+    "raid_level" ? string with match (SELF, '^(RAID1|RAID5|RAID6|JBOD)$')
     "num_spares" ? long # "Number of spares required"
     "stripe_size" ? long # "Stripe size in KB"
 };
