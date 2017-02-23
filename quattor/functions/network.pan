@@ -121,3 +121,41 @@ function copy_network_params = {
     };
     SELF;
 };
+
+@documentation{
+    descr = Test if ipv4 address is in network range.
+    arg = ipv4 address to test
+    arg = network address (is always recomputed using subnet mask)
+    arg = subnet mask
+}
+function ip_in_network = {
+    # Implemented as follows:
+    #    test if network from IP and subnet mask is equal to provided network
+    #    network is also masked (to support an ip in the network range instead of the network address)
+    if (ARGC != 3) {
+        error(format("%s requires 3 arguments: ip, network, mask", FUNCTION));
+    };
+
+    ip = ARGV[0];
+    if (! is_ipv4(ip)) {
+        error(format("%s 1st argument is not an ipv4 address, got %s", FUNCTION, to_string(ip)));
+    };
+
+    network = ARGV[1];
+    if (! is_ipv4(network)) {
+        error(format("%s 2nd argument is not an ipv4 address, got %s", FUNCTION, to_string(network)));
+    };
+    mask = ARGV[2];
+    if (! is_ipv4(mask)) {
+        error(format("%s 3rd argument is not an ipv4 address, got %s", FUNCTION, to_string(mask)));
+    };
+
+    # returns list, optional 2 element is netmask from CIDR notation
+    ip_l = ip4_to_long(ip);
+    nw_l = ip4_to_long(network);
+    mask_l = ip4_to_long(mask);
+
+    # network is IP (bitwise-)and mask
+
+    return((ip_l[0] & mask_l[0]) == (nw_l[0] & mask_l[0]));
+};
