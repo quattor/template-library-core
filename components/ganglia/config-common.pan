@@ -14,7 +14,7 @@
 #
 
 # #
-# ganglia, 16.12.0, 1, Wed Jan 04 2017
+# ganglia, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
 #
 
 unique template components/ganglia/config-common;
@@ -24,7 +24,7 @@ include 'components/ganglia/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/ganglia';
 
-#'version' = '16.12.0-1';
+#'version' = '17.2.0-rc1_1';
 'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -18,7 +18,7 @@ include 'components/aiiserver/schema';
 bind "/software/components/aiiserver" = structure_component_aiiserver;
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-aiiserver", "16.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-aiiserver", "17.2.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/aiiserver';

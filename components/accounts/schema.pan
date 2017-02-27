@@ -1,30 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
 #
 
-# 
-# #
-# accounts, 16.12.0, 1, Wed Jan 04 2017
-#
+
 
 declaration template components/accounts/schema;
 
-include 'quattor/schema';
+include 'quattor/types/component';
+include 'pan/legacy';
 
 function has_unique_attr = {
     values = ARGV[0];
     attr = ARGV[1];
     seen_attrs = dict();
 
-    foreach(ni;el;values) {
-        if( exists(seen_attrs[format('x%s', el[attr])])) {
+    foreach(ni; el; values) {
+        if(exists(seen_attrs[format('x%s', el[attr])])) {
             error(format("Duplicate attr %s : %s ", attr, el[attr]));
         } else {
             seen_attrs[format('x%s', el[attr])] = 1;
@@ -72,7 +70,7 @@ type structure_login_defs = {
     'usergroups_enab' ? boolean
 };
 
-type component_accounts = {
+type accounts_component = {
     include structure_component
     'rootpwd' ? string
     'rootshell' ? string
@@ -89,5 +87,3 @@ type component_accounts = {
     'kept_groups' : string{}
     'ldap' ? boolean
 };
-
-bind '/software/components/accounts' = component_accounts;

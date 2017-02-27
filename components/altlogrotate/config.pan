@@ -11,7 +11,7 @@
 
 # 
 # #
-# altlogrotate, 16.12.0, 1, Wed Jan 04 2017
+# altlogrotate, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
 #
 
 unique template components/altlogrotate/config;
@@ -19,7 +19,7 @@ unique template components/altlogrotate/config;
 include 'components/altlogrotate/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-altlogrotate", "16.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-altlogrotate", "17.2.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/altlogrotate';
@@ -27,4 +27,4 @@ prefix '/software/components/altlogrotate';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
-'version' = '16.12.0';
+'version' = '17.2.0';

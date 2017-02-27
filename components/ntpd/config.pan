@@ -14,7 +14,7 @@
 #
 
 # #
-# ntpd, 16.12.0, 1, Wed Jan 04 2017
+# ntpd, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
 #
 
 unique template components/ntpd/config;
@@ -23,10 +23,10 @@ include 'components/ntpd/schema';
 
 bind "/software/components/ntpd" = component_ntpd_type;
 
-"/software/packages" = pkg_repl("ncm-ntpd", "16.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-ntpd", "17.2.0-rc1_1", "noarch");
 
 prefix '/software/components/ntpd';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '16.12.0';
+'version' ?= '17.2.0';
 'dependencies/pre' ?= list("spma");

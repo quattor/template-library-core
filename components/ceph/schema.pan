@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 16.12.0, 1, Wed Jan 04 2017
+# ceph, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
 #
 
 declaration template components/ceph/schema;

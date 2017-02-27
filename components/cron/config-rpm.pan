@@ -18,8 +18,8 @@ unique template components/cron/config-rpm;
 include 'components/cron/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-cron", "16.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-cron", "17.2.0-rc1_1", "noarch");
 
 '/software/components/cron/dependencies/pre' ?= list('spma');
 
-'/software/components/cron/version' = '16.12.0';
+'/software/components/cron/version' = '17.2.0';

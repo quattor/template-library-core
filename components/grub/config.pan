@@ -14,23 +14,24 @@
 #
 
 # #
-# grub, 16.12.0, 1, Wed Jan 04 2017
+# grub, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
 #
 
 unique template components/grub/config;
 
 include 'components/grub/schema';
 
+bind "/software/components/grub" = component_grub_type;
+
 # Package to install.
-'/software/packages' = pkg_repl('ncm-grub', '16.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '17.2.0-rc1_1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';
 
-'version' = '16.12.0';
+'version' = '17.2.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' = append('spma');
 # Do not register for changes to /system/kernel/version as it is optional
 'register_change' = append('/system/kernel');
-
