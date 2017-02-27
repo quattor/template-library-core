@@ -12,11 +12,11 @@
 
 # 
 # #
-# aii-opennebula, 16.12.0, 1, Wed Jan 04 2017
+# aii-opennebula, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
 #
 
 # Template adding aii-opennebula rpm to the configuration
 
 unique template quattor/aii/opennebula/rpms;
 
-"/software/packages"=pkg_repl("aii-opennebula","16.12.0-1","noarch");
+"/software/packages"=pkg_repl("aii-opennebula","17.2.0-rc1_1","noarch");
