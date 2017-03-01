@@ -18,7 +18,7 @@ include 'components/shorewall/schema';
 bind "/software/components/shorewall" = component_shorewall;
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-shorewall", "17.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-shorewall", "17.2.0-rc2_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/shorewall';

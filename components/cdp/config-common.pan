@@ -11,7 +11,7 @@
 
 # 
 # #
-# cdp, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# cdp, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/cdp/config-common;
@@ -21,7 +21,7 @@ include 'components/cdp/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/cdp';
 
-#'version' = '17.2.0-rc1';
+#'version' = '17.2.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

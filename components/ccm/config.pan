@@ -11,7 +11,7 @@
 
 # 
 # #
-# ccm, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# ccm, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/ccm/config;
@@ -20,7 +20,7 @@ include 'components/ccm/schema';
 
 bind '/software/components/ccm' = component_ccm;
 
-'/software/packages' = pkg_repl('ncm-ccm','17.2.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-ccm','17.2.0-rc2_1','noarch');
 
 prefix '/software/components/ccm';
 'dependencies/pre' ?= list('spma');

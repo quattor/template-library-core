@@ -11,14 +11,14 @@
 
 # 
 # #
-# ssh, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# ssh, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "17.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "17.2.0-rc2_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");

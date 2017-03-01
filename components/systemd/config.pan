@@ -11,7 +11,7 @@
 
 # 
 # #
-# systemd, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# systemd, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/systemd/config;
@@ -21,7 +21,7 @@ include 'components/systemd/functions';
 
 bind '/software/components/systemd' = component_systemd;
 
-'/software/packages' = pkg_repl('ncm-systemd','17.2.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-systemd','17.2.0-rc2_1','noarch');
 
 prefix '/software/components/systemd';
 'dependencies/pre' ?= list ('spma');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# mysql, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/mysql/config;
@@ -19,7 +19,7 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "17.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "17.2.0-rc2_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';

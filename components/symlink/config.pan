@@ -11,14 +11,14 @@
 
 # 
 # #
-# symlink, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# symlink, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/symlink/config;
 
 include 'components/symlink/schema';
 
-"/software/packages" = pkg_repl("ncm-symlink", "17.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-symlink", "17.2.0-rc2_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/symlink';

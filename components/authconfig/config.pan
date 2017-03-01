@@ -14,7 +14,7 @@
 #
 
 # #
-# authconfig, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# authconfig, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 
@@ -24,7 +24,7 @@ include 'components/authconfig/schema';
 
 bind "/software/components/authconfig" = component_authconfig_type;
 
-'/software/packages' = pkg_repl('ncm-authconfig', '17.2.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-authconfig', '17.2.0-rc2_1', 'noarch');
 
 prefix '/software/components/authconfig';
 'dependencies/pre' ?= list ('spma');

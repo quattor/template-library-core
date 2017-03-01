@@ -14,13 +14,13 @@
 #
 
 # #
-# network, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# network, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/network/config;
 include 'components/network/schema';
 
-'/software/packages'=pkg_repl('ncm-network','17.2.0-rc1_1','noarch');
+'/software/packages'=pkg_repl('ncm-network','17.2.0-rc2_1','noarch');
 
 prefix '/software/components/network';
 'dependencies/pre' ?= list('spma');

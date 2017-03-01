@@ -11,7 +11,7 @@
 
 # 
 # #
-# filesystems, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# filesystems, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/filesystems/config-common;
@@ -21,7 +21,7 @@ include 'components/filesystems/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/filesystems';
 
-#'version' = '17.2.0-rc1';
+#'version' = '17.2.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
