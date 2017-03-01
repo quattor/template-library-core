@@ -14,7 +14,7 @@
 #
 
 # #
-# wmsclient, 17.2.0-rc1, rc1_1, Mon Feb 27 2017
+# wmsclient, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
 #
 
 unique template components/wmsclient/config-rpm;
@@ -25,6 +25,6 @@ include 'components/wmsclient/config-common';
 prefix '/software/components/wmsclient';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wmsclient', '17.2.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-wmsclient', '17.2.0-rc2_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
