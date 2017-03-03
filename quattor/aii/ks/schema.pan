@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# ks, 17.2.0, 1, Fri Mar 03 2017
 #
 
 @{Structure for the component generating kickstart files.}
