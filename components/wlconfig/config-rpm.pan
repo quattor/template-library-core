@@ -14,7 +14,7 @@
 #
 
 # #
-# wlconfig, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# wlconfig, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/wlconfig/config-rpm;
@@ -25,6 +25,6 @@ include 'components/wlconfig/config-common';
 prefix '/software/components/wlconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wlconfig', '17.2.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-wlconfig', '17.2.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

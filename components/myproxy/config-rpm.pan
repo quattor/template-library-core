@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# myproxy, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/myproxy/config-rpm;
@@ -25,6 +25,6 @@ include 'components/myproxy/config-common';
 prefix '/software/components/myproxy';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-myproxy', '17.2.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-myproxy', '17.2.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

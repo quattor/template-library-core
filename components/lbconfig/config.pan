@@ -14,7 +14,7 @@
 #
 
 # #
-# lbconfig, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# lbconfig, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/lbconfig/config;
