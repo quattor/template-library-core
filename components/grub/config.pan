@@ -14,7 +14,7 @@
 #
 
 # #
-# grub, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# grub, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/grub/config;
@@ -24,7 +24,7 @@ include 'components/grub/schema';
 bind "/software/components/grub" = component_grub_type;
 
 # Package to install.
-'/software/packages' = pkg_repl('ncm-grub', '17.2.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '17.2.0-1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/grub';

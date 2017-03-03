@@ -22,7 +22,7 @@ prefix '/software';
 'groups' ?= dict();
 
 # Package to install
-'packages' = pkg_repl("ncm-spma", "17.2.0-rc2_1", "noarch");
+'packages' = pkg_repl("ncm-spma", "17.2.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';

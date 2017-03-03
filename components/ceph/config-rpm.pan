@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# ceph, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/ceph/config-rpm;
@@ -22,6 +22,6 @@ include 'components/ceph/config-common';
 prefix '/software/components/ceph';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-ceph','17.2.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-ceph','17.2.0-1','noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 

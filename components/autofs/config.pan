@@ -12,7 +12,7 @@
 
 # 
 # #
-# autofs, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# autofs, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/autofs/config;
@@ -28,4 +28,4 @@ prefix '/software/components/autofs';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-autofs", "17.2.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-autofs", "17.2.0-1", "noarch");

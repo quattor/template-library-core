@@ -13,7 +13,7 @@
 
 # 
 # #
-# cron, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# cron, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/cron/config-common;
@@ -23,7 +23,7 @@ include 'components/cron/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/cron';
 
-#'version' = '17.2.0-rc2';
+#'version' = '17.2.0';
 #'package' = 'NCM::Component';
 
 'securitypath' ?= {

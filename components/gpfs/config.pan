@@ -11,13 +11,13 @@
 
 # 
 # #
-# gpfs, 17.2.0-rc2, rc2_1, Wed Mar 01 2017
+# gpfs, 17.2.0, 1, Fri Mar 03 2017
 #
 
 unique template components/gpfs/config;
 include 'components/gpfs/schema';
 
-'/software/packages'=pkg_repl('ncm-gpfs','17.2.0-rc2_1','noarch');
+'/software/packages'=pkg_repl('ncm-gpfs','17.2.0-1','noarch');
 
 prefix '/software/components/gpfs';
 'dependencies/pre' ?= list ('spma');
