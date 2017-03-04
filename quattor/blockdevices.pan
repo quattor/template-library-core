@@ -27,9 +27,10 @@ type lv_string = string with exists ("/system/blockdevices/logical_volumes/" + S
 }
 type blockdevices_partition_flags = {
     "bios_grub" ? boolean
-    "legacy_boot" ? boolean
     "boot" ? boolean
+    "esp" ? boolean
     "lba" ? boolean
+    "legacy_boot" ? boolean
     "root" ? boolean
     "swap" ? boolean
     "hidden" ? boolean
