@@ -195,9 +195,9 @@ function get_subnet_params = {
             params['subnet'] = replace('(?<=\d)\\\.(?=\d)', '.', params['subnet']);
             if ( params['subnet'] != subnet_saved ) {
                 deprecated(0, format("%s - specifying subnet as a regexp (%s) is deprecated: converted to %s",
-                                     OBJECT,
-                                     subnet_saved,
-                                     params['subnet']));
+                                    OBJECT,
+                                    subnet_saved,
+                                    params['subnet']));
             };
         } else {
             error(format("'subnet' key missing for subnet %s", i));
