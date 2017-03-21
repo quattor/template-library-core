@@ -159,3 +159,60 @@ function ip_in_network = {
 
     return((ip_l[0] & mask_l[0]) == (nw_l[0] & mask_l[0]));
 };
+
+
+@documentation{
+    descr = Checks which subnet ipaddr is a member of and returns the corresponding subnet\
+ parameters for netmask, gateway... 
+    arg = subnet list, a list of dict where the keys are all the properties supported\
+ by structure_interface + 'subnet' which is the subnet number (result of applying the\
+ mask to the address. `subnet` key is mandatory, 'netmask` defaults to 255.255.255.0.
+    arg = ip address to test
+}
+function get_subnet_params = {
+    if ( ARGC != 2 ) {
+        error("get_subnet_params requires 2 arguments");
+    };
+
+    subnet_list = ARGV[0];
+    ipaddr = ARGV[1];
+
+    if ( !is_list(subnet_list) ) {
+        error("get_subnet_params first argument must be a list");
+    };
+
+    foreach (i; params; subnet_list) {
+        if ( !is_dict(params) ) {
+            error("Subnet description must be a dict");
+        };
+        # 'subnet' used to be a regexp: replace '.*' at the end of the
+        # regexp by '.0' to help with the backward compatibility
+        # Also replace every occurence of '\.' by `.` if between
+        # address tokens.
+        if ( is_defined(params['subnet']) ) {
+            subnet_saved = params['subnet'];
+            params['subnet'] = replace('\\?\.\*', '.0', params['subnet']);
+            params['subnet'] = replace('(?<=\d)\\\.(?=\d)', '.', params['subnet']);
+            if ( params['subnet'] != subnet_saved ) {
+                deprecated(0, format("%s - specifying subnet as a regexp (%s) is deprecated: converted to %s",
+                                    OBJECT,
+                                    subnet_saved,
+                                    params['subnet']));
+            };
+        } else {
+            error(format("'subnet' key missing for subnet %s", i));
+        };
+        if ( ! is_defined(params['netmask']) ) {
+            params['netmask'] = '255.255.255.0';
+        };
+
+        if ( ip_in_network(ipaddr, params['subnet'], params['netmask']) ) {
+            delete(params["subnet"]);        # Suppress subnet key
+            return (params);
+        };
+    };
+
+    error(format("No subnet matching address %s found", ipaddr));
+};
+
+
