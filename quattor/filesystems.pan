@@ -46,4 +46,6 @@ type structure_filesystem = {
     "tuneopts"  ? string # Options for filesystem tuning commands (tune2fs, xfs_admin...)
     "label"     ? string # Filesystem label, as in LABEL=foo
     "ksfsformat" ? boolean # If true, anaconda formats the filesystem (with undef/false, --noformat is used)
+    @{When defined and false, AII will ignore this filesystem}
+    "aii" ? boolean
 };

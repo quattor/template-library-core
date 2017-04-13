@@ -48,6 +48,8 @@ type blockdevices_partition_type = {
     "type" : parttype_string = "primary"
     "offset" ? long(0..)
     "flags" ? blockdevices_partition_flags
+    @{When defined and false, AII will ignore this partition}
+    "aii" ? boolean
 };
 
 @documentation{
