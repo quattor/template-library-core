@@ -5,18 +5,39 @@ declaration template quattor/types/annotation;
     optional hardware specific information
 }
 type structure_annotation = {
-    "name"         ? string # "product name"
-    "type"         ? string # "product type"
-    "model"        ? string # "product model"
-    "manufacturer" ? string # "manufacturer name"
-    "vendor"       ? string # "vendor name"
-    "version"      ? string # "product version"
-    "chipset"      ? string # "product chipset"
-    "serialnumber" ? string # "product serialnumber"
-    "arch"         ? cpu_architecture # "product architecture" i386, amd64, m68k, ...
-    "bus"          ? string # "bus of peripheral"
-    "clock"        ? long   # "clock of peripheral"
-    "lang"         ? string # "language of the product"
-    "power"        ? long   # "power in watts"
-    "location"     ? string # "location of the hardware"
+    @{product name}
+    "name"         ? string
+    @{product type}
+    "type"         ? string
+    @{product model}
+    "model"        ? string
+    @{manufacturer name}
+    "manufacturer" ? string
+    @{vendor name}
+    "vendor"       ? string
+    @{product version}
+    "version"      ? string
+    @{product chipset}
+    "chipset"      ? string
+    @{product serialnumber}
+    "serialnumber" ? string
+    @{product architecture: i386, amd64, m68k, ...}
+    "arch"         ? string
+    @{bus of peripheral}
+    "bus"          ? string
+    @{clock of peripheral}
+    "clock"        ? long
+    @{language of the product}
+    "lang"         ? string
+    @{power in watts}
+    "power"        ? long
+    @{location of the hardware}
+    "location"     ? string
+    @{site location of the hardware}
+    "site"         ? string
+    @{Date at which the system support runs. DD-MM-YYYY}
+    "support"      ? string with match(SELF, '^[0-3]\d-[0-1]\d-[1-2]\d{3}$')
+    @{Date at witch the system is procured.}
+    "procured"     ? string with match(SELF, '^[0-3]\d-[0-1]\d-[1-2]\d{3}$')
+
 };
