@@ -208,6 +208,10 @@ type structure_hardware = {
     "sysloc"       ? structure_sysloc
     "nodename"     ? string
     "benchmarks" ? structure_benchmark
+    @{Date at which the hardware support runs out.}
+    "support"      ? type_isodate
+    @{Date at witch the hardware is procured.}
+    "procured"     ? type_isodate
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"    ? structure_raidport{}
 };

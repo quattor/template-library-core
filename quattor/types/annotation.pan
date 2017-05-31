@@ -33,9 +33,4 @@ type structure_annotation = {
     "power"        ? long
     @{location of the hardware}
     "location"     ? string
-    @{Date at which the system support runs out.}
-    "support"      ? type_isodate
-    @{Date at witch the system is procured.}
-    "procured"     ? type_isodate
-
 };
