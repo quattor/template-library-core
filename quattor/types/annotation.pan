@@ -33,8 +33,8 @@ type structure_annotation = {
     "power"        ? long
     @{location of the hardware}
     "location"     ? string
-    @{site location of the hardware}
-    "site"         ? string
+    @{campus location of the hardware}
+    "campus"         ? string
     @{Date at which the system support runs. DD-MM-YYYY}
     "support"      ? string with match(SELF, '^[0-3]\d-[0-1]\d-[1-2]\d{3}$')
     @{Date at witch the system is procured.}
