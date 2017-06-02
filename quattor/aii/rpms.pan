@@ -7,18 +7,19 @@
 # #
 # Current developer(s):
 #   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
+#   Ronald Starink <ronalds@nikhef.nl>
 #
 
 # #
-# Author(s): Michel Jouvin, Ben Jones, Gabor Gombas, Nick Williams
+# Author(s): Michel Jouvin, Ben Jones, Gabor Gombas, Nick Williams, Stijn De Weirdt
 #
 
 # #
-# server, 17.2.0, 1, Fri Mar 03 2017
+# server, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 # Template adding aii-server rpm to the configuration
 
 unique template quattor/aii/rpms;
 
-"/software/packages"=pkg_repl("aii-server","17.2.0-1","noarch");
+"/software/packages"=pkg_repl("aii-server","17.3.0-rc1_1","noarch");
