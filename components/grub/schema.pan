@@ -1,15 +1,15 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Stephen Childs <Stephen.Childs@cs.tcd.ie>
 #
 
-# #
+#
 # Author(s): German Cancio
 #
 
@@ -79,7 +79,7 @@ type type_kernel = {
     "title" ? string
 };
 
-type component_grub_type = {
+type grub_component = {
     include structure_component
     @{Prefix where kernels are found. Component defaults to /boot.}
     "prefix" ? string

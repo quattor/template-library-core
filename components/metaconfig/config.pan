@@ -14,7 +14,7 @@
 #
 
 # #
-# metaconfig, 17.2.0, 1, Fri Mar 03 2017
+# metaconfig, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 unique template components/metaconfig/config;
@@ -24,11 +24,11 @@ include 'components/metaconfig/schema';
 bind '/software/components/metaconfig' = metaconfig_component;
 
 # Install Quattor configuration module via RPM package.
-"/software/packages" = pkg_repl("ncm-metaconfig", "17.2.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-metaconfig", "17.3.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/metaconfig';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
-'version' = '17.2.0';
+'version' = '17.3.0';

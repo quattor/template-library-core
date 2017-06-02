@@ -1,20 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
 #
 
-# 
-# #
-# cdp, 17.2.0, 1, Fri Mar 03 2017
-#
+
 
 unique template components/cdp/config;
 
-include 'components/cdp/config-common';
-include 'components/cdp/config-rpm';
+include 'components/cdp/schema';
+
+bind '/software/components/cdp' = cdp_component;
+
+'/software/packages' = pkg_repl('ncm-cdp', '17.3.0-rc1_1', 'noarch');
+
+include if_exists('components/cdp/site-config.pan');
+
+prefix '/software/components/cdp';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '17.3.0';
+'dependencies/pre' ?= list('spma');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmetad, 17.2.0, 1, Fri Mar 03 2017
+# gmetad, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 unique template components/gmetad/config-common;
@@ -21,7 +21,7 @@ include 'components/gmetad/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gmetad';
 
-#'version' = '17.2.0';
+#'version' = '17.3.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

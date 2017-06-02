@@ -1,30 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
 #
 
-# 
-# #
-# altlogrotate, 17.2.0, 1, Fri Mar 03 2017
-#
+
 
 unique template components/altlogrotate/config;
 
 include 'components/altlogrotate/schema';
 
-# Package to install
-"/software/packages" = pkg_repl("ncm-altlogrotate", "17.2.0-1", "noarch");
+bind '/software/components/altlogrotate' = altlogrotate_component;
 
-# Set prefix to root of component configuration.
+'/software/packages' = pkg_repl('ncm-altlogrotate', '17.3.0-rc1_1', 'noarch');
+
+include if_exists('components/altlogrotate/site-config.pan');
+
 prefix '/software/components/altlogrotate';
-
 'active' ?= true;
 'dispatch' ?= true;
+'version' ?= '17.3.0';
 'dependencies/pre' ?= list('spma');
-'version' = '17.2.0';

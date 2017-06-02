@@ -1,37 +1,34 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Stephen Childs <Stephen.Childs@cs.tcd.ie>
 #
 
-# #
+#
 # Author(s): German Cancio
 #
 
-# #
-# grub, 17.2.0, 1, Fri Mar 03 2017
-#
 
 unique template components/grub/config;
 
 include 'components/grub/schema';
 
-bind "/software/components/grub" = component_grub_type;
+bind '/software/components/grub' = grub_component;
 
-# Package to install.
-'/software/packages' = pkg_repl('ncm-grub', '17.2.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '17.3.0-rc1_1', 'noarch');
 
-# Set prefix to root of component configuration.
+include if_exists('components/grub/site-config.pan');
+
 prefix '/software/components/grub';
-
-'version' = '17.2.0';
 'active' ?= true;
 'dispatch' ?= true;
-'dependencies/pre' = append('spma');
+'version' ?= '17.3.0';
+'dependencies/pre' ?= list('spma');
+
 # Do not register for changes to /system/kernel/version as it is optional
 'register_change' = append('/system/kernel');

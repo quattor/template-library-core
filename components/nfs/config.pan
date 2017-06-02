@@ -11,7 +11,7 @@
 
 # 
 # #
-# nfs, 17.2.0, 1, Fri Mar 03 2017
+# nfs, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 unique template components/nfs/config;
@@ -23,7 +23,7 @@ bind '/software/components/nfs' = component_nfs;
 prefix '/software/components/nfs';
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '17.2.0';
+'version' = '17.3.0';
 'dependencies/pre' ?= list('spma');
 
-"/software/packages" = pkg_repl("ncm-nfs", "17.2.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-nfs", "17.3.0-rc1_1", "noarch");

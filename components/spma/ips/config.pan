@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 17.2.0, 1, Fri Mar 03 2017
+# spma, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 unique template components/spma/ips/config;
@@ -36,9 +36,14 @@ prefix '/software/components/spma';
     '/software/uninstall',
 );
 
+'whitepaths' = list(
+    '/software/whitelist',
+);
+
 'register_change' = list(
     '/software/catalogues',
     '/software/requests',
+    '/software/whitelist',
     '/software/uninstall',
 );
 

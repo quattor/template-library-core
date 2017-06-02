@@ -1,15 +1,15 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Luis Fernando Muñoz Mejías <mejias@delta.ft.uam.es>
 #
 
-# 
+
 
 declaration template components/aiiserver/schema;
 
@@ -22,10 +22,13 @@ type structure_aiishellfe = {
     'ca_file' ? string
     "cdburl" : type_absoluteURI
     'cert_file' ? string
+    'grub2_efi_kernel_root' ? string
+    'grub2_efi_linux_cmd' ? string
     'key_file' ? string
     "lockdir" ? string
     "logfile" ? string
     "nbpdir" ? string
+    "nbpdir_grub2" ? string
     "noaction" ? boolean
     "nodhcp" ? boolean
     "nonbp" ? boolean
@@ -42,8 +45,10 @@ type structure_aiidhcp = {
     "norestart" ? boolean
 };
 
-type structure_component_aiiserver = {
+type aiiserver_component = {
     include structure_component
+    @{Configures the aii-shellfe tool.}
     "aii-shellfe" : structure_aiishellfe
+    @{Configures AII::DHCP and the aii-dhcp legacy tool.}
     "aii-dhcp" : structure_aiidhcp
 };
