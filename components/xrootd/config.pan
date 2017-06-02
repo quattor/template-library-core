@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 17.2.0, 1, Fri Mar 03 2017
+# xrootd, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 unique template components/xrootd/config;
@@ -24,12 +24,12 @@ include 'components/xrootd/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/xrootd';
 
-'version' = '17.2.0';
+'version' = '17.3.0';
 #'package' = 'NCM::Component';
 'active' ?= true;
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-xrootd', '17.2.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-xrootd', '17.3.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

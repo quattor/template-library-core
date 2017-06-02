@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsclient, 17.2.0, 1, Fri Mar 03 2017
+# pbsclient, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
 #
 
 unique template components/pbsclient/config-common;
@@ -24,7 +24,7 @@ include 'components/pbsclient/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/pbsclient';
 
-'version' = '17.2.0';
+'version' = '17.3.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
