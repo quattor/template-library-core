@@ -26,7 +26,10 @@ type structure_cpu = {
     "cores" : long(1..) = 1
     @{ desc = Number of execution threads on each CPU chip, e.g. a hyperthreaded eight core chip would have 16 threads }
     "max_threads" ? long(1..)
-    "hyperthreading" ? boolean with {deprecated(0, 'The hyperthreading cpu property has been deprecated, please migrate to max_threads'); true;}
+    "hyperthreading" ? boolean with {
+        deprecated(0, 'The hyperthreading cpu property has been deprecated, please migrate to max_threads');
+        true;
+    }
 };
 
 
@@ -50,10 +53,10 @@ type structure_nic = {
     Rack definition
 }
 type structure_rack = {
-  "name" : string
-  "column" : string
-  "room" : string
-  "row" : string
+    "name" : string
+    "column" : string
+    "room" : string
+    "row" : string
 };
 
 @documentation{
@@ -75,25 +78,75 @@ type structure_bmc = {
 };
 
 @documentation{
+    PCI addresses
+}
+type structure_pci = {
+    "vendor" ? long
+    "device" ? long
+    "class"  ? long
+};
+
+@docmentation{
+    The Infiniband hardware address is a series of twenty bytes encoded as hex values
+    and separated with a colon or a hyphen.  Within a value you must
+    use a consistent separator.
+
+    Ex.: 80-06-00-48-FE-80-00-00-00-00-00-00-00-00-00-00
+        80:06:00:48:FE:80:00:00:00:00:00:00:00:00:00:00
+
+    Both upper and lower-case hex digits are accepted.
+}
+type ibhwaddr = string with match(SELF, '^[\dA-Fa-f]{2}([:-])[\dA-Fa-f]{2}(\1[\dA-Fa-f]{2}){18}$');
+
+@documentation{
+    The Infiniband guid is a series of 16 chars preceded by 0x.
+
+    Ex.: 0x0002c9030002fb06
+
+    Both upper and lower-case hex digits are accepted.
+}
+type ibguid = string with match(SELF, '^0x[\dA-Fa-f]{16}$');
+
+@documentation{
+    IB HCA
+}
+type structure_ibhca = {
+    include structure_annotation
+    "driver" ? string
+    "media" ? string
+    "name" ? string
+    "pxe" ? boolean
+    "boot" ? boolean
+    "ca_name" ? string
+    "portnum" ? long(1..)
+    "hwaddr" ? ibhwaddr
+    "active" ? boolean
+    "pci" ? structure_pci
+    "guid" ? ibguid
+};
+
+@documentation{
     Card and/or addon
 }
 type structure_cards = {
-    # Indexed by device name (eth0, venet0...)
+    @{Indexed by device name (eth0, venet0...)}
     "nic" : structure_nic{}
-    # Fiber channel
+    @{Fiber channel}
     "fca" ? structure_fca[]
-    # For hardware RAID controllers
+    @{For hardware RAID controllers}
     "raid" ? structure_raid{}
-    # For describing IDE controllers
+    @{For describing IDE controllers}
     "ide" ? structure_raid{}
-    # For describing SATA controllers
+    @{For describing SATA controllers}
     "sata" ? structure_raid{}
-    # For describing Parallel SCSI controllers
+    @{For describing Parallel SCSI controllers}
     "scsi" ? structure_raid{}
-    # For describing SAS controllers
+    @{For describing SAS controllers}
     "sas" ? structure_raid{}
-    # For describing BMC controllers
+    @{For describing BMC controllers}
     "bmc" ? structure_bmc[]
+    @{For describing IB HCA's}
+    "ib" ? structure_ibhca{}
 } with is_valid_card_ports (SELF);
 
 @documentation{
@@ -235,7 +288,7 @@ final variable ENC_TYPES = '^(blade|dumb|hypervisor)$';
 }
 type structure_enclosure = {
     "type"          : string with match(SELF, ENC_TYPES)
-                        || error("enclosure type must be one of: "+ENC_TYPES)
+                        || error("enclosure type must be one of: " + ENC_TYPES)
     "children"      ? string[1..] with is_profile_list(SELF)
     "maxchildren"   ? long
 } with {
