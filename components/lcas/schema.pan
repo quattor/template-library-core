@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# lcas, 17.3.0, 1, Thu Jun 15 2017
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
