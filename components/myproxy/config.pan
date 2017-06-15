@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
+# myproxy, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
 #
 
 unique template components/myproxy/config;

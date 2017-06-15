@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
+# glitestartup, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
 #
 
 unique template components/glitestartup/config;
