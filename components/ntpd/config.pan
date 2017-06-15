@@ -14,7 +14,7 @@
 #
 
 # #
-# ntpd, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
+# ntpd, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
 #
 
 unique template components/ntpd/config;
@@ -23,7 +23,7 @@ include 'components/ntpd/schema';
 
 bind "/software/components/ntpd" = component_ntpd_type;
 
-"/software/packages" = pkg_repl("ncm-ntpd", "17.3.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ntpd", "17.3.0-rc2_1", "noarch");
 
 prefix '/software/components/ntpd';
 'active' ?= true;
