@@ -16,7 +16,7 @@
 #
 
 # #
-# server, 17.3.0-rc1, rc1_1, Fri Jun 02 2017
+# server, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
 #
 #
 # This file is the standard aii configuration. It only performs some
