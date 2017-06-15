@@ -11,7 +11,7 @@
 
 # 
 # #
-# amandaserver, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# amandaserver, 17.3.0, 1, Thu Jun 15 2017
 #
 
 unique template components/amandaserver/config-common;
@@ -21,7 +21,7 @@ include 'components/amandaserver/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/amandaserver';
 
-#'version' = '17.3.0-rc2';
+#'version' = '17.3.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

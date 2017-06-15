@@ -11,7 +11,7 @@
 
 # 
 # #
-# chkconfig, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# chkconfig, 17.3.0, 1, Thu Jun 15 2017
 #
 
 unique template components/chkconfig/config;
@@ -27,4 +27,4 @@ prefix '/software/components/chkconfig';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-chkconfig", "17.3.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-chkconfig", "17.3.0-1", "noarch");

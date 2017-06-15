@@ -11,7 +11,7 @@
 
 # 
 # #
-# syslog, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# syslog, 17.3.0, 1, Thu Jun 15 2017
 #
 
 unique template components/syslog/config;

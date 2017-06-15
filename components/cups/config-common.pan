@@ -11,7 +11,7 @@
 
 # 
 # #
-# cups, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# cups, 17.3.0, 1, Thu Jun 15 2017
 #
 
 unique template components/cups/config-common;

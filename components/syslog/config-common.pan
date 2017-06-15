@@ -11,7 +11,7 @@
 
 # 
 # #
-# syslog, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# syslog, 17.3.0, 1, Thu Jun 15 2017
 #
 
 unique template components/syslog/config-common;
@@ -21,7 +21,7 @@ include 'components/syslog/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/syslog';
 
-#'version' = '17.3.0-rc2';
+#'version' = '17.3.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

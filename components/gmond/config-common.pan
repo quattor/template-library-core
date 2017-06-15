@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmond, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# gmond, 17.3.0, 1, Thu Jun 15 2017
 #
 
 unique template components/gmond/config-common;
@@ -21,7 +21,7 @@ include 'components/gmond/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gmond';
 
-#'version' = '17.3.0-rc2';
+#'version' = '17.3.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

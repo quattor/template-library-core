@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 17.3.0-rc2, rc2_1, Thu Jun 15 2017
+# opennebula, 17.3.0, 1, Thu Jun 15 2017
 #
 
 @documentation{
