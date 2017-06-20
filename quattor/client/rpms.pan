@@ -1,6 +1,6 @@
 #
 # Packages needed for a quattor client.
-# RPMs are for Scientific Linux 
+# RPMs are for Scientific Linux
 #
 
 unique template quattor/client/rpms;
@@ -16,7 +16,7 @@ include 'quattor/client/version';
 
     # Quattor
     pkg_repl('cdp-listend',QUATTOR_PACKAGES_VERSION,'noarch');
-    pkg_repl('ncm-cdispd',QUATTOR_PACKAGES_VERSION,'noarch');
+    pkg_repl('ncm-cdispd','17.3.1-1','noarch');
     pkg_repl('ncm-ncd',QUATTOR_PACKAGES_VERSION,'noarch');
     pkg_repl('ncm-query',QUATTOR_PACKAGES_VERSION,'noarch');
     pkg_repl('ncm-spma',QUATTOR_PACKAGES_VERSION,'noarch');
