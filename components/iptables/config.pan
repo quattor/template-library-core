@@ -11,7 +11,7 @@
 
 # 
 # #
-# iptables, 17.3.0, 1, Thu Jun 15 2017
+# iptables, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 unique template components/iptables/config;
@@ -19,7 +19,7 @@ unique template components/iptables/config;
 include "components/iptables/schema";
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-iptables", "17.3.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-iptables", "17.7.0-rc1_1", "noarch");
 
 prefix '/software/components/iptables';
 

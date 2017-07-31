@@ -10,7 +10,7 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy, James Adams
 #
 
 
@@ -22,7 +22,7 @@ prefix '/software';
 'groups' ?= dict();
 
 # Package to install
-'packages' = pkg_repl("ncm-spma", "17.3.0-1", "noarch");
+'packages' = pkg_repl("ncm-spma", "17.7.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';

@@ -24,7 +24,7 @@ unique template components/directoryservices/config-rpm;
 include 'components/directoryservices/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-directoryservices", "17.3.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-directoryservices", "17.7.0-rc1_1", "noarch");
 
 
 "/software/components/directoryservices/dependencies/pre" ?= list("directoryservices");

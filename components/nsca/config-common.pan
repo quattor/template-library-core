@@ -11,7 +11,7 @@
 
 # 
 # #
-# nsca, 17.3.0, 1, Thu Jun 15 2017
+# nsca, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 unique template components/nsca/config-common;
@@ -21,7 +21,7 @@ include 'components/nsca/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/nsca';
 
-#'version' = '17.3.0';
+#'version' = '17.7.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

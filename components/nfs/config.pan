@@ -1,29 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Charles Loomis <charles.loomis@cern.ch>
 #
 
-# 
-# #
-# nfs, 17.3.0, 1, Thu Jun 15 2017
-#
+
 
 unique template components/nfs/config;
 
 include 'components/nfs/schema';
 
-bind '/software/components/nfs' = component_nfs;
+bind '/software/components/nfs' = nfs_component;
+
+'/software/packages' = pkg_repl('ncm-nfs', '17.7.0-rc1_1', 'noarch');
+
+include if_exists('components/nfs/site-config.pan');
 
 prefix '/software/components/nfs';
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '17.3.0';
+'version' ?= '17.7.0';
 'dependencies/pre' ?= list('spma');
-
-"/software/packages" = pkg_repl("ncm-nfs", "17.3.0-1", "noarch");

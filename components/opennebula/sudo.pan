@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 17.3.0, 1, Thu Jun 15 2017
+# opennebula, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 @documentation{
@@ -34,6 +34,9 @@ include 'components/sudo/config';
         '/usr/sbin/ebtables',
         '/usr/bin/ovs-vsctl',
         '/usr/bin/ovs-ofctl',
+        '/usr/sbin/ipset',
+        '/usr/sbin/ip',
+        '/usr/sbin/brctl',
     );
     foreach (i; cmd; sudolist){
         nl = dict("host", "ALL",

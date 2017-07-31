@@ -1,15 +1,15 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Stijn De Weirdt <stijn.deweirdt@ugent.be>
 #
 
-# 
+
 
 declaration template components/freeipa/schema;
 
@@ -141,7 +141,7 @@ type component_freeipa_nss = {
 
 
 # TODO: use common realm type
-type component_freeipa = {
+type freeipa_component = {
     include structure_component
     @{realm}
     'realm' : string with match(SELF, '^[a-zA-Z][\w.-]*$')
@@ -166,7 +166,7 @@ type component_freeipa = {
     'host' ? component_freeipa_host
     @{Principal/keytab pairs for client,server or aii roles (default client role with host/fqdn princiapl and /etc/krb5.keytab keytab)}
     'principals' ? component_freeipa_principal{} with {
-        foreach (k;v;SELF) {
+        foreach (k; v; SELF) {
             if (!match(k, '^(client|server|aii)$')) {
                 error(format("Unsupported principal %s (must be one of client, server or aii)", k));
             };

@@ -1,20 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Ulrich Schwickerath <ulrich.schwickerath@cern.ch>
 #
 
-# 
-# #
-# syslog, 17.3.0, 1, Thu Jun 15 2017
-#
+
 
 unique template components/syslog/config;
 
-include 'components/syslog/config-common';
-include 'components/syslog/config-rpm';
+include 'components/syslog/schema';
+
+bind '/software/components/syslog' = syslog_component;
+
+'/software/packages' = pkg_repl('ncm-syslog', '17.7.0-rc1_1', 'noarch');
+
+include if_exists('components/syslog/site-config.pan');
+
+prefix '/software/components/syslog';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '17.7.0';
+'dependencies/pre' ?= list('spma');

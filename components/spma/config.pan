@@ -10,11 +10,11 @@
 #
 
 # #
-# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy
+# Author(s): Germán Cancio, Marco Emilio Poleggi, Michel Jouvin, Jan Iven, Mark R. Bannister, Jindrich Novy, James Adams
 #
 
 # #
-# spma, 17.3.0, 1, Thu Jun 15 2017
+# spma, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 unique template components/spma/config;

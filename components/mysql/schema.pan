@@ -12,10 +12,7 @@
 # 
 
 
-
-
 declaration template components/mysql/schema;
-
 
 include 'quattor/schema';
 
@@ -23,15 +20,15 @@ include 'quattor/schema';
 function component_mysql_valid = {
     function_name = 'component_mysql_valid';
     if ( ARGC != 1 ) {
-        error(function_name+': this function requires 1 argument');
+        error(function_name + ': this function requires 1 argument');
     };
 
 
     conf = SELF;
     if ( exists(conf['databases']) && is_defined(conf['databases']) ) {
-        foreach (db;params;conf['databases']) {
+        foreach (db; params; conf['databases']) {
             if ( !exists(conf['servers'][params['server']]) || !is_defined(conf['servers'][params['server']]) ) {
-                error('Database '+db+' uses server '+params['server']+' but this server is not defined');
+                error('Database ' + db + ' uses server ' + params['server'] + ' but this server is not defined');
             };
         };
     };
@@ -61,7 +58,10 @@ function component_mysql_password_valid = {
 };
 
 
-type component_mysql_user_right = string with match(SELF, '^(ALL( PRIVILEGES)?|ALTER( ROUTINE)?|CREATE( (ROUTINE|TEMPORARY TABLES|USER|VIEW))?|DELETE|DROP|EVENT|EXECUTE|FILE|GRANT OPTION|INDEX|INSERT|LOCK TABLES|PROCESS|REFERENCES|RELOAD|REPLICATION (CLIENT|SLAVE)|SELECT|SHOW (DATABASES|VIEW)|SHUTDOWN|SUPER|TRIGGER|UPDATE|USAGE)$');
+type component_mysql_user_right = string with match(SELF, '^(ALL( PRIVILEGES)?|ALTER( ROUTINE)?|' +
+    'CREATE( (ROUTINE|TEMPORARY TABLES|USER|VIEW))?|DELETE|DROP|EVENT|EXECUTE|FILE|GRANT OPTION|INDEX|INSERT|' +
+    'LOCK TABLES|PROCESS|REFERENCES|RELOAD|REPLICATION (CLIENT|SLAVE)|SELECT|SHOW (DATABASES|VIEW)|SHUTDOWN|' +
+    'SUPER|TRIGGER|UPDATE|USAGE)$');
 
 
 type component_mysql_db_user = {
@@ -81,7 +81,7 @@ type component_mysql_db_options = {
     'server' : string
     'users' ? component_mysql_db_user{}
     'initScript' ? component_mysql_db_script
-    'initOnce' : boolean = false
+    'initOnce' : boolean = true
     'createDb' : boolean = true
     # tableOptions is a dict of table where value is a dict of parameter/value pairs.
     # If the parameter contains spaces, it must be escaped.
