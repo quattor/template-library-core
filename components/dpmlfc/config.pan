@@ -14,7 +14,7 @@
 #
 
 # #
-# dpmlfc, 17.3.0, 1, Thu Jun 15 2017
+# dpmlfc, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 unique template components/dpmlfc/config;
@@ -24,11 +24,11 @@ include 'components/dpmlfc/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/dpmlfc';
 
-'version' = '17.3.0';
+'version' = '17.7.0';
 'active' ?= true;
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dpmlfc', '17.3.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-dpmlfc', '17.7.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

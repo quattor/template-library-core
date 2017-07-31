@@ -14,7 +14,7 @@
 #
 
 # #
-# gip2, 17.3.0, 1, Thu Jun 15 2017
+# gip2, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 unique template components/gip2/config;
@@ -22,11 +22,11 @@ unique template components/gip2/config;
 include 'components/gip2/schema';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gip2', '17.3.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gip2', '17.7.0-rc1_1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/gip2';
-'version' = '17.3.0';
+'version' = '17.7.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
