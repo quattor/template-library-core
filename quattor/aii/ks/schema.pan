@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 17.3.0, 1, Thu Jun 15 2017
+# ks, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 @{Structure for the component generating kickstart files.}
@@ -34,10 +34,10 @@ type structure_ks_ksxinfo = {
     "vsync"		? long
     "hsync"		? long
     "defaultdesktop" : string with match (SELF, "^(GNOME|KDE)$")
-    "resolution"	: string with match (SELF, "^[0-9]+x[0-9]+$")
+    "resolution"	? string with {deprecated(0, "resolution unsupported in EL6+"); match(SELF, '^\d+x\d+$');}
     "videoram"	? long
     "startxonboot"	: boolean = true
-    "depth"		: long (1..32) = 24
+    "depth"		? long (1..32) with {deprecated(0, "depth unsupported in EL6+"); true;}
 };
 
 type string_ksservice = string with match (SELF, "^(ssh|telnet|smtp|http|ftp)$");
@@ -74,6 +74,16 @@ type structure_ks_logging = {
 };
 
 @documentation{
+    Configure email settings
+}
+type structure_ks_mail = {
+    @{Send email on succesful install}
+    "success" : boolean = false
+    @{SMTP server to use (requires mailx)}
+    "smtp" ? type_hostname
+} = dict();
+
+@documentation{
     Information needed for creating the Kickstart file
     Optional hooks pre_install, post_install, post_reboot and install
     for user customization are under /system/ks/hooks/.
@@ -91,7 +101,8 @@ type structure_ks_ks_info = {
     "enable_sshd"   : boolean = false
     "clearpart"	? string []
     "driverdisk"	? type_absoluteURI[]
-    "email_success" : boolean = false
+    @{deprecated boolean. when defined, precedes value of mail/success.}
+    "email_success" ? boolean with {deprecated(0, "email_success is deprecated; use mail/success instead"); true;}
     "firewall"	? structure_ks_ksfirewall
     "installtype"	: string
     "installnumber" ? string
@@ -101,6 +112,7 @@ type structure_ks_ks_info = {
     "langsupport"	? string [] = list ("en_US.UTF-8")
     "logging"	? structure_ks_logging
     "mouse"		? string
+    "mail"      : structure_ks_mail
     "bootproto"	: string with match (SELF, "static|dhcp")
     "keyboard"	: string = "us"
     "node_profile"	: type_absoluteURI

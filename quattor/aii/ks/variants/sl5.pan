@@ -17,8 +17,10 @@
 # ks, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
-# Template adding aii-ks rpm to the configuration
+# Template containing OS configuration and default values.
 
-unique template quattor/aii/ks/rpms;
+template quattor/aii/ks/variants/sl5;
 
-"/software/packages"=pkg_repl("aii-ks","17.7.0-rc1_1","noarch");
+prefix "/system/aii/osinstall/ks";
+# previous default value for mandatory schema entry
+"xwindows/depth" ?= 24;

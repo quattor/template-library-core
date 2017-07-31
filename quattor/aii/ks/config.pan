@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 17.3.0, 1, Thu Jun 15 2017
+# ks, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
 #
 
 @{Template containing the Kickstart-related configuration and default values.}
@@ -353,6 +353,18 @@ variable AII_OSINSTALL_PACKAGES ?= list (
 "/system/aii/osinstall/ks/packages" = {
     if (value('/system/aii/osinstall/ks/selinux') == 'disabled') {
         append('-selinux*');
+    };
+    # SMTP support requires mailx
+    if (exists('/system/aii/osinstall/ks/mail/smtp')) {
+        append('mailx');
+    };
+    SELF;
+};
+
+"/software/packages" = {
+    # mailx is also required so fail/success works after spma runs
+    if (exists('/system/aii/osinstall/ks/mail/smtp')) {
+        pkg_repl('mailx');
     };
     SELF;
 };
