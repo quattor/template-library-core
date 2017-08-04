@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
+# lcas, 17.7.0-rc2, rc2_1, Fri Aug 04 2017
 #
 
 unique template components/lcas/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lcas/config-common';
 prefix '/software/components/lcas';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lcas', '17.7.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lcas', '17.7.0-rc2_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
