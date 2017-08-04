@@ -11,7 +11,7 @@
 
 # 
 # #
-# directoryservices, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
+# directoryservices, 17.7.0-rc2, rc2_1, Fri Aug 04 2017
 #
 
 unique template components/directoryservices/config;

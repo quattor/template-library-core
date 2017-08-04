@@ -11,7 +11,7 @@
 
 # 
 # #
-# sendmail, 17.7.0-rc1, rc1_1, Mon Jul 31 2017
+# sendmail, 17.7.0-rc2, rc2_1, Fri Aug 04 2017
 #
 
 unique template components/sendmail/config-common;
@@ -21,7 +21,7 @@ include 'components/sendmail/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/sendmail';
 
-#'version' = '17.7.0-rc1';
+#'version' = '17.7.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
