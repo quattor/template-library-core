@@ -13,14 +13,14 @@
 
 # 
 # #
-# afsclt, 17.7.0-rc2, rc2_1, Fri Aug 04 2017
+# afsclt, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
 #
 
 unique template components/afsclt/config;
 
 include 'components/afsclt/schema';
 
-"/software/packages" = pkg_repl("ncm-afsclt", "17.7.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-afsclt", "17.7.0-rc3_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/afsclt';
