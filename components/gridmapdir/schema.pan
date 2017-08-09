@@ -14,7 +14,7 @@
 #
 
 # #
-# gridmapdir, 17.7.0-rc2, rc2_1, Fri Aug 04 2017
+# gridmapdir, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
 #
 #
 

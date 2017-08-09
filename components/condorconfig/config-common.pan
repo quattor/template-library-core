@@ -14,7 +14,7 @@
 #
 
 # #
-# condorconfig, 17.7.0-rc2, rc2_1, Fri Aug 04 2017
+# condorconfig, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
 #
 
 unique template components/condorconfig/config-common;
