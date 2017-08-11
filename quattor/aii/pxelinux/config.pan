@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
+# pxelinux, 17.7.0, 1, Fri Aug 11 2017
 #
 
 unique template quattor/aii/pxelinux/config;

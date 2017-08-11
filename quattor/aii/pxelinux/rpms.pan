@@ -14,11 +14,11 @@
 #
 
 # #
-# pxelinux, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
+# pxelinux, 17.7.0, 1, Fri Aug 11 2017
 #
 
 # Template adding aii-pxelinux rpm to the configuration
 
 unique template quattor/aii/pxelinux/rpms;
 
-"/software/packages"=pkg_repl("aii-pxelinux","17.7.0-rc3_1","noarch");
+"/software/packages"=pkg_repl("aii-pxelinux","17.7.0-1","noarch");
