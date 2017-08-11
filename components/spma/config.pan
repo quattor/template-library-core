@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
+# spma, 17.7.0, 1, Fri Aug 11 2017
 #
 
 unique template components/spma/config;

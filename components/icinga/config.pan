@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
+# icinga, 17.7.0, 1, Fri Aug 11 2017
 #
 
 unique template components/icinga/config;
@@ -28,4 +28,4 @@ prefix '/software/components/icinga';
 'dependencies/pre' ?= list('spma');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "17.7.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "17.7.0-1", "noarch");
