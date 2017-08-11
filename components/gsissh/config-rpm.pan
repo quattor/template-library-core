@@ -14,7 +14,7 @@
 #
 
 # #
-# gsissh, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
+# gsissh, 17.7.0, 1, Fri Aug 11 2017
 #
 
 unique template components/gsissh/config-rpm;
@@ -25,6 +25,6 @@ include 'components/gsissh/config-common';
 prefix '/software/components/gsissh';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gsissh', '17.7.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gsissh', '17.7.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

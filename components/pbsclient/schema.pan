@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsclient, 17.7.0-rc3, rc3_1, Wed Aug 09 2017
+# pbsclient, 17.7.0, 1, Fri Aug 11 2017
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
