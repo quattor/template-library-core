@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 17.7.0, 1, Fri Aug 11 2017
+# pxelinux, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 unique template quattor/aii/pxelinux/config;
@@ -117,7 +117,7 @@ variable AII_NBP_ROOT ?= {
         if ( length(toks) < 3 ) {
             root = undef;
         } else {
-            root = toks[1] + '_'+ toks[2];
+            root = toks[1] + '_' + toks[2];
             if (length (toks) > 3) {
                 root = root + toks[3];
             };

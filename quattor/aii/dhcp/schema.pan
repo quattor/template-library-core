@@ -14,15 +14,15 @@
 #
 
 # #
-# dhcp, 17.7.0, 1, Fri Aug 11 2017
+# dhcp, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 unique template quattor/aii/dhcp/schema;
 
 # Information needed for creating the Kickstart file
 type structure_dhcp_dhcp_info = {
-	"tftpserver"	? string
-	"options"	? string{}
+    "tftpserver" ? string
+    "options" ? string{}
 };
 
 bind "/system/aii/dhcp" = structure_dhcp_dhcp_info;

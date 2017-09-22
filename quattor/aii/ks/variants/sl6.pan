@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 17.7.0, 1, Fri Aug 11 2017
+# ks, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 # Template containing OS configuration and default values.
@@ -23,7 +23,7 @@ template quattor/aii/ks/variants/sl6;
 
 prefix "/system/aii/osinstall/ks";
 
-# Remove deprecated options 
+# Remove deprecated options
 "mouse" = null;
 "langsupport" = null;
 
@@ -32,13 +32,13 @@ prefix "/system/aii/osinstall/ks";
 "volgroup_required" = false;
 
 "packages" = {
-  append('perl-parent');
-  append('perl-GSSAPI');
-  append('perl-Template-Toolkit');
-  SELF;
+    append('perl-parent');
+    append('perl-GSSAPI');
+    append('perl-Template-Toolkit');
+    SELF;
 };
 
 "version" = "13.21";
 
-"logging/method" = 'netcat'; 
+"logging/method" = 'netcat';
 "logging/protocol" = 'udp';

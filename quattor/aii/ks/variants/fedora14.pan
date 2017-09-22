@@ -14,14 +14,14 @@
 #
 
 # #
-# ks, 17.7.0, 1, Fri Aug 11 2017
+# ks, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 # Template containing OS configuration and default values.
 
 template quattor/aii/ks/variants/fedora14;
 
-# Remove deprecated options 
+# Remove deprecated options
 "/system/aii/osinstall/ks/mouse" = null;
 "/system/aii/osinstall/ks/langsupport" = null;
 "/system/aii/osinstall/ks/packages_args" = list("--ignoremissing");

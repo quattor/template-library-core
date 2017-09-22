@@ -16,11 +16,11 @@
 #
 
 # #
-# server, 17.7.0, 1, Fri Aug 11 2017
+# server, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 #
 # This file is the standard aii configuration. It only performs some
-# validations, combines information that is already available, and 
+# validations, combines information that is already available, and
 # set sensible default values.
 #
 # This file should NOT contain any site or platform customization.
