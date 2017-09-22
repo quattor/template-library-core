@@ -17,12 +17,12 @@ include 'components/altlogrotate/schema';
 
 bind '/software/components/altlogrotate' = altlogrotate_component;
 
-'/software/packages' = pkg_repl('ncm-altlogrotate', '17.7.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-altlogrotate', '17.8.0-rc1_1', 'noarch');
 
 include if_exists('components/altlogrotate/site-config.pan');
 
 prefix '/software/components/altlogrotate';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '17.7.0';
+'version' ?= '17.8.0';
 'dependencies/pre' ?= list('spma');

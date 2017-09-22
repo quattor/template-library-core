@@ -71,7 +71,7 @@ type logstash_input_plugin_common = {
     "debug" ? boolean
     "tags" ? string[]
     "add_field" ? string{}
-    "codec" ? logstash_input_codec
+    "codec" ? string with match(SELF, '^(plain|json)$')
 };
 
 @{ File-based input }
@@ -128,6 +128,17 @@ type logstash_input_beats = {
     'ssl' ? boolean
 };
 
+@{ zeromq input }
+type logstash_input_zeromq = {
+    include logstash_input_plugin_common
+    "address" ? string[] = list("tcp://*:2120")
+    "mode" ? string = "server" with match(SELF, ("server|client"))
+    "sender" ? string
+    "sockopt" ? dict()
+    "topic" ? string[]
+    "topology" : string with match(SELF, ("pushpull|pubsub|pair"))
+};
+
 type logstash_input_plugin = {
     "file" ? logstash_input_file
     "gelf" ? logstash_input_gelf
@@ -135,6 +146,7 @@ type logstash_input_plugin = {
     "udp" ? logstash_input_udp
     "lumberjack" ? logstash_input_lumberjack
     "beats" ? logstash_input_beats
+    "zeromq" ? logstash_input_zeromq
 } with length(SELF) == 1;
 
 
@@ -365,3 +377,60 @@ type type_logstash_forwarder = {
     "network" : type_logstash_forwarder_network
     "files" : type_logstash_forwarder_file[]
 };
+
+type type_logstash_yml_node = {
+    "name" ? string
+};
+
+type type_logstash_yml_pipeline = {
+    "workers" ? long
+    "output.workers" ? long
+    "batch.size" ? long
+    "unsafe_shutdown" ? boolean
+};
+
+type type_logstash_yml_path = {
+    "config" ? string
+    "data" ? string
+    "logs" ? string
+    "plugins" ? string[]
+    "queue" ? string
+};
+
+type type_logstash_yml_config = {
+    "string" ? string
+    "test_and_exit" ? boolean
+    "reload.automatic" ? boolean
+    "reload.interval" ? long
+    "debug" ? boolean
+};
+
+type type_logstash_yml_queue = {
+    "type" ? string
+    "page_capacity" ? string
+    "max_events" ? long
+    "max_bytes" ? long
+    "checkpoint.acks" ? long
+    "checkpoint.writes" ? long
+    "checkpoint.interval" ? long
+};
+
+type type_logstash_yml_http = {
+    "host" ? string
+    "port" ? string
+};
+
+type type_logstash_yml_log = {
+    "level" ? string with match(SELF, "(fatal|error|warn|info|debug|trace)")
+};
+
+type type_logstash_yml = {
+    "node" ? type_logstash_yml_node
+    "pipeline" ? type_logstash_yml_pipeline
+    "path" ? type_logstash_yml_path
+    "config" ? type_logstash_yml_config
+    "queue" ? type_logstash_yml_queue
+    "http" ? type_logstash_yml_http
+    "log" ? type_logstash_yml_log
+};
+

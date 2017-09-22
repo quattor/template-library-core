@@ -20,14 +20,14 @@ include 'components/grub/schema';
 
 bind '/software/components/grub' = grub_component;
 
-'/software/packages' = pkg_repl('ncm-grub', '17.7.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '17.8.0-rc1_1', 'noarch');
 
 include if_exists('components/grub/site-config.pan');
 
 prefix '/software/components/grub';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '17.7.0';
+'version' ?= '17.8.0';
 'dependencies/pre' ?= list('spma');
 
 # Do not register for changes to /system/kernel/version as it is optional

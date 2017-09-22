@@ -20,14 +20,14 @@ include 'components/authconfig/schema';
 
 bind '/software/components/authconfig' = authconfig_component;
 
-'/software/packages' = pkg_repl('ncm-authconfig', '17.7.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-authconfig', '17.8.0-rc1_1', 'noarch');
 
 include if_exists('components/authconfig/site-config.pan');
 
 prefix '/software/components/authconfig';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '17.7.0';
+'version' ?= '17.8.0';
 'dependencies/pre' ?= list('spma');
 
 "safemode" ?= false;

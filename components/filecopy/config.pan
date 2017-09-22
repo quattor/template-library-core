@@ -11,7 +11,7 @@
 
 # 
 # #
-# filecopy, 17.7.0, 1, Fri Aug 11 2017
+# filecopy, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 unique template components/filecopy/config;

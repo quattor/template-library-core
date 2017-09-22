@@ -17,12 +17,12 @@ include 'components/freeipa/schema';
 
 bind '/software/components/freeipa' = freeipa_component;
 
-'/software/packages' = pkg_repl('ncm-freeipa', '17.7.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-freeipa', '17.8.0-rc1_1', 'noarch');
 
 include if_exists('components/freeipa/site-config.pan');
 
 prefix '/software/components/freeipa';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '17.7.0';
+'version' ?= '17.8.0';
 'dependencies/pre' ?= list('spma');
