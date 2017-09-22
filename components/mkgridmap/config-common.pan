@@ -14,7 +14,7 @@
 #
 
 # #
-# mkgridmap, 17.7.0, 1, Fri Aug 11 2017
+# mkgridmap, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 unique template components/mkgridmap/config-common;
@@ -24,7 +24,7 @@ include 'components/mkgridmap/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/mkgridmap';
 
-'version' = '17.7.0';
+'version' = '17.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

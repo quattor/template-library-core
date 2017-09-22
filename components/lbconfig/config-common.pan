@@ -14,7 +14,7 @@
 #
 
 # #
-# lbconfig, 17.7.0, 1, Fri Aug 11 2017
+# lbconfig, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
 #
 
 unique template components/lbconfig/config-common;
@@ -24,7 +24,7 @@ include 'components/lbconfig/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/lbconfig';
 
-'version' = '17.7.0';
+'version' = '17.8.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
