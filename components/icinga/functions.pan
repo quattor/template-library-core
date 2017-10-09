@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 17.8.0-rc2, rc2_1, Mon Oct 09 2017
+# icinga, 17.8.0-rc3, rc3_1, Mon Oct 09 2017
 #
 
 template components/icinga/functions;
