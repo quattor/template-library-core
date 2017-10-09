@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
+# dirperm, 17.8.0-rc2, rc2_1, Mon Oct 09 2017
 #
 
 unique template components/dirperm/config;
@@ -19,7 +19,7 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "17.8.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "17.8.0-rc2_1", "noarch");
 
 prefix '/software/components/dirperm';
 

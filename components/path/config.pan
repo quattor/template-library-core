@@ -17,7 +17,7 @@ include 'components/path/schema';
 
 bind '/software/components/path' = path_component;
 
-'/software/packages' = pkg_repl('ncm-path', '17.8.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-path', '17.8.0-rc2_1', 'noarch');
 
 include if_exists('components/path/site-config.pan');
 
