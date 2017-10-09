@@ -14,7 +14,7 @@
 #
 
 # #
-# wmsclient, 17.8.0-rc1, rc1_1, Fri Sep 22 2017
+# wmsclient, 17.8.0-rc2, rc2_1, Mon Oct 09 2017
 #
 #
 
