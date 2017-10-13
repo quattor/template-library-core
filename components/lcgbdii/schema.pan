@@ -14,7 +14,7 @@
 #
 
 # #
-# lcgbdii, 17.8.0-rc3, rc3_1, Mon Oct 09 2017
+# lcgbdii, 17.8.0-rc4, rc4_1, Fri Oct 13 2017
 #
 #
 

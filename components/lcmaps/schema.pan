@@ -14,7 +14,7 @@
 #
 
 # #
-# lcmaps, 17.8.0-rc3, rc3_1, Mon Oct 09 2017
+# lcmaps, 17.8.0-rc4, rc4_1, Fri Oct 13 2017
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
