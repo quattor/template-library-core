@@ -163,7 +163,7 @@ function ip_in_network = {
 
 @documentation{
     descr = Checks which subnet ipaddr is a member of and returns the corresponding subnet\
- parameters for netmask, gateway... 
+ parameters for netmask, gateway...
     arg = subnet list, a list of dict where the keys are all the properties supported\
  by structure_interface + 'subnet' which is the subnet number (result of applying the\
  mask to the address. `subnet` key is mandatory, 'netmask` defaults to 255.255.255.0.
@@ -214,5 +214,3 @@ function get_subnet_params = {
 
     error(format("No subnet matching address %s found", ipaddr));
 };
-
-
