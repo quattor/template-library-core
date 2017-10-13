@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 17.8.0-rc4, rc4_1, Fri Oct 13 2017
+# opennebula, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
 #
 
 unique template components/opennebula/config;
@@ -29,6 +29,6 @@ prefix '/software/components/opennebula';
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-opennebula", "17.8.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "17.8.0-rc5_1", "noarch");
 
 include 'components/opennebula/sudo';

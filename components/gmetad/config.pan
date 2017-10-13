@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmetad, 17.8.0-rc4, rc4_1, Fri Oct 13 2017
+# gmetad, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
 #
 
 unique template components/gmetad/config;

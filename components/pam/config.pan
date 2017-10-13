@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 17.8.0-rc4, rc4_1, Fri Oct 13 2017
+# pam, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "17.8.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "17.8.0-rc5_1", "noarch");
 
 # standard functions
 include 'pan/functions';
