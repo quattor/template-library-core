@@ -17,7 +17,7 @@ include 'components/gmond/schema';
 
 bind '/software/components/gmond' = gmond_component;
 
-'/software/packages' = pkg_repl('ncm-gmond', '17.8.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gmond', '17.8.0-rc4_1', 'noarch');
 
 include if_exists('components/gmond/site-config.pan');
 
