@@ -83,7 +83,7 @@ function copy_network_params = {
             net_params = NETWORK_PARAMS;
         } else {
             net_params = dict();
-            net_params["onboot"] = "no";
+            net_params["onboot"] = false;
             net_params["bootproto"] = "dhcp";
         };
 
