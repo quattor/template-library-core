@@ -14,7 +14,7 @@
 #
 
 # #
-# lbconfig, 17.8.0-rc4, rc4_1, Fri Oct 13 2017
+# lbconfig, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
 #
 
 unique template components/lbconfig/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lbconfig/config-common';
 prefix '/software/components/lbconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lbconfig', '17.8.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lbconfig', '17.8.0-rc5_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
