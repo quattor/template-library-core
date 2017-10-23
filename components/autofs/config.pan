@@ -18,7 +18,7 @@ include 'components/autofs/schema';
 
 bind '/software/components/autofs' = autofs_component;
 
-'/software/packages' = pkg_repl('ncm-autofs', '17.8.0-rc5_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-autofs', '17.8.0-1', 'noarch');
 
 include if_exists('components/autofs/site-config.pan');
 

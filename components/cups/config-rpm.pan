@@ -11,7 +11,7 @@
 
 # 
 # #
-# cups, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
+# cups, 17.8.0, 1, Mon Oct 23 2017
 #
 
 unique template components/cups/config-rpm;
@@ -22,6 +22,6 @@ include 'components/cups/config-common';
 prefix '/software/components/cups';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-cups','17.8.0-rc5_1','noarch');
+'/software/packages' = pkg_repl('ncm-cups','17.8.0-1','noarch');
 'dependencies/pre' ?= list('spma');
 

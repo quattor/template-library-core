@@ -11,7 +11,7 @@
 
 # 
 # #
-# sendmail, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
+# sendmail, 17.8.0, 1, Mon Oct 23 2017
 #
 
 unique template components/sendmail/config;

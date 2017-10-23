@@ -17,7 +17,7 @@ include 'components/freeipa/schema';
 
 bind '/software/components/freeipa' = freeipa_component;
 
-'/software/packages' = pkg_repl('ncm-freeipa', '17.8.0-rc5_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-freeipa', '17.8.0-1', 'noarch');
 
 include if_exists('components/freeipa/site-config.pan');
 
