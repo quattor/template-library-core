@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 17.8.0-rc5, rc5_1, Fri Oct 13 2017
+# gacl, 17.8.0, 1, Mon Oct 23 2017
 #
 
 unique template components/gacl/config-rpm;
@@ -25,6 +25,6 @@ include 'components/gacl/config-common';
 prefix '/software/components/gacl';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gacl', '17.8.0-rc5_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gacl', '17.8.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
