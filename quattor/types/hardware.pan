@@ -3,6 +3,7 @@ declaration template quattor/types/hardware;
 include 'pan/types';
 include 'quattor/functions/hardware';
 include 'quattor/types/annotation';
+include 'quattor/types/sensors';
 include 'quattor/physdevices';
 
 @documentation{
@@ -261,6 +262,7 @@ type structure_hardware = {
     "sysloc"       ? structure_sysloc
     "nodename"     ? string
     "benchmarks" ? structure_benchmark
+    "sensors" ? structure_sensor_types
     @{Date at which the hardware support runs out.}
     "support"      ? type_isodate
     @{Date at which the hardware is procured.}
