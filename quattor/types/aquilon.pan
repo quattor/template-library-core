@@ -14,8 +14,14 @@ type structure_fsdata = {
     "block_device_path" : string # No validation on this!
 };
 
+type structure_virtual_machine = extensible {
+    "name" : string
+    "hardware" : structure_hardware
+};
+
 type structure_resources = extensible {
     "filesystem"    ? structure_fsdata[]
+    "virtual_machine" ? structure_virtual_machine[]
 };
 
 type structure_cluster = {
