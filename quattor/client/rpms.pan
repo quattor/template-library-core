@@ -28,8 +28,8 @@ include 'quattor/client/version';
     pkg_repl('ncm-spma',QUATTOR_PACKAGES_VERSION,'noarch');
 
     if ( QUATTOR_INSTALL_CDISPD ) {
-        pkg_repl('cdp-listend',QUATTOR_PACKAGES_VERSION,'noarch');
-        pkg_repl('ncm-cdispd',QUATTOR_PACKAGES_VERSION,'noarch');
+        pkg_repl('cdp-listend', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('ncm-cdispd', QUATTOR_PACKAGES_VERSION, 'noarch');
     };
 
     SELF;
