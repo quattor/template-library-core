@@ -5,6 +5,14 @@
 
 unique template quattor/client/rpms;
 
+@{
+descr = variable to enable installation of ncm-cdispd and ccm-listend
+values = boolean
+default = true
+required = No
+}
+variable QUATTOR_INSTALL_CDISPD ?= true;
+
 include 'quattor/client/version';
 
 '/software/packages' = {
@@ -15,11 +23,14 @@ include 'quattor/client/version';
     };
 
     # Quattor
-    pkg_repl('cdp-listend',QUATTOR_PACKAGES_VERSION,'noarch');
-    pkg_repl('ncm-cdispd',QUATTOR_PACKAGES_VERSION,'noarch');
     pkg_repl('ncm-ncd',QUATTOR_PACKAGES_VERSION,'noarch');
     pkg_repl('ncm-query',QUATTOR_PACKAGES_VERSION,'noarch');
     pkg_repl('ncm-spma',QUATTOR_PACKAGES_VERSION,'noarch');
+
+    if ( QUATTOR_INSTALL_CDISPD ) {
+        pkg_repl('cdp-listend', QUATTOR_PACKAGES_VERSION, 'noarch');
+        pkg_repl('ncm-cdispd', QUATTOR_PACKAGES_VERSION, 'noarch');
+    };
 
     SELF;
 };
