@@ -19,7 +19,7 @@ include 'quattor/client/version';
     # python-elementtree is required by YUM on SL5 but not listed as a dependency
     # of any other package
     if ( OS_VERSION_PARAMS['majorversion'] == '5' ) {
-        pkg_repl('python-elementtree');
+      pkg_repl('python-elementtree');
     };
 
     # Quattor
