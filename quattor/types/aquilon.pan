@@ -77,6 +77,17 @@ type structure_maintenance = {
     "duration"   : long(1..100)
 };
 
+type structure_espinfo = {
+    "description"   ? string with check_esp_chars(SELF)
+    "class"         ? string with match(SELF, '(INFRASTRUCTURE|APPLICATION)')
+    # infrafunction is to give more detail to class for the
+    # case that class is INFRASTRUCTURE
+    "infrafunction" ? string with check_esp_chars(SELF)
+    "escalation"    ? string with check_esp_chars(SELF)
+    "notifyrules"   ? string with check_esp_chars(SELF)
+    "notifyhours"   ? string with check_esp_chars(SELF)
+};
+
 type structure_personality = {
     # how many machines (as a percentage of the population) is the minimum
     # that we need in order to achieve our objectives? E.g. 95%.
@@ -99,8 +110,10 @@ type structure_personality = {
     # want anything else.
     "maintenance_threshold" ? long(0..100) = 50
     "backups"       ? string
-    "host_environment" ? string
+    "host_environment" ? string with match(SELF, "^(dev|qa|uat|prod|infra|legacy)$")
     "owner_eon_id" ? long
+    "stage"         ? string
+    "esp"           ? structure_espinfo
 };
 
 type structure_sys_components = {
