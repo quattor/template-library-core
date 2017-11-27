@@ -34,11 +34,7 @@ type structure_system = {
     "aii"           ? structure_aii
     @{CPU architecture of system.}
     "architecture"  ? cpu_architecture
-    "cluster"       ? structure_cluster
     "edg"           ? structure_edg
-    "enclosure"     ? structure_enclosure
-    @{Filesystems to be configured. Mountpoints and blockdevices must be unique.}
-    "filesystems"   ? structure_filesystem[] with filesystems_uniq_paths(SELF)
     "blockdevices" ? structure_blockdevices
     "glite"         ? structure_glite
     "kernel"        : structure_kernel

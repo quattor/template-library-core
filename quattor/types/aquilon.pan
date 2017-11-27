@@ -127,6 +127,10 @@ type structure_system_aquilon = {
     "advertise_status" ? boolean
     "archetype"     ? structure_archetype
     "build"         ? string with match (SELF, '^(build|blind|ready|failed|install)$')
+    "cluster"       ? structure_cluster
+    "enclosure"     ? structure_enclosure
+    @{Filesystems to be configured. Mountpoints and blockdevices must be unique.}
+    "filesystems"   ? structure_filesystem[] with filesystems_uniq_paths(SELF)
     "security"      ? structure_security
     "users"         ? nlist
     "eon_ids"       ? long[]
