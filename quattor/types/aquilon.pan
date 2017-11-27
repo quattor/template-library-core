@@ -28,6 +28,7 @@ type structure_cluster = {
     "rack" ? structure_rack
     "down_hosts_threshold" ? long(0..)
     "node_index" ? long(0..)
+    "max_hosts" ? long(0..)
 };
 
 type structure_archetype_os = {
