@@ -19,8 +19,18 @@ type structure_virtual_machine = extensible {
     "hardware" : structure_hardware
 };
 
-type structure_resources = extensible {
-    "filesystem"    ? structure_fsdata[]
+type structure_resources = {
+    "application" ? list()
+    "auto_start_list" ? list()
+    "filesystem" ? structure_fsdata[]
+    "hostlink" ? list()
+    "intervention" ? list()
+    "reboot_iv" ? list()
+    "reboot_schedule" ? list()
+    "resourcegroup" ? list()
+    "service_address" ? list()
+    "share" ? list()
+    "system_list" ? list()
     "virtual_machine" ? structure_virtual_machine[]
 };
 
