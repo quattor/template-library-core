@@ -125,6 +125,12 @@ type structure_ibhca = {
     "guid" ? ibguid
 };
 
+type structure_gpu = {
+    include structure_annotation
+    "driver" ? string
+    "pci" ? structure_pci
+};
+
 @documentation{
     Card and/or addon
 }
@@ -147,6 +153,8 @@ type structure_cards = {
     "bmc" ? structure_bmc[]
     @{For describing IB HCA's}
     "ib" ? structure_ibhca{}
+    @{For describing GPUs}
+    "gpu" ? structure_gpu[]
 } with is_valid_card_ports (SELF);
 
 @documentation{
