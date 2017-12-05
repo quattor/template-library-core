@@ -71,7 +71,7 @@ type structure_wl_networkserver = {
         'quotaSandboxSize' : long(0..) = 10000000
         'quotaAdjustment' : boolean = false
         'quotaAdjustmentAmount' : long(0..) = 2000
-        'reservedDiskPercentage' : double = 2.0 with (self >= 0.0 && self <= 100.0)
+        'reservedDiskPercentage' : double = 2.0 with (SELF >= 0.0 && SELF <= 100.0)
         'log' : structure_wl_log = dict('file', '${EDG_WL_TMP}/networkserver/log/events.log', 'level', 5)
         'DLICatalog' ? string[]
         'RLSCatalog' ? string[]
