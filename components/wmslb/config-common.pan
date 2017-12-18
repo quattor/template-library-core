@@ -14,7 +14,7 @@
 #
 
 # #
-# wmslb, 17.8.0, 1, Mon Oct 23 2017
+# wmslb, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 unique template components/wmslb/config-common;
@@ -24,7 +24,7 @@ include 'components/wmslb/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/wmslb';
 
-'version' = '17.8.0';
+'version' = '17.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

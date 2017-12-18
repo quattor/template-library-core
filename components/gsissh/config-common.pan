@@ -14,7 +14,7 @@
 #
 
 # #
-# gsissh, 17.8.0, 1, Mon Oct 23 2017
+# gsissh, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 unique template components/gsissh/config-common;
@@ -24,7 +24,7 @@ include 'components/gsissh/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gsissh';
 
-'version' = '17.8.0';
+'version' = '17.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
