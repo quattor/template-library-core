@@ -25,7 +25,8 @@ type hwloc_location = string with match(SELF, '^[\w:.]+$');
 @documentation{
     syslog facility to use when logging to syslog
 }
-type syslog_facility = string with match(SELF, '^(kern|user|mail|daemon|auth|syslog|lpr|news|uucp|cron|authpriv|ftp|local[0-7])$');
+type syslog_facility = string with match(SELF,
+    '^(kern|user|mail|daemon|auth|syslog|lpr|news|uucp|cron|authpriv|ftp|local[0-7])$');
 
 @documentation{
     syslog level to use when logging to syslog or the kernel log buffer
@@ -36,13 +37,18 @@ type systemd_skip = {
     "service" : boolean = false
 } = dict();
 
-type systemd_unit_architecture = string with match(SELF, '^(native|x86(-64)?|ppc(64)?(-le)?|ia64|parisc(64)?|s390x?|sparc(64)?)|mips(-le)?|alpha|arm(64)?(-be)?|sh(64)?|m86k|tilegx|cris$');
+type systemd_unit_architecture = string with match(SELF,
+    '^(native|x86(-64)?|ppc(64)?(-le)?|ia64|parisc(64)?|s390x?|sparc(64)?)' +
+    '|mips(-le)?|alpha|arm(64)?(-be)?|sh(64)?|m86k|tilegx|cris$');
 
 type systemd_unit_security = string with match(SELF, '^!?(selinux|apparmor|ima|smack|audit)$');
 
-type systemd_unit_virtualization = string with match(SELF, '^(0|1|vm|container|qemu|kvm|zvm|vmware|microsoft|oracle|xen|bochs|uml|openvz|lxc(-libvirt)?|systemd-nspawn|docker)$');
+type systemd_unit_virtualization = string with match(SELF,
+    '^(0|1|vm|container|qemu|kvm|zvm|vmware|microsoft|oracle|xen' +
+    '|bochs|uml|openvz|lxc(-libvirt)?|systemd-nspawn|docker)$');
 
-# TODO: https://github.com/quattor/configuration-modules-core/issues/646: make this more finegrained, e.g. has to be existing unit; or check types
+# TODO: https://github.com/quattor/configuration-modules-core/issues/646:
+#    make this more finegrained, e.g. has to be existing unit; or check types
 type systemd_valid_unit = string;
 
 # adding new ones
@@ -97,7 +103,8 @@ type systemd_unitfile_config_unit = {
     'JoinsNamespaceOf' ? systemd_valid_unit[]
     'NetClass' ? string
     'OnFailure' ? string[]
-    'OnFailureJobMode' ? string with match(SELF, '^(fail|replace(-irreversibly)?|isolate|flush|ignore-(dependencies|requirements))$')
+    'OnFailureJobMode' ? string with match(SELF,
+        '^(fail|replace(-irreversibly)?|isolate|flush|ignore-(dependencies|requirements))$')
     'PartOf' ? systemd_valid_unit[]
     'PropagatesReloadTo' ? string[]
     'RefuseManualStart' ? boolean
@@ -125,7 +132,8 @@ type systemd_unitfile_config_install = {
     'WantedBy' ? systemd_valid_unit[]
 };
 
-type systemd_unitfile_config_systemd_exec_stdouterr =  string with match(SELF, '^(inherit|null|tty|journal|syslog|kmsg|journal+console|syslog+console|kmsg+console|socket)$');
+type systemd_unitfile_config_systemd_exec_stdouterr =  string with match(SELF,
+    '^(inherit|null|tty|journal|syslog|kmsg|journal+console|syslog+console|kmsg+console|socket)$');
 
 @documentation{
 systemd.kill directives
@@ -134,7 +142,8 @@ valid for [Service], [Socket], [Mount], or [Swap] sections
 }
 type systemd_unitfile_config_systemd_kill = {
     'KillMode' ? string with match(SELF, '^(control-group|process|mixed|none)$')
-    'KillSignal' ? string with match(SELF, '^SIG(HUP|INT|QUIT|ILL|ABRT|FPE|KILL|SEGV|PIPE|ALRM|TERM|USR[12]|CHLD|CONT|STOP|T(STP|TIN|TOU))$')
+    'KillSignal' ? string with match(SELF,
+        '^SIG(HUP|INT|QUIT|ILL|ABRT|FPE|KILL|SEGV|PIPE|ALRM|TERM|USR[12]|CHLD|CONT|STOP|T(STP|TIN|TOU))$')
     'SendSIGHUP' ? boolean
     'SendSIGKILL' ? boolean
 };
@@ -294,8 +303,8 @@ type systemd_unit_type = {
 type component_systemd = {
     include structure_component
     "skip" : systemd_skip
-    # TODO: only ignore implemented so far. To add : disabled and/or masked
-    "unconfigured" : string = 'ignore' with match (SELF, '^(ignore)$') # harmless default
+    @{what to do with unconfigured units: ignore, enabled, disabled, on (enabled+start), off (disabled+stop; advanced option)}
+    "unconfigured" : string = 'ignore' with match (SELF, '^(ignore|enabled|disabled|on|off)$') # harmless default
     # escaped full unitnames are allowed (or use shortnames and type)
     "unit" ? systemd_unit_type{}
 };

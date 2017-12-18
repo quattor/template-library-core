@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 17.8.0, 1, Mon Oct 23 2017
+# postfix, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 unique template components/postfix/config;
@@ -25,4 +25,4 @@ prefix '/software/components/postfix';
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
-'/software/packages' = pkg_repl('ncm-postfix','17.8.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','17.12.0-rc1_1','noarch');

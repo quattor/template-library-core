@@ -1,21 +1,21 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Michel Jouvin <jouvin@lal.in2p3.fr>
 #
 
-# 
+
 
 declaration template components/cups/schema;
 
 include 'quattor/schema';
 
-type component_cups_printer = {
+type cups_component_printer = {
     "server" ? string
     "protocol" ? string
     "printer" ? string
@@ -30,7 +30,7 @@ type component_cups_printer = {
 };
 
 
-type component_cups_options = {
+type cups_component_options = {
     "AutoPurgeJobs" ? legacy_binary_affirmation_string
     "Classification" ? string
     "ClassifyOverride" ? string with match (SELF, "on|off")
@@ -45,15 +45,15 @@ type component_cups_options = {
     "PreserveJobFiles" ? legacy_binary_affirmation_string
     "Printcap" ? string
     "ServerAdmin" ? string
+    "ServerAlias" ? string[]
     "ServerName" ? string
 };
 
-type component_cups = {
+type cups_component = {
     include structure_component
     "defaultprinter" ? string
     "nodetype" ? string with match (SELF, "client|server")
-    "options" ? component_cups_options
-    "printers" ? component_cups_printer{}
+    "options" ? cups_component_options
+    "printers" ? cups_component_printer{}
 };
 
-bind "/software/components/cups" = component_cups;

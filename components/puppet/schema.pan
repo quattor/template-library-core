@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 17.8.0, 1, Mon Oct 23 2017
+# puppet, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 declaration template components/puppet/schema;
@@ -31,8 +31,6 @@ type puppet_puppetconf_main = extensible {
     "rundir" : string = "/var/run/puppet"
 };
 
-
-
 type puppet_puppetconf = extensible {
     "main" : puppet_puppetconf_main
 };
@@ -41,21 +39,25 @@ type puppet_hieraconf_yaml = extensible {
     "_3adatadir" : string = "/etc/puppet/hieradata"
 };
 
-type puppet_hieraconf = extensible {
-    "_3abackends" : string[] = list("yaml")
-    "_3ayaml" : puppet_hieraconf_yaml
-    "_3ahierarchy" : string[] = list("quattor")
-};
+type puppet_hieraconf = extensible {};
 
 type puppet_hieradata = extensible {};
 
 type puppet_component = {
     include structure_component
+    "puppet_cmd" : string = "/usr/bin/puppet"
+    "logfile" : string = "/var/log/puppet/log"
+    "modulepath" : string = "/etc/puppet/modules"
     "modules" ? puppet_module{}
-    "nodefiles" : puppet_nodefile{}= dict(escape("quattor_default.pp"), dict("contents", "hiera_include('classes')"))
+    "nodefiles" : puppet_nodefile{} = dict(escape("quattor_default.pp"), dict("contents", "hiera_include('classes')"))
+    "nodefiles_path" : string = '/etc/puppet/manifests'
     "puppetconf" : puppet_puppetconf = dict("main", dict("logdir", "/var/log/puppet", "rundir", "/var/run/puppet"))
-    "hieraconf" : puppet_hieraconf = dict(escape(":backends"), list("yaml"), escape(":yaml"), dict(escape(":datadir"), "/etc/puppet/hieradata"), escape(":hierarchy"), list("quattor"))
+    "puppetconf_file" : string = '/etc/puppet/puppet.conf'
+    "hieraconf" : puppet_hieraconf = dict(escape(":backends"), list("yaml"), escape(":yaml"),
+        dict(escape(":datadir"), "/etc/puppet/hieradata"), escape(":hierarchy"), list("quattor"))
+    "hieraconf_file" : string = "/etc/puppet/hiera.yaml"
     "hieradata" ? puppet_hieradata
+    "hieradata_file" : string = "/etc/puppet/hieradata/quattor.yaml"
 };
 
 bind '/software/components/puppet' = puppet_component;

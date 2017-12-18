@@ -11,7 +11,7 @@
 
 # 
 # #
-# interactivelimits, 17.8.0, 1, Mon Oct 23 2017
+# interactivelimits, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 unique template components/interactivelimits/config;
@@ -23,12 +23,12 @@ bind "/software/components/interactivelimits" = component_interactivelimits_type
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-interactivelimits", "17.8.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-interactivelimits", "17.12.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/interactivelimits';
 
-'version' = '17.8.0';
+'version' = '17.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' = list("spma");

@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 17.8.0, 1, Mon Oct 23 2017
+# pnp4nagios, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 unique template components/pnp4nagios/config;

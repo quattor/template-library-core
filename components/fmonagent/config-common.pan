@@ -12,7 +12,7 @@
 
 # 
 # #
-# fmonagent, 17.8.0, 1, Mon Oct 23 2017
+# fmonagent, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
 #
 
 unique template components/fmonagent/config-common;
@@ -22,7 +22,7 @@ include 'components/fmonagent/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/fmonagent';
 
-#'version' = '17.8.0';
+#'version' = '17.12.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
