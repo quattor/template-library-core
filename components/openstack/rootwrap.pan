@@ -12,7 +12,7 @@
 
 # 
 # #
-# openstack, 17.12.0-rc1, rc1_1, Mon Dec 18 2017
+# openstack, 17.12.0-rc2, rc2_1, Tue Dec 19 2017
 #
 
 @documentation{

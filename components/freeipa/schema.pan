@@ -39,7 +39,7 @@ type component_freeipa_user = {
     @{first name}
     'givenname' : string
     @{group name (must be a configured group to retrieve the gid)}
-    'group' ? string with exists('/software/components/freeipa/server/groups/'+SELF)
+    'group' ? string with exists('/software/components/freeipa/server/groups/' + SELF)
     @{homedirectory}
     'homedirectory' ? string
     @{gecos}

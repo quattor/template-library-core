@@ -15,6 +15,8 @@
 
 declaration template components/openstack/nova;
 
+include 'components/openstack/keystone';
+
 @documentation {
     The Nova configuration options in "api_database" Section.
 }
