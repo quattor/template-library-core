@@ -47,6 +47,7 @@ type structure_system = {
     @{Monitoring-related schemas should handle the bind to this path when they are included.}
     "monitoring"    ? dict
     "os" ? structure_os
+    "resources"     ? structure_resources
     "rootmail"      : type_email
     "siterelease"   ? string
     @{Current state of system, one of: production, out-of-production, test, development, onloan.}

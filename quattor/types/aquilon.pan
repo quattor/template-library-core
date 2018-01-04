@@ -14,8 +14,24 @@ type structure_fsdata = {
     "block_device_path" : string # No validation on this!
 };
 
-type structure_resources = extensible {
-    "filesystem"    ? structure_fsdata[]
+type structure_virtual_machine = extensible {
+    "name" : string
+    "hardware" : structure_hardware
+};
+
+type structure_resources = {
+    "application" ? list()
+    "auto_start_list" ? list()
+    "filesystem" ? structure_fsdata[]
+    "hostlink" ? list()
+    "intervention" ? list()
+    "reboot_iv" ? list()
+    "reboot_schedule" ? list()
+    "resourcegroup" ? list()
+    "service_address" ? list()
+    "share" ? list()
+    "system_list" ? list()
+    "virtual_machine" ? structure_virtual_machine[]
 };
 
 type structure_cluster = {
