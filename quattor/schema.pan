@@ -5,18 +5,7 @@ include 'quattor/functions/validation';
 
 include 'quattor/types/component';
 
-@documentation{
-    generic definition of the software tree. This is made more specific if the
-    SPMA definitions are included
-}
-type structure_software = {
-    "components"    ? structure_component{}
-    "repositories"  ? list
-    "packages"      ? nlist
-    "groups"        ? nlist
-};
-
-
+include 'quattor/types/software';
 include 'quattor/types/hardware';
 include 'quattor/types/system';
 include 'quattor/types/metadata';
