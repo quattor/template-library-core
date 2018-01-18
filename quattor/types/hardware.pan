@@ -238,6 +238,7 @@ type structure_sysloc = {
     "bunker"     ? string
     "region"     ? string
     "dns_search_domains" ? string[]
+    "location" ? string
 };
 
 @documentation{
