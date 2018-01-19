@@ -62,7 +62,7 @@ type systemd_valid_unit = string;
 type systemd_unitfile_config_unit_condition = {
     'ACPower' ? boolean
     'Architecture' ? systemd_unit_architecture[]
-    'Capability' ? string[]
+    'Capability' ? linux_capability[]
     'DirectoryNotEmpty' ? string[]
     'FileIsExecutable' ? string[]
     'FileNotEmpty' ? string[]
@@ -207,8 +207,10 @@ http://www.freedesktop.org/software/systemd/man/systemd.service.html
 type systemd_unitfile_config_service = {
     include systemd_unitfile_config_systemd_exec
     include systemd_unitfile_config_systemd_kill
+    'AmbientCapabilities' ? linux_capability[]
     'BusName' ? string
     'BusPolicy' ? string[] with length(SELF) == 2 && match(SELF[1], '^(see|talk|own)$')
+    'CapabilityBoundingSet' ? linux_capability[]
     'ExecReload' ? string
     'ExecStart' ? string
     'ExecStartPost' ? string

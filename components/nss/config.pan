@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 17.12.0-rc2, rc2_1, Tue Dec 19 2017
+# nss, 17.12.0-rc3, rc3_1, Fri Jan 19 2018
 #
 
 ################################################################################
@@ -25,7 +25,7 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "17.12.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "17.12.0-rc3_1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';

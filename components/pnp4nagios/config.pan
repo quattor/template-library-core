@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 17.12.0-rc2, rc2_1, Tue Dec 19 2017
+# pnp4nagios, 17.12.0-rc3, rc3_1, Fri Jan 19 2018
 #
 
 unique template components/pnp4nagios/config;
