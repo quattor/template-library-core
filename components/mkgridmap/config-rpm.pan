@@ -14,7 +14,7 @@
 #
 
 # #
-# mkgridmap, 17.12.0-rc2, rc2_1, Tue Dec 19 2017
+# mkgridmap, 17.12.0-rc3, rc3_1, Fri Jan 19 2018
 #
 
 unique template components/mkgridmap/config-rpm;
@@ -25,6 +25,6 @@ include 'components/mkgridmap/config-common';
 prefix '/software/components/mkgridmap';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-mkgridmap', '17.12.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-mkgridmap', '17.12.0-rc3_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
