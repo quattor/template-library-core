@@ -11,7 +11,7 @@
 
 # 
 # #
-# nsca, 17.12.0-rc3, rc3_1, Fri Jan 19 2018
+# nsca, 17.12.0-rc4, rc4_1, Wed Jan 24 2018
 #
 
 unique template components/nsca/config;
