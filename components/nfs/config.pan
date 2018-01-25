@@ -17,7 +17,7 @@ include 'components/nfs/schema';
 
 bind '/software/components/nfs' = nfs_component;
 
-'/software/packages' = pkg_repl('ncm-nfs', '17.12.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-nfs', '17.12.0-rc6_1', 'noarch');
 
 include if_exists('components/nfs/site-config.pan');
 

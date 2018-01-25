@@ -17,7 +17,7 @@ include 'components/ccm/schema';
 
 bind '/software/components/ccm' = ccm_component;
 
-'/software/packages' = pkg_repl('ncm-ccm', '17.12.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ccm', '17.12.0-rc6_1', 'noarch');
 
 include if_exists('components/ccm/site-config.pan');
 

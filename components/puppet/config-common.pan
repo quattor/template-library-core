@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 17.12.0-rc4, rc4_1, Wed Jan 24 2018
+# puppet, 17.12.0-rc6, rc6_1, Thu Jan 25 2018
 #
 
 unique template components/puppet/config-common;
