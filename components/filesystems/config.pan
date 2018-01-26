@@ -11,7 +11,7 @@
 
 # 
 # #
-# filesystems, 17.12.0-rc6, rc6_1, Thu Jan 25 2018
+# filesystems, 17.12.0, 1, Fri Jan 26 2018
 #
 
 unique template components/filesystems/config;

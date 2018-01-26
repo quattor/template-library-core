@@ -17,7 +17,7 @@ include 'components/cups/schema';
 
 bind '/software/components/cups' = cups_component;
 
-'/software/packages' = pkg_repl('ncm-cups', '17.12.0-rc6_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-cups', '17.12.0-1', 'noarch');
 
 include if_exists('components/cups/site-config.pan');
 

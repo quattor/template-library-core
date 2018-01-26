@@ -20,7 +20,7 @@ include 'components/sudo/functions';
 
 # Package to install:
 # Package to install
-"/software/packages" = pkg_repl("ncm-sudo", "17.12.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-sudo", "17.12.0-1", "noarch");
 
  # This component should be run after ncm-accounts, if present.
 "/software/components/sudo/dependencies/pre" = {

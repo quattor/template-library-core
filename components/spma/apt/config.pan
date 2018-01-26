@@ -18,7 +18,7 @@ unique template components/spma/apt/config;
 
 prefix '/software';
 
-'packages' = pkg_repl("ncm-spma", "17.12.0-rc6_1", "noarch");
+'packages' = pkg_repl("ncm-spma", "17.12.0-1", "noarch");
 
 prefix '/software/components/spma';
 
