@@ -130,6 +130,7 @@ type structure_gpu = {
     include structure_annotation
     "driver" ? string
     "pci" ? structure_pci
+    "ram" ? structure_ram
 };
 
 @documentation{
