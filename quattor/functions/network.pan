@@ -214,3 +214,41 @@ function get_subnet_params = {
 
     error(format("No subnet matching address %s found", ipaddr));
 };
+
+@documentation{
+    descr = Convert a network prefix (0..32) into a netmask (IPv4 notation), e.g. 16 becomes 255.255.0.0
+    arg = prefix
+}
+function subnet_prefix_to_mask = {
+    pref = ARGV[0];
+    if (!(is_long(pref) && is_ipv4_prefix_length(pref))) {
+        error("%s: argument %s must be a valid prefix", FUNCTION, pref);
+    };
+    mask_long = 0;
+    for (idx = 1; idx <= 32; idx = idx + 1) {
+        mask_long = mask_long * 2;
+        if (idx <= pref) {
+            mask_long = mask_long + 1;
+        }
+    };
+    long_to_ip4(mask_long);
+};
+
+@documentation{
+    descr = Convert a netmask (IPv4 notation) into a network prefix (0..32), e.g. 255.255.0.0 becomes 16
+    arg = netmask
+}
+function subnet_mask_to_prefix = {
+    if (!is_ipv4(ARGV[0])) {
+        error("%s: argument %s must be a valid netmask", FUNCTION, ARGV[0]);
+    };
+    masks = ip4_to_long(ARGV[0]);
+    mask = masks[0];
+    for (idx = 31; idx >= 0; idx = idx - 1) {
+        mask = mask / 2;
+        if (mask % 2 > 0) {
+            return(idx);
+        };
+    };
+    error("%s failed to determine prefix for mask %s %s", FUNCTION, ARGV[0]);
+};
