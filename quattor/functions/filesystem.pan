@@ -63,16 +63,12 @@ function lvs_add = {
 # The values in second argument dict  can be either a number interpreted as the partition size or a dict where only
 # the keys 'size' and 'flags' are used (other keys are ignored).
 function partitions_add = {
-    if (length (ARGV) != 2 && length (ARGV) != 3) {
+    if (ARGC < 2 || ARGC > 3) {
         error ("%s: requires 2 or 3 arguments", FUNCTION);
     };
 
     pt = ARGV[1];
-    if (length (ARGV) == 3) {
-        ep = ARGV[2];
-    } else {
-        ep = undef;
-    };
+    ep = if (ARGC == 3) ARGV[2];
 
     foreach (p; params; pt) {
         if (is_defined (ep)) {
