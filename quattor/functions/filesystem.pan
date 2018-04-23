@@ -28,7 +28,7 @@ function boot_disk = {
       return(i);
     };
   };
-  null;
+  undef;
 };
 
 @documentation{

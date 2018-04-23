@@ -3,7 +3,7 @@
 #
 template quattor/client/config;
 
-variable QUATTOR_CLIENT_CONFIG_SITE ?= null;
+variable QUATTOR_CLIENT_CONFIG_SITE ?= undef;
 include {if_exists(to_string(QUATTOR_CLIENT_CONFIG_SITE));};
 
 @{
