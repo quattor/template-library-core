@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 17.12.0, 1, Fri Jan 26 2018
+# glitestartup, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 
 unique template components/glitestartup/config-rpm;
@@ -25,6 +25,6 @@ include 'components/glitestartup/config-common';
 prefix '/software/components/glitestartup';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-glitestartup', '17.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-glitestartup', '18.3.0-rc3_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
