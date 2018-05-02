@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsfile, 17.12.0, 1, Fri Jan 26 2018
+# hostsfile, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 
 unique template components/hostsfile/config;
@@ -19,11 +19,11 @@ unique template components/hostsfile/config;
 include 'components/hostsfile/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-hostsfile", "17.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-hostsfile", "18.3.0-rc3_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/hostsfile';
 
-'version' = '17.12.0';
+'version' = '18.3.0';
 'active' ?= false;
 'dispatch' ?= false;

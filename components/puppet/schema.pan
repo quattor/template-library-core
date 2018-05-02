@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 17.12.0, 1, Fri Jan 26 2018
+# puppet, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 
 declaration template components/puppet/schema;

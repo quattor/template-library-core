@@ -1,27 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   wouter.depypere@ugent.be <wouter.depypere@ugent.be>
 #
 
-# 
+
 
 unique template components/postgresql/config;
 
 include 'components/postgresql/schema';
 
-bind "/software/components/postgresql" = component_postgresql;
+bind '/software/components/postgresql' = postgresql_component;
 
-# Package to install
-"/software/packages" = pkg_repl("ncm-postgresql", "17.12.0-1", "noarch");
+'/software/packages' = pkg_repl('ncm-postgresql', '18.3.0-rc3_1', 'noarch');
 
-# Set prefix to root of component configuration.
+include if_exists('components/postgresql/site-config');
+
 prefix '/software/components/postgresql';
 'active' ?= true;
 'dispatch' ?= true;
-'dependencies/pre' ?= list("spma");
+'version' ?= '18.3.0';
+'dependencies/pre' ?= list('spma');

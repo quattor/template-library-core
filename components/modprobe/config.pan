@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 17.12.0, 1, Fri Jan 26 2018
+# modprobe, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 
 unique template components/modprobe/config;
@@ -19,7 +19,7 @@ unique template components/modprobe/config;
 include 'components/modprobe/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-modprobe", "17.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-modprobe", "18.3.0-rc3_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/modprobe';

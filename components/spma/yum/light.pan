@@ -14,17 +14,8 @@
 #
 
 
-unique template components/spma/apt/config;
+@{spma backend specific statements for spmalight}
 
-prefix '/software';
+unique template components/spma/yum/light;
 
-'packages' = pkg_repl("ncm-spma", "18.3.0-rc3_1", "noarch");
-
-prefix '/software/components/spma';
-
-'packager' = 'apt';
-
-'register_change' ?= list(
-    "/software/packages",
-    "/software/repositories",
-);
+bind "/software/components/spmalight" = component_spma_yum;

@@ -11,17 +11,17 @@
 
 # 
 # #
-# ssh, 17.12.0, 1, Fri Jan 26 2018
+# ssh, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "17.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "18.3.0-rc3_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '17.12.0';
+'version' ?= '18.3.0';

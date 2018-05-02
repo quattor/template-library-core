@@ -19,10 +19,10 @@ unique template components/fmonagent/config-rpm;
 include 'components/fmonagent/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-fmonagent", "17.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-fmonagent", "18.3.0-rc3_1", "noarch");
 
 
-'/software/components/fmonagent/version' ?= '17.12.0';
+'/software/components/fmonagent/version' ?= '18.3.0';
 
 "/software/components/fmonagent/dependencies/pre" ?= list("spma");
 "/software/components/fmonagent/active"         ?= true;

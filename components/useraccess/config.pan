@@ -1,20 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
 #
 
-# 
-# #
-# useraccess, 17.12.0, 1, Fri Jan 26 2018
-#
+
 
 unique template components/useraccess/config;
 
-include 'components/useraccess/config-common';
-include 'components/useraccess/config-rpm';
+include 'components/useraccess/schema';
+
+bind '/software/components/useraccess' = useraccess_component;
+
+'/software/packages' = pkg_repl('ncm-useraccess', '18.3.0-rc3_1', 'noarch');
+
+include if_exists('components/useraccess/site-config');
+
+prefix '/software/components/useraccess';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '18.3.0';
+"dependencies/pre" ?=  list("spma", "accounts");

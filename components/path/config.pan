@@ -17,12 +17,12 @@ include 'components/path/schema';
 
 bind '/software/components/path' = path_component;
 
-'/software/packages' = pkg_repl('ncm-path', '17.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-path', '18.3.0-rc3_1', 'noarch');
 
-include if_exists('components/path/site-config.pan');
+include if_exists('components/path/site-config');
 
 prefix '/software/components/path';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '17.12.0';
+'version' ?= '18.3.0';
 'dependencies/pre' ?= list('spma');

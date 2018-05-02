@@ -11,21 +11,21 @@
 
 # 
 # #
-# symlink, 17.12.0, 1, Fri Jan 26 2018
+# symlink, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 
 unique template components/symlink/config;
 
 include 'components/symlink/schema';
 
-"/software/packages" = pkg_repl("ncm-symlink", "17.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-symlink", "18.3.0-rc3_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/symlink';
 
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '17.12.0';
+'version' = '18.3.0';
 'dependencies/pre' ?= list("spma");
 'options/exists' ?= false;
 'options/replace/none' ?= "yes";

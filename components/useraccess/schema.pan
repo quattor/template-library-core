@@ -1,28 +1,25 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
 #
 
-# 
 
-# Component useraccess
-# Author: Luis Fernando Muñoz Mejías <mejias@delta.ft.uam.es>
 
 declaration template components/useraccess/schema;
 
-include 'quattor/schema';
+include 'quattor/types/component';
+include 'pan/types';
 
-type useraccess_pointer = string with exists ("/software/components/useraccess/roles/"
-    + SELF);
+type useraccess_pointer = string with exists ("/software/components/useraccess/roles/" + SELF);
 
 # Information needed for Kerberos authentication
-type structure_kerberos = {
+type useraccess_kerberos = {
     "realm" : type_hostname
     "principal" : string    # "User's principal id"
     "instance" ? string    # "User's instance id"
@@ -35,14 +32,14 @@ type structure_kerberos = {
 type credentialfilestring = string with match(SELF, "^(ssh_keys|kerberos4|kerberos5)$");
 
 # Authoritation information for each user.
-type structure_useraccess_auth = {
+type useraccess_auth = {
     # URLs where the public keys that can access to the user can
     # be downloaded
     "ssh_keys_urls" ? type_absoluteURI[]
     # Kerberos 4 credentials for authenticating as an user
-    "kerberos4" ? structure_kerberos[]
+    "kerberos4" ? useraccess_kerberos[]
     # "User's information for authenticating via Kerberos v.5"
-    "kerberos5" ? structure_kerberos[]
+    "kerberos5" ? useraccess_kerberos[]
     # List of ACL-controlled services where the user can access.
     "acls" ? string[]
     # List of roles the user belongs to. References an existing role.
@@ -57,13 +54,12 @@ type structure_useraccess_auth = {
 
 # Information needed for this component.
 # Roles may be nested some day. Anyways, that field doesn't hurt.
-type structure_component_useraccess = {
+type useraccess_component = {
     include structure_component
     "configSerial" ? string
-    "users" : structure_useraccess_auth {}
-    "roles" ? structure_useraccess_auth {}
+    "users" : useraccess_auth {}
+    "roles" ? useraccess_auth {}
     # List of services that will be controlled via ACLs
     "acl_services" ? string[]
 };
 
-bind "/software/components/useraccess" = structure_component_useraccess;

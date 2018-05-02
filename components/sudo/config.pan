@@ -1,23 +1,33 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Luis Fernando Muñoz Mejías <Luis.Munoz@UGent.be>
 #
 
-# #
+#
 # Author(s): Luis Fernando Muñoz Mejías, Nick Williams, Loic Brarda
 #
 
-# #
-# sudo, 17.12.0, 1, Fri Jan 26 2018
-#
 
 unique template components/sudo/config;
 
-include 'components/sudo/config-common';
-include 'components/sudo/config-rpm';
+include 'components/sudo/schema';
+
+bind '/software/components/sudo' = sudo_component;
+
+'/software/packages' = pkg_repl('ncm-sudo', '18.3.0-rc3_1', 'noarch');
+
+include if_exists('components/sudo/site-config');
+
+prefix '/software/components/sudo';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '18.3.0';
+"dependencies/pre" ?=  list("spma", "accounts");
+
+include 'components/sudo/validation';

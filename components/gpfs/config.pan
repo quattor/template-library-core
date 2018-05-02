@@ -1,27 +1,28 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Stijn De Weirdt <stijn.dweirdt@ugent.be>
 #
 
-# 
-# #
-# gpfs, 17.12.0, 1, Fri Jan 26 2018
-#
+
 
 unique template components/gpfs/config;
+
 include 'components/gpfs/schema';
 
-'/software/packages'=pkg_repl('ncm-gpfs','17.12.0-1','noarch');
+bind '/software/components/gpfs' = gpfs_component;
+
+'/software/packages' = pkg_repl('ncm-gpfs', '18.3.0-rc3_1', 'noarch');
+
+include if_exists('components/gpfs/site-config');
 
 prefix '/software/components/gpfs';
-'dependencies/pre' ?= list ('spma');
 'active' ?= true;
 'dispatch' ?= true;
-
-bind '/software/components/gpfs' = component_gpfs;
+'version' ?= '18.3.0';
+'dependencies/pre' ?= list('spma');
