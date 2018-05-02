@@ -16,7 +16,7 @@
 #
 
 # #
-# server, 17.12.0, 1, Fri Jan 26 2018
+# server, 18.3.0-rc3, rc3_1, Wed May 02 2018
 #
 #
 # This file is the standard aii configuration. It only performs some
@@ -34,7 +34,7 @@ include 'quattor/functions/filesystem';
 include 'quattor/aii/schema';
 
 # First include AII site configuration, if any
-variable AII_CONFIG_SITE ?= null;
+variable AII_CONFIG_SITE ?= undef;
 include if_exists(to_string(AII_CONFIG_SITE));
 
 # For convenience
