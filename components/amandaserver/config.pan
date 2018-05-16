@@ -11,7 +11,7 @@
 
 # 
 # #
-# amandaserver, 18.3.0-rc3, rc3_1, Wed May 02 2018
+# amandaserver, 18.3.0-rc4, rc4_1, Wed May 16 2018
 #
 
 unique template components/amandaserver/config;
