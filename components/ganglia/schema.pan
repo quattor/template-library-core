@@ -14,7 +14,7 @@
 #
 
 # #
-# ganglia, 18.3.0-rc4, rc4_1, Wed May 16 2018
+# ganglia, 18.3.0-rc5, rc5_1, Wed May 23 2018
 #
 
 @author{
