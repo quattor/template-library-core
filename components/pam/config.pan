@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 18.3.0-rc5, rc5_1, Wed May 23 2018
+# pam, 18.3.0, 1, Wed May 23 2018
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "18.3.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "18.3.0-1", "noarch");
 
 # standard functions
 include 'pan/functions';

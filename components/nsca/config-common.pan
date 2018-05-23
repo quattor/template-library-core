@@ -11,7 +11,7 @@
 
 # 
 # #
-# nsca, 18.3.0-rc5, rc5_1, Wed May 23 2018
+# nsca, 18.3.0, 1, Wed May 23 2018
 #
 
 unique template components/nsca/config-common;
@@ -21,7 +21,7 @@ include 'components/nsca/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/nsca';
 
-#'version' = '18.3.0-rc5';
+#'version' = '18.3.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

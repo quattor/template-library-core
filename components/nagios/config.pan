@@ -11,7 +11,7 @@
 
 # 
 # #
-# nagios, 18.3.0-rc5, rc5_1, Wed May 23 2018
+# nagios, 18.3.0, 1, Wed May 23 2018
 #
 
 unique template components/nagios/config;

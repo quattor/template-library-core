@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 18.3.0-rc5, rc5_1, Wed May 23 2018
+# icinga, 18.3.0, 1, Wed May 23 2018
 #
 
 unique template components/icinga/config;
@@ -28,4 +28,4 @@ prefix '/software/components/icinga';
 'dependencies/pre' ?= list('spma');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "18.3.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "18.3.0-1", "noarch");
