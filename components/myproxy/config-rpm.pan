@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 18.3.0-rc4, rc4_1, Wed May 16 2018
+# myproxy, 18.3.0-rc5, rc5_1, Wed May 23 2018
 #
 
 unique template components/myproxy/config-rpm;
@@ -25,6 +25,6 @@ include 'components/myproxy/config-common';
 prefix '/software/components/myproxy';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-myproxy', '18.3.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-myproxy', '18.3.0-rc5_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
