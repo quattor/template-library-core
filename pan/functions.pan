@@ -83,9 +83,8 @@ function npush = {
     n = dict();
     index = 0;
     while (index < ARGC) {
-        if (!is_string(ARGV[index]))
-        error(format("key is not a string: %s", ARGV[index]));
-        n[ARGV[index]] = ARGV[index + 1];
+        if (!is_string(ARGV[index])) error(format("key is not a string: %s", ARGV[index]));
+        n[ARGV[index]] = ARGV[index+1];
         index = index + 2;
     };
 
@@ -138,7 +137,6 @@ function push_if = {
         };
 
     } else {
-
         # Return either SELF or an empty list.
         if (is_defined(SELF)) {
             v = SELF;
@@ -190,7 +188,7 @@ function domain_from_object = {
     # Check  if a default domain has been defined
     if ( ARGC == 1 ) {
         # Default domain name is no longer used and passing the argument is deprecaded
-        deprecated(0, 'Using default_domain argument is deprecated. Use domain_from_object() instead');       
+        deprecated(0, 'Using default_domain argument is deprecated. Use domain_from_object() instead');
     } else if ( ARGC > 1 ) {
         error("usage: domain_from_object()");
     };
