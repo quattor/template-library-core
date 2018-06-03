@@ -1,13 +1,4 @@
 ################################################################################
-# This is 'namespaces/standard/pan/functions.tpl', a pan-templates's file
-################################################################################
-#
-# VERSION:    3.2.7, 21/08/09 22:22
-# AUTHOR:     Martin Bock
-# MAINTAINER: Marco Emilio Poleggi <Marco.Emilio.Poleggi@cern.ch>, German Cancio <German.Cancio.Melia@cern.ch>, Michel Jouvin <jouvin@lal.in2p3.fr>
-# LICENSE:    http://cern.ch/eu-datagrid/license.html
-#
-################################################################################
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
 ################################################################################
 #
@@ -161,33 +152,16 @@ function push_if = {
 
 
 ########################################################################
-##=
-## @function hostname_from_object
-## @# extracts the machine hostname from the object
-##+template name.  This assumes that your machine profile has
-##+the form profile_*.  If it does not, an error is thrown.
-## @syntax void
-## @example
-##+# "/data" will contain "myhost"
-##+object template profile_myhost.example.org;
-##+"/data" = hostname_from_object();
-##=
+#
+# hostname_from_object: extracts the hostname, without the domain,
+# from the object template name. Its name is assumed to be the host FQDN.
+#
+#
 ############################################################
 function hostname_from_object = {
     # Check cardinality.
     if (ARGC != 0) error("usage: hostname_from_object()");
 
-    # Check first for the old style profile names.
-    m = matches(OBJECT, "profile_([^\\.]+)(\\.(.*))?");
-    if (length(m) >= 2) {
-        if (is_shorthostname(m[1])) {
-            return(m[1]);
-        } else {
-            error(format("hostname_from_object: invalid hostname (%s)", m[1]));
-        };
-    };
-
-    # Check without the profile prefix.
     m = matches(OBJECT, "([^\\.]+)(\\.(.*))?");
     if (length(m) >= 2) {
         if (is_shorthostname(m[1])) {
@@ -203,42 +177,31 @@ function hostname_from_object = {
 
 
 ########################################################################
-##=
-## @function domain_from_object
-## @# extracts the domain from the object template name.
-##+If the information is not in the name, the default is used.
-##+This assumes that your machine profile has the form
-##+profile_*.  If it does not, an error is thrown.
-## @syntax domain:string
-## @param:domain default domain name
-## @example
-##+# "/data" will contain "example.org"
-##+object template profile_myhost.example.org;
-##+"/data" = hostname_from_object("example.net");
-##=
+#
+# domain_from_object: extracts the domain from the object template name.
+# This assumes that the profile name is the host FQDN.
+#
+# This function used to receive a default domain name that was needed
+# at the time where object template names were of the form 'profile_hostname',
+# with 'hostname' the hostname without a domain. It is now deprecated.
+#
 ############################################################
 function domain_from_object = {
-    # Check cardinality.
-    if (ARGC != 1) error("usage: domain_from_object(default_domain)");
-
-    # Check the argument to ensure it is a valid domain name.
-    if (!is_fqdn(ARGV[0])) {
-        error(format("domain_from_object: invalid default domain (%s)", ARGV[0]));
+    # Check  if a default domain has been defined
+    if ( ARGC == 1 ) {
+        # Default domain name is no longer used and passing the argument is deprecaded
+        deprecated(0, 'Using default_domain argument is deprecated. Use domain_from_object() instead');       
+    } else if ( ARGC > 1 ) {
+        error("usage: domain_from_object()");
     };
 
-    # Check if the name matches.  We can include the 'profile_' in
-    # the host part if it exists.  We only need the domain here.
+    # Retrieve domain from object template
     m = matches(OBJECT, "([^\\.]+)(\\.(.*))?");
-    size = length(m);
-    if (size >= 2) {
-        if (size >= 4) {
-            if (is_fqdn(m[3])) {
-                return(m[3]);
-            } else {
-                error(format("domain_from_object: invalid domain name (%s)", m[3]));
-            };
+    if ( length(m) >= 4 ) {
+        if (is_fqdn(m[3])) {
+            return(m[3]);
         } else {
-            return(ARGV[0]);
+            error(format("domain_from_object: invalid domain name (%s)", m[3]));
         };
     } else {
         error("domain_from_object: can't match domain name from object");
@@ -247,24 +210,13 @@ function domain_from_object = {
 
 
 ########################################################################
-##=
-## @function full_hostname_from_object
-## @# extracts the full hostname from the object template name.
-##+If the domain information is not in the name, the default is used.
-##+This assumes that your machine profile has the form
-##+profile_*.  If it does not, an error is thrown.
-## @syntax domain:string
-## @param:domain default domain name
-## @example
-##+# "/data" will contain "myhost.example.net"
-##+object template profile_myhost;
-##+"/data" = hostname_from_object("example.net");
-##=
+#
+# @function full_hostname_from_object: returns the object template name.
+# Function deprecated now that object template name is the host FQDN.
+#
 ############################################################
 function full_hostname_from_object = {
-    # Check cardinality; leave detailed error checking to called functions.
-    if (ARGC != 1) error("usage: full_hostname_from_object(default_domain)");
-
-    format("%s.%s", hostname_from_object(), domain_from_object(ARGV[0]));
+    deprecated(0, 'Function full_hostname_from_object() is deprecated: use OBJECT variable instead');
+    return (OBJECT);
 };
 
