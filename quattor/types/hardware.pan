@@ -56,7 +56,7 @@ type structure_nic = {
 type structure_rack = {
     "name" : string
     "column" : string
-    "room" : string
+    "room" ? string
     "row" : string
 };
 
@@ -234,6 +234,7 @@ type structure_sysloc = {
     "campus"     ? string
     "building"   ? string
     "city"       ? string
+    "country"  ? string
     "continent"  ? string
     "room"       ? string
     "bunker"     ? string
