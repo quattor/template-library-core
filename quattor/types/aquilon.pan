@@ -49,8 +49,8 @@ type structure_cluster = {
 
 type structure_archetype = {
     "name"          : string # e.g. "aquilon"
-    "os"            ? string # e.g. "linux"
-    "model"         ? string # e.g. "4.0.1-x86_64"
+    "os"            : string # e.g. "linux"
+    "model"         : string # e.g. "4.0.1-x86_64"
     "filesystem-layout" ? string with if_exists("archetype/filesystem-layouts/" + SELF) != ""
     "archlist"      ? string[] # e.g. fs sysname list for model,
                                # "x86_64.linux.2.6.glibc.2.3", "amd64.linux.2.4.glibc.2.3", ...
@@ -105,7 +105,7 @@ type structure_personality = {
     "description"   ? string
     "class"         ? string with match(SELF, '(INFRASTRUCTURE|APPLICATION)')
     "users"         ? string[]
-    "systemgrn"     : string[]
+    "systemgrn"     ? string[]
     "escalation"    ? string
     "notifyrules"   ? string
     "notifyhours"   ? string
