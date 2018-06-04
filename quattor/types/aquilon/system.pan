@@ -1,4 +1,4 @@
-declaration template quattor/types/aquilon;
+declaration template quattor/types/aquilon/system;
 
 @documentation{
     aquilon-related structures

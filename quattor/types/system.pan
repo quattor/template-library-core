@@ -25,7 +25,7 @@ include 'components/network/core-schema';
 include 'quattor/blockdevices';
 include 'quattor/filesystems';
 include 'quattor/types/aii';
-include 'quattor/types/aquilon';
+include 'quattor/types/aquilon/system';
 include 'quattor/types/grid';
 include 'quattor/types/hardware';
 include 'quattor/types/os';
