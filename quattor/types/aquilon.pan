@@ -50,6 +50,7 @@ type structure_cluster = {
 type structure_archetype = {
     "name"          : string # e.g. "aquilon"
     "os"            : string # e.g. "linux"
+    "os_lifecycle"  : string
     "model"         : string # e.g. "4.0.1-x86_64"
     "filesystem-layout" ? string with if_exists("archetype/filesystem-layouts/" + SELF) != ""
     "archlist"      ? string[] # e.g. fs sysname list for model,
@@ -120,9 +121,9 @@ type structure_personality = {
     # want anything else.
     "maintenance_threshold" ? long(0..100) = 50
     "backups"       ? string
-    "host_environment" ? string with match(SELF, "^(dev|qa|uat|prod|infra|legacy)$")
-    "owner_eon_id" ? long
-    "stage"         ? string
+    "host_environment" : string with match(SELF, "^(dev|qa|uat|prod|infra|legacy)$")
+    "owner_eon_id"  : long
+    "stage"         : string
     "esp"           ? structure_espinfo
 };
 
@@ -146,6 +147,8 @@ type structure_security = {
     "svcwhitelist"  ? list
 };
 
+# All resources in this structure muse be optional so that the
+# schema can be used by non Aquilon sites
 type structure_system_aquilon = {
     "advertise_status" ? boolean
     "archetype"     ? structure_archetype
