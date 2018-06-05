@@ -1,3 +1,5 @@
+# This template extends the base schema with Aquilon-provided resources
+
 declaration template quattor/types/aquilon/system;
 
 @documentation{
@@ -47,8 +49,9 @@ type structure_cluster = {
     "max_hosts" ? long(0..)
 };
 
+@{ Details of operating system as defined by aquilon broker }
 type structure_archetype = {
-    "name"          : string # e.g. "aquilon"
+    "name"          ? string # e.g. "aquilon"
     "os"            : string # e.g. "linux"
     "os_lifecycle"  : string
     "model"         : string # e.g. "4.0.1-x86_64"
@@ -106,7 +109,6 @@ type structure_personality = {
     "description"   ? string
     "class"         ? string with match(SELF, '(INFRASTRUCTURE|APPLICATION)')
     "users"         ? string[]
-    "systemgrn"     ? string[]
     "escalation"    ? string
     "notifyrules"   ? string
     "notifyhours"   ? string
@@ -121,7 +123,7 @@ type structure_personality = {
     # want anything else.
     "maintenance_threshold" ? long(0..100) = 50
     "backups"       ? string
-    "host_environment" : string with match(SELF, "^(dev|qa|uat|prod|infra|legacy)$")
+    "host_environment" : string with match(SELF, "^(dev|qa|uat|prod)$")
     "owner_eon_id"  : long
     "stage"         : string
     "esp"           ? structure_espinfo

@@ -1,4 +1,4 @@
-# This template extends the base schema with Aquilon-provied resources
+# This template extends the base schema with Aquilon-provided resources
 
 declaration template quattor/types/aquilon/hardware;
 
@@ -30,8 +30,6 @@ type structure_sysloc = {
     "room"       : string
     "bunker"     ? string
     "region"     ? string
-    "dns_search_domains" ? string[]
-    "location"   ? string
 };
 
 # All the resources in this type must be optional for
