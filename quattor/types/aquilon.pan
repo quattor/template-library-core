@@ -46,7 +46,7 @@ type structure_cluster = {
     "node_index" ? long(0..)
     "max_hosts" ? long(0..)
 };
- 
+
 type structure_archetype = {
     "name"          : string # e.g. "aquilon"
     "os"            ? string # e.g. "linux"
@@ -145,7 +145,7 @@ type structure_security = {
     "class"         : string with if_exists("archetype/security/" + SELF) != ""
     "svcwhitelist"  ? list
 };
- 
+
 type structure_system_aquilon = {
     "advertise_status" ? boolean
     "archetype"     ? structure_archetype
