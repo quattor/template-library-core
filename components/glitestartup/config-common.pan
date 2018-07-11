@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 18.3.0, 1, Wed May 23 2018
+# glitestartup, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 unique template components/glitestartup/config-common;
@@ -25,7 +25,7 @@ include 'components/glitestartup/functions';
 # Set prefix to root of component configuration.
 prefix '/software/components/glitestartup';
 
-'version' = '18.3.0';
+'version' = '18.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
