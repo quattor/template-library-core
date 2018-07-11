@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsaccess, 18.3.0, 1, Wed May 23 2018
+# hostsaccess, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 unique template components/hostsaccess/config;

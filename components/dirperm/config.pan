@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 18.3.0, 1, Wed May 23 2018
+# dirperm, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 unique template components/dirperm/config;
@@ -19,12 +19,12 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "18.3.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "18.6.0-rc1_1", "noarch");
 
 prefix '/software/components/dirperm';
 
 'dependencies/pre' ?= list('spma');
 'register_change' ?= list('/system/filesystems');
-'version' = '18.3.0';
+'version' = '18.6.0';
 'active' ?= true;
 'dispatch' ?= true;

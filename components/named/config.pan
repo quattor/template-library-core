@@ -12,7 +12,7 @@
 
 # 
 # #
-# named, 18.3.0, 1, Wed May 23 2018
+# named, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 unique template components/named/config;
@@ -20,12 +20,12 @@ unique template components/named/config;
 include 'components/named/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-named", "18.3.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-named", "18.6.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/named';
 
-'version' ?= '18.3.0';
+'version' ?= '18.6.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= append('spma');

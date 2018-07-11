@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 18.3.0, 1, Wed May 23 2018
+# ceph, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 
@@ -37,7 +37,7 @@ prefix '/software/components/accounts';
 "users/ceph" = dict(
     "uid", CEPH_USER_ID,
     "groups", list("ceph"),
-    "comment","ceph",
+    "comment", "ceph",
     "shell", "/bin/sh",
     "homeDir", "/home/ceph",
     "createHome", true,

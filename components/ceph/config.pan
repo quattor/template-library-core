@@ -11,9 +11,23 @@
 
 # 
 # #
-# ceph, 18.3.0, 1, Wed May 23 2018
+# ceph, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 unique template components/ceph/config;
 
-include 'components/ceph/config-rpm';
+variable CEPH_SCHEMA_VERSION ?= 'v1';
+
+include if_exists('components/ceph/site-config');
+include format('components/ceph/%s/schema', CEPH_SCHEMA_VERSION);
+
+prefix '/software/components/ceph';
+
+'version' = '18.6.0';
+'active' ?= true;
+'dispatch' ?= true;
+
+'/software/packages' = pkg_repl('ncm-ceph', '18.6.0-rc1_1', 'noarch');
+'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
+
+bind '/software/components/ceph' = ceph_component;

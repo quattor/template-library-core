@@ -11,7 +11,7 @@
 
 # 
 # #
-# nagios, 18.3.0, 1, Wed May 23 2018
+# nagios, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 unique template components/nagios/config-common;
@@ -21,7 +21,7 @@ include 'components/nagios/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/nagios';
 
-#'version' = '18.3.0';
+#'version' = '18.6.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
