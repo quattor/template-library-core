@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.3.0, 1, Wed May 23 2018
+# ks, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
 #
 
 @{Structure for the component generating kickstart files.}
@@ -148,4 +148,5 @@ type structure_ks_ks_info = {
     'bonding' ? boolean
     'lvmforce' ? boolean
     'init_spma_ignore_deps' ? boolean
+    'leavebootorder' ? boolean
 };
