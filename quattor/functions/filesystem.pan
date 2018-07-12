@@ -16,7 +16,7 @@ function num_of_harddisks = {
 };
 
 @documentation{
-    desc = returns the disk where grub must be installed
+    desc = returns the disk where grub must be installed to or undef if none is found
     arg = none
 }
 function boot_disk = {
