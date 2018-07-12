@@ -2,6 +2,7 @@ declaration template quattor/types/hardware;
 
 include 'pan/types';
 include 'quattor/functions/hardware';
+include 'quattor/types/aquilon/hardware';
 include 'quattor/types/annotation';
 include 'quattor/types/sensors';
 include 'quattor/physdevices';
@@ -48,16 +49,6 @@ type structure_nic = {
     "boot"         ? boolean
     "maxspeed"     ? long
     "role"         ? string = ''
-};
-
-@documentation{
-    Rack definition
-}
-type structure_rack = {
-    "name" : string
-    "column" : string
-    "room" : string
-    "row" : string
 };
 
 @documentation{
@@ -228,21 +219,6 @@ type structure_console = extensible {
 };
 
 @documentation{
-    system location definition
-}
-type structure_sysloc = {
-    "campus"     ? string
-    "building"   ? string
-    "city"       ? string
-    "continent"  ? string
-    "room"       ? string
-    "bunker"     ? string
-    "region"     ? string
-    "dns_search_domains" ? string[]
-    "location" ? string
-};
-
-@documentation{
     System benchmark results
     benchmarks is used to hold the performance benchmark for the machine
     i.e. HEPSpec06 score
@@ -267,9 +243,7 @@ type structure_hardware = {
     "cpu"          ? structure_cpu[]
     "ram"          ? structure_ram[]
     "cards"        ? structure_cards
-    "rack"     ? structure_rack
     "console"      ? structure_console
-    "sysloc"       ? structure_sysloc
     "nodename"     ? string
     "benchmarks" ? structure_benchmark
     "sensors" ? structure_sensor_types
@@ -279,6 +253,8 @@ type structure_hardware = {
     "procured"     ? type_isodate
     # Obsolete field, use the appropriate "cards" sub-field instead!!
     "harddisks"    ? structure_raidport{}
+    # Aquilon-specific resources
+    include structure_hardware_aquilon
 };
 
 # TODO is it ok to define variables in declartaion templates?

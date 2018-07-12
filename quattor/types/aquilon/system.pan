@@ -1,4 +1,6 @@
-declaration template quattor/types/aquilon;
+# This template extends the base schema with Aquilon-provided resources
+
+declaration template quattor/types/aquilon/system;
 
 @documentation{
     aquilon-related structures
@@ -47,10 +49,12 @@ type structure_cluster = {
     "max_hosts" ? long(0..)
 };
 
+@{ Details of operating system as defined by aquilon broker }
 type structure_archetype = {
-    "name"          : string # e.g. "aquilon"
-    "os"            ? string # e.g. "linux"
-    "model"         ? string # e.g. "4.0.1-x86_64"
+    "name"          ? string # e.g. "aquilon"
+    "os"            : string # e.g. "linux"
+    "os_lifecycle"  : string
+    "model"         : string # e.g. "4.0.1-x86_64"
     "filesystem-layout" ? string with if_exists("archetype/filesystem-layouts/" + SELF) != ""
     "archlist"      ? string[] # e.g. fs sysname list for model,
                                # "x86_64.linux.2.6.glibc.2.3", "amd64.linux.2.4.glibc.2.3", ...
@@ -105,7 +109,6 @@ type structure_personality = {
     "description"   ? string
     "class"         ? string with match(SELF, '(INFRASTRUCTURE|APPLICATION)')
     "users"         ? string[]
-    "systemgrn"     : string[]
     "escalation"    ? string
     "notifyrules"   ? string
     "notifyhours"   ? string
@@ -120,9 +123,9 @@ type structure_personality = {
     # want anything else.
     "maintenance_threshold" ? long(0..100) = 50
     "backups"       ? string
-    "host_environment" ? string with match(SELF, "^(dev|qa|uat|prod|infra|legacy)$")
-    "owner_eon_id" ? long
-    "stage"         ? string
+    "host_environment" : string with match(SELF, "^(dev|qa|uat|prod)$")
+    "owner_eon_id"  : long
+    "stage"         : string
     "esp"           ? structure_espinfo
 };
 
@@ -146,6 +149,8 @@ type structure_security = {
     "svcwhitelist"  ? list
 };
 
+# All resources in this structure muse be optional so that the
+# schema can be used by non Aquilon sites
 type structure_system_aquilon = {
     "advertise_status" ? boolean
     "archetype"     ? structure_archetype
