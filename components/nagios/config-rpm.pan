@@ -22,7 +22,7 @@ include 'components/nagios/functions';
 include 'components/nagios/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-nagios", "18.6.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nagios", "18.6.0-rc3_1", "noarch");
 
 "/software/components/nagios/dependencies/pre" ?=  list ("spma");
 
