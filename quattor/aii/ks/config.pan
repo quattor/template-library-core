@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
+# ks, 18.6.0-rc2, rc2_1, Wed Jul 25 2018
 #
 
 @{Template containing the Kickstart-related configuration and default values.}
