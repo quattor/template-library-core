@@ -17,7 +17,7 @@ include 'components/altlogrotate/schema';
 
 bind '/software/components/altlogrotate' = altlogrotate_component;
 
-'/software/packages' = pkg_repl('ncm-altlogrotate', '18.6.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-altlogrotate', '18.6.0-rc2_1', 'noarch');
 
 include if_exists('components/altlogrotate/site-config');
 

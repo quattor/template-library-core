@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 18.6.0-rc1, rc1_1, Wed Jul 11 2018
+# accounts, 18.6.0-rc2, rc2_1, Wed Jul 25 2018
 #
 
 declaration template components/accounts/functions;
