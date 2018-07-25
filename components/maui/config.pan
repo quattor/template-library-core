@@ -28,4 +28,4 @@ prefix '/software/components/maui';
 'dependencies/pre' ?= list('spma');
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-maui', '18.6.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-maui', '18.6.0-rc3_1', 'noarch');

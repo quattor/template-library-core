@@ -14,7 +14,7 @@
 #
 
 # #
-# globuscfg, 18.6.0-rc2, rc2_1, Wed Jul 25 2018
+# globuscfg, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
 #
 
 unique template components/globuscfg/config-rpm;
@@ -25,6 +25,6 @@ include 'components/globuscfg/config-common';
 prefix '/software/components/globuscfg';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-globuscfg', '18.6.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-globuscfg', '18.6.0-rc3_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
