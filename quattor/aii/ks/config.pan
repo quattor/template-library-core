@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.6.0-rc2, rc2_1, Wed Jul 25 2018
+# ks, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
 #
 
 @{Template containing the Kickstart-related configuration and default values.}
@@ -98,6 +98,10 @@ variable AII_OSINSTALL_PROTOCOL = value('/system/aii/osinstall/ks/osinstall_prot
 #
 variable AII_OSINSTALL_ROOT ?= undef;
 variable AII_OSINSTALL_OS_VERSION ?= undef;
+variable DEBUG = debug(format('%s: AII_OSINSTALL_ROOT=%s, AII_OSINSTALL_OS_VERSION=%s',
+                                OBJECT,
+                                AII_OSINSTALL_ROOT,
+                                AII_OSINSTALL_OS_VERSION));
 
 # AII_OSINSTALL_SUBURL allows to specify a sub-url under root/version
 # (e.g. /base)
@@ -111,7 +115,7 @@ variable AII_OSINSTALL_PATH ?=
         };
         path;
     } else {
-        undef;
+        debug('AII_OSINSTALL_ROOT or AII_OSINSTALL_OS_VERSION undefined: cannot define AII_OSINSTALL_PATH');
     };
 
 

@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.6.0-rc2, rc2_1, Wed Jul 25 2018
+# ks, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
 #
 
 # Template containing OS configuration and default values.
