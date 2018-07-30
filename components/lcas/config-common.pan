@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
+# lcas, 18.6.0, 1, Mon Jul 30 2018
 #
 
 unique template components/lcas/config-common;

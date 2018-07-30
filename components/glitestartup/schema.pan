@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
+# glitestartup, 18.6.0, 1, Mon Jul 30 2018
 #
 #
 
