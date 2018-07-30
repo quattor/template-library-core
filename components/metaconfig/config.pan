@@ -20,7 +20,7 @@ include 'components/metaconfig/schema';
 
 bind '/software/components/metaconfig' = metaconfig_component;
 
-'/software/packages' = pkg_repl('ncm-metaconfig', '18.6.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-metaconfig', '18.6.0-1', 'noarch');
 
 include if_exists('components/metaconfig/site-config');
 

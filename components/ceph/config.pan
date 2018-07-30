@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
+# ceph, 18.6.0, 1, Mon Jul 30 2018
 #
 
 unique template components/ceph/config;
@@ -27,7 +27,7 @@ prefix '/software/components/ceph';
 'active' ?= true;
 'dispatch' ?= true;
 
-'/software/packages' = pkg_repl('ncm-ceph', '18.6.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ceph', '18.6.0-1', 'noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 bind '/software/components/ceph' = ceph_component;

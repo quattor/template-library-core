@@ -11,7 +11,7 @@
 
 # 
 # #
-# filecopy, 18.6.0-rc3, rc3_1, Wed Jul 25 2018
+# filecopy, 18.6.0, 1, Mon Jul 30 2018
 #
 
 unique template components/filecopy/config-common;
@@ -21,7 +21,7 @@ include 'components/filecopy/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/filecopy';
 
-#'version' = '18.6.0-rc3';
+#'version' = '18.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
