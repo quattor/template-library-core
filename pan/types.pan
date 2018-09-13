@@ -1000,4 +1000,4 @@ type cpu_architecture = string with match (SELF, '^(i386|ia64|x86_64|sparc|aarch
 @documentation{
     desc = Linux capabilities, see CAPABILITIES(7)
 }
-type linux_capability = string with match(SELF, '^CAP_[[:upper:]_]+$');
+type linux_capability = string with match(SELF, '^CAP_[A-Z_]+$');
