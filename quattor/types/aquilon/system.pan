@@ -149,6 +149,20 @@ type structure_security = {
     "svcwhitelist"  ? list
 };
 
+type structure_entitlement_user = {
+    "type"          : string
+    "value"         : valid_user
+};
+
+type structure_entitlement_eon_id = {
+    "value"         : long
+};
+
+type structure_entitlements = {
+    "eon_id"        ? structure_entitlement_eon_id[]
+    "user"          ? structure_entitlement_user[]
+};
+
 # All resources in this structure must be optional so that the
 # schema can be used by non Aquilon sites
 type structure_system_aquilon = {
@@ -164,6 +178,7 @@ type structure_system_aquilon = {
     "eon_ids"       ? long[]
     "eon_id_maps"   ? nlist
     "owner_eon_id"  ? long
+    "entitlements"  ? structure_entitlements{}
     "provides"      ? nlist
     "services"      ? structure_services{}
     "personality"   ? structure_personality
