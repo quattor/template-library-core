@@ -397,7 +397,8 @@ sed -i "/.*metaconfig\/ganesha\/fsal.*/d" build_temp/test.pan
 # only spma yum
 sed -i "/.*components\/spma\/\(apt\|ips\).*/d" build_temp/test.pan
 
-
+# Only test default schema version of ceph component
+sed -i "/.*components\/ceph\/v[1-9][0-9]*\/.*/d" build_temp/test.pan
 
 # try to compile it
 output=`panc --output-dir build_temp --include-path .:build_temp build_temp/test.pan 2>&1`
