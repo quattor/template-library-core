@@ -218,3 +218,21 @@ function full_hostname_from_object = {
     return (OBJECT);
 };
 
+
+@documentation{
+    desc = Function to deduplicate the content of a list, only the first \
+        occurence of each element in the list will be kept in the final \
+        list returned to the caller
+}
+function unique_list = {
+    to_dict = dict();
+    to_list = list();
+    foreach(idx; item; ARGV[0]) {
+        itemid = to_string(item);
+        if (!exists(to_dict[escape(itemid)])) {
+            append(to_list, item);
+            to_dict[escape(itemid)] = 1;
+        };
+    };
+    to_list;
+};
