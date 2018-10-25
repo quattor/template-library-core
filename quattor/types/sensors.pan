@@ -1,9 +1,9 @@
 declaration template quattor/types/sensors;
 
 type structure_sensor = {
-    "name" : string with match(SELF, '^.+$')
+    "name" : string_trimmed
     "threshold" : long
-    "unit" : string with match(SELF, '^\S+$')
+    "unit" : string_non_whitespace
 };
 
 type structure_sensor_temperature = {
