@@ -2,6 +2,12 @@ declaration template quattor/types/component;
 
 include 'quattor/functions/validation';
 
+type caf_service_actions = string with choice(
+    'restart',
+    'reload',
+    'stop_sleep_start',
+);
+
 type structure_component_dependency = {
     "pre"       ? string[] with is_component_list(SELF)
     "post"      ? string[] with is_component_list(SELF)
