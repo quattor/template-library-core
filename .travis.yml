@@ -8,6 +8,7 @@ install:
 
 script:
   - ./.travis-scripts/panlint
+  - ./.travis-scripts/indent
   - ./.travis-scripts/test-library
 
 sudo: false
