@@ -214,7 +214,7 @@ type structure_console = extensible {
     "ssh"    ? structure_ssh_console
     "ipmi"   ? structure_ipmi_console
     "dpc"    ? structure_dpc_console
-    "bmc"    ? structure_dpc_console
+    "bmc"    ? structure_bmc_console
     "preferred" ? string[]
 };
 
@@ -236,12 +236,21 @@ type structure_benchmark = {
 };
 
 @documentation{
+    BIOS definition
+}
+type structure_bios = {
+    "version" : string
+    "releasedate" : string
+};
+
+@documentation{
     Hardware definition
 }
 type structure_hardware = {
     include structure_annotation
     "cpu"          ? structure_cpu[]
     "ram"          ? structure_ram[]
+    "bios"         ? structure_bios
     "cards"        ? structure_cards
     "console"      ? structure_console
     "nodename"     ? string

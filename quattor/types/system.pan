@@ -30,6 +30,8 @@ include 'quattor/types/grid';
 include 'quattor/types/hardware';
 include 'quattor/types/os';
 
+include 'quattor/types/site';
+
 type structure_system = {
     "aii"           ? structure_aii
     @{CPU architecture of system.}
@@ -51,4 +53,5 @@ type structure_system = {
     "vo"            ? structure_vo{}
     "opennebula"    ? dict
     include structure_system_aquilon
+    include structure_system_site
 };
