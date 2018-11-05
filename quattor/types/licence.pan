@@ -1,6 +1,6 @@
-declaration template quattor/types/license;
+declaration template quattor/types/licence;
 
-type structure_license = {
+type structure_licence = {
     "name" : string
     "enddate" : string
     "vendor" : string
