@@ -20,17 +20,20 @@ type structure_rack = {
 
 @documentation{
     system location definition
+    For clusters (and thus for virtual machines in the cluster),
+    no attribute is mandatory. The only requirement is that one is
+    defined.
 }
 type structure_sysloc = {
-    "building"   : string
+    "building"   ? string
     "campus"     ? string
-    "city"       : string
-    "country"    : string
-    "continent"  : string
-    "room"       : string
+    "city"       ? string
+    "country"    ? string
+    "continent"  ? string
+    "room"       ? string
     "bunker"     ? string
     "region"     ? string
-};
+} with ( length(SELF) > 0);
 
 # All the resources in this type must be optional for
 # the schema to remain usable by non-Aquilon users
