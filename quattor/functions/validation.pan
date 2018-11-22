@@ -139,3 +139,13 @@ function valid_absolute_file_paths = {
     };
     true;
 };
+
+variable VALID_USER_PATTERN ?= '^[a-zA-Z_][a-zA-Z0-9_-]{0,30}([a-zA-Z0-9_-]|\$)?$';
+
+@documentation{
+    This type is meant to be used to check if strings provided are
+    valid user names. This is however designed to be overriden by
+    site-specific policies. The regex used here as default is the
+    one suggested by the useradd man page.
+}
+type valid_user = string with match(SELF, VALID_USER_PATTERN);
