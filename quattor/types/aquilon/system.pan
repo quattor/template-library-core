@@ -149,7 +149,7 @@ type structure_security = {
     "svcwhitelist"  ? list
 };
 
-# All resources in this structure muse be optional so that the
+# All resources in this structure must be optional so that the
 # schema can be used by non Aquilon sites
 type structure_system_aquilon = {
     "advertise_status" ? boolean
