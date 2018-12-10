@@ -11,5 +11,5 @@ required = no
 }
 variable PANC_DEFAULT_VERSION ?= '10.3-1';
 
-'/software/packages' = pkg_repl('panc',PANC_DEFAULT_VERSION,'noarch');
+'/software/packages' = pkg_repl('panc', PANC_DEFAULT_VERSION, 'noarch');
 

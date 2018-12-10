@@ -28,7 +28,10 @@ include 'quattor/types/aii';
 include 'quattor/types/aquilon/system';
 include 'quattor/types/grid';
 include 'quattor/types/hardware';
+include 'quattor/types/licence';
 include 'quattor/types/os';
+
+include 'quattor/types/site';
 
 type structure_system = {
     "aii"           ? structure_aii
@@ -39,6 +42,7 @@ type structure_system = {
     "glite"         ? structure_glite
     "kernel"        : structure_kernel
     "lcg"           ? structure_lcg
+    "licences"      ? structure_licence[]
     "network"       : structure_network
     @{Monitoring-related schemas should handle the bind to this path when they are included.}
     "monitoring"    ? dict
@@ -51,4 +55,5 @@ type structure_system = {
     "vo"            ? structure_vo{}
     "opennebula"    ? dict
     include structure_system_aquilon
+    include structure_system_site
 };
