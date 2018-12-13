@@ -14,7 +14,7 @@
 #
 
 # #
-# gridmapdir, 18.6.0, 1, Mon Jul 30 2018
+# gridmapdir, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 unique template components/gridmapdir/config-common;
@@ -24,7 +24,7 @@ include 'components/gridmapdir/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gridmapdir';
 
-'version' = '18.6.0';
+'version' = '18.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

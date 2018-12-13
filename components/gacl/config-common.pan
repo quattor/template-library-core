@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 18.6.0, 1, Mon Jul 30 2018
+# gacl, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 unique template components/gacl/config-common;
@@ -24,7 +24,7 @@ include 'components/gacl/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gacl';
 
-'version' = '18.6.0';
+'version' = '18.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
