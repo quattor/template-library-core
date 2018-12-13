@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 18.6.0, 1, Mon Jul 30 2018
+# icinga, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 template components/icinga/functions;

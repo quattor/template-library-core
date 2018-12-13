@@ -11,14 +11,14 @@
 
 # 
 # #
-# libvirtd, 18.6.0, 1, Mon Jul 30 2018
+# libvirtd, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 unique template components/libvirtd/config;
 
 include 'components/libvirtd/schema';
 
-'/software/packages'=pkg_repl('ncm-libvirtd','18.6.0-1','noarch');
+'/software/packages'=pkg_repl('ncm-libvirtd','18.12.0-rc0_1','noarch');
 '/software/components/libvirtd/dependencies/pre' ?=  list ('spma');
 
 '/software/components/libvirtd/active' ?= true;

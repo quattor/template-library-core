@@ -18,14 +18,14 @@ include 'components/openstack/schema';
 
 bind '/software/components/openstack' = openstack_component;
 
-'/software/packages' = pkg_repl('ncm-openstack', '18.6.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-openstack', '18.12.0-rc0_1', 'noarch');
 
 include if_exists('components/openstack/site-config');
 
 prefix '/software/components/openstack';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '18.6.0';
+'version' ?= '18.12.0';
 
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 

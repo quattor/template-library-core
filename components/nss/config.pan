@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 18.6.0, 1, Mon Jul 30 2018
+# nss, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 ################################################################################
@@ -25,10 +25,10 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "18.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "18.12.0-rc0_1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';
 'active' ?= true;
 'dispatch' ?= true;
-'version' = "18.6.0";
+'version' = "18.12.0";

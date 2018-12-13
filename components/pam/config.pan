@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 18.6.0, 1, Mon Jul 30 2018
+# pam, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 ##########################################################################
@@ -26,13 +26,13 @@ unique template components/pam/config;
 include 'components/pam/schema';
 
 # standard component settings
-"/software/components/pam/version"    = '18.6.0';
+"/software/components/pam/version"    = '18.12.0';
 "/software/components/pam/active"    ?=  true;
 "/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "18.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "18.12.0-rc0_1", "noarch");
 
 # standard functions
 include 'pan/functions';

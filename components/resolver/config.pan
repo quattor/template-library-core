@@ -11,7 +11,7 @@
 
 # 
 # #
-# resolver, 18.6.0, 1, Mon Jul 30 2018
+# resolver, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 unique template components/resolver/config;
@@ -19,11 +19,11 @@ unique template components/resolver/config;
 include 'components/resolver/schema';
 include 'pan/functions';
 
-"/software/packages" = pkg_repl("ncm-resolver", "18.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-resolver", "18.12.0-rc0_1", "noarch");
 
 prefix '/software/components/resolver';
 
-'version' = '18.6.0';
+'version' = '18.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list("spma");

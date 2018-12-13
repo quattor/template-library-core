@@ -20,14 +20,14 @@ include 'components/network/schema';
 
 bind '/software/components/network' = network_component;
 
-'/software/packages' = pkg_repl('ncm-network', '18.6.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-network', '18.12.0-rc0_1', 'noarch');
 
 include if_exists('components/network/site-config');
 
 prefix '/software/components/network';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '18.6.0';
+'version' ?= '18.12.0';
 'dependencies/pre' ?= list('spma');
 
 'register_change' = append("/system/network");

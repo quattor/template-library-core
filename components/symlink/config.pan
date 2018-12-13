@@ -1,31 +1,30 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Michel Jouvin <jouvin@lal.in2p3.fr>
 #
 
-# 
-# #
-# symlink, 18.6.0, 1, Mon Jul 30 2018
-#
+
 
 unique template components/symlink/config;
 
 include 'components/symlink/schema';
 
-"/software/packages" = pkg_repl("ncm-symlink", "18.6.0-1", "noarch");
+bind '/software/components/symlink' = symlink_component;
 
-# Set prefix to root of component configuration.
+'/software/packages' = pkg_repl('ncm-symlink', '18.12.0-rc0_1', 'noarch');
+
+include if_exists('components/symlink/site-config');
+
 prefix '/software/components/symlink';
-
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '18.6.0';
-'dependencies/pre' ?= list("spma");
+'version' ?= '18.12.0';
+'dependencies/pre' ?= list('spma');
 'options/exists' ?= false;
 'options/replace/none' ?= "yes";

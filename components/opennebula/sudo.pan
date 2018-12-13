@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 18.6.0, 1, Mon Jul 30 2018
+# opennebula, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 @documentation{
@@ -31,6 +31,7 @@ include 'components/sudo/config';
         '/usr/bin/virsh secret-set-value *',
         '/usr/bin/virsh secret-define *',
         '/usr/sbin/iptables',
+        '/usr/sbin/ip6tables',
         '/usr/sbin/ebtables',
         '/usr/bin/ovs-vsctl',
         '/usr/bin/ovs-ofctl',
@@ -48,3 +49,4 @@ include 'components/sudo/config';
     };
     SELF;
 };
+
