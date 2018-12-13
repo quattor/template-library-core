@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.6.0, 1, Mon Jul 30 2018
+# ks, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 @{Template containing the Kickstart-related configuration and default values.}
@@ -176,6 +176,13 @@ variable AII_OSINSTALL_OPTION_MOUSE ?= "none";
 #
 variable AII_OSINSTALL_OPTION_TIMEZONE ?= "Europe/Paris";
 "timezone" ?= AII_OSINSTALL_OPTION_TIMEZONE;
+
+
+#
+# NTP servers used by Anaconda
+#
+variable AII_OSINSTALL_OPTION_NTPSERVERS ?= null;
+"ntpservers" ?= AII_OSINSTALL_OPTION_NTPSERVERS;
 
 
 #
@@ -359,6 +366,8 @@ variable AII_OSINSTALL_PACKAGES ?= list(
 "packages" ?= AII_OSINSTALL_PACKAGES;
 "packages" = {
     if (value('/system/aii/osinstall/ks/selinux') == 'disabled') {
+        # grubby is used to disable selinux on with kernel parameter
+        append('grubby');
         append('-selinux*');
     };
     # SMTP support requires mailx

@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 18.6.0, 1, Mon Jul 30 2018
+# pxelinux, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
 #
 
 unique template quattor/aii/pxelinux/config;
@@ -79,7 +79,7 @@ variable AII_NBP_LABEL ?= {
         'fedora', 'Fedora',
         'sl', 'Scientific Linux',
         'slc', 'Scientific Linux CERN',
-        'rhel', 'Red Hat Entreprise Linux',
+        'rhel', 'Red Hat Enterprise Linux',
     );
 
     toks =  matches(AII_OSINSTALL_OS_VERSION, '^(slc?|rhel|centos|fedora)(\w+?)[_\-](.*)');
