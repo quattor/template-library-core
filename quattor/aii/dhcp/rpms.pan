@@ -14,11 +14,11 @@
 #
 
 # #
-# dhcp, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
+# dhcp, 18.12.0-rc3, rc3_1, Wed Apr 10 2019
 #
 
 # Template adding aii-dhcp rpm to the configuration
 
 unique template quattor/aii/dhcp/rpms;
 
-"/software/packages" = pkg_repl("aii-dhcp", "18.12.0-rc0_1", "noarch");
+"/software/packages" = pkg_repl("aii-dhcp", "18.12.0-rc3_1", "noarch");

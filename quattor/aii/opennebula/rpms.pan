@@ -11,11 +11,11 @@
 
 # 
 # #
-# opennebula, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
+# opennebula, 18.12.0-rc3, rc3_1, Wed Apr 10 2019
 #
 
 # Template adding ncm-opennebula rpm to the configuration
 
 unique template quattor/aii/opennebula/rpms;
 
-"/software/packages" = pkg_repl("ncm-opennebula", "18.12.0-rc0_1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "18.12.0-rc3_1", "noarch");

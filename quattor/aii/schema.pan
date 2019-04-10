@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
+# server, 18.12.0-rc3, rc3_1, Wed Apr 10 2019
 #
 unique template quattor/aii/schema;
 
