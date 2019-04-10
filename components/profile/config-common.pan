@@ -11,7 +11,7 @@
 
 # 
 # #
-# profile, 18.12.0-rc0, rc0_1, Thu Dec 13 2018
+# profile, 18.12.0-rc3, rc3_1, Wed Apr 10 2019
 #
 
 unique template components/profile/config-common;
@@ -21,7 +21,7 @@ include 'components/profile/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/profile';
 
-#'version' = '18.12.0-rc0';
+#'version' = '18.12.0-rc3';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
