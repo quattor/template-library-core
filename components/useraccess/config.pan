@@ -17,7 +17,7 @@ include 'components/useraccess/schema';
 
 bind '/software/components/useraccess' = useraccess_component;
 
-'/software/packages' = pkg_repl('ncm-useraccess', '18.12.0-rc5_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-useraccess', '18.12.0-rc6_1', 'noarch');
 
 include if_exists('components/useraccess/site-config');
 

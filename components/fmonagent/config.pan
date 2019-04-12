@@ -12,7 +12,7 @@
 
 # 
 # #
-# fmonagent, 18.12.0-rc5, rc5_1, Fri Apr 12 2019
+# fmonagent, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
 #
 
 unique template components/fmonagent/config;

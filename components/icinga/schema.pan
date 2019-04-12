@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 18.12.0-rc5, rc5_1, Fri Apr 12 2019
+# icinga, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
 #
 
 declaration template components/icinga/schema;
