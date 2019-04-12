@@ -11,7 +11,7 @@
 
 # 
 # #
-# resolver, 18.12.0-rc4, rc4_1, Fri Apr 12 2019
+# resolver, 18.12.0-rc5, rc5_1, Fri Apr 12 2019
 #
 
 unique template components/resolver/config;
@@ -19,7 +19,7 @@ unique template components/resolver/config;
 include 'components/resolver/schema';
 include 'pan/functions';
 
-"/software/packages" = pkg_repl("ncm-resolver", "18.12.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-resolver", "18.12.0-rc5_1", "noarch");
 
 prefix '/software/components/resolver';
 

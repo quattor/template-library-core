@@ -11,7 +11,7 @@
 
 # 
 # #
-# fstab, 18.12.0-rc4, rc4_1, Fri Apr 12 2019
+# fstab, 18.12.0-rc5, rc5_1, Fri Apr 12 2019
 #
 
 unique template components/fstab/config-common;
@@ -21,7 +21,7 @@ include 'components/fstab/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/fstab';
 
-#'version' = '18.12.0-rc4';
+#'version' = '18.12.0-rc5';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
