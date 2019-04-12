@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.12.0-rc3, rc3_1, Wed Apr 10 2019
+# ks, 18.12.0-rc4, rc4_1, Fri Apr 12 2019
 #
 
 @{Structure for the component generating kickstart files.}

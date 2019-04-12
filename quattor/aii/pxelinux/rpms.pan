@@ -14,11 +14,11 @@
 #
 
 # #
-# pxelinux, 18.12.0-rc3, rc3_1, Wed Apr 10 2019
+# pxelinux, 18.12.0-rc4, rc4_1, Fri Apr 12 2019
 #
 
 # Template adding aii-pxelinux rpm to the configuration
 
 unique template quattor/aii/pxelinux/rpms;
 
-"/software/packages" = pkg_repl("aii-pxelinux", "18.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("aii-pxelinux", "18.12.0-rc4_1", "noarch");
