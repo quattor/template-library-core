@@ -10,7 +10,7 @@ declaration template quattor/filesystems;
 function filesystems_uniq_paths = {
     mounts = dict();
     blockdevs = dict();
-    foreach (idx;data;ARGV[0]){
+    foreach (idx; data; ARGV[0]){
         bd = data['block_device'];
         mp = data['mountpoint'];
         if (exists(mounts[escape(mp)])) {
@@ -38,7 +38,9 @@ type structure_filesystem = {
     "mountpoint": string
     "mount"     : boolean
     "mountopts" : string = "defaults" # "Mount options"
-    "type"      : string with match (SELF, "^(auto|ext[2-4]|reiserfs|reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|vxfs|zfs|none)$") # "Filesystem type."
+    "type"      : string with match (SELF, "^(auto|ext[2-4]|reiserfs|" +
+                    "reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|vxfs|zfs|none)$")
+                    # "Filesystem type"
     "quota"     ? long # "Quota percentage"
     "freq"      : long = 0 # "Dump frequency"
     "pass"      : long = 0 # "fsck pass number"
