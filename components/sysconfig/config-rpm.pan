@@ -16,7 +16,7 @@ unique template components/sysconfig/config-rpm;
 include 'components/sysconfig/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-sysconfig", "18.12.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-sysconfig", "18.12.0-rc7_1", "noarch");
 
 '/software/components/sysconfig/dependencies/pre' ?= list('spma');
 

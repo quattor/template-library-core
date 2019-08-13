@@ -12,7 +12,7 @@
 
 # 
 # #
-# named, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
+# named, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
 #
 
 unique template components/named/config;
@@ -20,7 +20,7 @@ unique template components/named/config;
 include 'components/named/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-named", "18.12.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-named", "18.12.0-rc7_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/named';

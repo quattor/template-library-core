@@ -11,7 +11,7 @@
 
 # 
 # #
-# profile, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
+# profile, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
 #
 
 unique template components/profile/config;

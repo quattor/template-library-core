@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
+# dirperm, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
 #
 
 unique template components/dirperm/config;
@@ -19,7 +19,7 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "18.12.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "18.12.0-rc7_1", "noarch");
 
 prefix '/software/components/dirperm';
 

@@ -11,14 +11,14 @@
 
 # 
 # #
-# ssh, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
+# ssh, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "18.12.0-rc6_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "18.12.0-rc7_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");
