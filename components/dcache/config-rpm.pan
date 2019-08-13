@@ -14,7 +14,7 @@
 #
 
 # #
-# dcache, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
+# dcache, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
 #
 
 unique template components/dcache/config-rpm;
@@ -25,6 +25,6 @@ include 'components/dcache/config-common';
 prefix '/software/components/dcache';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dcache', '18.12.0-rc6_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-dcache', '18.12.0-rc7_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
