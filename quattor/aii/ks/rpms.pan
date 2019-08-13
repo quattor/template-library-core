@@ -14,11 +14,11 @@
 #
 
 # #
-# ks, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# ks, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 # Template adding aii-ks rpm to the configuration
 
 unique template quattor/aii/ks/rpms;
 
-"/software/packages" = pkg_repl("aii-ks", "18.12.0-rc7_1", "noarch");
+"/software/packages" = pkg_repl("aii-ks", "18.12.0-rc8_1", "noarch");

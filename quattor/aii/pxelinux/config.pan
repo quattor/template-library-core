@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# pxelinux, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template quattor/aii/pxelinux/config;
