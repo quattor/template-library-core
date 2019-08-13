@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.12.0-rc6, rc6_1, Fri Apr 12 2019
+# ks, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
 #
 
 @{Structure for the component generating kickstart files.}
@@ -135,6 +135,10 @@ type structure_ks_ks_info = {
     @{Repositories to disable while SPMA is not available}
     "disabled_repos" : string[] = list()
     "packages_args" : string[] = list("--ignoremissing", "--resolvedeps")
+    "end_script" ? string with {
+        deprecated(0, "end_script is deprecated and will be removed in a future release");
+        true;
+    }
     "part_label" : boolean = false # Does the "part" stanza support the --label option?
     @{Set to true if volgroup statement is required in KS config file (must not be present for SL6+)}
     'volgroup_required' : boolean = false
