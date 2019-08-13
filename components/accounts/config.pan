@@ -17,7 +17,7 @@ include 'components/accounts/schema';
 
 bind '/software/components/accounts' = accounts_component;
 
-'/software/packages' = pkg_repl('ncm-accounts', '18.12.0-rc7_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-accounts', '18.12.0-rc8_1', 'noarch');
 
 include if_exists('components/accounts/site-config');
 

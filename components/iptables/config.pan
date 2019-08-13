@@ -11,7 +11,7 @@
 
 # 
 # #
-# iptables, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# iptables, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/iptables/config;
@@ -19,7 +19,7 @@ unique template components/iptables/config;
 include "components/iptables/schema";
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-iptables", "18.12.0-rc7_1", "noarch");
+"/software/packages" = pkg_repl("ncm-iptables", "18.12.0-rc8_1", "noarch");
 
 prefix '/software/components/iptables';
 

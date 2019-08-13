@@ -17,7 +17,7 @@ include 'components/nrpe/schema';
 
 bind '/software/components/nrpe' = nrpe_component;
 
-'/software/packages' = pkg_repl('ncm-nrpe', '18.12.0-rc7_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-nrpe', '18.12.0-rc8_1', 'noarch');
 
 include if_exists('components/nrpe/site-config');
 

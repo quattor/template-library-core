@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# opennebula, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 @documentation{

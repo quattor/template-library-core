@@ -11,7 +11,7 @@
 
 # 
 # #
-# syslogng, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# syslogng, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/syslogng/config;

@@ -11,7 +11,7 @@
 
 # 
 # #
-# filesystems, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# filesystems, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/filesystems/config-common;
@@ -21,7 +21,7 @@ include 'components/filesystems/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/filesystems';
 
-#'version' = '18.12.0-rc7';
+#'version' = '18.12.0-rc8';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

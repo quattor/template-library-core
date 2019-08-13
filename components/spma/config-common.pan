@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# spma, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/spma/config-common;
@@ -22,7 +22,7 @@ unique template components/spma/config-common;
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '18.12.0-rc7';
+#'version' = '18.12.0-rc8';
 #'package' = 'NCM::Component';
 
 'run' ?= "yes";

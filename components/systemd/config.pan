@@ -11,7 +11,7 @@
 
 # 
 # #
-# systemd, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# systemd, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/systemd/config;
@@ -21,7 +21,7 @@ include 'components/systemd/functions';
 
 bind '/software/components/systemd' = component_systemd;
 
-'/software/packages' = pkg_repl('ncm-systemd','18.12.0-rc7_1','noarch');
+'/software/packages' = pkg_repl('ncm-systemd','18.12.0-rc8_1','noarch');
 
 prefix '/software/components/systemd';
 'dependencies/pre' ?= list ('spma');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# accounts, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 declaration template components/accounts/functions;

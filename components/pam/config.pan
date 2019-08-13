@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# pam, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "18.12.0-rc7_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "18.12.0-rc8_1", "noarch");
 
 # standard functions
 include 'pan/functions';
