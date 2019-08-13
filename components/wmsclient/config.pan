@@ -14,7 +14,7 @@
 #
 
 # #
-# wmsclient, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# wmsclient, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/wmsclient/config;

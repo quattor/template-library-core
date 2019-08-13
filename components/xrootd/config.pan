@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 18.12.0-rc7, rc7_1, Tue Aug 13 2019
+# xrootd, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
 #
 
 unique template components/xrootd/config;
@@ -30,6 +30,6 @@ prefix '/software/components/xrootd';
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-xrootd', '18.12.0-rc7_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-xrootd', '18.12.0-rc8_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
