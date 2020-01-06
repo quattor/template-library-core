@@ -14,7 +14,7 @@
 #
 
 # #
-# pbsclient, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# pbsclient, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!

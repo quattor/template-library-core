@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# gacl, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/gacl/config-rpm;
@@ -25,6 +25,6 @@ include 'components/gacl/config-common';
 prefix '/software/components/gacl';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gacl', '18.12.0-rc8_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gacl', '19.12.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

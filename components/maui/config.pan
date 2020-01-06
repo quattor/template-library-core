@@ -22,10 +22,10 @@ bind '/software/components/maui' = maui_component;
 
 # Set prefix to root of component configuration.
 prefix '/software/components/maui';
-'version' = '18.12.0';
+'version' = '19.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-maui', '18.12.0-rc8_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-maui', '19.12.0-rc1_1', 'noarch');
