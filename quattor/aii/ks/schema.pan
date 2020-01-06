@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# ks, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 @{Structure for the component generating kickstart files.}
@@ -89,7 +89,7 @@ type structure_ks_mail = {
     for user customization are under /system/ks/hooks/.
 }
 type structure_ks_ks_info = {
-    "ackurl" : type_absoluteURI
+    "ackurl" ? type_absoluteURI with {deprecated(0, "ackurl is deprecated, use acklist instead"); true; }
     "acklist" ? type_absoluteURI[]
     "auth" : string[] = list ("enableshadow", "passalgo=sha512")
     "bootloader_location" : string = "mbr"
@@ -154,4 +154,7 @@ type structure_ks_ks_info = {
     'lvmforce' ? boolean
     'init_spma_ignore_deps' ? boolean
     'leavebootorder' ? boolean
+    @{pxeboot first: set the PXE boot device as first device. Only
+      for supported platforms (e.g. UEFI)}
+    'pxeboot' ? boolean
 };
