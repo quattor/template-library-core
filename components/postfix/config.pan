@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# postfix, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/postfix/config;
@@ -25,4 +25,4 @@ prefix '/software/components/postfix';
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
-'/software/packages' = pkg_repl('ncm-postfix','18.12.0-rc8_1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','19.12.0-rc1_1','noarch');

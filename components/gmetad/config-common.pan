@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmetad, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# gmetad, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/gmetad/config-common;
@@ -21,7 +21,7 @@ include 'components/gmetad/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gmetad';
 
-#'version' = '18.12.0-rc8';
+#'version' = '19.12.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -11,7 +11,7 @@
 
 # 
 # #
-# interactivelimits, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# interactivelimits, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/interactivelimits/config;
@@ -23,12 +23,12 @@ bind "/software/components/interactivelimits" = component_interactivelimits_type
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-interactivelimits", "18.12.0-rc8_1", "noarch");
+"/software/packages" = pkg_repl("ncm-interactivelimits", "19.12.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/interactivelimits';
 
-'version' = '18.12.0';
+'version' = '19.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' = list("spma");

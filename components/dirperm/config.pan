@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# dirperm, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/dirperm/config;
@@ -19,12 +19,12 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "18.12.0-rc8_1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "19.12.0-rc1_1", "noarch");
 
 prefix '/software/components/dirperm';
 
 'dependencies/pre' ?= list('spma');
 'register_change' ?= list('/system/filesystems');
-'version' = '18.12.0';
+'version' = '19.12.0';
 'active' ?= true;
 'dispatch' ?= true;

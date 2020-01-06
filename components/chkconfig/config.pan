@@ -11,7 +11,7 @@
 
 # 
 # #
-# chkconfig, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# chkconfig, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/chkconfig/config;
@@ -27,4 +27,4 @@ prefix '/software/components/chkconfig';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-chkconfig", "18.12.0-rc8_1", "noarch");
+"/software/packages" = pkg_repl("ncm-chkconfig", "19.12.0-rc1_1", "noarch");

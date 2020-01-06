@@ -11,7 +11,7 @@
 
 # 
 # #
-# nsca, 18.12.0-rc8, rc8_1, Tue Aug 13 2019
+# nsca, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
 #
 
 unique template components/nsca/config-common;
@@ -21,7 +21,7 @@ include 'components/nsca/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/nsca';
 
-#'version' = '18.12.0-rc8';
+#'version' = '19.12.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
