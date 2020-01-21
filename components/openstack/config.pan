@@ -18,7 +18,7 @@ include 'components/openstack/schema';
 
 bind '/software/components/openstack' = openstack_component;
 
-'/software/packages' = pkg_repl('ncm-openstack', '19.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-openstack', '19.12.0-rc2_1', 'noarch');
 
 include if_exists('components/openstack/site-config');
 

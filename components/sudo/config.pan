@@ -20,7 +20,7 @@ include 'components/sudo/schema';
 
 bind '/software/components/sudo' = sudo_component;
 
-'/software/packages' = pkg_repl('ncm-sudo', '19.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-sudo', '19.12.0-rc2_1', 'noarch');
 
 include if_exists('components/sudo/site-config');
 

@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# pnp4nagios, 19.12.0-rc2, rc2_1, Tue Jan 21 2020
 #
 
 unique template components/pnp4nagios/config;
