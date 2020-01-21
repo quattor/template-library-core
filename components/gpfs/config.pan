@@ -17,12 +17,12 @@ include 'components/gpfs/schema';
 
 bind '/software/components/gpfs' = gpfs_component;
 
-'/software/packages' = pkg_repl('ncm-gpfs', '19.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gpfs', '18.12.0-rc9_1', 'noarch');
 
 include if_exists('components/gpfs/site-config');
 
 prefix '/software/components/gpfs';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '19.12.0';
+'version' ?= '18.12.0';
 'dependencies/pre' ?= list('spma');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# pnp4nagios, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# pnp4nagios, 18.12.0-rc9, rc9_1, Tue Jan 21 2020
 #
 
 unique template components/pnp4nagios/config-common;
@@ -21,7 +21,7 @@ include 'components/pnp4nagios/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/pnp4nagios';
 
-#'version' = '19.12.0-rc1';
+#'version' = '18.12.0-rc9';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

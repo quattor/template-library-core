@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# mysql, 18.12.0-rc9, rc9_1, Tue Jan 21 2020
 #
 
 unique template components/mysql/config;
@@ -19,13 +19,13 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "19.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "18.12.0-rc9_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';
 
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '19.12.0';
+'version' = '18.12.0';
 'dependencies/pre' ?= append('spma');
 

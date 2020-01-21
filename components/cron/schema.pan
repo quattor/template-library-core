@@ -199,31 +199,9 @@ type structure_cron = {
     true;
 };
 
-function no_duplicate_cron_entries = {
-    if (ARGC != 1) {
-        error(format('%s: expected 1 parameter, received %d', FUNCTION, ARGC));
-    };
-
-    names = dict();
-    foreach(k; v; ARGV[0]) {
-        name = v['name'];
-        if (is_defined(names[name])) {
-            error(
-                'cron job with name "%s" defined more than once, as "%s" and "%s"',
-                name,
-                v,
-                names[name],
-            );
-        };
-        names[name] = v;
-    };
-    true;
-};
-
 type cron_component = {
     include structure_component
-    @{A list containing cron structures (described above).
-     Validate with no_duplicate_cron_entries if you wish to prevent duplicate entries from being defined.}
+    @{A list containing cron structures (described above).}
     'entries' ? structure_cron[]
     'deny' ? string[]
     'allow' ? string[]

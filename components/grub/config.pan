@@ -20,14 +20,14 @@ include 'components/grub/schema';
 
 bind '/software/components/grub' = grub_component;
 
-'/software/packages' = pkg_repl('ncm-grub', '19.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-grub', '18.12.0-rc9_1', 'noarch');
 
 include if_exists('components/grub/site-config');
 
 prefix '/software/components/grub';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '19.12.0';
+'version' ?= '18.12.0';
 'dependencies/pre' ?= list('spma');
 
 # Do not register for changes to /system/kernel/version as it is optional

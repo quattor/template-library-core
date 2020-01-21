@@ -11,7 +11,7 @@
 
 # 
 # #
-# sysconfig, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# sysconfig, 18.12.0-rc9, rc9_1, Tue Jan 21 2020
 #
 
 unique template components/sysconfig/config;

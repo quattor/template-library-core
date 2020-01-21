@@ -11,17 +11,17 @@
 
 # 
 # #
-# ssh, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# ssh, 18.12.0-rc9, rc9_1, Tue Jan 21 2020
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "19.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "18.12.0-rc9_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '19.12.0';
+'version' ?= '18.12.0';
