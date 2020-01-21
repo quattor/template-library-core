@@ -21,12 +21,12 @@ include 'components/pbsserver/schema';
 bind '/software/components/pbsserver' = pbsserver_component;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-pbsserver', '19.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-pbsserver', '18.12.0-rc9_1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/pbsserver';
 
-'version' = '19.12.0';
+'version' = '18.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
