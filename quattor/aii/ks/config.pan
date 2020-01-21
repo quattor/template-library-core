@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# ks, 18.12.0-rc9, rc9_1, Tue Jan 21 2020
 #
 
 @{Template containing the Kickstart-related configuration and default values.}
@@ -393,16 +393,13 @@ variable AII_OSINSTALL_PACKAGES ?= list(
 # If is not true, the following variables should be set to define the PXE server:
 #    AII_ACK_SRV : the name of the PXE server
 #    AII_ACK_CGI : the location of the acknowledgement script to end the installation
-#    AII_ACK_LIST: list of URLs to try if the acknowledgement needs to be sent
-#                  to multiple servers. If AII_ACK_LIST is set, then AII_ACK_SRV and
-#                  AII_ACK_CGI are not used here.
 #
 # If the variables are undefined, the defaults are set below.
 #
 variable AII_ACK_SRV ?= AII_OSINSTALL_SRV;
 variable AII_ACK_CGI ?= "/cgi-bin/aii-installack.cgi";
-variable AII_ACK_LIST ?= list("http://" + AII_ACK_SRV + AII_ACK_CGI);
-"acklist" ?= AII_ACK_LIST;
+"ackurl" = "http://" + AII_ACK_SRV + AII_ACK_CGI;
+
 
 #
 # Set the location of the node profile

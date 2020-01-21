@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 19.12.0-rc1, rc1_1, Mon Jan 06 2020
+# ks, 18.12.0-rc9, rc9_1, Tue Jan 21 2020
 #
 
 # Template containing OS configuration and default values.
@@ -27,7 +27,7 @@ prefix "/system/aii/osinstall/ks";
 "mouse" = null;
 "langsupport" = null;
 
-"end_script" = "%end";  # TODO: remove - no longer used
+"end_script" = "%end";
 "part_label" = true;
 "volgroup_required" = false;
 

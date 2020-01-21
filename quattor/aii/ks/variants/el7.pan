@@ -8,7 +8,7 @@ prefix "/system/aii/osinstall/ks";
 "langsupport" = null;
 "packages_args" = list("--ignoremissing");
 
-"end_script" = "%end";  # TODO: remove - no longer used
+"end_script" = "%end";
 "part_label" = true;
 "volgroup_required" = false;
 "lvmforce" = true;
