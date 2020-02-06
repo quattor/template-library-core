@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 19.12.0-rc2, rc2_1, Tue Jan 21 2020
+# puppet, 19.12.0-rc3, rc3_1, Thu Feb 06 2020
 #
 
 unique template components/puppet/config-rpm;
@@ -20,6 +20,6 @@ unique template components/puppet/config-rpm;
 prefix '/software/components/puppet';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-puppet','19.12.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-puppet','19.12.0-rc3_1','noarch');
 'dependencies/pre' ?= list('spma');
 

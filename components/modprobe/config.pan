@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 19.12.0-rc2, rc2_1, Tue Jan 21 2020
+# modprobe, 19.12.0-rc3, rc3_1, Thu Feb 06 2020
 #
 
 unique template components/modprobe/config;
@@ -19,7 +19,7 @@ unique template components/modprobe/config;
 include 'components/modprobe/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-modprobe", "19.12.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-modprobe", "19.12.0-rc3_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/modprobe';
