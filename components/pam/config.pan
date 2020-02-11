@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 19.12.0-rc3, rc3_1, Thu Feb 06 2020
+# pam, 19.12.0-rc4, rc4_1, Tue Feb 11 2020
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "19.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "19.12.0-rc4_1", "noarch");
 
 # standard functions
 include 'pan/functions';

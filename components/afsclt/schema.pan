@@ -13,7 +13,7 @@
 
 # 
 # #
-# afsclt, 19.12.0-rc3, rc3_1, Thu Feb 06 2020
+# afsclt, 19.12.0-rc4, rc4_1, Tue Feb 11 2020
 #
 
 declaration template components/afsclt/schema;

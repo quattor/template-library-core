@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 19.12.0-rc3, rc3_1, Thu Feb 06 2020
+# nss, 19.12.0-rc4, rc4_1, Tue Feb 11 2020
 #
 
 ################################################################################
@@ -25,7 +25,7 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "19.12.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "19.12.0-rc4_1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';
