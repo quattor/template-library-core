@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 19.12.0-rc3, rc3_1, Thu Feb 06 2020
+# ks, 19.12.0-rc4, rc4_1, Tue Feb 11 2020
 #
 
 @{Structure for the component generating kickstart files.}
