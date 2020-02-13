@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 19.12.0-rc4, rc4_1, Tue Feb 11 2020
+# puppet, 19.12.0, 1, Thu Feb 13 2020
 #
 
 declaration template components/puppet/schema;
