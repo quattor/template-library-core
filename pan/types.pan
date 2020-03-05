@@ -1022,3 +1022,23 @@ type cpu_architecture = string with match (SELF, '^(i386|ia64|x86_64|sparc|aarch
     desc = Linux capabilities, see CAPABILITIES(7)
 }
 type linux_capability = string with match(SELF, '^CAP_[A-Z_]+$');
+
+@documentation{
+    desc = Search path, a colon seperated set of absolute paths which may include . as a reference to current working directory
+}
+type string_search_path = string_trimmed with {
+    if (! match(SELF, '^[^:]+?(?::[^:]+)+$')) {
+        error('The string "%s" does not look like a search path, i.e. must match /^[^:]+?(?::[^:]+)+$/', SELF);
+    };
+    paths = split(':', SELF);
+    dot_count = 0;
+    foreach(i; path; paths) {
+        if (path == '.') {
+            dot_count = dot_count + 1;
+        } else {
+            is_absolute_file_path(path);
+        };
+    };
+    if (dot_count > 1) error('The search path "%s" contains more than one reference to the working directory.', SELF);
+    true;
+};
