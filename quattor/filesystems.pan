@@ -31,23 +31,30 @@ function filesystems_uniq_paths = {
     Filestystem definition
 }
 type structure_filesystem = {
-    "block_device" : string with exists ("/system/blockdevices/" + SELF)
-                # "References an entry in /software/components/blockdevices"
+    @{ filesystem blockdevice - References an entry in /software/components/blockdevices }
+    "block_device" : string with exists("/system/blockdevices/" + SELF)
     "format"    : boolean
     "preserve"  : boolean
     "mountpoint": string
     "mount"     : boolean
-    "mountopts" : string = "defaults" # "Mount options"
-    "type"      : string with match (SELF, "^(auto|ext[2-4]|reiserfs|" +
-                    "reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|vxfs|zfs|none|proc)$")
-                    # "Filesystem type"
-    "quota"     ? long # "Quota percentage"
-    "freq"      : long = 0 # "Dump frequency"
-    "pass"      : long = 0 # "fsck pass number"
-    "mkfsopts"  ? string # Extra options passed to mkfs.
-    "tuneopts"  ? string # Options for filesystem tuning commands (tune2fs, xfs_admin...)
-    "label"     ? string # Filesystem label, as in LABEL=foo
-    "ksfsformat" ? boolean # If true, anaconda formats the filesystem (with undef/false, --noformat is used)
-    @{When defined and false, AII will ignore this filesystem}
+    @{ Mount options }
+    "mountopts" : string = "defaults"
+    @{ Filesystem type }
+    "type" : string with match(SELF, "^(auto|ext[2-4]|reiserfs|reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|vxfs|zfs|none|proc)$")
+    @{ Quota percentage }
+    "quota" ? long
+    @{ Dump frequency }
+    "freq" : long = 0
+    @{ fsck pass number }
+    "pass" : long = 0
+    @{ Extra options passed to mkfs }
+    "mkfsopts" ? string
+    @{ Options for filesystem tuning commands (tune2fs, xfs_admin...) }
+    "tuneopts" ? string
+    @{ Filesystem label, as in LABEL=foo }
+    "label" ? string
+    @{ If true, anaconda formats the filesystem (with undef/false, --noformat is used) }
+    "ksfsformat" ? boolean
+    @{ When defined and false, AII will ignore this filesystem }
     "aii" ? boolean
 };
