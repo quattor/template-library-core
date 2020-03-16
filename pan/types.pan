@@ -48,12 +48,15 @@ Ex: 20040825120123Z
 }
 function is_asndate = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_asndate(string)");
+    };
 
     # Match the datetime pattern, extracting interesting fields.
-    result = matches(ARGV[0],
-        '^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(?:[,\.](\d+))?([Zz]|(?:[-+]\d{2}\d{2}))?$');
+    result = matches(
+        ARGV[0],
+        '^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(?:[,\.](\d+))?([Zz]|(?:[-+]\d{2}\d{2}))?$'
+    );
 
     if (length(result) >= 7) {
         # Do further tests on various components of the date.
@@ -170,12 +173,15 @@ Ex: 2004-08-25
 }
 function is_isodate = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_isodate(string)");
+    };
 
     # Match the datetime pattern, extracting interesting fields.
-    result = matches(ARGV[0],
-        '^([1-9]\d{3})-(\d{2})-(\d{2})(?:[Tt](\d{2}):(\d{2}):(\d{2}(?:\.\d{2})?)([Zz]|(?:[-+]\d{2}:\d{2})))?$');
+    result = matches(
+        ARGV[0],
+        '^([1-9]\d{3})-(\d{2})-(\d{2})(?:[Tt](\d{2}):(\d{2}):(\d{2}(?:\.\d{2})?)([Zz]|(?:[-+]\d{2}:\d{2})))?$'
+    );
 
     # Allow either just the complete date, or date with complete time.
     if (length(result) == 8 || length(result) == 4) {
@@ -281,11 +287,11 @@ Both upper and lower-case hex digits are accepted.
 }
 function is_hwaddr = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_hwaddr(string)");
+    };
 
-    return(match(ARGV[0],
-        '^[\dA-Fa-f]{2}([:-])[\dA-Fa-f]{2}(\1[\dA-Fa-f]{2}){4}$'));
+    return(match(ARGV[0], '^[\dA-Fa-f]{2}([:-])[\dA-Fa-f]{2}(\1[\dA-Fa-f]{2}){4}$'));
 };
 
 
@@ -299,12 +305,13 @@ Function to validate an IPv4 address in dotted-decimal notation.
 }
 function is_ipv4 = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_ipv4(string)");
+    };
 
     ip = ARGV[0];
     result = matches(ip, '^(\d+)\.(\d+)\.(\d+)\.(\d+)$');
-    if(length(result) != 5) {
+    if (length(result) != 5) {
         debug("is_ipv4: invalid IPv4 address: " + ip);
         return(false);
     };
@@ -339,8 +346,9 @@ Check that this is a valid full or shortened IPv6 address.
 }
 function is_ipv6 = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_ipv6(string)");
+    };
 
     ip = ARGV[0];
     return(is_ipv6_full(ip) || is_ipv6_short(ip));
@@ -355,8 +363,9 @@ suppressed.
 }
 function is_ipv6_full = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_ipv6_full(string)");
+    };
 
     # No need to check values of individual fields because pattern
     # excludes all illegal values.
@@ -372,8 +381,9 @@ colon (::) to replace any number of contiguous zero fields.
 }
 function is_ipv6_short = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_ipv6_short(string)");
+    };
 
     # Match the various allowed patterns containing one occurance of
     # a double colon.
@@ -432,8 +442,9 @@ The relevant RFC's for host name syntax are 952, 1053, and 1123
 }
 function is_fqdn = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_fqdn(string)");
+    };
 
     match(ARGV[0], '(?=^.{4,253}$)(^((?!-)[a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,63}\.?$)');
 };
@@ -449,8 +460,9 @@ Validates a hostname to be either ip or fqdn.
 }
 function is_hostname = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_hostname(string)");
+    };
 
     if (is_shorthostname(ARGV[0])) {
         deprecated(0, "Short hostnames are deprecated as valid hostnames.");
@@ -492,7 +504,7 @@ function is_port = {
 
     # Ensure that the range is OK.
     port = ARGV[0];
-    if (port<0 || port>65535) {
+    if (port < 0 || port > 65535) {
         error("is_port: port out of range (0..65535) " + port);
         return(false);
     };
@@ -512,8 +524,9 @@ Defines a host and port of the form hostname:port.
 }
 function is_hostport = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_hostport(string)");
+    };
 
     # Split string into host and port fields.
     result = matches(ARGV[0], '^([^:]+)(?::(\d+))?$');
@@ -521,7 +534,7 @@ function is_hostport = {
 
     # Must match at least one field.  Unmatched terminal fields will
     # not be defined; be careful with array bounds below.
-    if (nmatch<2 || nmatch>3) {
+    if (nmatch < 2 || nmatch > 3) {
         error("is_hostport: global pattern match for hostport failed");
         return(false);
     };
@@ -563,16 +576,16 @@ particular value.
 }
 function is_URI = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_URI(string)");
+    };
 
     uri = ARGV[0];
 
     # The regular expression comes from RFC2396 Appendix B.  This isn't
     # sufficient to check that all of the individual fields are OK.
     # Split out the fields which are necessary for full validation.
-    result = matches(uri,
-        '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');
+    result = matches(uri, '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');
     nmatch = length(result);
 
     # Must match at least one field.  Unmatched terminal fields will
@@ -662,8 +675,9 @@ just a valid URI with the scheme explicitly included.
 }
 function is_absoluteURI = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_absoluteURI(string)");
+    };
 
     uri = ARGV[0];
 
@@ -675,8 +689,7 @@ function is_absoluteURI = {
 
     # The regular expression comes from RFC2396 Appendix B.  This isn't
     # sufficient to check that all of the individual fields are OK.
-    result = matches(uri,
-        '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');
+    result = matches(uri, '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');
     nmatch = length(result);
 
     # Must match at least one field.  Unmatched terminal fields will
@@ -709,8 +722,9 @@ an absolute URI with a non-empty host field.
 }
 function is_hostURI = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_hostURI(string)");
+    };
 
     uri = ARGV[0];
 
@@ -723,8 +737,7 @@ function is_hostURI = {
     # The regular expression comes from RFC2396 Appendix B.  This isn't
     # sufficient to check that all of the individual fields are OK.
     # Split out the fields which are necessary for full validation.
-    result = matches(uri,
-        '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');
+    result = matches(uri, '^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');
     nmatch = length(result);
 
     # Must match at least one field.  Unmatched terminal fields will
@@ -741,8 +754,10 @@ function is_hostURI = {
 
     # Split out the authority subfields and verify each of them.  The user
     # info and port parts need no further validation.
-    result = matches(authority,
-            "^(?:([\\w\\d\\.!~\\*\\(\\);:&=+\\$,'-]|(?:%[\\da-fA-F]{2}))+@)?([a-zA-Z\\d\\.-]*)(:\\d+)?$");
+    result = matches(
+        authority,
+        "^(?:([\\w\\d\\.!~\\*\\(\\);:&=+\\$,'-]|(?:%[\\da-fA-F]{2}))+@)?([a-zA-Z\\d\\.-]*)(:\\d+)?$"
+    );
 
     # Must match at least one field.  Unmatched terminal fields will not
     # be defined.
@@ -771,8 +786,9 @@ type type_hostURI = string with {
 
 function is_email = {
     # Check cardinality and type of argument.
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_email(string)");
+    };
 
     # Pull out the components of the address.
     results = matches(ARGV[0], '^([\w\.-]+)@([\w\.-]+)$');
@@ -810,8 +826,9 @@ type type_email = string with {
 If the string contains any upper case characters, return false
 }
 function is_lowercase = {
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_lower(string)");
+    };
     return(!match (ARGV[0], '[A-Z]'));
 };
 
@@ -825,8 +842,9 @@ type type_lowercase = string with {
 If the string contains any lower case characters, return false
 }
 function is_uppercase = {
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_upper(string)");
+    };
     return(!match (ARGV[0], '[a-z]'));
 };
 
@@ -961,7 +979,9 @@ type type_uuid = string with {
     desc = Checks that a string represents a valid absolute path to a file (not a directory), prints explanatory errors if invalid
 }
 function is_absolute_file_path = {
-    if (ARGC != 1 || !is_string (ARGV[0])) error("usage: is_absolute_path(string)");
+    if (ARGC != 1 || !is_string (ARGV[0])) {
+        error("usage: is_absolute_path(string)");
+    };
     path = ARGV[0];
 
     if (match(path, '/$')) {
@@ -1002,3 +1022,23 @@ type cpu_architecture = string with match (SELF, '^(i386|ia64|x86_64|sparc|aarch
     desc = Linux capabilities, see CAPABILITIES(7)
 }
 type linux_capability = string with match(SELF, '^CAP_[A-Z_]+$');
+
+@documentation{
+    desc = Search path, a colon seperated set of absolute paths which may include . as a reference to current working directory
+}
+type string_search_path = string_trimmed with {
+    if (! match(SELF, '^[^:]+?(?::[^:]+)+$')) {
+        error('The string "%s" does not look like a search path, i.e. must match /^[^:]+?(?::[^:]+)+$/', SELF);
+    };
+    paths = split(':', SELF);
+    dot_count = 0;
+    foreach(i; path; paths) {
+        if (path == '.') {
+            dot_count = dot_count + 1;
+        } else {
+            is_absolute_file_path(path);
+        };
+    };
+    if (dot_count > 1) error('The search path "%s" contains more than one reference to the working directory.', SELF);
+    true;
+};
