@@ -244,6 +244,15 @@ type structure_bios = {
 };
 
 @documentation{
+    Configuration settings
+}
+type structure_hw_options = {
+    @{Signal to the hardware management platform that all directly attached
+      disks should be encrypted.}
+    "encrypt_disks" ? boolean
+};
+
+@documentation{
     Hardware definition
 }
 type structure_hardware = {
@@ -258,6 +267,8 @@ type structure_hardware = {
     "sensors" ? structure_sensor_types
     @{Date at which the hardware support runs out.}
     "support"      ? type_isodate
+    @{Optional configuration settings}
+    "options"      ? structure_hw_options
     @{Date at which the hardware is procured.}
     "procured"     ? type_isodate
     # Obsolete field, use the appropriate "cards" sub-field instead!!
