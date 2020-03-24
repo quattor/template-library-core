@@ -300,14 +300,14 @@ final variable ENC_TYPES = '^(blade|dumb|hypervisor)$';
 }
 type structure_enclosure = {
     "type"          : string with match(SELF, ENC_TYPES)
-                        || error("enclosure type must be one of: " + ENC_TYPES)
+    || error("enclosure type must be one of: " + ENC_TYPES)
     "children"      ? string[1..] with is_profile_list(SELF)
     "maxchildren"   ? long
 } with {
     if (exists(SELF['children']) && exists(SELF['maxchildren'])) {
         SELF['maxchildren'] >= length(SELF['children'])
         || error("enclosure has too many children, max is " +
-            to_string(SELF['maxchildren']));
+        to_string(SELF['maxchildren']));
     } else {
         true;
     };
