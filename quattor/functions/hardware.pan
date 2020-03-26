@@ -1,8 +1,9 @@
 declaration template quattor/functions/hardware;
 
-
-# Returns the number of cores on the current machine or another machine
-# specifified as a HW template (string) or a HW configuration (nlist)².
+@documentation{
+    descr = Returns the number of cores on the current machine or another machine specifified as a HW template (string) or a HW configuration (nested dict).
+    arg = A dict or string (optional) specifying the source of the hardware configuration.
+}
 function get_num_of_cores = {
     if ( ARGC == 0 ) {
         hw_config = value('/hardware');
