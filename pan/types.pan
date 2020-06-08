@@ -1042,3 +1042,9 @@ type string_search_path = string_trimmed with {
     if (dot_count > 1) error('The search path "%s" contains more than one reference to the working directory.', SELF);
     true;
 };
+
+
+@documentation{
+    desc = string type to store a valid mode/mask in octal
+}
+type type_octal_mode = string with to_long(SELF, 8) >= 0 && to_long(SELF, 8) <= 07777;
