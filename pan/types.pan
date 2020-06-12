@@ -1048,3 +1048,10 @@ type string_search_path = string_trimmed with {
     desc = string type to store a valid mode/mask in octal
 }
 type type_octal_mode = string with to_long(SELF, 8) >= 0 && to_long(SELF, 8) <= 07777;
+
+
+@documentations{
+    desc = possible actions supported by CAF::ServiceActions
+}
+type caf_serviceaction = choice("restart", "reload", "stop_sleep_start");
+
