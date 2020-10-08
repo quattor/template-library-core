@@ -9,4 +9,5 @@ type structure_software = {
     "repositories"  ? list
     "packages"      ? dict
     "groups"        ? dict
+    "modules"       ? dict
 };
