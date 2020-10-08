@@ -89,6 +89,7 @@ variable OS_VERSION_PARAMS = dict(
 # fix for multiversion metaconfig
 final variable METACONFIG_LOGSTASH_VERSION = '5.0';
 final variable METACONFIG_ELASTICSEARCH_VERSION = '5.0';
+final variable METACONFIG_KIBANA_VERSION = '7.0';
 
 # required metaconfig data
 prefix "/software/components/metaconfig/services";
