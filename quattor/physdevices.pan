@@ -11,7 +11,7 @@ include 'quattor/types/annotation';
 type structure_raidport = {
     include structure_annotation
     "capacity" : long # In MB or GB? Quattor always used MB for this...
-    "interface" : string with match (SELF, "^(sata|sas|ide|scsi)$")
+    "interface" : choice('sata', 'sas', 'ide', 'scsi', 'nvme')
     "boot" ? boolean
     # To handle disk device names as /dev/cciss/xxxpn, where 'p' must be inserted
     # between device name and partition number (e.g. HP SmartArray)
