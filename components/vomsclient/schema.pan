@@ -14,7 +14,7 @@
 #
 
 # #
-# vomsclient, 19.12.0, 1, Thu Feb 13 2020
+# vomsclient, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
 #
 #
 

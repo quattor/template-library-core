@@ -14,7 +14,7 @@
 #
 
 # #
-# gip2, 19.12.0, 1, Thu Feb 13 2020
+# gip2, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
 #
 
 unique template components/gip2/config;
@@ -22,11 +22,11 @@ unique template components/gip2/config;
 include 'components/gip2/schema';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gip2', '19.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gip2', '20.12.0-rc1_1', 'noarch');
 
 # Set prefix to root of component configuration.
 prefix '/software/components/gip2';
-'version' = '19.12.0';
+'version' = '20.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
