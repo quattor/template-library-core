@@ -51,6 +51,12 @@ type systemd_unit_virtualization = string with match(SELF,
 #    make this more finegrained, e.g. has to be existing unit; or check types
 type systemd_valid_unit = string;
 
+# executable paths can have a number of special prefixes
+type systemd_valid_execpath = string with match(SELF, '^([@+!:-]|!!)?/');
+
+# type for a relative directory: no leading / and may not include ".."
+type systemd_relative_directory = string with !match(SELF, '(^/|\.\.)');
+
 # adding new ones
 # go to http://www.freedesktop.org/software/systemd/man/systemd.directives.html
 # and follow the link to the manual
@@ -154,6 +160,10 @@ http://www.freedesktop.org/software/systemd/man/systemd.exec.html
 valid for [Service], [Socket], [Mount], or [Swap] sections
 }
 type systemd_unitfile_config_systemd_exec = {
+    'CacheDirectoryMode' ? type_octal_mode
+    'CacheDirectory' ? systemd_relative_directory[]
+    'ConfigurationDirectoryMode' ? type_octal_mode
+    'ConfigurationDirectory' ? systemd_relative_directory[]
     'CPUAffinity' ? long[][] # start with empty list to reset
     'CPUSchedulingPolicy' ? string with match(SELF, '^(other|batch|idle|fifo|rr)$')
     'CPUSchedulingPriority' ? long(1..99) # 99 = highest
@@ -179,13 +189,20 @@ type systemd_unitfile_config_systemd_exec = {
     'LimitRTTIME' ? long(-1..) # Specifies a limit (in microseconds) on the amount of CPU time that a process scheduled under a real-time scheduling policy may consume without making a blocking system call.
     'LimitSIGPENDING' ? long(-1..) # Specifies the limit on the number of signals that may be queued for the real user ID of the calling process.
     'LimitSTACK' ? long(-1..) # The maximum size of the process stack, in bytes.
+    'LogsDirectoryMode' ? type_octal_mode
+    'LogsDirectory' ? systemd_relative_directory[]
     'Nice' ? long(-20..19)
     'OOMScoreAdjust' ? long(-1000..1000)
     'PrivateTmp' ? boolean
-    'RootDirectory' ? string
+    'RootDirectory' ? systemd_relative_directory
+    'RuntimeDirectoryMode' ? type_octal_mode
+    'RuntimeDirectoryPreserve' ? choice('yes', 'no', 'restart')
+    'RuntimeDirectory' ? systemd_relative_directory[]
     'StandardError' ? systemd_unitfile_config_systemd_exec_stdouterr
     'StandardInput' ? string with match(SELF, '^(null|tty(-(force|fail))?|socket)$')
     'StandardOutput' ? systemd_unitfile_config_systemd_exec_stdouterr
+    'StateDirectoryMode' ? type_octal_mode
+    'StateDirectory' ? systemd_relative_directory[]
     'SupplementaryGroups' ? defined_group[]
     'SyslogFacility' ? syslog_facility
     'SyslogIdentifier' ? string
@@ -195,7 +212,7 @@ type systemd_unitfile_config_systemd_exec = {
     'TTYReset' ? boolean
     'TTYVHangup' ? boolean
     'TTYVTDisallocate' ? boolean
-    'UMask' ? string # octal notation, e.g. 0022
+    'UMask' ? type_octal_mode
     'User' ? defined_user
     'WorkingDirectory' ? string
 };
@@ -243,6 +260,77 @@ type systemd_unitfile_config_service = {
 };
 
 @documentation{
+the [Socket] section
+http://www.freedesktop.org/software/systemd/man/systemd.socket.html
+}
+type systemd_unitfile_config_socket = {
+    include systemd_unitfile_config_systemd_exec
+    include systemd_unitfile_config_systemd_kill
+    'ListenStream' ? string[]
+    'ListenDatagram' ? string[]
+    'ListenSequentialPacket' ? string[]
+    'ListenFIFO' ? absolute_file_path
+    'ListenSpecial' ? absolute_file_path
+    'ListenNetlink' ? string
+    'ListenMessageQueue' ? string with match(SELF, '^/')
+    'ListenUSBFunction' ? string
+    'SocketProtocol' ? choice('udplite', 'sctp')
+    'BindIPv6Only' ? choice('default', 'both', 'ipv6-only')
+    'Backlog' ? long(0..)
+    'BindToDevice' ? string
+    'SocketUser' ? defined_user
+    'SocketGroup' ? defined_group
+    'SocketMode' ? type_octal_mode
+    'DirectoryMode' ? type_octal_mode
+    'Accept' ? boolean
+    'Writable' ? boolean
+    'MaxConnections' ? long(0..)
+    'MaxConnectionsPerSource' ? long(0..)
+    'KeepAlive' ? boolean
+    'KeepAliveTimeSec' ? long(0..)
+    'KeepAliveIntervalSec' ? long(0..)
+    'KeepAliveProbes' ? long(0..)
+    'NoDelay' ? boolean
+    'Priority' ? long(0..)
+    'DeferAcceptSec' ? long(0..)
+    'ReceiveBuffer' ? long(0..)
+    'SendBuffer' ? long(0..)
+    'IPTOS' ? string with match(SELF, '^([0-9]+|low-delay|throughput|reliability|low-cost)$')
+    'IPTTL' ? long
+    'Mark' ? long
+    'ReusePort' ? boolean
+    'SmackLabel' ? string
+    'SmackLabelIPIn' ? string
+    'SmackLabelIPOut' ? string
+    'SELinuxContextFromNet' ? boolean
+    'PipeSize' ? long(0..)
+    'MessageQueueMaxMessages' ? long
+    'MessageQueueMessageSize' ? long
+    'FreeBind' ? boolean
+    'Transparent' ? boolean
+    'Broadcast' ? boolean
+    'PassCredentials' ? boolean
+    'PassSecurity' ? boolean
+    'TCPCongestion' ? choice('westwood', 'veno', 'cubic', 'lp')
+    'ExecStartPost' ? systemd_valid_execpath[]
+    'ExecStartPre' ? systemd_valid_execpath[]
+    'ExecStopPre' ? systemd_valid_execpath[]
+    'ExecStopPost' ? systemd_valid_execpath[]
+    'TimeoutSec' ? long(0..)
+    'Service' ? string
+    'RemoveOnStop' ? boolean
+    'Symlinks' ? string[]
+    'FileDescriptorName' ? string with match(SELF, '^[^:]{1,255}$')
+    'TriggerLimitIntervalSec' ? long(0..)
+    'TriggerLimitBurst' ? long(0..)
+} with {
+    if(exists(SELF['Service']) && exists(SELF['Accept']) && SELF['Accept']) {
+        error('You can only specify a Service when Accept=false');
+    };
+    true;
+};
+
+@documentation{
 Unit configuration sections
     includes, unit and install are type agnostic
         unit and install are mandatory, but not enforced by schema (possible issues in case of replace=true)
@@ -254,6 +342,7 @@ type systemd_unitfile_config = {
     'includes' ? string[]
     'install' ? systemd_unitfile_config_install
     'service' ? systemd_unitfile_config_service
+    'socket' ? systemd_unitfile_config_socket
     'unit' ? systemd_unitfile_config_unit
 };
 
@@ -295,14 +384,14 @@ type systemd_target = string with match(SELF, "^(default|poweroff|rescue|multi-u
 type systemd_unit_type = {
     "name" ? string # shortnames are ok; fullnames require matching type
     "targets" : systemd_target[] = list("multi-user")
-    "type" : string = 'service' with match(SELF, '^(service|target|sysv)$')
+    "type" : choice('service', 'target', 'sysv', 'socket') = 'service'
     "startstop" : boolean = true
     "state" : string = 'enabled' with match(SELF, '^(enabled|disabled|masked)$')
     @{unitfile configuration}
     "file" ? systemd_unitfile
 };
 
-type component_systemd = {
+type systemd_component = {
     include structure_component
     "skip" : systemd_skip
     @{what to do with unconfigured units: ignore, enabled, disabled, on (enabled+start), off (disabled+stop; advanced option)}

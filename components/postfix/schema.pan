@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 19.12.0, 1, Thu Feb 13 2020
+# postfix, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
 #
 
 declaration template components/postfix/schema;
@@ -159,6 +159,7 @@ type postfix_main = {
     "default_delivery_slot_loan" ? long
     "default_destination_concurrency_limit" ? long
     "default_destination_recipient_limit" ? long
+    "default_destination_rate_delay" ? long
     "default_extra_recipient_limit" ? long
     "default_minimum_delivery_slots" ? long
     "default_privs" ? string

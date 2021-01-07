@@ -17,12 +17,12 @@ include 'components/altlogrotate/schema';
 
 bind '/software/components/altlogrotate' = altlogrotate_component;
 
-'/software/packages' = pkg_repl('ncm-altlogrotate', '19.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-altlogrotate', '20.12.0-rc1_1', 'noarch');
 
 include if_exists('components/altlogrotate/site-config');
 
 prefix '/software/components/altlogrotate';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '19.12.0';
+'version' ?= '20.12.0';
 'dependencies/pre' ?= list('spma');

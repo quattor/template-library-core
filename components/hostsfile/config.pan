@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsfile, 19.12.0, 1, Thu Feb 13 2020
+# hostsfile, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
 #
 
 unique template components/hostsfile/config;
@@ -19,11 +19,11 @@ unique template components/hostsfile/config;
 include 'components/hostsfile/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-hostsfile", "19.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-hostsfile", "20.12.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/hostsfile';
 
-'version' = '19.12.0';
+'version' = '20.12.0';
 'active' ?= false;
 'dispatch' ?= false;

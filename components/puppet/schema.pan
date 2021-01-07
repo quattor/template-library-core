@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 19.12.0, 1, Thu Feb 13 2020
+# puppet, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
 #
 
 declaration template components/puppet/schema;
@@ -41,6 +41,11 @@ type puppet_hieraconf_yaml = extensible {
 
 type puppet_hieraconf = extensible {};
 
+@documentation{
+An extensible dictionary holding data to be written to a YAML file for use with Heira.
+Note that due to a limitation of YAML::XS strings are not quoted. If you need to pass strings containing special
+characters e.g. commas you can either quote the string twice or escape the characters with a backslash.
+}
 type puppet_hieradata = extensible {};
 
 type puppet_component = {

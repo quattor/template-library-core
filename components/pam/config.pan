@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 19.12.0, 1, Thu Feb 13 2020
+# pam, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
 #
 
 ##########################################################################
@@ -26,13 +26,13 @@ unique template components/pam/config;
 include 'components/pam/schema';
 
 # standard component settings
-"/software/components/pam/version"    = '19.12.0';
+"/software/components/pam/version"    = '20.12.0';
 "/software/components/pam/active"    ?=  true;
 "/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "19.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "20.12.0-rc1_1", "noarch");
 
 # standard functions
 include 'pan/functions';

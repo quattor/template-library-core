@@ -19,7 +19,7 @@ declaration template components/metaconfig/schema;
 include 'quattor/types/component';
 include 'quattor/functions/validation';
 
-type metaconfig_extension = extensible {};
+type metaconfig_extension = resource;
 
 @documentation{
     Convert value of certain types (e.g. boolean to string yes/no)

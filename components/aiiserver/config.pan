@@ -17,14 +17,14 @@ include 'components/aiiserver/schema';
 
 bind '/software/components/aiiserver' = aiiserver_component;
 
-'/software/packages' = pkg_repl('ncm-aiiserver', '19.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-aiiserver', '20.12.0-rc1_1', 'noarch');
 
 include if_exists('components/aiiserver/site-config');
 
 prefix '/software/components/aiiserver';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '19.12.0';
+'version' ?= '20.12.0';
 'dependencies/pre' ?= list('spma');
 
 # This component depends on ncm-ccm configuration for https params

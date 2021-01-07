@@ -17,8 +17,8 @@ include 'components/profile/schema';
 include 'components/profile/functions';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-profile", "19.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-profile", "20.12.0-rc1_1", "noarch");
 
 '/software/components/profile/dependencies/pre' ?= list('spma');
 
-'/software/components/profile/version' ?= '19.12.0';
+'/software/components/profile/version' ?= '20.12.0';

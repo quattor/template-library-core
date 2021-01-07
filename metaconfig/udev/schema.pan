@@ -13,4 +13,12 @@ type udev_interfaces = dict with {
 
 type udev_scsi_run = string[];
 type udev_dm_run = string[];
+type udev_nvme_run = string[];
 
+type udev_action_attr = {
+    'action' : string
+    'subsystem' : string
+    'attributes' : string{}
+};
+
+type udev_action_attrs = udev_action_attr[];

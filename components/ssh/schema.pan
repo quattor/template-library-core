@@ -143,6 +143,12 @@ type ssh_daemon_options_type = {
     "Port" ? long
     "PrintLastLog" ? legacy_binary_affirmation_string
     "PrintMotd" ? legacy_binary_affirmation_string
+    "RevokedKeys" ? string with {
+        if(!((SELF == 'none' ) || is_absolute_file_path(SELF))) {
+            error("RevokedKeys must either be a file path or none")
+        };
+        true;
+    }
     "RhostsAuthentication" ? legacy_binary_affirmation_string
     "ServerKeyBits" ? long
     "ShowPatchLevel" ? legacy_binary_affirmation_string
@@ -169,6 +175,7 @@ type ssh_client_options_type = {
     "EnableSSHKeysign" ? legacy_binary_affirmation_string
     "ForwardAgent" ? legacy_binary_affirmation_string
     "ForwardX11" ? legacy_binary_affirmation_string
+    "HashKnownHosts" ? legacy_binary_affirmation_string
     "GSSAPIDelegateCredentials" ? legacy_binary_affirmation_string
     "Port" ? long
     "PreferredAuthentications" ? ssh_preferred_authentication[]

@@ -4,11 +4,17 @@ declaration template metaconfig/httpd/schema;
 include 'pan/types';
 include 'components/accounts/functions';
 
-type httpd_sslprotocol = string with match(SELF, '^\+?(TLSv1|TLSv1\.[012])$')
-    || error("Use a modern cipher protocol, for Pete's sake!");
+type httpd_sslprotocol = choice("all", "-SSLv3", "-TLSv1", "TLSv1", "-TLSv1.1", "TLSv1.1", "TLSv1.2", "TLSv1.3");
 
-type httpd_ciphersuite = string with match(SELF, '^(\+?TLSv1|!(RC4|LOW|[ae]NULL|MD5|EXP|3DES|IDEA|SEED|CAMELLIA))$')
-    || error("Use a modern cipher suite, for Pete's sake!");
+type httpd_ciphersuite = choice("TLSv1", "ECDHE-ECDSA-CHACHA20-POLY1305", "ECDHE-RSA-CHACHA20-POLY1305",
+    "ECDHE-ECDSA-AES128-GCM-SHA256", "ECDHE-RSA-AES128-GCM-SHA256", "ECDHE-ECDSA-AES256-GCM-SHA384",
+    "ECDHE-RSA-AES256-GCM-SHA384", "DHE-RSA-AES128-GCM-SHA256", "DHE-RSA-AES256-GCM-SHA384",
+    "ECDHE-ECDSA-AES128-SHA256", "ECDHE-RSA-AES128-SHA256", "ECDHE-ECDSA-AES128-SHA", "ECDHE-RSA-AES256-SHA384",
+    "ECDHE-RSA-AES128-SHA", "ECDHE-ECDSA-AES256-SHA384", "ECDHE-ECDSA-AES256-SHA", "ECDHE-RSA-AES256-SHA",
+    "DHE-RSA-AES128-SHA256", "DHE-RSA-AES128-SHA", "DHE-RSA-AES256-SHA256", "DHE-RSA-AES256-SHA",
+    "ECDHE-ECDSA-DES-CBC3-SHA", "ECDHE-RSA-DES-CBC3-SHA", "EDH-RSA-DES-CBC3-SHA", "AES128-GCM-SHA256",
+    "AES256-GCM-SHA384", "AES128-SHA256", "AES256-SHA256", "AES128-SHA", "AES256-SHA", "DES-CBC3-SHA", "!RC4",
+    "!LOW", "!aNULL", "!eNULL", "!MD5", "!EXP", "!3DES", "!IDEA", "!SEED", "!CAMELLIA", "!DSS");
 
 # These are the settings for old clients, see https://access.redhat.com/articles/1467293 for stricter values.
 type httpd_nss_protocol = string with match(SELF, '^(TLSv1\.[012]|SSLv3)$')
@@ -247,6 +253,8 @@ type httpd_ssl_vhost = {
     "protocol" : httpd_sslprotocol[] = list("TLSv1")
     "ciphersuite" : httpd_ciphersuite[] = list("TLSv1")
     "honorcipherorder" ? string with match(SELF, '^(on|off)$')
+    "compression" ? boolean
+    "sessiontickets" ? boolean
 };
 
 type httpd_directory_allowoverride = string with match(SELF, '^(All|None|Options|FileInfo|AuthConfig|Limit)$');
@@ -327,15 +335,46 @@ type httpd_name_virtual_host = {
     "port" ? type_port
 };
 
-type httpd_auth_type = string with match(SELF, "^(Basic|Kerberos|Shibboleth|GSSAPI|openid-connect)$");
+type httpd_auth_type = choice("None", "Basic", "Kerberos", "Shibboleth", "GSSAPI", "openid-connect", "CAS");
 
 type httpd_auth = {
     "name": string
     "require" : httpd_auth_require = dict('type', 'valid-user')
     "userfile" ? string
     "groupfile" ? string
-    "basicprovider" ? string with match(SELF, "^(file)$")
+    "basicprovider" ? choice('file', 'irods')
     "type" : httpd_auth_type = "Basic"
+};
+
+@{ Hostname and port of the iRODS server to connect to. @}
+type davrods_server = {
+    "host" : type_fqdn
+    "port" : type_port
+};
+
+type davrods_anonymous = {
+    "user" : string
+    "password" : string
+};
+
+@{ Davrods plugin configuration @}
+type httpd_davrods = {
+    "Dav" : choice('davrods-locallock', 'davrods-nolocks') = 'davrods-locallock'
+    "EnvFile" : string
+    "Server" : davrods_server
+    "Zone" : string
+    "AuthScheme" : choice('Native', 'PAM') = 'Native'
+    "AnonymousMode" ? choice('on', 'off') # off
+    "AnonymousLogin" ? davrods_anonymous
+    "DefaultResource" ? string
+    "ExposedRoot" ? string with match(SELF, '^(/.*|User|Home|Zone)$')
+    "TxBufferKbs" ? long
+    "RxBufferKbs" ? long
+    "TmpfileRollback" ? choice('on', 'off')
+    "LockDB" ? string
+    "HtmlHead" ? string
+    "HtmlHeader" ? string
+    "HtmlFooter" ? string
 };
 
 type httpd_file = {
@@ -381,6 +420,24 @@ type httpd_rewrite = {
     "rules" ? httpd_rewrite_rule[]
     "maps" ? httpd_rewrite_map[]
     "options" ? httpd_rewrite_option[]
+};
+
+type httpd_redirect = {
+    "status" ? long(100..599)  # a valid apache status, default is 302
+    "path" : string with match(SELF, '^/')
+    "url" ? type_URI
+} with {
+    status = if (exists(SELF['status'])) SELF['status'] else 302;
+    if (status >= 300 && status <= 399) {
+        if (!exists(SELF['url'])) {
+            error("redirect %s: url must be present with status 3XX", SELF['path']);
+        };
+    } else {
+        if (exists(SELF['url'])) {
+            error("redirect %s: url must not be present with status not 3XX", SELF['path']);
+        };
+    };
+    true;
 };
 
 type httpd_perl_handler = {
@@ -445,7 +502,7 @@ type httpd_rails = {
 type httpd_shared = {
     "documentroot" ? string = '/does/not/exist'
     "hostnamelookups" : boolean = false
-    "servername" ? type_hostport
+    "servername" ? string with is_hostport(SELF) || SELF == 'null'
     "limitrequestbody" ? long(0..)
 };
 
@@ -524,6 +581,7 @@ type httpd_directory = {
     "directoryindex" ? string[]
     "limitrequestbody" ? long(0..)
     "wsgi" ? httpd_wsgi_vhost
+    "davrods" ? httpd_davrods
 };
 
 type httpd_vhost_ip = string with is_ip(SELF) || SELF == '*';
@@ -533,13 +591,17 @@ type httpd_header = {
     "action" : choice('add', 'append', 'echo', 'edit', 'edit*', 'merge', 'set', 'setifempty', 'unset', 'note')
     "value" : string
     "quotes" : string = '"'
+    "always" ? boolean
 };
+
+type httpd_serveralias = string with match(SELF, '^[\w.*]+$');  # serveralias supports wildcards
 
 type httpd_vhost = {
     include httpd_shared
 
     "port" : type_port
     "ip" ? httpd_vhost_ip[]
+    "serveralias" ? httpd_serveralias[]
     "ssl" ? httpd_ssl_vhost
     "nss" ? httpd_nss_vhost
     "locations" ? httpd_directory[]
@@ -547,6 +609,7 @@ type httpd_vhost = {
     "aliases" ? httpd_alias[]
     "directories" ? httpd_directory[]
     "rewrite" ? httpd_rewrite
+    "redirect" ? httpd_redirect[]
     "perl" ? httpd_perl_vhost
     "wsgi" ? httpd_wsgi_vhost
     "log" ? httpd_log
