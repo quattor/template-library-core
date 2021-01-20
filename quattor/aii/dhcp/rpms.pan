@@ -14,11 +14,11 @@
 #
 
 # #
-# dhcp, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# dhcp, 20.12.0, 1, Wed Jan 20 2021
 #
 
 # Template adding aii-dhcp rpm to the configuration
 
 unique template quattor/aii/dhcp/rpms;
 
-"/software/packages" = pkg_repl("aii-dhcp", "20.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("aii-dhcp", "20.12.0-1", "noarch");
