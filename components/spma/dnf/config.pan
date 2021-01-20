@@ -18,7 +18,7 @@ unique template components/spma/dnf/config;
 
 prefix '/software';
 # Package to install
-'packages' = pkg_repl("ncm-spma", "20.12.0-rc1_1", "noarch");
+'packages' = pkg_repl("ncm-spma", "20.12.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';

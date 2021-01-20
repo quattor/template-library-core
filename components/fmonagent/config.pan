@@ -12,7 +12,7 @@
 
 # 
 # #
-# fmonagent, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# fmonagent, 20.12.0, 1, Wed Jan 20 2021
 #
 
 unique template components/fmonagent/config;

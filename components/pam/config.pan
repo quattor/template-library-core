@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# pam, 20.12.0, 1, Wed Jan 20 2021
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "20.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "20.12.0-1", "noarch");
 
 # standard functions
 include 'pan/functions';

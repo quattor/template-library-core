@@ -17,7 +17,7 @@ include 'components/postgresql/schema';
 
 bind '/software/components/postgresql' = postgresql_component;
 
-'/software/packages' = pkg_repl('ncm-postgresql', '20.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-postgresql', '20.12.0-1', 'noarch');
 
 include if_exists('components/postgresql/site-config');
 

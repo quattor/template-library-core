@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# nss, 20.12.0, 1, Wed Jan 20 2021
 #
 
 ################################################################################
@@ -25,7 +25,7 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "20.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "20.12.0-1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';

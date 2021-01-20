@@ -11,14 +11,14 @@
 
 # 
 # #
-# ssh, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# ssh, 20.12.0, 1, Wed Jan 20 2021
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "20.12.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "20.12.0-1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");

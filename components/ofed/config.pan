@@ -17,7 +17,7 @@ include 'components/ofed/schema';
 
 bind '/software/components/ofed' = ofed_component;
 
-'/software/packages' = pkg_repl('ncm-ofed', '20.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ofed', '20.12.0-1', 'noarch');
 
 include if_exists('components/ofed/site-config');
 

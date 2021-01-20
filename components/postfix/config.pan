@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# postfix, 20.12.0, 1, Wed Jan 20 2021
 #
 
 unique template components/postfix/config;
@@ -25,4 +25,4 @@ prefix '/software/components/postfix';
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
-'/software/packages' = pkg_repl('ncm-postfix','20.12.0-rc1_1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','20.12.0-1','noarch');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 20.12.0-rc1, rc1_1, Thu Jan 07 2021
+# ceph, 20.12.0, 1, Wed Jan 20 2021
 #
 
 unique template components/ceph/config;
@@ -27,7 +27,7 @@ prefix '/software/components/ceph';
 'active' ?= true;
 'dispatch' ?= true;
 
-'/software/packages' = pkg_repl('ncm-ceph', '20.12.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ceph', '20.12.0-1', 'noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 bind '/software/components/ceph' = ceph_component;
