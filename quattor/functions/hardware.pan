@@ -90,3 +90,30 @@ function get_num_of_max_threads = {
     d = get_num_of_cores_max_threads(hw_config);
     d['threads'];
 };
+
+
+@documentation{
+    descr = Returns the total amount of RAM for the supplied hardware config, or the current machine if no argument is passed.
+    arg = A HW template (string) or a HW configuration (nested dict) to use as a source of hardware configuration (optional)
+}
+function get_total_ram = {
+    if ( ARGC == 1 ) {
+        hw_config = get_hw_config(ARGV[0]);
+    } else {
+        hw_config = get_hw_config();
+    };
+
+    ram_size = 0;
+    if (is_defined(hw_config['ram']) && (length(hw_config['ram']) > 0)) {
+        foreach (i; v; hw_config['ram']) {
+            if ( is_defined(v["size"]) ) {
+                ram_size = ram_size + v["size"];
+            } else {
+                error('RAM size undefined for bank %d', i);
+            };
+        };
+    } else {
+        error('Invalid hardware configuration (no RAM defined)');
+    };
+    ram_size;
+};
