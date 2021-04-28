@@ -1,0 +1,29 @@
+name: Run syntax checks
+on: [push, pull_request]
+
+jobs:
+  syntax_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          # we need the full repo or HEAD^ does not work
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Install dependencies
+        run: pip install colorama prettytable six
+      - name: run panlint
+        run: .travis-scripts/panlint
+      - name: run ident check
+        run: .travis-scripts/indent
+      - name: set travis variables
+        run: |
+          echo "TRAVIS_BUILD_DIR=$GITHUB_WORKSPACE" >> $GITHUB_ENV
+          echo "TRAVIS_REPO_SLUG=$GITHUB_REPOSITORY" >> $GITHUB_ENV
+          echo "TRAVIS_BRANCH=${GITHUB_HEAD_REF:-master}" >> $GITHUB_ENV
+      - name: run test library
+        run: .travis-scripts/test-library
