@@ -78,6 +78,15 @@ type opennebula_vmtemplate_vnet = string{} with {
     true;
 };
 
+type opennebula_rdm_disk = string{} with {
+    foreach (k; v; SELF) {
+        if (! is_absolute_file_path(v)) {
+            error(format("entry: %s in the RDM disk map %s is not a valid file path", v, k));
+        };
+    };
+    true;
+};
+
 type opennebula_vmtemplate_datastore = string{} with {
     # check is all entries in the map have a hardrive
     foreach (k; v; SELF) {
@@ -185,6 +194,34 @@ type opennebula_vmtemplate_pci = {
 };
 
 @documentation{
+Type that sets VM Groups and Roles for a specifc VM.
+VMGroups are placed by dynamically generating the requirement (SCHED_REQUIREMENTS)
+of each VM an re-evaluating these expressions.
+
+Moreover, the following is also considered:
+
+The scheduler will look for a host with enough capacity for an affined set of VMs.
+If there is no such host all the affined VMs will remain pending.
+
+If new VMs are added to an affined role, it will pick one of the hosts where the VMs
+are running. By default, all should be running in the same host but if you manually
+migrate a VM to another host it will be considered feasible for the role.
+
+The scheduler does not have any synchronization point with the state of the VM group,
+it will start scheduling pending VMs as soon as they show up.
+
+Re-scheduling of VMs works as for any other VM, it will look for a different host
+considering the placement constraints.
+
+For more info:
+https://docs.opennebula.org/5.8/advanced_components/application_flow_and_auto-scaling/vmgroups.html
+}
+type opennebula_vmtemplate_vmgroup = {
+    "vmgroup_name" : string
+    "role" : string
+};
+
+@documentation{
 Type that sets placement constraints and preferences for the VM, valid for all hosts
 More info: http://docs.opennebula.org/5.0/operation/references/template.html#placement-section
 }
@@ -208,6 +245,12 @@ type opennebula_vmtemplate = {
     "vnet" : opennebula_vmtemplate_vnet
     @{Set the OpenNebula opennebula/datastore name for each vdx}
     "datastore" : opennebula_vmtemplate_datastore
+    @{Set raw device mapping (RDM) for a specific virtual disk, for instance:
+        '/system/opennebula/diskrdmpath/vdd/' = '/dev/sdf';
+     will passthrough the block device to the VM as vdd disk. Disk size is ignored in this case.
+     It requires a RDM datastore.
+     See: https://docs.opennebula.org/5.8/deployment/open_cloud_storage_setup/dev_ds.html}
+    "diskrdmpath" ? opennebula_rdm_disk
     @{Set ignoremac tree to avoid to include MAC values within AR/VM templates}
     "ignoremac" ? opennebula_ignoremac
     @{Set how many queues will be used for the communication between CPUs and virtio drivers.
@@ -246,4 +289,11 @@ type opennebula_vmtemplate = {
     from the guest when its running out of memory, which means a malicious guest allocating
     large amounts of locked memory could cause a denial-of-service attach on the host.}
     "memorybacking" ? string[] with is_consistent_memorybacking(SELF)
+    @{Request existing VM Group and roles.
+    A VM Group defines a set of related VMs, and associated placement constraints for the VMs
+    in the group. A VM Group allows you to place together (or separately) ceartain VMs
+    (or VM classes, roles). VMGroups will help you to optimize the performance
+    (e.g. not placing all the cpu bound VMs in the same host) or improve the fault tolerance
+    (e.g. not placing all your front-ends in the same host) of your multi-VM applications.}
+    "vmgroup" ? opennebula_vmtemplate_vmgroup[]
 } = dict();
