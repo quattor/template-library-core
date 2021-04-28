@@ -14,7 +14,7 @@
 #
 
 # #
-# wmsclient, 20.12.0, 1, Wed Jan 20 2021
+# wmsclient, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/wmsclient/config-rpm;
@@ -25,6 +25,6 @@ include 'components/wmsclient/config-common';
 prefix '/software/components/wmsclient';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wmsclient', '20.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-wmsclient', '21.4.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

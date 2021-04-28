@@ -14,7 +14,7 @@
 #
 
 # #
-# globuscfg, 20.12.0, 1, Wed Jan 20 2021
+# globuscfg, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/globuscfg/config-common;
@@ -24,7 +24,7 @@ include 'components/globuscfg/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/globuscfg';
 
-'version' = '20.12.0';
+'version' = '21.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

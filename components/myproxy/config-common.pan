@@ -14,7 +14,7 @@
 #
 
 # #
-# myproxy, 20.12.0, 1, Wed Jan 20 2021
+# myproxy, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/myproxy/config-common;
@@ -24,7 +24,7 @@ include 'components/myproxy/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/myproxy';
 
-'version' = '20.12.0';
+'version' = '21.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

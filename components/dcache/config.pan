@@ -14,7 +14,7 @@
 #
 
 # #
-# dcache, 20.12.0, 1, Wed Jan 20 2021
+# dcache, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/dcache/config;
