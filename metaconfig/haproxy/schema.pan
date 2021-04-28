@@ -27,6 +27,7 @@ type haproxy_service_global_config = {
     'ssl-default-bind-options' ? string[]
     'ssl-default-server-ciphers' ? string_non_whitespace[]
     'ssl-default-server-options' ? string[]
+    'ssl-dh-param-file' ? absolute_file_path
 };
 
 @documentation {
@@ -175,6 +176,8 @@ type haproxy_service_bind_server_params = {
     'crt' ? absolute_file_path
     @{interface to bind on}
     'interface' ? string
+    @{enable the TLS ALPN extension}
+    'alpn' ? string = "h2,http/1.1"
 };
 
 type haproxy_service_server_params = {
@@ -211,10 +214,18 @@ type haproxy_service_backend_server = {
     'params' ? haproxy_service_server_params
 };
 
+@{configure 'http-check expect [!] match pattern'}
+type haproxy_service_http_check = {
+    'inverse' ? boolean
+    'match' : choice('status', 'rstatus', 'string', 'rstring')
+    'pattern' : string
+};
+
 type haproxy_service_backend = {
     'balance' ? choice('roundrobin', 'static-rr', 'leastconn', 'first', 'source', 'uri', 'url_param')
     'mode' ? choice("tcp", "http")
     'options' ? string[]
+    'httpcheck' ? haproxy_service_http_check
     'tcpchecks' ? string[]
     'sticktable' ? haproxy_service_stick_table
     'stick' ? string

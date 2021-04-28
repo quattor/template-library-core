@@ -13,7 +13,7 @@
 
 # 
 # #
-# afsclt, 20.12.0, 1, Wed Jan 20 2021
+# afsclt, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 declaration template components/afsclt/schema;

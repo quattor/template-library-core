@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 20.12.0, 1, Wed Jan 20 2021
+# ceph, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/ceph/config;
@@ -23,11 +23,11 @@ include format('components/ceph/%s/schema', CEPH_SCHEMA_VERSION);
 
 prefix '/software/components/ceph';
 
-'version' = '20.12.0';
+'version' = '21.4.0';
 'active' ?= true;
 'dispatch' ?= true;
 
-'/software/packages' = pkg_repl('ncm-ceph', '20.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ceph', '21.4.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 bind '/software/components/ceph' = ceph_component;

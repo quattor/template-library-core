@@ -11,7 +11,7 @@
 
 # 
 # #
-# resolver, 20.12.0, 1, Wed Jan 20 2021
+# resolver, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/resolver/config;
@@ -19,11 +19,11 @@ unique template components/resolver/config;
 include 'components/resolver/schema';
 include 'pan/functions';
 
-"/software/packages" = pkg_repl("ncm-resolver", "20.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-resolver", "21.4.0-rc1_1", "noarch");
 
 prefix '/software/components/resolver';
 
-'version' = '20.12.0';
+'version' = '21.4.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list("spma");

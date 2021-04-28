@@ -102,6 +102,23 @@ type metaconfig_textrender_convert = {
 
 type caf_service_action = string with match(SELF, '^(restart|reload|stop_sleep_start)$');
 
+type metaconfig_actions = {
+    @{Always run, happens before possible modifications.
+      A failure will cancel any file modification, unless the command is prefixed with -.}
+    'pre' ? string
+    @{Always run before possible modifications with the new (or unchanged) file content is
+      passed on stdin. A failure will cancel any file modification,
+      unless the command is prefixed with -.
+      Runs with 'keeps_state' enabled, so do not modify anything with this command.}
+    'test' ? string
+    @{Only run after file is modified, but before any daemon action is executed.
+      A failure in this command has no effect on whether the daemon action is executed later.}
+    'changed' ? string
+    @{Always run, regardless of whether file was modified or not, and after the 'changed' action
+      but before any daemon action. A failure of this command has no effect on the subsequent daemon action.}
+    'post' ? string
+};
+
 type metaconfig_config =  {
     @{File permissions. Defaults to 0644.}
     'mode' : long = 0644
@@ -134,9 +151,32 @@ type metaconfig_config =  {
     'contents' : metaconfig_extension
     @{Predefined conversions from EDG::WP4::CCM::TextRender}
     'convert' ? metaconfig_textrender_convert
+    @{Actions (i.e. names found in /software/components/metadata/commands) to run when processing the service.
+      Refer to the metaconfig_actions type definition for the available hooks
+      for when a command may be run.}
+    'actions' ? metaconfig_actions
 } = dict();
+
+@{Command must start with absolute path to executable.
+  If the executable is preceded with a '-', it means that a non-zero exit code (i.e. failure) is
+  treated as success w.r.t. reporting and continuation.}
+type metaconfig_command = string with match(SELF, '^-?/');
 
 type metaconfig_component = {
     include structure_component
     'services' : metaconfig_config{} with valid_absolute_file_paths(SELF)
+    @{Command registry for allowed actions, keys should be used as action value}
+    'commands' ? metaconfig_command{}
+} with {
+    foreach (esc_fn; srv; SELF['services']) {
+        if (exists(srv['actions'])) {
+            foreach (action; cmd_ref; srv['actions']) {
+                if (!(exists(SELF['commands']) && exists(SELF['commands'][cmd_ref]))) {
+                    error('Found %s action %s for %s, but no matching command registered',
+                            action, cmd_ref, unescape(esc_fn));
+                };
+            };
+        };
+    };
+    true;
 };

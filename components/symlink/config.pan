@@ -17,14 +17,14 @@ include 'components/symlink/schema';
 
 bind '/software/components/symlink' = symlink_component;
 
-'/software/packages' = pkg_repl('ncm-symlink', '20.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-symlink', '21.4.0-rc1_1', 'noarch');
 
 include if_exists('components/symlink/site-config');
 
 prefix '/software/components/symlink';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '20.12.0';
+'version' ?= '21.4.0';
 'dependencies/pre' ?= list('spma');
 'options/exists' ?= false;
 'options/replace' ?= dict('none', "yes");

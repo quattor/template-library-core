@@ -11,7 +11,7 @@
 
 # 
 # #
-# iptables, 20.12.0, 1, Wed Jan 20 2021
+# iptables, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/iptables/config;
@@ -19,7 +19,7 @@ unique template components/iptables/config;
 include "components/iptables/schema";
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-iptables", "20.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-iptables", "21.4.0-rc1_1", "noarch");
 
 prefix '/software/components/iptables';
 

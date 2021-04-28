@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 20.12.0, 1, Wed Jan 20 2021
+# dirperm, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/dirperm/config;
@@ -19,12 +19,12 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "20.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "21.4.0-rc1_1", "noarch");
 
 prefix '/software/components/dirperm';
 
 'dependencies/pre' ?= list('spma');
 'register_change' ?= list('/system/filesystems');
-'version' = '20.12.0';
+'version' = '21.4.0';
 'active' ?= true;
 'dispatch' ?= true;

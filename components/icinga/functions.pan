@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 20.12.0, 1, Wed Jan 20 2021
+# icinga, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 template components/icinga/functions;

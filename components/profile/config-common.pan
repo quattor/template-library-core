@@ -11,7 +11,7 @@
 
 # 
 # #
-# profile, 20.12.0, 1, Wed Jan 20 2021
+# profile, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/profile/config-common;
@@ -21,7 +21,7 @@ include 'components/profile/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/profile';
 
-#'version' = '20.12.0';
+#'version' = '21.4.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

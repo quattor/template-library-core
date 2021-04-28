@@ -217,6 +217,38 @@ type systemd_unitfile_config_systemd_exec = {
     'WorkingDirectory' ? string
 };
 
+type systemd_unitfile_config_systemd_resource_control_devicelist = string[] with length(SELF) == 2 &&
+        match(SELF[0], '^(char-|block-|/dev/)') && match(SELF[1], '^[rwm]{1,3}$');
+
+type systemd_unitfile_config_systemd_resource_control_block_weight = string[] with length(SELF) == 2 &&
+        match(SELF[0], '^/') && match(SELF[1], '^[0-9]+$');
+
+@documentation{
+systemd.resource-control directives
+https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html
+valid for [Slice], [Scope], [Service], [Socket], [Mount], or [Swap] sections
+}
+type systemd_unitfile_config_systemd_resource_control = {
+    'CPUAccounting' ? boolean
+    'CPUShares' ? long(2..262144)
+    'StartupCPUShares' ? long(2..262144)
+    'CPUQuota' ? long(0..100)  # percentages
+    'MemoryAccounting' ? boolean
+    'MemoryLimit' ? long  # in bytes
+    'TasksAccounting' ? boolean
+    'TasksMax' ? string with match(SELF, '^([0-9]+%?|infinity)$')
+    'BlockIOAccounting' ? boolean
+    'BlockIOWeight' ? long(10..1000)
+    'StartupBlockIOWeight' ? long(10..1000)
+    'BlockIODeviceWeight' ? systemd_unitfile_config_systemd_resource_control_block_weight[]
+    'BlockIOReadBandwidth' ? systemd_unitfile_config_systemd_resource_control_block_weight[]
+    'BlockIOWriteBandwidth' ? systemd_unitfile_config_systemd_resource_control_block_weight[]
+    'DeviceAllow' ? systemd_unitfile_config_systemd_resource_control_devicelist[]
+    'DevicePolicy' ? choice('auto', 'closed', 'strict')
+    'Slice' ? string
+    'Delegate' ? boolean
+};
+
 @documentation{
 the [Service] section
 http://www.freedesktop.org/software/systemd/man/systemd.service.html
@@ -224,6 +256,7 @@ http://www.freedesktop.org/software/systemd/man/systemd.service.html
 type systemd_unitfile_config_service = {
     include systemd_unitfile_config_systemd_exec
     include systemd_unitfile_config_systemd_kill
+    include systemd_unitfile_config_systemd_resource_control
     'AmbientCapabilities' ? linux_capability[]
     'BusName' ? string
     'BusPolicy' ? string[] with length(SELF) == 2 && match(SELF[1], '^(see|talk|own)$')
@@ -266,6 +299,7 @@ http://www.freedesktop.org/software/systemd/man/systemd.socket.html
 type systemd_unitfile_config_socket = {
     include systemd_unitfile_config_systemd_exec
     include systemd_unitfile_config_systemd_kill
+    include systemd_unitfile_config_systemd_resource_control
     'ListenStream' ? string[]
     'ListenDatagram' ? string[]
     'ListenSequentialPacket' ? string[]
@@ -331,6 +365,57 @@ type systemd_unitfile_config_socket = {
 };
 
 @documentation{
+the [mount] section
+http://www.freedesktop.org/software/systemd/man/systemd.mount.html
+}
+type systemd_unitfile_config_mount = {
+    include systemd_unitfile_config_systemd_exec
+    include systemd_unitfile_config_systemd_kill
+    'What': string
+    'Where': absolute_file_path
+    'Type' ? string
+    'Options' ? string[]
+    'SloppyOptions' ? boolean
+    'LazyUnmount' ? boolean
+    'ReadWriteOnly' ? boolean
+    'ForceUnmount' ? boolean
+    'DirectoryMode' ? type_octal_mode
+    'TimeoutSec' ? long(0..)
+};
+
+@documentation{
+the [Automount] section
+http://www.freedesktop.org/software/systemd/man/systemd.automount.html
+}
+type systemd_unitfile_config_automount = {
+    'Where': absolute_file_path
+    'DirectoryMode' ? type_octal_mode
+    'TimeoutSec' ? long(0..)
+};
+
+@documentation{
+the [Timer] section
+http://www.freedesktop.org/software/systemd/man/systemd.timer.html
+}
+type systemd_unitfile_config_timer = {
+    'OnActiveSec' ? long(0..)
+    'OnBootSec' ? long(0..)
+    'OnStartupSec' ? long(0..)
+    'OnUnitActiveSec' ? long(0..)
+    'OnUnitInactiveSec' ? long(0..)
+    'OnCalendar' ? string[]
+    'AccuracySec' ? long(0..)
+    'RandomizedDelaySec' ? long(0..)
+    'FixedRandomDelay' ? boolean
+    'OnClockChange' ? boolean
+    'OnTimezoneChange' ? boolean
+    'Unit' ? string
+    'Persistent' ? boolean
+    'WakeSystem' ? boolean
+    'RemainAfterElapse' ? boolean
+};
+
+@documentation{
 Unit configuration sections
     includes, unit and install are type agnostic
         unit and install are mandatory, but not enforced by schema (possible issues in case of replace=true)
@@ -343,6 +428,9 @@ type systemd_unitfile_config = {
     'install' ? systemd_unitfile_config_install
     'service' ? systemd_unitfile_config_service
     'socket' ? systemd_unitfile_config_socket
+    'mount' ? systemd_unitfile_config_mount
+    'automount' ? systemd_unitfile_config_automount
+    'timer' ? systemd_unitfile_config_timer
     'unit' ? systemd_unitfile_config_unit
 };
 
@@ -384,7 +472,7 @@ type systemd_target = string with match(SELF, "^(default|poweroff|rescue|multi-u
 type systemd_unit_type = {
     "name" ? string # shortnames are ok; fullnames require matching type
     "targets" : systemd_target[] = list("multi-user")
-    "type" : choice('service', 'target', 'sysv', 'socket') = 'service'
+    "type" : choice('service', 'target', 'sysv', 'socket', 'mount', 'automount', 'timer') = 'service'
     "startstop" : boolean = true
     "state" : string = 'enabled' with match(SELF, '^(enabled|disabled|masked)$')
     @{unitfile configuration}
@@ -398,4 +486,14 @@ type systemd_component = {
     "unconfigured" : string = 'ignore' with match (SELF, '^(ignore|enabled|disabled|on|off)$') # harmless default
     # escaped full unitnames are allowed (or use shortnames and type)
     "unit" ? systemd_unit_type{}
+} with {
+    foreach(name; unit; SELF["unit"]) {
+        if (unit["type"] == "mount" && exists(unit["file"]) && exists(unit["file"]["config"]["mount"])) {
+            goodname = systemd_make_mountunit(unit["file"]["config"]["mount"]["Where"]);
+            if(goodname != name) {
+                error(format('Incorrect name for mount unit, the name must match Where: %s vs %s', name, goodname));
+            };
+        };
+    };
+    true;
 };

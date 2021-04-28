@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsaccess, 20.12.0, 1, Wed Jan 20 2021
+# hostsaccess, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
 #
 
 unique template components/hostsaccess/config-common;
@@ -21,7 +21,7 @@ include 'components/hostsaccess/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/hostsaccess';
 
-#'version' = '20.12.0';
+#'version' = '21.4.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

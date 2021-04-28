@@ -22,7 +22,7 @@ include 'components/amandaserver/schema';
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-amandaserver", "20.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-amandaserver", "21.4.0-rc1_1", "noarch");
 
 "/software/components/amandaserver/dependencies/pre" ?=  list ("spma");
 
