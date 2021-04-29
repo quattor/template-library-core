@@ -16,7 +16,7 @@
 
 unique template components/ceph/config;
 
-variable CEPH_SCHEMA_VERSION ?= 'v1';
+variable CEPH_SCHEMA_VERSION ?= 'v2';
 
 include if_exists('components/ceph/site-config');
 include format('components/ceph/%s/schema', CEPH_SCHEMA_VERSION);
