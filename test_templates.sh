@@ -391,7 +391,7 @@ find . -type f ! -regex '^./pan/.*' ! -regex '^./build_temp/.*' -name *.pan | gr
 find . -type f ! -regex '^./build_temp/.*' -name *.pan | grep -v yumng | xargs sed -n "s/^\(unique[ ]\+\)\?template[ ]\+\(.*\);/include '\2';/p" |sort >> build_temp/test.pan
 
 # fix for multiversion metaconfig
-sed -i '/.*metaconfig\/\(elasticsearch\|logstash\)\/.*_[0-9].*/d' build_temp/test.pan
+sed -i '/.*metaconfig\/\(elasticsearch\|logstash\|beats\)\/.*_[0-9].*/d' build_temp/test.pan
 # none-versioned ganesha templates are v1
 sed -i "/.*metaconfig\/ganesha\/\(config\(_v1\)\?\|schema\)'/d" build_temp/test.pan
 sed -i "/.*metaconfig\/ganesha\/fsal.*/d" build_temp/test.pan
