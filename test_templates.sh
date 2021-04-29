@@ -395,6 +395,9 @@ sed -i '/.*metaconfig\/\(elasticsearch\|logstash\|beats\)\/.*_[0-9].*/d' build_t
 # none-versioned ganesha templates are v1
 sed -i "/.*metaconfig\/ganesha\/\(config\(_v1\)\?\|schema\)'/d" build_temp/test.pan
 sed -i "/.*metaconfig\/ganesha\/fsal.*/d" build_temp/test.pan
+# action.pan is included by the schema and can only be included after inputs.pan
+sed -i "/.*metaconfig\/rsyslog\/actions.*/d" build_temp/test.pan
+
 # only spma yum
 sed -i "/.*components\/spma\/\(apt\|ips\).*/d" build_temp/test.pan
 
