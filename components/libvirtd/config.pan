@@ -11,14 +11,14 @@
 
 # 
 # #
-# libvirtd, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
+# libvirtd, 21.4.0-rc2, rc2_1, Sat May 01 2021
 #
 
 unique template components/libvirtd/config;
 
 include 'components/libvirtd/schema';
 
-'/software/packages'=pkg_repl('ncm-libvirtd','21.4.0-rc1_1','noarch');
+'/software/packages'=pkg_repl('ncm-libvirtd','21.4.0-rc2_1','noarch');
 '/software/components/libvirtd/dependencies/pre' ?=  list ('spma');
 
 '/software/components/libvirtd/active' ?= true;
