@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 21.4.0-rc1, rc1_1, Wed Apr 28 2021
+# gacl, 21.4.0-rc2, rc2_1, Sat May 01 2021
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
