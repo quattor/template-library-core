@@ -82,7 +82,7 @@ type blockdevices_logicalvolumes_type = {
     "chunksize" ? long = 64 # "chunk size in KB"
     "devices" ? blockdev_string[]
     "cache" ? blockdevices_logicalvolumes_cache_type
-    "type" ? string with match (SELF, '^(cache(-pool)|error|linear|mirror'+
+    "type" ? string with match (SELF, '^(cache(-pool)|error|linear|mirror' +
         '|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$')
 };
 
@@ -155,11 +155,19 @@ type blockdevices_vxvm_type = {
     "size" ? long
 };
 
+# TODO, remove after a while, was used instead of more generic dummy_type
 @documentation{
     TMPFS devices (dummy devices)
 }
 type blockdevices_tmpfs_type = {
 };
+
+@documentation{
+    Dummy devices (e.g. tmpfs, proc)
+}
+type blockdevices_dummy_type = {
+};
+
 
 type structure_blockdevices = {
     "physical_devs" ? blockdevices_disk_type {}
@@ -170,5 +178,6 @@ type structure_blockdevices = {
     "files" ? blockdevices_file_type {}
     "hwraid" ?  blockdevices_hwraid_type {}
     "vxvm" ? blockdevices_vxvm_type {}
-    "tmpfs" ? blockdevices_tmpfs_type
+    "tmpfs" ? blockdevices_dummy_type
+    "proc" ? blockdevices_dummy_type
 };
