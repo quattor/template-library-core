@@ -15,11 +15,11 @@
 #
 
 # #
-# server, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# server, 21.4.0, 1, Fri May 14 2021
 #
 
 # Template adding aii-server rpm to the configuration
 
 unique template quattor/aii/rpms;
 
-"/software/packages" = pkg_repl("aii-server", "21.4.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("aii-server", "21.4.0-1", "noarch");
