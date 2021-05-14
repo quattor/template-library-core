@@ -14,7 +14,7 @@
 #
 
 # #
-# pam, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# pam, 21.4.0, 1, Fri May 14 2021
 #
 
 ##########################################################################
@@ -32,7 +32,7 @@ include 'components/pam/schema';
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
 
-"/software/packages" = pkg_repl("ncm-pam", "21.4.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-pam", "21.4.0-1", "noarch");
 
 # standard functions
 include 'pan/functions';

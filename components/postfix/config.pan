@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# postfix, 21.4.0, 1, Fri May 14 2021
 #
 
 unique template components/postfix/config;
@@ -25,4 +25,4 @@ prefix '/software/components/postfix';
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
-'/software/packages' = pkg_repl('ncm-postfix','21.4.0-rc2_1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix','21.4.0-1','noarch');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# nsca, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# nsca, 21.4.0, 1, Fri May 14 2021
 #
 
 unique template components/nsca/config-common;
@@ -21,7 +21,7 @@ include 'components/nsca/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/nsca';
 
-#'version' = '21.4.0-rc2';
+#'version' = '21.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

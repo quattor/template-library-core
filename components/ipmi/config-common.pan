@@ -11,7 +11,7 @@
 
 # 
 # #
-# ipmi, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# ipmi, 21.4.0, 1, Fri May 14 2021
 #
 
 unique template components/ipmi/config-common;
@@ -21,7 +21,7 @@ include 'components/ipmi/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/ipmi';
 
-#'version' = '21.4.0-rc2';
+#'version' = '21.4.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

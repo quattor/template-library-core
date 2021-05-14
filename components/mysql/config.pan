@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# mysql, 21.4.0, 1, Fri May 14 2021
 #
 
 unique template components/mysql/config;
@@ -19,7 +19,7 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "21.4.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "21.4.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';

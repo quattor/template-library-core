@@ -11,7 +11,7 @@
 
 # 
 # #
-# sendmail, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# sendmail, 21.4.0, 1, Fri May 14 2021
 #
 
 unique template components/sendmail/config;

@@ -17,7 +17,7 @@ include 'components/systemd/schema';
 
 bind '/software/components/systemd' = systemd_component;
 
-'/software/packages' = pkg_repl('ncm-systemd', '21.4.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-systemd', '21.4.0-1', 'noarch');
 
 include if_exists('components/systemd/site-config');
 
