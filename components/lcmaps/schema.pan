@@ -14,7 +14,7 @@
 #
 
 # #
-# lcmaps, 21.4.0-rc2, rc2_1, Sat May 01 2021
+# lcmaps, 21.4.0, 1, Fri May 14 2021
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
