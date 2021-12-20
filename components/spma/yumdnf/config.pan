@@ -14,16 +14,16 @@
 #
 
 
-unique template components/spma/yum/config;
+unique template components/spma/yumdnf/config;
 
 include 'components/spma/config-common-yum';
 
 prefix '/software/components/spma';
-'packager' = 'yum';
+'packager' = 'yumdnf';
+'register_change' = append("/software/modules");
 
+'/software/modules' ?= dict();
 
-bind "/software/components/spma" = component_spma_yum;
-bind "/software/groups" = SOFTWARE_GROUP{} with {
-    if (length(SELF) > 0) deprecated(0, 'Support for YUM groups will be removed in a future release.');
-    true;
-};
+bind "/software/components/spma" = component_spma_yumdnf;
+bind "/software/groups" = dict with length(SELF) == 0;
+bind '/software/modules' = component_spma_dnf_module_simple{};

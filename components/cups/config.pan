@@ -17,12 +17,12 @@ include 'components/cups/schema';
 
 bind '/software/components/cups' = cups_component;
 
-'/software/packages' = pkg_repl('ncm-cups', '21.4.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-cups', '21.12.0-rc1_1', 'noarch');
 
 include if_exists('components/cups/site-config');
 
 prefix '/software/components/cups';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '21.4.0';
+'version' ?= '21.12.0';
 'dependencies/pre' ?= list('spma');

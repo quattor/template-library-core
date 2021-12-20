@@ -18,10 +18,10 @@ unique template components/openldap/config;
 
 include 'components/openldap/schema';
 
-'/software/packages'=pkg_repl('ncm-openldap','21.4.0-1','noarch');
+'/software/packages'=pkg_repl('ncm-openldap','21.12.0-rc1_1','noarch');
 
 prefix '/software/components/openldap';
 'dependencies/pre' ?= list ('spma');
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '21.4.0';
+'version' = '21.12.0';

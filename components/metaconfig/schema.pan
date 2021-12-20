@@ -155,6 +155,8 @@ type metaconfig_config =  {
       Refer to the metaconfig_actions type definition for the available hooks
       for when a command may be run.}
     'actions' ? metaconfig_actions
+    @{Skip the service if it is not active}
+    'active' : boolean = true
 } = dict();
 
 @{Command must start with absolute path to executable.

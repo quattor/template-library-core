@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 21.4.0, 1, Fri May 14 2021
+# postfix, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
 #
 
 declaration template components/postfix/schema;
@@ -75,16 +75,10 @@ type postfix_ldap_database = {
     "tls_cipher_suite" ? string
 };
 
-final variable MINUTES = 60;
-final variable HOURS = MINUTES * 60;
-final variable DAYS = HOURS * 24;
-final variable WEEKS = DAYS * 7;
-
 @{
     All fields available in main.cf. Nothing is mandatory here, since
     it all has default values. Time limits are expressed in
-    SECONDS. Multiply by the appropriate constant above to simplify
-    your code.
+    seconds.
 }
 type postfix_main = {
     "_2bounce_notice_recipient" ? string
@@ -473,6 +467,7 @@ type postfix_main = {
     "smtp_tls_note_starttls_offer" ? boolean
     "smtp_tls_per_site" ? string
     "smtp_tls_policy_maps" ? string
+    "smtp_tls_protocols" ? string
     "smtp_tls_scert_verifydepth" ? long
     "smtp_tls_secure_cert_match" ? string[]
     "smtp_tls_security_level" ? string

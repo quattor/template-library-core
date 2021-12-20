@@ -14,16 +14,10 @@
 #
 
 
-unique template components/spma/yum/config;
+@{spma yumdnf backend specific statements for spmalight}
 
-include 'components/spma/config-common-yum';
+unique template components/spma/yumdnf/light;
 
-prefix '/software/components/spma';
-'packager' = 'yum';
+# changes here might require changes in components/spma/yum/light
 
-
-bind "/software/components/spma" = component_spma_yum;
-bind "/software/groups" = SOFTWARE_GROUP{} with {
-    if (length(SELF) > 0) deprecated(0, 'Support for YUM groups will be removed in a future release.');
-    true;
-};
+bind "/software/components/spmalight" = component_spma_yumdnf;

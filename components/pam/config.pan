@@ -1,38 +1,38 @@
-# #
+#
 # Software subject to following license(s):
 #   Apache 2 License (http://www.opensource.org/licenses/apache2.0)
 #   Copyright (c) Responsible Organization
 #
 
-# #
+#
 # Current developer(s):
 #   Nathan Dimmock <nathan.dimmock@morganstanley.com>
 #
 
-# #
+#
 # Author(s): Nick Williams, Nathan Dimmock
 #
 
-# #
-# pam, 21.4.0, 1, Fri May 14 2021
-#
-
-##########################################################################
-# Coding style: emulate <TAB> characters with 4 spaces, thanks!
-##########################################################################
 
 unique template components/pam/config;
 
 include 'components/pam/schema';
 
+bind '/software/components/pam' = pam_component;
+
+'/software/packages' = pkg_repl('ncm-pam', '21.12.0-rc1_1', 'noarch');
+
+include if_exists('components/pam/site-config');
+
+prefix '/software/components/pam';
+'active' ?= true;
+'dispatch' ?= true;
+'version' ?= '21.12.0';
+'dependencies/pre' ?= list('spma');
+
 # standard component settings
-"/software/components/pam/version"    = '21.4.0';
-"/software/components/pam/active"    ?=  true;
-"/software/components/pam/dispatch"  ?=  true;
 "/software/components/pam/directory" ?= "/etc/pam.d";
 "/software/components/pam/acldir"    ?= "/etc/pam.acls";
-
-"/software/packages" = pkg_repl("ncm-pam", "21.4.0-1", "noarch");
 
 # standard functions
 include 'pan/functions';
@@ -144,7 +144,7 @@ function pam_add_listfile_acl = {
     ret = pam_add(service, pamtype, control, "listfile", opts);
     # Now, grab the entry that was just put at the end of the list and
     # add in the ACL information.
-    ret[service][pamtype][length(ret[service][pamtype])-1][sense] = dict("filename", filename, "items", items);
+    ret[service][pamtype][-1][sense] = dict("filename", filename, "items", items);
 
     ret;
 };
@@ -255,7 +255,7 @@ function pam_add_access_group = {
     key = ARGV[0];
     group = ARGV[1];
 
-    pam_add_access_acl(key, "+", "("+group+")", "ALL");
+    pam_add_access_acl(key, "+", "(" + group + ")", "ALL");
 };
 
 

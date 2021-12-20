@@ -14,16 +14,12 @@
 #
 
 
-unique template components/spma/yum/config;
+declaration template components/spma/yumdnf/schema;
 
-include 'components/spma/config-common-yum';
+include 'components/spma/yum/schema';
 
-prefix '/software/components/spma';
-'packager' = 'yum';
-
-
-bind "/software/components/spma" = component_spma_yum;
-bind "/software/groups" = SOFTWARE_GROUP{} with {
-    if (length(SELF) > 0) deprecated(0, 'Support for YUM groups will be removed in a future release.');
-    true;
+type component_spma_yumdnf = {
+    include component_spma_yum
+    @{configure modules (or not). modules configuration is under /software/modules}
+    'modules' : boolean = false
 };
