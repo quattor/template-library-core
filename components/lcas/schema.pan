@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 21.4.0, 1, Fri May 14 2021
+# lcas, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!

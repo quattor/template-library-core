@@ -14,7 +14,7 @@
 #
 
 # #
-# dpmlfc, 21.4.0, 1, Fri May 14 2021
+# dpmlfc, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
 #
 
 unique template components/dpmlfc/config;
@@ -24,11 +24,11 @@ include 'components/dpmlfc/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/dpmlfc';
 
-'version' = '21.4.0';
+'version' = '21.12.0';
 'active' ?= true;
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dpmlfc', '21.4.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-dpmlfc', '21.12.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

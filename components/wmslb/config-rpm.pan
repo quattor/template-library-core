@@ -14,7 +14,7 @@
 #
 
 # #
-# wmslb, 21.4.0, 1, Fri May 14 2021
+# wmslb, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
 #
 
 unique template components/wmslb/config-rpm;
@@ -25,6 +25,6 @@ include 'components/wmslb/config-common';
 prefix '/software/components/wmslb';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wmslb', '21.4.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-wmslb', '21.12.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
