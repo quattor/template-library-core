@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
+# pxelinux, 21.12.0-rc2, rc2_1, Thu Dec 23 2021
 #
 
 declaration template quattor/aii/pxelinux/schema;
