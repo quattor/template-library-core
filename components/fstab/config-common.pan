@@ -11,7 +11,7 @@
 
 # 
 # #
-# fstab, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
+# fstab, 21.12.0-rc2, rc2_1, Thu Dec 23 2021
 #
 
 unique template components/fstab/config-common;
@@ -21,7 +21,7 @@ include 'components/fstab/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/fstab';
 
-#'version' = '21.12.0-rc1';
+#'version' = '21.12.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

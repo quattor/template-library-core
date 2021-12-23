@@ -11,7 +11,7 @@
 
 # 
 # #
-# filecopy, 21.12.0-rc1, rc1_1, Mon Dec 20 2021
+# filecopy, 21.12.0-rc2, rc2_1, Thu Dec 23 2021
 #
 
 unique template components/filecopy/config-common;
@@ -21,7 +21,7 @@ include 'components/filecopy/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/filecopy';
 
-#'version' = '21.12.0-rc1';
+#'version' = '21.12.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
