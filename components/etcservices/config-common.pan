@@ -11,7 +11,7 @@
 
 # 
 # #
-# etcservices, 21.12.0-rc2, rc2_1, Thu Dec 23 2021
+# etcservices, 21.12.0, 1, Fri Dec 24 2021
 #
 
 unique template components/etcservices/config-common;
@@ -21,7 +21,7 @@ include 'components/etcservices/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/etcservices';
 
-#'version' = '21.12.0-rc2';
+#'version' = '21.12.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
