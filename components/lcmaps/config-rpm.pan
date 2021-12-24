@@ -14,7 +14,7 @@
 #
 
 # #
-# lcmaps, 21.12.0-rc2, rc2_1, Thu Dec 23 2021
+# lcmaps, 21.12.0, 1, Fri Dec 24 2021
 #
 
 unique template components/lcmaps/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lcmaps/config-common';
 prefix '/software/components/lcmaps';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lcmaps', '21.12.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lcmaps', '21.12.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

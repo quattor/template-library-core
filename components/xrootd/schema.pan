@@ -14,7 +14,7 @@
 #
 
 # #
-# xrootd, 21.12.0-rc2, rc2_1, Thu Dec 23 2021
+# xrootd, 21.12.0, 1, Fri Dec 24 2021
 #
 #
 
