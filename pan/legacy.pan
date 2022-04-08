@@ -32,3 +32,39 @@ No components shall use this type until it has been made compatible with real bo
 No component shall use this type for more than a single release
 }
 type transitional_yes_no_true_false = property with is_yes_no_true_false(SELF);
+
+@documentation{
+    Validate that a property is either a string, or a list of strings
+
+    An empty string or list is permitted
+    Used to implement transitional_string_or_list_of_strings
+}
+function is_string_or_list_of_strings = {
+    l = ARGV[0];
+    if (is_string(l)) {
+        deprecated(0, format('"%s" is currently a string, please change it to a list of strings', l));
+        return(true);
+    };
+    if (!is_list(l)) {
+        error('"%s" must either be a string or list of strings', l);
+        return(false);
+    };
+    e = 0;
+    foreach (i; v; l) {
+        if (!is_string(v)) e = e + 1;
+    };
+    if (e > 0) {
+        p = 'are';
+        if (e == 1) p = 'is';
+        error('All elements in list "%s" must be strings, %d of them %s not', l, e, p);
+        return(false);
+    };
+    true;
+};
+
+@documentation{
+Transitional type to allow components to cleanly migrate properties from a string to a list of strings
+
+No components shall use this type until they have been made compatible with list of strings
+}
+type transitional_string_or_list_of_strings = element with is_string_or_list_of_strings(SELF);
