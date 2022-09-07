@@ -820,8 +820,9 @@ function is_email = {
     desc = require a comma-separated list of email addresses
 }
 function is_email_list = {
-    if (ARGC != 1 || !is_string(ARGV[0]))
+    if (ARGC != 1 || !is_string(ARGV[0])) {
         error("usage: is_email_list(string)");
+    };
 
     foreach(i; email; split(",", SELF)) {
         if (!is_email(email)) {
@@ -1003,10 +1004,10 @@ function is_absolute_file_path = {
     path = ARGV[0];
 
     if (match(path, '/$')) {
-        error(format('Path "%s" does not refer to a file, it has an invalid trailing slash', path));
+        error('Path "%s" does not refer to a file, it has an invalid trailing slash', path);
     };
     if (match(path, '^[^/]')) {
-        error(format('Path "%s" is not absolute, leading slash is missing', path));
+        error('Path "%s" is not absolute, leading slash is missing', path);
     };
 
     true;
