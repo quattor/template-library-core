@@ -816,6 +816,24 @@ function is_email = {
     true;
 };
 
+@documentation{
+    desc = require a comma-separated list of email addresses
+}
+function is_email_list = {
+    if (ARGC != 1 || !is_string(ARGV[0]))
+        error("usage: is_email_list(string)");
+
+    foreach(i; email; split(",", SELF)) {
+        if (!is_email(email)) {
+            error('is_email_list: email %s is not valid.', email);
+        };
+    };
+    true;
+};
+
+type type_email_list = string with {
+    is_email_list(SELF);
+};
 
 type type_email = string with {
     is_email(SELF);
