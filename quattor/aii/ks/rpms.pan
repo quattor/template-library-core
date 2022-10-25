@@ -14,11 +14,11 @@
 #
 
 # #
-# ks, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# ks, 21.12.1, 1, Tue Oct 25 2022
 #
 
 # Template adding aii-ks rpm to the configuration
 
 unique template quattor/aii/ks/rpms;
 
-"/software/packages" = pkg_repl("aii-ks", "21.12.1-rc3_1", "noarch");
+"/software/packages" = pkg_repl("aii-ks", "21.12.1-1", "noarch");
