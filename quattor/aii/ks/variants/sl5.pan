@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 21.12.0, 1, Fri Dec 24 2021
+# ks, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
 #
 
 # Template containing OS configuration and default values.

@@ -15,7 +15,7 @@
 #
 
 # #
-# server, 21.12.0, 1, Fri Dec 24 2021
+# server, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
 #
 unique template quattor/aii/schema;
 
