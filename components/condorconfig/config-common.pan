@@ -14,7 +14,7 @@
 #
 
 # #
-# condorconfig, 21.12.0, 1, Fri Dec 24 2021
+# condorconfig, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
 #
 
 unique template components/condorconfig/config-common;
@@ -24,7 +24,7 @@ include 'components/condorconfig/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/condorconfig';
 
-'version' = '21.12.0';
+'version' = '21.12.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

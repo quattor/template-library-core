@@ -14,7 +14,7 @@
 #
 
 # #
-# lbconfig, 21.12.0, 1, Fri Dec 24 2021
+# lbconfig, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
 #
 
 unique template components/lbconfig/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lbconfig/config-common';
 prefix '/software/components/lbconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lbconfig', '21.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lbconfig', '21.12.1-rc3_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
