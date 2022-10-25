@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# mysql, 21.12.1, 1, Tue Oct 25 2022
 #
 
 unique template components/mysql/config;
@@ -19,7 +19,7 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "21.12.1-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "21.12.1-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';

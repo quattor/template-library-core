@@ -11,7 +11,7 @@
 
 # 
 # #
-# sysconfig, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# sysconfig, 21.12.1, 1, Tue Oct 25 2022
 #
 
 unique template components/sysconfig/config-common;
@@ -21,7 +21,7 @@ include 'components/sysconfig/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/sysconfig';
 
-#'version' = '21.12.1-rc3';
+#'version' = '21.12.1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

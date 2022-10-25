@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# opennebula, 21.12.1, 1, Tue Oct 25 2022
 #
 
 unique template components/opennebula/config;
@@ -29,6 +29,6 @@ prefix '/software/components/opennebula';
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-opennebula", "21.12.1-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "21.12.1-1", "noarch");
 
 include 'components/opennebula/sudo';

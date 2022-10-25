@@ -17,7 +17,7 @@ include 'components/cdp/schema';
 
 bind '/software/components/cdp' = cdp_component;
 
-'/software/packages' = pkg_repl('ncm-cdp', '21.12.1-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-cdp', '21.12.1-1', 'noarch');
 
 include if_exists('components/cdp/site-config');
 

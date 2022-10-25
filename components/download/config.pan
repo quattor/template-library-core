@@ -18,7 +18,7 @@ include 'components/download/schema';
 
 bind '/software/components/download' = download_component;
 
-'/software/packages' = pkg_repl('ncm-download', '21.12.1-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-download', '21.12.1-1', 'noarch');
 
 include if_exists('components/download/site-config');
 

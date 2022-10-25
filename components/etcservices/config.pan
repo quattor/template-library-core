@@ -11,7 +11,7 @@
 
 # 
 # #
-# etcservices, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# etcservices, 21.12.1, 1, Tue Oct 25 2022
 #
 
 unique template components/etcservices/config;

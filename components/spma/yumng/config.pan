@@ -20,7 +20,7 @@ unique template components/spma/yumng/config;
 prefix '/software';
 
 # Package to install
-'packages' = pkg_repl("ncm-spma", "21.12.1-rc3_1", "noarch");
+'packages' = pkg_repl("ncm-spma", "21.12.1-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';

@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# icinga, 21.12.1, 1, Tue Oct 25 2022
 #
 
 unique template components/icinga/config;
@@ -28,4 +28,4 @@ prefix '/software/components/icinga';
 'dependencies/pre' ?= list('spma');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "21.12.1-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "21.12.1-1", "noarch");
