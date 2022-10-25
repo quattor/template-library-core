@@ -14,7 +14,7 @@
 #
 
 # #
-# lcas, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# lcas, 21.12.1, 1, Tue Oct 25 2022
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!

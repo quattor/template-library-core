@@ -14,7 +14,7 @@
 #
 
 # #
-# lcgmonjob, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
+# lcgmonjob, 21.12.1, 1, Tue Oct 25 2022
 #
 
 unique template components/lcgmonjob/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lcgmonjob/config-common';
 prefix '/software/components/lcgmonjob';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lcgmonjob', '21.12.1-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lcgmonjob', '21.12.1-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
