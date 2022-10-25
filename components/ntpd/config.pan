@@ -20,12 +20,12 @@ include 'components/ntpd/schema';
 
 bind '/software/components/ntpd' = ntpd_component;
 
-'/software/packages' = pkg_repl('ncm-ntpd', '21.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ntpd', '21.12.1-rc3_1', 'noarch');
 
 include if_exists('components/ntpd/site-config');
 
 prefix '/software/components/ntpd';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '21.12.0';
+'version' ?= '21.12.1';
 'dependencies/pre' ?= list('spma');

@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmetad, 21.12.0, 1, Fri Dec 24 2021
+# gmetad, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
 #
 
 unique template components/gmetad/config-common;
@@ -21,7 +21,7 @@ include 'components/gmetad/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gmetad';
 
-#'version' = '21.12.0';
+#'version' = '21.12.1-rc3';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

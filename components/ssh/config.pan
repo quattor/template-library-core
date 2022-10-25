@@ -11,17 +11,17 @@
 
 # 
 # #
-# ssh, 21.12.0, 1, Fri Dec 24 2021
+# ssh, 21.12.1-rc3, rc3_1, Tue Oct 25 2022
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "21.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "21.12.1-rc3_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '21.12.0';
+'version' ?= '21.12.1';
