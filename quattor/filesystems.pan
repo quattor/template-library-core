@@ -40,7 +40,24 @@ type structure_filesystem = {
     @{ Mount options }
     "mountopts" : string = "defaults"
     @{ Filesystem type }
-    "type" : string with match(SELF, "^(auto|ext[2-4]|reiserfs|reiser4|xfs|swap|vfat|jfs|ntfs|tmpfs|vxfs|zfs|none|proc)$")
+    "type" : choice(
+        'auto',
+        'ext2',
+        'ext3',
+        'ext4',
+        'jfs',
+        'none',
+        'ntfs',
+        'proc',
+        'reiser4',
+        'reiserfs',
+        'swap',
+        'tmpfs',
+        'vfat',
+        'vxfs',
+        'xfs',
+        'zfs'
+    )
     @{ Quota percentage }
     "quota" ? long
     @{ Dump frequency }
