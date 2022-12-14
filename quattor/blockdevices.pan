@@ -15,7 +15,7 @@ type physdev_string = string with exists("/system/blockdevices/physical_devs/" +
     SELF,
 );
 
-type parttype_string = string with match(SELF, '^(primary|extended|logical)$');
+type parttype_string = choice('primary', 'extended', 'logical');
 
 type vg_string = string with exists("/system/blockdevices/volume_groups/" + SELF) || error(
     "%s must be a path relative to /system/blockdevices/volume_groups",
@@ -62,11 +62,11 @@ type blockdevices_partition_type = {
 }
 type blockdevices_md_type = {
     "device_list" : blockdev_string[] # "List of device paths"
-    "raid_level" : string with match(SELF, '^RAID[0156]$')
+    "raid_level" : choice('RAID0', 'RAID1', 'RAID5', 'RAID6')
     "stripe_size" : long = 64 # "Stripe size in KB"
     "num_spares" ? long # "Number of spare devices"
     # Declare the style of RAID metadata (superblock) to be used. This is --metadata in `man mdadm`
-    "metadata" ? string = '0.90' with index(SELF, list('0', '0.90', '1.0', '1.1', '1.2', 'ddf', 'imsm', 'default')) > 0
+    "metadata" ? choice('0.90', '1.0', '1.1', '1.2', 'ddf', 'imsm', 'default') = '0.90'
 };
 
 @documentation{
@@ -74,7 +74,7 @@ type blockdevices_md_type = {
 }
 type blockdevices_logicalvolumes_cache_type = {
     "cache_lv" : lv_string
-    "cachemode" ? string with match(SELF, "^(writethrough|writeback)$")
+    "cachemode" ? choice('writethrough', 'writeback')
 };
 
 @documentation{
@@ -87,10 +87,27 @@ type blockdevices_logicalvolumes_type = {
     "chunksize" ? long = 64 # "chunk size in KB"
     "devices" ? blockdev_string[]
     "cache" ? blockdevices_logicalvolumes_cache_type
-    "type" ? string with match(
-        SELF,
-        '^(cache(-pool)|error|linear|mirror' +
-        '|raid[14]|raid5_(la|ls|ra|rs)|raid6_(nc|nr|zr)|raid10|snapshot|striped|thin(-pool)?|zero)$',
+    "type" ? choice(
+        'cache',
+        'cache-pool',
+        'error',
+        'linear',
+        'mirror',
+        'raid1',
+        'raid10',
+        'raid4',
+        'raid5_la',
+        'raid5_ls',
+        'raid5_ra',
+        'raid5_rs',
+        'raid6_nc',
+        'raid6_nr',
+        'raid6_zr',
+        'snapshot',
+        'striped',
+        'thin',
+        'thin-pool',
+        'zero'
     )
 };
 
@@ -134,7 +151,7 @@ type blockdevices_validate = {
 
 type blockdevices_disk_type = {
     "device_path" ? raid_device_path
-    "label" : string with match(SELF, "^(none|msdos|gpt|aix|bsd)$")
+    "label" : choice('none', 'msdos', 'gpt', 'aix', 'bsd')
     "readahead" ? long # Blocks for readahead
     @{enable validation checks}
     "validate" ? blockdevices_validate
@@ -147,7 +164,7 @@ type card_port_string = string with is_card_port(SELF);
 }
 type blockdevices_hwraid_type = {
     "device_list" : card_port_string[]
-    "raid_level" ? string with match(SELF, '^(RAID1|RAID5|RAID6|JBOD)$')
+    "raid_level" ? choice('RAID1', 'RAID5', 'RAID6', 'JBOD')
     "num_spares" ? long # "Number of spares required"
     "stripe_size" ? long # "Stripe size in KB"
 };
