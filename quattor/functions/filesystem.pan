@@ -50,6 +50,34 @@ function lvs_add = {
 };
 
 @documentation{
+    desc = Adds a list of logical volumes to a volume group with mutiple lv options.
+    arg = There are 2 mandatory arguments:\
+        1: string - the volume group name\
+        2: list of dicts representing the LVs desired. Supported keys within each dict are: size, raid_type
+}
+# deprecates lvs_add function.
+function lvo_add = {
+    if (ARGC != 2) {
+        error ("%s: should get 2 arguments", FUNCTION);
+    };
+    vg = ARGV[0];
+    lv_list = ARGV[1];
+    # for each logical volume options defined, set the values.
+    # Only size and raid type is supported.
+    foreach (i; opt; lv_list) {
+        SELF[i]["volume_group"] = vg;
+        if (is_defined(opt['size']) && opt['size'] != -1) {
+            SELF[i]["size"] = opt['size'];
+        };
+        if (is_defined(opt['raid_type'])) {
+            SELF[i]["type"] = opt['raid_type'];
+        };
+    };
+    # Validation stuff might be added here.
+    SELF;
+};
+
+@documentation{
     desc = Adds a list of partitions to a disk
     arg = holding device, list of partitions to creatd, optionally id of the extended partition,
 }
