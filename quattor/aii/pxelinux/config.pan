@@ -113,6 +113,7 @@ variable AII_NBP_ROOT ?= {
     if (LPXELINUX) {
         root = LPXELINUX_ROOT;
     } else {
+        debug('AII_OSINSTALL_OS_VERSION=%s', AII_OSINSTALL_OS_VERSION);
         toks =  matches(AII_OSINSTALL_OS_VERSION, '^(\w+?)[_\-](.*)');
         if ( length(toks) < 3 ) {
             root = undef;
