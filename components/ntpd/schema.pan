@@ -90,7 +90,7 @@ type ntpd_tinker_options = {
     "freq" ? long
     "huffpuff" ? long
     "panic" ? long
-    "step" ? long
+    "step" ? double
     "stepout" ? long
 };
 
