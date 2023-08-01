@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 21.12.0, 1, Fri Dec 24 2021
+# pxelinux, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template quattor/aii/pxelinux/config;
@@ -113,7 +113,6 @@ variable AII_NBP_ROOT ?= {
     if (LPXELINUX) {
         root = LPXELINUX_ROOT;
     } else {
-        debug('AII_OSINSTALL_OS_VERSION=%s', AII_OSINSTALL_OS_VERSION);
         toks =  matches(AII_OSINSTALL_OS_VERSION, '^(\w+?)[_\-](.*)');
         if ( length(toks) < 3 ) {
             root = undef;

@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 21.12.0, 1, Fri Dec 24 2021
+# ks, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 @{Template containing the Kickstart-related configuration and default values.}
@@ -98,17 +98,15 @@ variable AII_OSINSTALL_PROTOCOL = value('/system/aii/osinstall/ks/osinstall_prot
 #
 variable AII_OSINSTALL_ROOT ?= undef;
 variable AII_OSINSTALL_OS_VERSION ?= undef;
-variable DEBUG = debug(
-    '%s: AII_OSINSTALL_ROOT=%s, AII_OSINSTALL_OS_VERSION=%s',
-    OBJECT,
-    AII_OSINSTALL_ROOT,
-    AII_OSINSTALL_OS_VERSION
-);
+variable DEBUG = debug(format('%s: AII_OSINSTALL_ROOT=%s, AII_OSINSTALL_OS_VERSION=%s',
+                                OBJECT,
+                                AII_OSINSTALL_ROOT,
+                                AII_OSINSTALL_OS_VERSION));
 
 # AII_OSINSTALL_SUBURL allows to specify a sub-url under root/version
 # (e.g. /base)
-variable AII_OSINSTALL_SUBURL ?= undef;
 
+variable AII_OSINSTALL_SUBURL ?= undef;
 variable AII_OSINSTALL_PATH ?=
     if ( is_defined(AII_OSINSTALL_ROOT) && is_defined(AII_OSINSTALL_OS_VERSION) ) {
         path = AII_OSINSTALL_ROOT + '/' + AII_OSINSTALL_OS_VERSION;
@@ -129,37 +127,16 @@ variable AII_OSINSTALL_SELINUX ?= 'disabled';
 # Install type and URL (for http or https) or directory (for NFS)
 # with the OS distribution
 # For backward compatibility (deprecated), allow installtype to be defined explicicly
-# rather than from BASE_OS_REPOSITORY_TEMPLATE or AII_OSINSTALL_xxx variables.
+# rather than from AII_OSINSTALL_xxx variables.
 #
 "installtype" ?= {
-    if ( !is_defined(AII_OSINSTALL_PATH) && !is_defined(BASE_OS_REPOSITORY_TEMPLATE) ) {
-        error("You need to define the variable AII_OSINSTALL_PATH or BASE_OS_REPOSITORY_TEMPLATE"
-                + " (base OS distribution location on the Quattor server)");
+    if ( !exists(AII_OSINSTALL_PATH) || !is_defined(AII_OSINSTALL_PATH) ) {
+        error("You need to define the variable AII_OSINSTALL_PATH or AII_OSINSTALL_ROOT "
+                + "(OS distribution location on the Quattor server)");
     };
 
     if ( match(AII_OSINSTALL_PROTOCOL, "^https?") )  {
-        if ( is_defined(BASE_OS_REPOSITORY_TEMPLATE) ) {
-            debug("BASE_OS_REPOSITORY_TEMPLATE=%s", to_string(BASE_OS_REPOSITORY_TEMPLATE));
-            repo_template_name = format('%s/%s', YUM_OS_SNAPSHOT_NS, BASE_OS_REPOSITORY_TEMPLATE);
-            debug('Base OS repository template = %s', repo_template_name);
-            repo_template = if_exists(repo_template_name);
-        } else {
-            repo_template = undef;
-        };
-        repo_url = undef;
-        if ( is_defined(repo_template) ) {
-            repo_params = create(repo_template);
-            if ( exists(repo_params['protocols']) ) {
-                repo_protocols = repo_params['protocols'];
-                # Assume that all protocols entries are http/https entries
-                repo_url = repo_protocols[0]['url']
-            };
-        };
-        if ( !is_defined(repo_url) ) {
-            repo_url = format("%s://%s%s", AII_OSINSTALL_PROTOCOL, AII_OSINSTALL_SRV, AII_OSINSTALL_PATH);
-        };
-        debug('Base OS repository URL = %s', repo_url);
-        "url --url " + repo_url;
+        "url --url " + AII_OSINSTALL_PROTOCOL + "://" + AII_OSINSTALL_SRV + AII_OSINSTALL_PATH;
     } else if ( match(AII_OSINSTALL_PROTOCOL, "(?i)nfs") ) {
         "nfs --server " + AII_OSINSTALL_SRV + " --dir " + AII_OSINSTALL_PATH;
     } else {
@@ -212,7 +189,6 @@ variable AII_OSINSTALL_OPTION_NTPSERVERS ?= null;
 # Root Password (for example: aii)
 # by default, derived from the account component
 #
-include 'components/accounts/config';
 variable AII_OSINSTALL_ROOTPW ?= value("/software/components/accounts/rootpwd");
 "rootpw" ?= AII_OSINSTALL_ROOTPW;
 
@@ -431,7 +407,6 @@ variable AII_ACK_LIST ?= list("http://" + AII_ACK_SRV + AII_ACK_CGI);
 #
 # Set the location of the node profile
 #
-include 'components/ccm/config';
 variable AII_USE_CCM ?= exists("/software/components/ccm") && is_defined("/software/components/ccm");
 variable AII_PROFILE_PATH ?= "/profiles";
 variable AII_OSINSTALL_NODEPROFILE ?=
