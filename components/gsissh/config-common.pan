@@ -14,7 +14,7 @@
 #
 
 # #
-# gsissh, 21.12.0, 1, Fri Dec 24 2021
+# gsissh, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/gsissh/config-common;
@@ -24,7 +24,7 @@ include 'components/gsissh/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/gsissh';
 
-'version' = '21.12.0';
+'version' = '23.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -14,7 +14,7 @@
 #
 
 # #
-# glitestartup, 21.12.0, 1, Fri Dec 24 2021
+# glitestartup, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/glitestartup/config-rpm;
@@ -25,6 +25,6 @@ include 'components/glitestartup/config-common';
 prefix '/software/components/glitestartup';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-glitestartup', '21.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-glitestartup', '23.6.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

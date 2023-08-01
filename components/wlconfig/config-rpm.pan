@@ -14,7 +14,7 @@
 #
 
 # #
-# wlconfig, 21.12.0, 1, Fri Dec 24 2021
+# wlconfig, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/wlconfig/config-rpm;
@@ -25,6 +25,6 @@ include 'components/wlconfig/config-common';
 prefix '/software/components/wlconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-wlconfig', '21.12.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-wlconfig', '23.6.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

@@ -14,7 +14,7 @@
 #
 
 # #
-# dcache, 21.12.0, 1, Fri Dec 24 2021
+# dcache, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/dcache/config-common;
@@ -24,7 +24,7 @@ include 'components/dcache/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/dcache';
 
-'version' = '21.12.0';
+'version' = '23.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;
