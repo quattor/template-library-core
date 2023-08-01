@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 21.12.0, 1, Fri Dec 24 2021
+# puppet, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/puppet/config-common;
@@ -21,7 +21,7 @@ include 'components/puppet/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/puppet';
 
-'version' = '21.12.0';
+'version' = '23.6.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

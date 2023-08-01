@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 21.12.0, 1, Fri Dec 24 2021
+# postfix, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 declaration template components/postfix/schema;

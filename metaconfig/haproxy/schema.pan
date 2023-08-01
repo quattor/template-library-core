@@ -66,6 +66,9 @@ type haproxy_service_timeouts = {
     'connect' : long = 3500
     'client' : long = 10000
     'server' : long = 10000
+    'client-fin' ? long(4000..)
+    'server-fin' ? long(4000..)
+    'tunnel' ? long(4000..)
 };
 
 @documentation {
@@ -157,7 +160,7 @@ type haproxy_service_peer = {
     configuration of peers
 }
 type haproxy_service_peers = {
-        'peers': haproxy_service_peer[]
+    'peers': haproxy_service_peer[]
 };
 
 @documentation {
@@ -169,6 +172,11 @@ type haproxy_service_stick_table = {
     'peers' ? string
 };
 
+type haproxy_service_reqrep = {
+    'pattern' : string
+    'replace' : string
+};
+
 type haproxy_service_bind_server_params = {
     'ssl' ? boolean
     'ca-file' ? absolute_file_path
@@ -178,6 +186,8 @@ type haproxy_service_bind_server_params = {
     'interface' ? string
     @{enable the TLS ALPN extension}
     'alpn' ? string = "h2,http/1.1"
+    @{interval in milliseconds between healthchecks}
+    'inter' ? long
 };
 
 type haproxy_service_server_params = {
@@ -198,13 +208,20 @@ type haproxy_service_bind = {
     'port' ? type_port
 };
 
+type haproxy_service_frontend_errorfile = {
+    'code' : long(200..600)
+    'filename' : absolute_file_path
+};
+
 type haproxy_service_frontend = {
     'acl' ? dict()
     'bind' : haproxy_service_bind[]
     'default_backend' : string
+    'use_backend' ? string_trimmed[]
     'mode' ? choice("tcp", "http")
     'tcp-request' ? string[]
     'http-request' ? string[]
+    'errorfile' ? haproxy_service_frontend_errorfile[]
 };
 
 type haproxy_service_backend_server = {
@@ -230,6 +247,9 @@ type haproxy_service_backend = {
     'sticktable' ? haproxy_service_stick_table
     'stick' ? string
     'servers' : haproxy_service_backend_server[]
+    'reqrep' ? haproxy_service_reqrep[]
+    'http-request' ? string[]
+    'acl' ? dict()
 };
 
 @documentation {

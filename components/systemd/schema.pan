@@ -57,6 +57,25 @@ type systemd_valid_execpath = string with match(SELF, '^([@+!:-]|!!)?/');
 # type for a relative directory: no leading / and may not include ".."
 type systemd_relative_directory = string with !match(SELF, '(^/|\.\.)');
 
+@documentation{
+    Validate that a property is either a size (in bytes), a relative size (in %)
+    or 'infinity'. Used for memory limits in cgroups.
+}
+function is_absolute_or_relative_size = {
+    l = ARGV[0];
+    if (is_long(l) && l > 0) {
+        return(true);
+    };
+    if (is_string(l) && match(l, '^(infinity|100%|[0-9]?[0-9]%)$')) {
+        return(true);
+    };
+    false;
+};
+
+type systemd_absolute_or_relative_size = element with is_absolute_or_relative_size(SELF);
+
+type systemd_weights = long(1..10000);
+
 # adding new ones
 # go to http://www.freedesktop.org/software/systemd/man/systemd.directives.html
 # and follow the link to the manual
@@ -231,18 +250,29 @@ valid for [Slice], [Scope], [Service], [Socket], [Mount], or [Swap] sections
 type systemd_unitfile_config_systemd_resource_control = {
     'CPUAccounting' ? boolean
     'CPUShares' ? long(2..262144)
+    'CPUWeight' ? systemd_weights
+    'StartupCPUWeight' ? systemd_weights
     'StartupCPUShares' ? long(2..262144)
     'CPUQuota' ? long(0..100)  # percentages
     'MemoryAccounting' ? boolean
-    'MemoryLimit' ? long  # in bytes
+    'MemoryLimit' ? systemd_absolute_or_relative_size
+    'MemoryMin' ? systemd_absolute_or_relative_size
+    'MemoryMax' ? systemd_absolute_or_relative_size
+    'MemoryLow' ? systemd_absolute_or_relative_size
+    'MemoryHigh' ? systemd_absolute_or_relative_size
+    'MemorySwapMax' ? systemd_absolute_or_relative_size
     'TasksAccounting' ? boolean
     'TasksMax' ? string with match(SELF, '^([0-9]+%?|infinity)$')
     'BlockIOAccounting' ? boolean
     'BlockIOWeight' ? long(10..1000)
+    'IOWeight' ? systemd_weights
+    'StartupIOWeight' ? systemd_weights
     'StartupBlockIOWeight' ? long(10..1000)
     'BlockIODeviceWeight' ? systemd_unitfile_config_systemd_resource_control_block_weight[]
     'BlockIOReadBandwidth' ? systemd_unitfile_config_systemd_resource_control_block_weight[]
     'BlockIOWriteBandwidth' ? systemd_unitfile_config_systemd_resource_control_block_weight[]
+    'IPAccounting' ? boolean
+    'IPAddressAllow' ? type_network_name[]
     'DeviceAllow' ? systemd_unitfile_config_systemd_resource_control_devicelist[]
     'DevicePolicy' ? choice('auto', 'closed', 'strict')
     'Slice' ? string
@@ -261,12 +291,12 @@ type systemd_unitfile_config_service = {
     'BusName' ? string
     'BusPolicy' ? string[] with length(SELF) == 2 && match(SELF[1], '^(see|talk|own)$')
     'CapabilityBoundingSet' ? linux_capability[]
-    'ExecReload' ? string
-    'ExecStart' ? string
-    'ExecStartPost' ? string
-    'ExecStartPre' ? string
-    'ExecStop' ? string
-    'ExecStopPost' ? string
+    'ExecReload' ? transitional_string_or_list_of_strings
+    'ExecStart' ? transitional_string_or_list_of_strings
+    'ExecStartPost' ? transitional_string_or_list_of_strings
+    'ExecStartPre' ? transitional_string_or_list_of_strings
+    'ExecStop' ? transitional_string_or_list_of_strings
+    'ExecStopPost' ? transitional_string_or_list_of_strings
     'GuessMainPID' ? boolean
     'NonBlocking' ? boolean
     'NotifyAccess' ? string with match(SELF, '^(none|main|all)$')
@@ -365,6 +395,23 @@ type systemd_unitfile_config_socket = {
 };
 
 @documentation{
+the [Path] section
+https://www.freedesktop.org/software/systemd/man/systemd.path.html
+}
+type systemd_unitfile_config_path = {
+    'PathExists' ? absolute_file_path
+    'PathExistsGlob' ? absolute_file_path
+    'PathChanged' ? absolute_file_path
+    'PathModified' ? absolute_file_path
+    'DirectoryNotEmpty' ? absolute_file_path
+    'Unit' ? string
+    'MakeDirectory' ? boolean
+    'DirectoryMode' ? type_octal_mode
+    'TriggerLimitIntervalSec' ? long(0..)
+    'TriggerLimitBurst' ? long(0..)
+};
+
+@documentation{
 the [mount] section
 http://www.freedesktop.org/software/systemd/man/systemd.mount.html
 }
@@ -390,7 +437,7 @@ http://www.freedesktop.org/software/systemd/man/systemd.automount.html
 type systemd_unitfile_config_automount = {
     'Where': absolute_file_path
     'DirectoryMode' ? type_octal_mode
-    'TimeoutSec' ? long(0..)
+    'TimeoutIdleSec' ? long(0..)
 };
 
 @documentation{
@@ -416,6 +463,15 @@ type systemd_unitfile_config_timer = {
 };
 
 @documentation{
+the [Slice] section
+http://www.freedesktop.org/software/systemd/man/systemd.slice.html
+}
+type systemd_unitfile_config_slice = {
+    include systemd_unitfile_config_systemd_resource_control
+};
+
+
+@documentation{
 Unit configuration sections
     includes, unit and install are type agnostic
         unit and install are mandatory, but not enforced by schema (possible issues in case of replace=true)
@@ -430,8 +486,10 @@ type systemd_unitfile_config = {
     'socket' ? systemd_unitfile_config_socket
     'mount' ? systemd_unitfile_config_mount
     'automount' ? systemd_unitfile_config_automount
+    'path' ? systemd_unitfile_config_path
     'timer' ? systemd_unitfile_config_timer
     'unit' ? systemd_unitfile_config_unit
+    'slice' ? systemd_unitfile_config_slice
 };
 
 @documentation{
@@ -472,7 +530,7 @@ type systemd_target = string with match(SELF, "^(default|poweroff|rescue|multi-u
 type systemd_unit_type = {
     "name" ? string # shortnames are ok; fullnames require matching type
     "targets" : systemd_target[] = list("multi-user")
-    "type" : choice('service', 'target', 'sysv', 'socket', 'mount', 'automount', 'timer') = 'service'
+    "type" : choice('service', 'target', 'sysv', 'socket', 'mount', 'automount', 'timer', 'slice', 'path') = 'service'
     "startstop" : boolean = true
     "state" : string = 'enabled' with match(SELF, '^(enabled|disabled|masked)$')
     @{unitfile configuration}
@@ -491,7 +549,7 @@ type systemd_component = {
         if (unit["type"] == "mount" && exists(unit["file"]) && exists(unit["file"]["config"]["mount"])) {
             goodname = systemd_make_mountunit(unit["file"]["config"]["mount"]["Where"]);
             if(goodname != name) {
-                error(format('Incorrect name for mount unit, the name must match Where: %s vs %s', name, goodname));
+                error('Incorrect name for mount unit, the name must match Where: %s vs %s', name, goodname);
             };
         };
     };

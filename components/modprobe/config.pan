@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 21.12.0, 1, Fri Dec 24 2021
+# modprobe, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/modprobe/config;
@@ -19,7 +19,7 @@ unique template components/modprobe/config;
 include 'components/modprobe/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-modprobe", "21.12.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-modprobe", "23.6.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/modprobe';

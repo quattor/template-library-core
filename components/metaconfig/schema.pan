@@ -100,7 +100,7 @@ type metaconfig_textrender_convert = {
     true;
 };
 
-type caf_service_action = string with match(SELF, '^(restart|reload|stop_sleep_start)$');
+type caf_service_action = string with match(SELF, '^(restart|condrestart|reload|stop_sleep_start)$');
 
 type metaconfig_actions = {
     @{Always run, happens before possible modifications.

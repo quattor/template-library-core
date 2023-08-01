@@ -11,19 +11,12 @@
 
 # 
 # #
-# hostsfile, 21.12.0, 1, Fri Dec 24 2021
+# hostsfile, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/hostsfile/config;
 
 include 'components/hostsfile/schema';
 
-# Package to install
-"/software/packages" = pkg_repl("ncm-hostsfile", "21.12.0-1", "noarch");
-
-# Set prefix to root of component configuration.
-prefix '/software/components/hostsfile';
-
-'version' = '21.12.0';
-'active' ?= false;
-'dispatch' ?= false;
+include 'components/hostsfile/config-common';
+include 'components/hostsfile/config-rpm';

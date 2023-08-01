@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsaccess, 21.12.0, 1, Fri Dec 24 2021
+# hostsaccess, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
 #
 
 unique template components/hostsaccess/config;
