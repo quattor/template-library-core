@@ -14,7 +14,7 @@
 #
 
 # #
-# condorconfig, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
+# condorconfig, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
 #
 #
 

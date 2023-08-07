@@ -14,7 +14,7 @@
 #
 
 # #
-# gridmapdir, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
+# gridmapdir, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
 #
 
 unique template components/gridmapdir/config-rpm;
@@ -25,6 +25,6 @@ include 'components/gridmapdir/config-common';
 prefix '/software/components/gridmapdir';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gridmapdir', '23.6.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gridmapdir', '23.6.0-rc2_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

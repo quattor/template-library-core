@@ -14,7 +14,7 @@
 #
 
 # #
-# lcmaps, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
+# lcmaps, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
 #
 
 unique template components/lcmaps/config-common;
