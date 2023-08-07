@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 23.6.0-rc1, rc1_1, Tue Aug 01 2023
+# pxelinux, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
 #
 
 declaration template quattor/aii/pxelinux/schema;
