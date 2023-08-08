@@ -14,7 +14,7 @@
 #
 
 # #
-# gsissh, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
+# gsissh, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
 #
 
 unique template components/gsissh/config-rpm;
@@ -25,6 +25,6 @@ include 'components/gsissh/config-common';
 prefix '/software/components/gsissh';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gsissh', '23.6.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gsissh', '23.6.0-rc4_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
