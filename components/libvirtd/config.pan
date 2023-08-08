@@ -11,14 +11,14 @@
 
 # 
 # #
-# libvirtd, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
+# libvirtd, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
 #
 
 unique template components/libvirtd/config;
 
 include 'components/libvirtd/schema';
 
-'/software/packages'=pkg_repl('ncm-libvirtd','23.6.0-rc2_1','noarch');
+'/software/packages'=pkg_repl('ncm-libvirtd','23.6.0-rc3_1','noarch');
 '/software/components/libvirtd/dependencies/pre' ?=  list ('spma');
 
 '/software/components/libvirtd/active' ?= true;

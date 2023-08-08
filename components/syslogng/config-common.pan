@@ -11,7 +11,7 @@
 
 # 
 # #
-# syslogng, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
+# syslogng, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
 #
 
 unique template components/syslogng/config-common;
@@ -21,7 +21,7 @@ include 'components/syslogng/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/syslogng';
 
-#'version' = '23.6.0-rc2';
+#'version' = '23.6.0-rc3';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -17,7 +17,7 @@ include 'components/resolver/schema';
 
 bind '/software/components/resolver' = resolver_component;
 
-'/software/packages' = pkg_repl('ncm-resolver', '23.6.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-resolver', '23.6.0-rc3_1', 'noarch');
 
 include if_exists('components/resolver/site-config');
 

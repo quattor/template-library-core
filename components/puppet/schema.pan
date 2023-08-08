@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
+# puppet, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
 #
 
 declaration template components/puppet/schema;
