@@ -20,7 +20,7 @@ include 'components/authconfig/schema';
 
 bind '/software/components/authconfig' = authconfig_component;
 
-'/software/packages' = pkg_repl('ncm-authconfig', '23.6.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-authconfig', '23.6.0-rc4_1', 'noarch');
 
 include if_exists('components/authconfig/site-config');
 

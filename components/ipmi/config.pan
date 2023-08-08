@@ -11,7 +11,7 @@
 
 # 
 # #
-# ipmi, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
+# ipmi, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
 #
 
 unique template components/ipmi/config;

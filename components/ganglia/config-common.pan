@@ -14,7 +14,7 @@
 #
 
 # #
-# ganglia, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
+# ganglia, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
 #
 
 unique template components/ganglia/config-common;
@@ -24,7 +24,7 @@ include 'components/ganglia/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/ganglia';
 
-#'version' = '23.6.0-rc3_1';
+#'version' = '23.6.0-rc4_1';
 'package' = 'NCM::Component';
 
 'active' ?= true;

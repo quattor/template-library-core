@@ -11,7 +11,7 @@
 
 # 
 # #
-# etcservices, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
+# etcservices, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
 #
 
 unique template components/etcservices/config-common;
@@ -21,7 +21,7 @@ include 'components/etcservices/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/etcservices';
 
-#'version' = '23.6.0-rc3';
+#'version' = '23.6.0-rc4';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
+# dirperm, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
 #
 
 unique template components/dirperm/config;
@@ -19,7 +19,7 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "23.6.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "23.6.0-rc4_1", "noarch");
 
 prefix '/software/components/dirperm';
 
