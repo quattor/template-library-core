@@ -14,7 +14,7 @@
 #
 
 # #
-# dcache, 23.6.0-rc2, rc2_1, Mon Aug 07 2023
+# dcache, 23.6.0-rc3, rc3_1, Tue Aug 08 2023
 #
 
 unique template components/dcache/config-rpm;
@@ -25,6 +25,6 @@ include 'components/dcache/config-common';
 prefix '/software/components/dcache';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dcache', '23.6.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-dcache', '23.6.0-rc3_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
