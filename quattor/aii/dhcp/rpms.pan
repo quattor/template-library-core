@@ -14,11 +14,11 @@
 #
 
 # #
-# dhcp, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
+# dhcp, 23.6.0, 1, Mon Aug 14 2023
 #
 
 # Template adding aii-dhcp rpm to the configuration
 
 unique template quattor/aii/dhcp/rpms;
 
-"/software/packages" = pkg_repl("aii-dhcp", "23.6.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("aii-dhcp", "23.6.0-1", "noarch");
