@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
+# ceph, 23.6.0, 1, Mon Aug 14 2023
 #
 
 unique template components/ceph/config;
@@ -27,7 +27,7 @@ prefix '/software/components/ceph';
 'active' ?= true;
 'dispatch' ?= true;
 
-'/software/packages' = pkg_repl('ncm-ceph', '23.6.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ceph', '23.6.0-1', 'noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 bind '/software/components/ceph' = ceph_component;

@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
+# nss, 23.6.0, 1, Mon Aug 14 2023
 #
 
 ################################################################################
@@ -25,7 +25,7 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "23.6.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "23.6.0-1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';

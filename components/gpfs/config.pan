@@ -17,7 +17,7 @@ include 'components/gpfs/schema';
 
 bind '/software/components/gpfs' = gpfs_component;
 
-'/software/packages' = pkg_repl('ncm-gpfs', '23.6.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gpfs', '23.6.0-1', 'noarch');
 
 include if_exists('components/gpfs/site-config');
 
