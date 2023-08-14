@@ -14,7 +14,7 @@
 #
 
 # #
-# dpmlfc, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
+# dpmlfc, 23.6.0, 1, Mon Aug 14 2023
 #
 
 unique template components/dpmlfc/config;
@@ -29,6 +29,6 @@ prefix '/software/components/dpmlfc';
 'dispatch' ?= true;
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-dpmlfc', '23.6.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-dpmlfc', '23.6.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

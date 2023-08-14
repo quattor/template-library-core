@@ -14,7 +14,7 @@
 #
 
 # #
-# lbconfig, 23.6.0-rc4, rc4_1, Tue Aug 08 2023
+# lbconfig, 23.6.0, 1, Mon Aug 14 2023
 #
 
 unique template components/lbconfig/config-rpm;
@@ -25,6 +25,6 @@ include 'components/lbconfig/config-common';
 prefix '/software/components/lbconfig';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-lbconfig', '23.6.0-rc4_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-lbconfig', '23.6.0-1', 'noarch');
 'dependencies/pre' ?= list('spma');
 
