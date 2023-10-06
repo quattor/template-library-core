@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 23.6.0, 1, Mon Aug 14 2023
+# gacl, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
 #
 
 unique template components/gacl/config-rpm;
@@ -25,6 +25,6 @@ include 'components/gacl/config-common';
 prefix '/software/components/gacl';
 
 # Install Quattor configuration module via RPM package.
-'/software/packages' = pkg_repl('ncm-gacl', '23.6.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gacl', '23.9.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma');
 

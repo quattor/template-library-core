@@ -14,7 +14,7 @@
 #
 
 # #
-# gacl, 23.6.0, 1, Mon Aug 14 2023
+# gacl, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
 #
 #
 # Coding style: emulate <TAB> characters with 4 spaces, thanks!
