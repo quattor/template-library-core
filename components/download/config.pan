@@ -18,12 +18,12 @@ include 'components/download/schema';
 
 bind '/software/components/download' = download_component;
 
-'/software/packages' = pkg_repl('ncm-download', '23.6.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-download', '23.9.0-rc1_1', 'noarch');
 
 include if_exists('components/download/site-config');
 
 prefix '/software/components/download';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.6.0';
+'version' ?= '23.9.0';
 'dependencies/pre' ?= list('spma');

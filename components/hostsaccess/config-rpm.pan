@@ -16,8 +16,8 @@ unique template components/hostsaccess/config-rpm;
 include 'components/hostsaccess/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-hostsaccess", "23.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-hostsaccess", "23.9.0-rc1_1", "noarch");
 
 '/software/components/hostsaccess/dependencies/pre' ?= list('spma');
 
-'/software/components/hostsaccess/version' = '23.6.0';
+'/software/components/hostsaccess/version' = '23.9.0';

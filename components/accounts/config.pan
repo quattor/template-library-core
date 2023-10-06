@@ -17,14 +17,14 @@ include 'components/accounts/schema';
 
 bind '/software/components/accounts' = accounts_component;
 
-'/software/packages' = pkg_repl('ncm-accounts', '23.6.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-accounts', '23.9.0-rc1_1', 'noarch');
 
 include if_exists('components/accounts/site-config');
 
 prefix '/software/components/accounts';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.6.0';
+'version' ?= '23.9.0';
 'dependencies/pre' ?= list('spma');
 
 include 'components/accounts/functions';

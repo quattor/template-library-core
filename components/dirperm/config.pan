@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 23.6.0, 1, Mon Aug 14 2023
+# dirperm, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
 #
 
 unique template components/dirperm/config;
@@ -19,12 +19,12 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "23.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "23.9.0-rc1_1", "noarch");
 
 prefix '/software/components/dirperm';
 
 'dependencies/pre' ?= list('spma');
 'register_change' ?= list('/system/filesystems');
-'version' = '23.6.0';
+'version' = '23.9.0';
 'active' ?= true;
 'dispatch' ?= true;

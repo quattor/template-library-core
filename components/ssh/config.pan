@@ -11,17 +11,17 @@
 
 # 
 # #
-# ssh, 23.6.0, 1, Mon Aug 14 2023
+# ssh, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
 #
 
 unique template components/ssh/config;
 
 include 'components/ssh/schema';
 
-"/software/packages" = pkg_repl("ncm-ssh", "23.6.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-ssh", "23.9.0-rc1_1", "noarch");
 
 prefix '/software/components/ssh';
 'dependencies/pre' ?= list("spma");
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.6.0';
+'version' ?= '23.9.0';

@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsfile, 23.6.0, 1, Mon Aug 14 2023
+# hostsfile, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
 #
 
 unique template components/hostsfile/config-common;
@@ -21,7 +21,7 @@ include 'components/hostsfile/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/hostsfile';
 
-'version' = '23.6.0';
+'version' = '23.9.0';
 'active' ?= false;
 'dispatch' ?= false;
 

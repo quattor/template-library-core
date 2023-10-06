@@ -17,12 +17,12 @@ include 'components/ccm/schema';
 
 bind '/software/components/ccm' = ccm_component;
 
-'/software/packages' = pkg_repl('ncm-ccm', '23.6.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ccm', '23.9.0-rc1_1', 'noarch');
 
 include if_exists('components/ccm/site-config');
 
 prefix '/software/components/ccm';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.6.0';
+'version' ?= '23.9.0';
 'dependencies/pre' ?= list('spma');

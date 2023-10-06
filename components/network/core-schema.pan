@@ -30,8 +30,9 @@ type structure_route = {
     "command" ? string with !match(SELF, '[;]')
 } with {
     if (exists(SELF['command'])) {
-        if (length(SELF) != 1)
-            error("Cannot use command and any of the other attributes as route");
+        module = value('/software/components/network/ncm-module', '');
+        if (module == 'nmstate') error("Command routes are not supported by the nmstate backend");
+        if (length(SELF) != 1) error("Cannot use command and any of the other attributes as route");
     } else {
         if (!exists(SELF['address']))
             error("Address is mandatory for route (in absence of command)");
@@ -74,12 +75,15 @@ type structure_rule = {
     "not" ? boolean
     @{routing table action}
     "table" ? network_valid_routing_table
+    @{priority, The priority of the rule over the others. Required by Network Manager when setting routing rules.}
+    "priority" ? long(0..0xffffffff)
     @{rule add options to use (cannot be combined with other options)}
     "command" ? string with !match(SELF, '[;]')
 } with {
     if (exists(SELF['command'])) {
-        if (length(SELF) != 1)
-            error("Cannot use command and any of the other attributes as rule");
+        module = value('/software/components/network/ncm-module', '');
+        if (module == 'nmstate') error("Command routes are not supported by the nmstate backend");
+        if (length(SELF) != 1) error("Cannot use command and any of the other attributes as rule");
     } else {
         if (!exists(SELF['to']) && !exists(SELF['from'])) {
             error("Rule requires selector to or from (or use command)");
@@ -167,6 +171,7 @@ type structure_ethtool_offload = {
     @{Set the TCP segment offload parameter to "off" or "on"}
     "tso" ? string with match (SELF, '^(on|off)$')
     "gro" ? string with match (SELF, '^(on|off)$')
+    "gso" ? string with match (SELF, '^(on|off)$')
 };
 
 @documentation{
@@ -416,7 +421,7 @@ type structure_ipv6 = {
 type structure_network = {
     "domainname" : type_fqdn
     "hostname" : type_shorthostname
-    "realhostname" ? type_fqdn
+    "realhostname" ? string with is_shorthostname(SELF) || is_fqdn(SELF)
     "default_gateway" ? type_ip
     @{When default_gateway is not set, the component will try to guess the default
       gateway using the first configured gateway set on an interface.

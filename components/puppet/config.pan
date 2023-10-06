@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 23.6.0, 1, Mon Aug 14 2023
+# puppet, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
 #
 
 unique template components/puppet/config;
