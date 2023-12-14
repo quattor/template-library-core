@@ -241,6 +241,7 @@ type structure_benchmark = {
 type structure_bios = {
     "version" : string
     "releasedate" : string
+    "bootmode" ? choice('uefi', 'bios')
 };
 
 @documentation{
