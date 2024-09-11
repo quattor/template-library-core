@@ -41,15 +41,11 @@ function get_num_of_cores_max_threads = {
             'threads', 0,
         );
         foreach (i; cpu; hw_config['cpu']) {
+            result['cores'] = result['cores'] + cpu['cores'];
             if (is_defined(cpu['max_threads'])) {
                 result['threads'] = result['threads'] + cpu['max_threads'];
             } else {
-                result['threads'] = result['threads'] + 1;
-            };
-            if (is_defined(cpu['cores'])) {
-                result['cores'] = result['cores'] + cpu['cores'];
-            } else {
-                result['cores'] = result['cores'] + 1;
+                result['threads'] = result['threads'] + cpu['cores'];
             };
         };
         debug('%s: num of CPUs=%d, num of cores=%d', OBJECT, length(hw_config['cpu']), cores);
