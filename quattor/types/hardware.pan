@@ -32,6 +32,12 @@ type structure_cpu = {
         deprecated(0, 'The hyperthreading cpu property has been deprecated, please migrate to max_threads');
         true;
     }
+} with {
+    if (exists(SELF['max_threads']) && SELF['max_threads'] < SELF['cores']) {
+        error("Number of execution threads (max_threads) cannot be less than number of CPU cores (cores)");
+    } else {
+        true;
+    };
 };
 
 
