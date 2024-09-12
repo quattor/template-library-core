@@ -1074,3 +1074,15 @@ type type_octal_mode = string with to_long(SELF, 8) >= 0 && to_long(SELF, 8) <= 
 }
 type caf_serviceaction = choice("restart", "reload", "stop_sleep_start");
 
+
+@documentations{
+    desc = Password hashes in crypt format. Accepted methods are yescrypt, scrypt, sha512crypt, and sha256crypt
+}
+type string_crypt_hash = string with match(SELF,
+    '^(' + join('|', list(
+        '\$y\$[./A-Za-z0-9]+\$[./A-Za-z0-9]{0,86}\$[./A-Za-z0-9]{43}', # yescrypt
+        '\$7\$[./A-Za-z0-9]{11,97}\$[./A-Za-z0-9]{43}', # scrypt
+        '\$6\$(rounds=[1-9][0-9]+\$)?[^$:\n]{1,16}\$[./0-9A-Za-z]{86}', # sha512crypt
+        '\$5\$(rounds=[1-9][0-9]+\$)?[^$:\n]{1,16}\$[./0-9A-Za-z]{43}', # sha256crypt
+    )) + ')$'
+);
