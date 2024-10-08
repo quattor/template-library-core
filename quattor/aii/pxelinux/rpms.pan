@@ -14,11 +14,11 @@
 #
 
 # #
-# pxelinux, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# pxelinux, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 # Template adding aii-pxelinux rpm to the configuration
 
 unique template quattor/aii/pxelinux/rpms;
 
-"/software/packages" = pkg_repl("aii-pxelinux", "23.9.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("aii-pxelinux", "24.10.0-rc1_1", "noarch");

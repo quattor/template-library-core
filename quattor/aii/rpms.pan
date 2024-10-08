@@ -15,11 +15,11 @@
 #
 
 # #
-# server, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# server, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 # Template adding aii-server rpm to the configuration
 
 unique template quattor/aii/rpms;
 
-"/software/packages" = pkg_repl("aii-server", "23.9.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("aii-server", "24.10.0-rc1_1", "noarch");

@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# ks, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 # Template containing OS configuration and default values.
