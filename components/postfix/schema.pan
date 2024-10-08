@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# postfix, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 declaration template components/postfix/schema;
@@ -518,6 +518,7 @@ type postfix_main = {
     "smtpd_recipient_restrictions" ? string[]
     "smtpd_reject_udicted_recipient" ? boolean
     "smtpd_reject_udicted_sender" ? boolean
+    "smtpd_relay_restrictions" ? string[]
     "smtpd_restriction_classes" ? string
     "smtpd_sasl_auth_enable" ? boolean
     "smtpd_sasl_authenticated_header" ? boolean

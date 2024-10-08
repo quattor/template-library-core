@@ -11,14 +11,14 @@
 
 # 
 # #
-# nscd, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# nscd, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 unique template components/nscd/config;
 
 include 'components/nscd/schema';
 
-"/software/packages" = pkg_repl("ncm-nscd", "23.9.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nscd", "24.10.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/nscd';
@@ -27,5 +27,5 @@ prefix '/software/components/nscd';
 'hosts/positive-time-to-live' ?= 300;
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '23.9.0';
+'version' = '24.10.0';
 'dependencies/pre' = list('spma');

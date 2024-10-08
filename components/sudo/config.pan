@@ -20,14 +20,14 @@ include 'components/sudo/schema';
 
 bind '/software/components/sudo' = sudo_component;
 
-'/software/packages' = pkg_repl('ncm-sudo', '23.9.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-sudo', '24.10.0-rc1_1', 'noarch');
 
 include if_exists('components/sudo/site-config');
 
 prefix '/software/components/sudo';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.9.0';
+'version' ?= '24.10.0';
 "dependencies/pre" ?=  list("spma", "accounts");
 
 include 'components/sudo/validation';

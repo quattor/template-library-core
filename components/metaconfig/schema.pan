@@ -55,7 +55,7 @@ type metaconfig_textrender_convert = {
     foreach (idx; name; boolean_conversion) {
         if(exists(SELF[name]) && SELF[name]) {
             if(found) {
-                error(format('metaconfig element can only have one boolean conversion enabled, got %s', SELF));
+                error('metaconfig element can only have one boolean conversion enabled, got %s', SELF);
             };
             found = true;
         };
@@ -67,7 +67,7 @@ type metaconfig_textrender_convert = {
     foreach (idx; name; string_conversion) {
         if(exists(SELF[name]) && SELF[name]) {
             if(found) {
-                error(format('metaconfig element can only have one string conversion enabled, got %s', SELF));
+                error('metaconfig element can only have one string conversion enabled, got %s', SELF);
             };
             found = true;
         };
@@ -79,7 +79,7 @@ type metaconfig_textrender_convert = {
     foreach (idx; name; list_conversion) {
         if(exists(SELF[name]) && SELF[name]) {
             if(found) {
-                error(format('metaconfig element can only have one list conversion enabled, got %s', SELF));
+                error('metaconfig element can only have one list conversion enabled, got %s', SELF);
             };
             found = true;
         };
@@ -91,7 +91,7 @@ type metaconfig_textrender_convert = {
     foreach (idx; name; key_conversion) {
         if(exists(SELF[name]) && SELF[name]) {
             if(found) {
-                error(format('metaconfig element can only have one key case conversion enabled, got %s', SELF));
+                error('metaconfig element can only have one key case conversion enabled, got %s', SELF);
             };
             found = true;
         };
@@ -151,7 +151,7 @@ type metaconfig_config =  {
     'contents' : metaconfig_extension
     @{Predefined conversions from EDG::WP4::CCM::TextRender}
     'convert' ? metaconfig_textrender_convert
-    @{Actions (i.e. names found in /software/components/metadata/commands) to run when processing the service.
+    @{Actions (i.e. names found in /software/components/metaconfig/commands) to run when processing the service.
       Refer to the metaconfig_actions type definition for the available hooks
       for when a command may be run.}
     'actions' ? metaconfig_actions

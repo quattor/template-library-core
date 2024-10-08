@@ -17,12 +17,12 @@ include 'components/postgresql/schema';
 
 bind '/software/components/postgresql' = postgresql_component;
 
-'/software/packages' = pkg_repl('ncm-postgresql', '23.9.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-postgresql', '24.10.0-rc1_1', 'noarch');
 
 include if_exists('components/postgresql/site-config');
 
 prefix '/software/components/postgresql';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.9.0';
+'version' ?= '24.10.0';
 'dependencies/pre' ?= list('spma');

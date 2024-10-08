@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# ceph, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 unique template components/ceph/config;
@@ -23,11 +23,11 @@ include format('components/ceph/%s/schema', CEPH_SCHEMA_VERSION);
 
 prefix '/software/components/ceph';
 
-'version' = '23.9.0';
+'version' = '24.10.0';
 'active' ?= true;
 'dispatch' ?= true;
 
-'/software/packages' = pkg_repl('ncm-ceph', '23.9.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ceph', '24.10.0-rc1_1', 'noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 bind '/software/components/ceph' = ceph_component;

@@ -17,12 +17,12 @@ include 'components/gmond/schema';
 
 bind '/software/components/gmond' = gmond_component;
 
-'/software/packages' = pkg_repl('ncm-gmond', '23.9.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-gmond', '24.10.0-rc1_1', 'noarch');
 
 include if_exists('components/gmond/site-config');
 
 prefix '/software/components/gmond';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.9.0';
+'version' ?= '24.10.0';
 "dependencies/pre" ?=  list("spma", "accounts");

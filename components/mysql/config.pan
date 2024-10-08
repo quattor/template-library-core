@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 23.9.0-rc1, rc1_1, Fri Oct 06 2023
+# mysql, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
 #
 
 unique template components/mysql/config;
@@ -19,13 +19,13 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "23.9.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "24.10.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';
 
 'active' ?= true;
 'dispatch' ?= true;
-'version' = '23.9.0';
+'version' = '24.10.0';
 'dependencies/pre' ?= append('spma');
 

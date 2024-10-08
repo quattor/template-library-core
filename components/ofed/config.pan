@@ -17,12 +17,12 @@ include 'components/ofed/schema';
 
 bind '/software/components/ofed' = ofed_component;
 
-'/software/packages' = pkg_repl('ncm-ofed', '23.9.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ofed', '24.10.0-rc1_1', 'noarch');
 
 include if_exists('components/ofed/site-config');
 
 prefix '/software/components/ofed';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.9.0';
+'version' ?= '24.10.0';
 'dependencies/pre' ?= list('spma');

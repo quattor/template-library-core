@@ -19,14 +19,14 @@ include 'components/cron/schema';
 
 bind '/software/components/cron' = cron_component;
 
-'/software/packages' = pkg_repl('ncm-cron', '23.9.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-cron', '24.10.0-rc1_1', 'noarch');
 
 include if_exists('components/cron/site-config');
 
 prefix '/software/components/cron';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '23.9.0';
+'version' ?= '24.10.0';
 'dependencies/pre' ?= list('spma');
 
 'securitypath' ?= {
