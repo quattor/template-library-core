@@ -20,7 +20,7 @@ include 'components/network/schema';
 
 bind '/software/components/network' = network_component;
 
-'/software/packages' = pkg_repl('ncm-network', '24.10.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-network', '24.10.0-rc2_1', 'noarch');
 
 include if_exists('components/network/site-config');
 

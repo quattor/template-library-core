@@ -11,7 +11,7 @@
 
 # 
 # #
-# nagios, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
+# nagios, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
 #
 
 unique template components/nagios/config-common;
@@ -21,7 +21,7 @@ include 'components/nagios/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/nagios';
 
-#'version' = '24.10.0-rc1';
+#'version' = '24.10.0-rc2';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

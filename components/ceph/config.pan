@@ -11,7 +11,7 @@
 
 # 
 # #
-# ceph, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
+# ceph, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
 #
 
 unique template components/ceph/config;
@@ -27,7 +27,7 @@ prefix '/software/components/ceph';
 'active' ?= true;
 'dispatch' ?= true;
 
-'/software/packages' = pkg_repl('ncm-ceph', '24.10.0-rc1_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-ceph', '24.10.0-rc2_1', 'noarch');
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 bind '/software/components/ceph' = ceph_component;

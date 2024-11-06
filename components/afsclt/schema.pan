@@ -13,7 +13,7 @@
 
 # 
 # #
-# afsclt, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
+# afsclt, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
 #
 
 declaration template components/afsclt/schema;
