@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
+# spma, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
 #
 
 unique template components/spma/ips/config;

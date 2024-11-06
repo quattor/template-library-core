@@ -11,7 +11,7 @@
 
 # 
 # #
-# chkconfig, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
+# chkconfig, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
 #
 
 unique template components/chkconfig/config;
@@ -27,4 +27,4 @@ prefix '/software/components/chkconfig';
 'dependencies/pre' ?= list("spma");
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-chkconfig", "24.10.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-chkconfig", "24.10.0-rc3_1", "noarch");

@@ -17,7 +17,7 @@ include 'components/freeipa/schema';
 
 bind '/software/components/freeipa' = freeipa_component;
 
-'/software/packages' = pkg_repl('ncm-freeipa', '24.10.0-rc2_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-freeipa', '24.10.0-rc3_1', 'noarch');
 
 include if_exists('components/freeipa/site-config');
 
@@ -31,7 +31,7 @@ variable FREEIPA_CLI_REQUIRES_PAM_KRB5 ?= true;
 
 'cli_packages' ?= {
     t = list(
-        'ncm-freeipa-24.10.0-rc2_1',
+        'ncm-freeipa-24.10.0-rc3_1',
         'nss-pam-ldapd',
         'ipa-client',
         'nss-tools',

@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
+# spma, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
 #
 
 unique template components/spma/config-common;
@@ -22,7 +22,7 @@ unique template components/spma/config-common;
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '24.10.0-rc2';
+#'version' = '24.10.0-rc3';
 #'package' = 'NCM::Component';
 
 'run' ?= "yes";

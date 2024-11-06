@@ -11,7 +11,7 @@
 
 # 
 # #
-# nss, 24.10.0-rc2, rc2_1, Wed Nov 06 2024
+# nss, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
 #
 
 ################################################################################
@@ -25,7 +25,7 @@ include 'components/nss/schema';
 include 'pan/functions';
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-nss", "24.10.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nss", "24.10.0-rc3_1", "noarch");
 
 # standard component settings
 prefix '/software/components/nss';
