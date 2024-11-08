@@ -11,7 +11,7 @@
 
 # 
 # #
-# gmetad, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
+# gmetad, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
 #
 
 unique template components/gmetad/config;

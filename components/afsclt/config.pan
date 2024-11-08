@@ -13,14 +13,14 @@
 
 # 
 # #
-# afsclt, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
+# afsclt, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
 #
 
 unique template components/afsclt/config;
 
 include 'components/afsclt/schema';
 
-"/software/packages" = pkg_repl("ncm-afsclt", "24.10.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-afsclt", "24.10.0-rc4_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/afsclt';

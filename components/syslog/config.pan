@@ -17,7 +17,7 @@ include 'components/syslog/schema';
 
 bind '/software/components/syslog' = syslog_component;
 
-'/software/packages' = pkg_repl('ncm-syslog', '24.10.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-syslog', '24.10.0-rc4_1', 'noarch');
 
 include if_exists('components/syslog/site-config');
 

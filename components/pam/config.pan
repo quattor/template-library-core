@@ -20,7 +20,7 @@ include 'components/pam/schema';
 
 bind '/software/components/pam' = pam_component;
 
-'/software/packages' = pkg_repl('ncm-pam', '24.10.0-rc3_1', 'noarch');
+'/software/packages' = pkg_repl('ncm-pam', '24.10.0-rc4_1', 'noarch');
 
 include if_exists('components/pam/site-config');
 

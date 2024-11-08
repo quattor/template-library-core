@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
+# postfix, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
 #
 
 declaration template components/postfix/schema;
