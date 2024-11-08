@@ -11,11 +11,11 @@
 
 # 
 # #
-# opennebula, 24.10.0-rc3, rc3_1, Wed Nov 06 2024
+# opennebula, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
 #
 
 # Template adding ncm-opennebula rpm to the configuration
 
 unique template quattor/aii/opennebula/rpms;
 
-"/software/packages" = pkg_repl("ncm-opennebula", "24.10.0-rc3_1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "24.10.0-rc4_1", "noarch");

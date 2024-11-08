@@ -14,7 +14,7 @@
 #
 
 # #
-# dhcp, 24.10.0-rc1, rc1_1, Tue Oct 08 2024
+# dhcp, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
 #
 template quattor/aii/dhcp/config;
 
