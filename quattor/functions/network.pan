@@ -57,14 +57,15 @@ function boot_nic = {
     default = none
     required = no
 }
-variable MTU ?= dict();
+variable INTERFACE_MTU ?= dict();
 
 @documentation{
     descr = This function configures all the network interfaces declared in\
             /hardware/cards/nic. Parameters are taken from variable\
             NETWORK_PARAMS (dict) for the main (boot) interface, others\
-            are configured with dhcp. For every interface, if there is\
-            an entry in variable MTU, it is also applied to the interface.\
+            are not configured and disabled on boot (bootproto must be set to none on\
+            unconfigured interfaces to prevent errors with nmstate. For every interface,\
+            if there is an entry in variable MTU, it is also applied to the interface.\
             Modifies and returns SELF.
 }
 function copy_network_params = {
@@ -84,7 +85,7 @@ function copy_network_params = {
         } else {
             net_params = dict();
             net_params["onboot"] = false;
-            net_params["bootproto"] = "dhcp";
+            net_params["bootproto"] = "none";
         };
 
         mtu_size = undef;
@@ -93,23 +94,27 @@ function copy_network_params = {
         # In the case of the boot interface, doesn't allow an explicit declaration of
         # the MTU value both for the boot interface name and for the BOOT entry. If
         # one of them is undefined, take the explicit one.
-        if ( exists(MTU["BOOT"]) && (name == boot) ) {
-            if ( is_defined(MTU["BOOT"]) ) {
-                if ( is_defined(MTU[name]) ) {
-                    error(format("MTU size defined for '%s' (%d): MTU['BOOT'] entry (%d) not allowed",
-                                    name, MTU[name], MTU["BOOT"]));
+        if ( exists(INTERFACE_MTU["BOOT"]) && (name == boot) ) {
+            if ( is_defined(INTERFACE_MTU["BOOT"]) ) {
+                if ( is_defined(INTERFACE_MTU[name]) ) {
+                    error(
+                        "MTU size defined for '%s' (%d): INTERFACE_MTU['BOOT'] entry (%d) not allowed",
+                        name,
+                        INTERFACE_MTU[name],
+                        INTERFACE_MTU["BOOT"]
+                    );
                 } else {
-                    mtu_size = MTU["BOOT"];
+                    mtu_size = INTERFACE_MTU["BOOT"];
                 };
-            } else if ( is_defined(MTU[name]) ) {
-                mtu_size = MTU[name];
+            } else if ( is_defined(INTERFACE_MTU[name]) ) {
+                mtu_size = INTERFACE_MTU[name];
             };
-        } else if ( exists(MTU[name])) {
-            mtu_size = MTU[name];
-        } else if ( exists(MTU[nic_type])) {
-            mtu_size = MTU[nic_type];
-        } else if ( exists(MTU["DEFAULT"])) {
-            mtu_size = MTU["DEFAULT"];
+        } else if ( exists(INTERFACE_MTU[name])) {
+            mtu_size = INTERFACE_MTU[name];
+        } else if ( exists(INTERFACE_MTU[nic_type])) {
+            mtu_size = INTERFACE_MTU[nic_type];
+        } else if ( exists(INTERFACE_MTU["DEFAULT"])) {
+            mtu_size = INTERFACE_MTU["DEFAULT"];
         };
 
         if ( is_defined(mtu_size) ) {
@@ -133,21 +138,21 @@ function ip_in_network = {
     #    test if network from IP and subnet mask is equal to provided network
     #    network is also masked (to support an ip in the network range instead of the network address)
     if (ARGC != 3) {
-        error(format("%s requires 3 arguments: ip, network, mask", FUNCTION));
+        error("%s requires 3 arguments: ip, network, mask", FUNCTION);
     };
 
     ip = ARGV[0];
     if (! is_ipv4(ip)) {
-        error(format("%s 1st argument is not an ipv4 address, got %s", FUNCTION, to_string(ip)));
+        error("%s 1st argument is not an ipv4 address, got %s", FUNCTION, to_string(ip));
     };
 
     network = ARGV[1];
     if (! is_ipv4(network)) {
-        error(format("%s 2nd argument is not an ipv4 address, got %s", FUNCTION, to_string(network)));
+        error("%s 2nd argument is not an ipv4 address, got %s", FUNCTION, to_string(network));
     };
     mask = ARGV[2];
     if (! is_ipv4(mask)) {
-        error(format("%s 3rd argument is not an ipv4 address, got %s", FUNCTION, to_string(mask)));
+        error("%s 3rd argument is not an ipv4 address, got %s", FUNCTION, to_string(mask));
     };
 
     # returns list, optional 2 element is netmask from CIDR notation
@@ -194,13 +199,18 @@ function get_subnet_params = {
             params['subnet'] = replace('\\?\.\*', '.0', params['subnet']);
             params['subnet'] = replace('(?<=\d)\\\.(?=\d)', '.', params['subnet']);
             if ( params['subnet'] != subnet_saved ) {
-                deprecated(0, format("%s - specifying subnet as a regexp (%s) is deprecated: converted to %s",
-                                    OBJECT,
-                                    subnet_saved,
-                                    params['subnet']));
+                deprecated(
+                    0,
+                    format(
+                        "%s - specifying subnet as a regexp (%s) is deprecated: converted to %s",
+                        OBJECT,
+                        subnet_saved,
+                        params['subnet']
+                    )
+                );
             };
         } else {
-            error(format("'subnet' key missing for subnet %s", i));
+            error("'subnet' key missing for subnet %s", i);
         };
         if ( ! is_defined(params['netmask']) ) {
             params['netmask'] = '255.255.255.0';
@@ -212,7 +222,7 @@ function get_subnet_params = {
         };
     };
 
-    error(format("No subnet matching address %s found", ipaddr));
+    error("No subnet matching address %s found", ipaddr);
 };
 
 @documentation{
