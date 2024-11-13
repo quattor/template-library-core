@@ -14,7 +14,7 @@
 #
 
 # #
-# ks, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
+# ks, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
 #
 
 @{Structure for the component generating kickstart files.}
