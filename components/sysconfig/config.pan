@@ -11,7 +11,7 @@
 
 # 
 # #
-# sysconfig, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
+# sysconfig, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
 #
 
 unique template components/sysconfig/config;

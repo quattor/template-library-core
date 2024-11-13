@@ -11,7 +11,7 @@
 
 # 
 # #
-# profile, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
+# profile, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
 #
 
 unique template components/profile/config-common;
@@ -21,7 +21,7 @@ include 'components/profile/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/profile';
 
-#'version' = '24.10.0-rc4';
+#'version' = '24.10.0-rc5';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

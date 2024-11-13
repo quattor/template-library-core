@@ -11,7 +11,7 @@
 
 # 
 # #
-# modprobe, 24.10.0-rc4, rc4_1, Fri Nov 08 2024
+# modprobe, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
 #
 
 unique template components/modprobe/config;
@@ -19,7 +19,7 @@ unique template components/modprobe/config;
 include 'components/modprobe/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-modprobe", "24.10.0-rc4_1", "noarch");
+"/software/packages" = pkg_repl("ncm-modprobe", "24.10.0-rc5_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/modprobe';
