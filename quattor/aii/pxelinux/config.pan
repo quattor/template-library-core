@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
+# pxelinux, 24.10.0, 1, Fri Nov 22 2024
 #
 
 unique template quattor/aii/pxelinux/config;
