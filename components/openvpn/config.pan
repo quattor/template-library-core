@@ -22,4 +22,4 @@ prefix '/software/components/openvpn';
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
-"/software/packages" = pkg_repl("ncm-openvpn", "24.10.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-openvpn", "24.10.0-1", "noarch");

@@ -22,7 +22,7 @@ include 'components/syslogng/schema';
 
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-syslogng", "24.10.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-syslogng", "24.10.0-1", "noarch");
 
 "/software/components/syslogng/dependencies/pre" ?=  list ("spma");
 

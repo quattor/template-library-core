@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
+# opennebula, 24.10.0, 1, Fri Nov 22 2024
 #
 
 unique template components/opennebula/config;
@@ -29,6 +29,6 @@ prefix '/software/components/opennebula';
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-opennebula", "24.10.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "24.10.0-1", "noarch");
 
 include 'components/opennebula/sudo';

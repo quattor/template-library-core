@@ -11,14 +11,14 @@
 
 # 
 # #
-# nscd, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
+# nscd, 24.10.0, 1, Fri Nov 22 2024
 #
 
 unique template components/nscd/config;
 
 include 'components/nscd/schema';
 
-"/software/packages" = pkg_repl("ncm-nscd", "24.10.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-nscd", "24.10.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/nscd';

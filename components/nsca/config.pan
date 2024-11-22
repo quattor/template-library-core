@@ -11,7 +11,7 @@
 
 # 
 # #
-# nsca, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
+# nsca, 24.10.0, 1, Fri Nov 22 2024
 #
 
 unique template components/nsca/config;

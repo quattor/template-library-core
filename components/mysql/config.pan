@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 24.10.0-rc5, rc5_1, Wed Nov 13 2024
+# mysql, 24.10.0, 1, Fri Nov 22 2024
 #
 
 unique template components/mysql/config;
@@ -19,7 +19,7 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "24.10.0-rc5_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "24.10.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';
