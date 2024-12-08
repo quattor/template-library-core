@@ -173,14 +173,21 @@ function ip_in_network = {
  by structure_interface + 'subnet' which is the subnet number (result of applying the\
  mask to the address. `subnet` key is mandatory, 'netmask` defaults to 255.255.255.0.
     arg = ip address to test
+    arg = boolean. When true, keep subnet parameter in return value. Default: false.
 }
 function get_subnet_params = {
-    if ( ARGC != 2 ) {
-        error("get_subnet_params requires 2 arguments");
+    if ( ARGC < 2 || ARGC > 3 ) {
+        error("get_subnet_params requires 2 or 3 arguments");
     };
 
     subnet_list = ARGV[0];
     ipaddr = ARGV[1];
+
+    if ( ARGC == 3 ) {
+        keep_subnet = ARGV[2];
+    } else {
+        keep_subnet = false;
+    };
 
     if ( !is_list(subnet_list) ) {
         error("get_subnet_params first argument must be a list");
@@ -217,7 +224,9 @@ function get_subnet_params = {
         };
 
         if ( ip_in_network(ipaddr, params['subnet'], params['netmask']) ) {
-            delete(params["subnet"]);        # Suppress subnet key
+            if (! keep_subnet) {
+                delete(params["subnet"]);        # Suppress subnet key
+            };
             return (params);
         };
     };
