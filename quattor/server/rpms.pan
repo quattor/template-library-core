@@ -1,16 +1,17 @@
 unique template quattor/server/rpms;
 
-prefix '/software/packages';
-
 # Apache
 include 'rpms/web_server';
 
-# DHCP
-'{dhcp}' = nlist();
+'/software/packages' = {
+    if ( OS_VERSION_PARAMS['majorversion'] >= '8' ) {
+        pkg_repl('dhcp-client');
+    } else {
+        pkg_repl('dhcp');
+    };
 
-# DHCP
-'{tftp-server}' = nlist();
+    pkg_repl('tftp-server');
+    pkg_repl('subversion');
 
-# Add Subversion
-'{subversion}' = nlist();
-
+    SELF;
+};
