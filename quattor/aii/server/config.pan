@@ -19,38 +19,44 @@ prefix '/software/components/aiiserver/aii-shellfe';
 'cdburl' ?= QUATTOR_PROFILE_URL;
 
 'profile_prefix' ?= if (is_defined(AII_PROFILE_PREFIX) && (length(AII_PROFILE_PREFIX) > 0)) {
-                      AII_PROFILE_PREFIX;
-                    } else {
-                      null;
-                    };
+    AII_PROFILE_PREFIX;
+} else {
+    null;
+};
 
 'profile_format' ?= if ( is_defined(QUATTOR_PROFILE_FORMAT) ) {
-                      QUATTOR_PROFILE_FORMAT;
-                    } else {
-                      null;
-                    };     
+    QUATTOR_PROFILE_FORMAT;
+} else {
+    null;
+};
 
 'use_fqdn' ?= if (is_defined(AII_USE_FQDN) ) {
-                if ( AII_USE_FQDN) {
-                  true;
-                } else {
-                  false;
-                };
-              } else {
-                null;
-              };
+    if ( AII_USE_FQDN) {
+        true;
+    } else {
+        false;
+    };
+} else {
+    null;
+};
 
 'osinstalldir' ?= if ( is_defined(AII_OSINSTALL_DIR) ) {
-                    AII_OSINSTALL_DIR;
-                  } else {
-                    null;
-                  };     
+    AII_OSINSTALL_DIR;
+} else {
+    null;
+};
 
 'nbpdir' ?= if ( is_defined(AII_NBP_DIR) ) {
-              AII_NBP_DIR;
-            } else {
-              null;
-            };     
+    AII_NBP_DIR;
+} else {
+    null;
+};
+
+'grub2_efi_kernel_root' ?= if ( is_defined(AII_EFI_KERNEL_ROOT) ) {
+    AII_EFI_KERNEL_ROOT;
+} else {
+    null;
+};
 
 
 
@@ -61,9 +67,9 @@ prefix '/software/components/aiiserver/aii-dhcp';
 'dhcpconf' ?= AII_DHCP_DHCPD_CONF_FILE;
 
 'restartcmd' ?= if ( is_defined(AII_DHCP_RESTART_CMD) ) {
-                  AII_DHCP_RESTART_CMD;
-                } else {
-                  null;
-                };     
+    AII_DHCP_RESTART_CMD;
+} else {
+    null;
+};
 
 include AII_DHCP_CONFIG_SITE;
