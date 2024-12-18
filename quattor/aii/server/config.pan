@@ -11,8 +11,23 @@ variable AII_DHCP_DHCPD_CONF_FILE ?= '/etc/dhcpd.conf';
 
 include 'components/aiiserver/config';
 
-# aii-shellfe configuration
+# Enable tftpd (on EL9 only for backward compatibility)
+include 'components/systemd/config';
+'/software/components/systemd/unit/tftp' = {
+    if ( OS_VERSION_PARAMS['majorversion'] >= '9' ) {
+        SELF['type'] = 'socket';
+        SELF['state'] = 'enabled';
+        SELF['startstop'] = true;
+    };
 
+    if ( is_defined(SELF) ) {
+        SELF;
+    } else {
+        null;
+    };
+};
+
+# aii-shellfe configuration
 
 prefix '/software/components/aiiserver/aii-shellfe';
 
