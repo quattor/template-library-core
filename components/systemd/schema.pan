@@ -546,11 +546,13 @@ type systemd_component = {
     # escaped full unitnames are allowed (or use shortnames and type)
     "unit" ? systemd_unit_type{}
 } with {
-    foreach(name; unit; SELF["unit"]) {
-        if (unit["type"] == "mount" && exists(unit["file"]) && exists(unit["file"]["config"]["mount"])) {
-            goodname = systemd_make_mountunit(unit["file"]["config"]["mount"]["Where"]);
-            if(goodname != name) {
-                error('Incorrect name for mount unit, the name must match Where: %s vs %s', name, goodname);
+    if (is_defined(SELF["unit"])) {
+        foreach(name; unit; SELF["unit"]) {
+            if (unit["type"] == "mount" && exists(unit["file"]) && exists(unit["file"]["config"]["mount"])) {
+                goodname = systemd_make_mountunit(unit["file"]["config"]["mount"]["Where"]);
+                if(goodname != name) {
+                    error('Incorrect name for mount unit, the name must match Where: %s vs %s', name, goodname);
+                };
             };
         };
     };
