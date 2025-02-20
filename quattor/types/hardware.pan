@@ -84,6 +84,18 @@ type structure_pci = {
     "class"  ? long
 };
 
+@documentation{
+    Structure modelling a RAID controller
+}
+type structure_raid = {
+    include structure_annotation
+    "bbu" ? boolean
+    "numberports" : long (1..)
+    "cache" ? long # In MB
+    "ports" : structure_raidport{}
+    "pci" ? structure_pci
+} with length (SELF["ports"]) <= SELF["numberports"];
+
 @docmentation{
     The Infiniband hardware address is a series of twenty bytes encoded as hex values
     and separated with a colon or a hyphen.  Within a value you must

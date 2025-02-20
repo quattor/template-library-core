@@ -17,14 +17,3 @@ type structure_raidport = {
     # between device name and partition number (e.g. HP SmartArray)
     "part_prefix" : string = ''
 };
-
-@documentation{
-    Structure modelling a RAID controller
-}
-type structure_raid = {
-    include structure_annotation
-    "bbu" ? boolean
-    "numberports" : long (1..)
-    "cache" ? long # In MB
-    "ports" : structure_raidport{}
-} with length (SELF["ports"]) <= SELF["numberports"];
