@@ -14,7 +14,7 @@ type structure_os_version = {
 
 type structure_os_distribution = {
     @{Distribution name, e.g. sl}
-    "name" : string with match(SELF, '^((rh)?el|centos|sl)$')
+    "name" : string with match(SELF, '^((rh)?el|centos|sl|rocky|alma)$')
     @{Full descriptive name, e.g. Scientific Linux}
     "description" ? string
     @{Family that this distribution belongs to e.g. The family for "sl" would be "el"}
