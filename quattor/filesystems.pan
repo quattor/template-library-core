@@ -74,4 +74,6 @@ type structure_filesystem = {
     "ksfsformat" ? boolean
     @{ When defined and false, AII will ignore this filesystem }
     "aii" ? boolean
+    @{ When defined and true, the device path will be used in fstab for the mount point, even if a UUID is available.}
+    "mount_devpath" ? boolean
 };
