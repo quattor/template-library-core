@@ -13,19 +13,19 @@
 
 # 
 # #
-# afsclt, 24.10.0, 1, Fri Nov 22 2024
+# afsclt, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/afsclt/config;
 
 include 'components/afsclt/schema';
 
-"/software/packages" = pkg_repl("ncm-afsclt", "24.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-afsclt", "26.2.0-rc1_1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/afsclt';
 
-'version' = '24.10.0';
+'version' = '26.2.0';
 'active' ?= true;
 'dispatch' ?= true;
 'dependencies/pre' ?= list("spma");

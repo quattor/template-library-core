@@ -20,14 +20,14 @@ include 'components/pam/schema';
 
 bind '/software/components/pam' = pam_component;
 
-'/software/packages' = pkg_repl('ncm-pam', '24.10.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-pam', '26.2.0-rc1_1', 'noarch');
 
 include if_exists('components/pam/site-config');
 
 prefix '/software/components/pam';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '24.10.0';
+'version' ?= '26.2.0';
 'dependencies/pre' ?= list('spma');
 
 # standard component settings
@@ -81,10 +81,12 @@ function pam_add = {
             options = ARGV[4];
         };
     };
-    ret[service][pamtype][tail] = dict("control", control,
-                                    "module", module,
-                                    "options", options,
-                                    "options_list", options_list);
+    ret[service][pamtype][tail] = dict(
+        "control", control,
+        "module", module,
+        "options", options,
+        "options_list", options_list,
+    );
 
     ret;
 };
@@ -227,11 +229,11 @@ function pam_add_access_acl = {
 
     if(!ret[key]["allowpos"] && permission == "+") {
         error("PAM access policy for " + key + "does not permit positive acls, discarding " + entry_string);
-        };
+    };
 
     if(!ret[key]["allowneg"] && permission == "-") {
         error("PAM access policy for " + key + "does not permit negative acls, discarding " + entry_string);
-        };
+    };
 
     tail = length(ret[key][acl]);
     ret[key][acl][tail] = dict("permission", permission, "users", users, "origins", origins);

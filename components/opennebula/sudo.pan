@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 24.10.0, 1, Fri Nov 22 2024
+# opennebula, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 @documentation{
@@ -40,10 +40,12 @@ include 'components/sudo/config';
         '/usr/sbin/brctl',
     );
     foreach (i; cmd; sudolist){
-        nl = dict("host", "ALL",
+        nl = dict(
+            "host", "ALL",
             "options", "NOPASSWD:",
             "run_as", "ALL",
-            "user", "oneadmin");
+            "user", "oneadmin",
+        );
         nl["cmd"] = cmd;
         append(nl);
     };

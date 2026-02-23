@@ -19,7 +19,7 @@ unique template components/systemd/functions;
 }
 function systemd_make_mountunit = {
     if (ARGC != 1) {
-        error(format("systemd_make_mountunit takes exactly one argument, got %s", ARGC));
+        error("systemd_make_mountunit takes exactly one argument, got %s", ARGC);
     };
     if (ARGV[0] == '/') {
         error("systemd_make_mountunit cannot convert /");

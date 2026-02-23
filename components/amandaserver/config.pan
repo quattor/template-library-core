@@ -11,7 +11,7 @@
 
 # 
 # #
-# amandaserver, 24.10.0, 1, Fri Nov 22 2024
+# amandaserver, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/amandaserver/config;

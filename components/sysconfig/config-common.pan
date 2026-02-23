@@ -11,7 +11,7 @@
 
 # 
 # #
-# sysconfig, 24.10.0, 1, Fri Nov 22 2024
+# sysconfig, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/sysconfig/config-common;
@@ -21,7 +21,7 @@ include 'components/sysconfig/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/sysconfig';
 
-#'version' = '24.10.0';
+#'version' = '26.2.0-rc1';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

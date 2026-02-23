@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 24.10.0, 1, Fri Nov 22 2024
+# icinga, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 template components/icinga/functions;
@@ -32,7 +32,7 @@ function icinga_check_service_name = {
     v = ARGV[0];
     foreach(key; val; v) {
         if (! match (unescape(key), '^[\w. -]+$')) {
-            error(format('Icinga service name "%s" contains invalid characters.', unescape(key)));
+            error('Icinga service name "%s" contains invalid characters.', unescape(key));
         };
     };
     true;

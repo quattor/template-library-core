@@ -11,9 +11,9 @@
 
 # 
 # #
-# hostsfile, 24.10.0, 1, Fri Nov 22 2024
+# hostsfile, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/hostsfile/config-rpm;
 
-"/software/packages" = pkg_repl("ncm-hostsfile", "24.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-hostsfile", "26.2.0-rc1_1", "noarch");

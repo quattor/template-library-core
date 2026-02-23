@@ -11,7 +11,7 @@
 
 # 
 # #
-# iptables, 24.10.0, 1, Fri Nov 22 2024
+# iptables, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/iptables/config;
@@ -19,7 +19,7 @@ unique template components/iptables/config;
 include "components/iptables/schema";
 
 # Package to install.
-"/software/packages" = pkg_repl("ncm-iptables", "24.10.0-1", "noarch");
+"/software/packages" = pkg_repl("ncm-iptables", "26.2.0-rc1_1", "noarch");
 
 prefix '/software/components/iptables';
 

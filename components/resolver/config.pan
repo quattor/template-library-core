@@ -17,12 +17,12 @@ include 'components/resolver/schema';
 
 bind '/software/components/resolver' = resolver_component;
 
-'/software/packages' = pkg_repl('ncm-resolver', '24.10.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-resolver', '26.2.0-rc1_1', 'noarch');
 
 include if_exists('components/resolver/site-config');
 
 prefix '/software/components/resolver';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '24.10.0';
+'version' ?= '26.2.0';
 'dependencies/pre' ?= list('spma');

@@ -26,6 +26,7 @@ function network_valid_prefix = {
     Presence of ':' in any of the values indicates this is IPv6 related.
 }
 type network_route = {
+    include structure_network_route_backend_specific
     @{The ADDRESS in ADDRESS/PREFIX via GATEWAY}
     "address" ? string with {SELF == 'default' || is_ip(SELF)}
     @{The PREFIX in ADDRESS/PREFIX via GATEWAY}
@@ -40,4 +41,6 @@ type network_route = {
     "onlink" ? boolean
     @{route add command options to use (cannot be combined with other options)}
     "command" ? string with !match(SELF, '[;]')
+    @{route types}  # only subset, i.e. the nmstate allowed route types
+    "type" ? choice('blackhole', 'unreachable', 'prohibit')
 } with network_valid_route(SELF);

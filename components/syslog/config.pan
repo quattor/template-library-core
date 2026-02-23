@@ -17,12 +17,12 @@ include 'components/syslog/schema';
 
 bind '/software/components/syslog' = syslog_component;
 
-'/software/packages' = pkg_repl('ncm-syslog', '24.10.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-syslog', '26.2.0-rc1_1', 'noarch');
 
 include if_exists('components/syslog/site-config');
 
 prefix '/software/components/syslog';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '24.10.0';
+'version' ?= '26.2.0';
 'dependencies/pre' ?= list('spma');

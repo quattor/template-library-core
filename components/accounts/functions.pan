@@ -11,7 +11,7 @@
 
 # 
 # #
-# accounts, 24.10.0, 1, Fri Nov 22 2024
+# accounts, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 declaration template components/accounts/functions;
@@ -131,16 +131,12 @@ function create_user = {
     };
     accounts = SELF;
 
-    if ( !exists(user_params['homeDir']) &&
-        exists(ACCOUNTS_USER_HOME_ROOT) &&
-        is_defined(username) ) {
-            user_params['homeDir'] = ACCOUNTS_USER_HOME_ROOT + '/' + username;
+    if ( !exists(user_params['homeDir']) && exists(ACCOUNTS_USER_HOME_ROOT) && is_defined(username) ) {
+        user_params['homeDir'] = ACCOUNTS_USER_HOME_ROOT + '/' + username;
     };
 
-    if ( !exists(user_params['createHome']) &&
-        exists(ACCOUNTS_USER_CREATE_HOME) &&
-        exists(user_params['homeDir']) ) {
-            user_params['createHome'] = ACCOUNTS_USER_CREATE_HOME;
+    if ( !exists(user_params['createHome']) && exists(ACCOUNTS_USER_CREATE_HOME) && exists(user_params['homeDir']) ) {
+        user_params['createHome'] = ACCOUNTS_USER_CREATE_HOME;
     };
 
     if ( !exists(user_params['password']) && exists(ACCOUNTS_USER_PWD) ) {
@@ -161,10 +157,8 @@ function create_user = {
         ok = first(user_params['groups'], i, groupname);
         while (ok) {
             if ( !exists(accounts['groups'][groupname]) ) {
-                if ( groupname == username &&
-                    exists(user_params['uid']) &&
-                    !exists(user_params['poolStart']) ) {
-                        accounts = create_group(groupname, dict('gid', user_params['uid']));
+                if ( groupname == username && exists(user_params['uid']) && !exists(user_params['poolStart']) ) {
+                    accounts = create_group(groupname, dict('gid', user_params['uid']));
                 } else {
                     if (ACCOUNTS_IGNORE_MISSING_GROUPS) {
                         delete(user_params['groups'][i]);
@@ -238,7 +232,7 @@ function create_accounts_from_db = {
             } else {
                 accounts = create_group(accountname, accounts_db[accountname]);
             };
-                ok = next(account_list, i, accountname);
+            ok = next(account_list, i, accountname);
         };
     } else {
         ok = first(accounts_db, accountname, account_params);

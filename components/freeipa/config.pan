@@ -17,21 +17,21 @@ include 'components/freeipa/schema';
 
 bind '/software/components/freeipa' = freeipa_component;
 
-'/software/packages' = pkg_repl('ncm-freeipa', '24.10.0-1', 'noarch');
+'/software/packages' = pkg_repl('ncm-freeipa', '26.2.0-rc1_1', 'noarch');
 
 include if_exists('components/freeipa/site-config');
 
 prefix '/software/components/freeipa';
 'active' ?= true;
 'dispatch' ?= true;
-'version' ?= '24.10.0';
+'version' ?= '26.2.0';
 'dependencies/pre' ?= list('spma');
 
 variable FREEIPA_CLI_REQUIRES_PAM_KRB5 ?= true;
 
 'cli_packages' ?= {
     t = list(
-        'ncm-freeipa-24.10.0-1',
+        'ncm-freeipa-26.2.0-rc1_1',
         'nss-pam-ldapd',
         'ipa-client',
         'nss-tools',

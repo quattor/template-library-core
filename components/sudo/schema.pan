@@ -44,8 +44,10 @@ type sudo_privilege_line = {
     @{The host from where the user can invoke sudo. Can be a host or a host_alias.}
     "host" : string
     @{Specific options for this command}
-    "options" ? string with match (SELF,
-        "^((NOPASSWD|PASSWD|NOEXEC|EXEC|SETENV|NOSETENV|LOG_INPUT|NOLOG_INPUT|LOG_OUTPUT|NOLOG_OUTPUT):?)+$")
+    "options" ? string with match(
+        SELF,
+        "^((NOPASSWD|PASSWD|NOEXEC|EXEC|SETENV|NOSETENV|LOG_INPUT|NOLOG_INPUT|LOG_OUTPUT|NOLOG_OUTPUT):?)+$"
+    )
     @{The command being run}
     "cmd" : string
 };
@@ -83,6 +85,7 @@ type sudo_default_options = {
     "stay_setuid" ? boolean
     "env_reset" ? boolean
     "use_loginclass" ? boolean
+    "use_pty" ? boolean
     "visiblepw" ? boolean
     "passwd_tries" ? long
     "loglinelen" ? long
@@ -152,7 +155,7 @@ type sudo_component = {
     @{dicts of lists of strings containing the alias information. The
       name of each named list must start with a letter, and contain only
       letters, numbers and underscores. All the letters must be
-      capitals. i.e. the name must match ^[A-Z][A-Z0-9_]*$.
+      capitals. i.e. the name must match `^[A-Z][A-Z0-9_]*$`.
 
       They can be preceeded by an '!', indicating the alias must *not*
       match that name. The contents may be preceeded by an '!', indicating

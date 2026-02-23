@@ -11,7 +11,7 @@
 
 # 
 # #
-# puppet, 24.10.0, 1, Fri Nov 22 2024
+# puppet, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 declaration template components/puppet/schema;
@@ -58,8 +58,13 @@ type puppet_component = {
     "nodefiles_path" : string = '/etc/puppet/manifests'
     "puppetconf" : puppet_puppetconf = dict("main", dict("logdir", "/var/log/puppet", "rundir", "/var/run/puppet"))
     "puppetconf_file" : string = '/etc/puppet/puppet.conf'
-    "hieraconf" : puppet_hieraconf = dict(escape(":backends"), list("yaml"), escape(":yaml"),
-        dict(escape(":datadir"), "/etc/puppet/hieradata"), escape(":hierarchy"), list("quattor"))
+    "hieraconf" : puppet_hieraconf = dict(
+        escape(":backends"), list("yaml"),
+        escape(":yaml"), dict(
+            escape(":datadir"), "/etc/puppet/hieradata",
+        ),
+        escape(":hierarchy"), list("quattor"),
+    )
     "hieraconf_file" : string = "/etc/puppet/hiera.yaml"
     "hieradata" ? puppet_hieradata
     "hieradata_file" : string = "/etc/puppet/hieradata/quattor.yaml"

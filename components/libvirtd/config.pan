@@ -11,14 +11,14 @@
 
 # 
 # #
-# libvirtd, 24.10.0, 1, Fri Nov 22 2024
+# libvirtd, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/libvirtd/config;
 
 include 'components/libvirtd/schema';
 
-'/software/packages'=pkg_repl('ncm-libvirtd','24.10.0-1','noarch');
+'/software/packages'=pkg_repl('ncm-libvirtd','26.2.0-rc1_1','noarch');
 '/software/components/libvirtd/dependencies/pre' ?=  list ('spma');
 
 '/software/components/libvirtd/active' ?= true;

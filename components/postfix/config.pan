@@ -11,7 +11,7 @@
 
 # 
 # #
-# postfix, 24.10.0, 1, Fri Nov 22 2024
+# postfix, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
 #
 
 unique template components/postfix/config;
@@ -25,4 +25,4 @@ prefix '/software/components/postfix';
 'dispatch' ?= true;
 'dependencies/pre' ?= list('spma');
 
-'/software/packages' = pkg_repl('ncm-postfix','24.10.0-1','noarch');
+'/software/packages' = pkg_repl('ncm-postfix', '26.2.0-rc1_1', 'noarch');
