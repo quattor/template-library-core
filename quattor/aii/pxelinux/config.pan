@@ -14,7 +14,7 @@
 #
 
 # #
-# pxelinux, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
+# pxelinux, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
 #
 
 unique template quattor/aii/pxelinux/config;
