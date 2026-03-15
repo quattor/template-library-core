@@ -3,7 +3,8 @@ declaration template metaconfig/chrony/schema;
 include 'pan/types';
 
 type chrony_service_server_flag = choice(
-    'iburst', 'burst', 'offline', 'auto_offline', 'prefer', 'noselect', 'trust', 'require', 'xleave');
+    'iburst', 'burst', 'offline', 'auto_offline', 'prefer', 'noselect', 'trust', 'require', 'xleave'
+);
 
 @documentation{
     the crony.conf configuration entry for server/pool/peer options
@@ -65,6 +66,20 @@ type chrony_service_network = {
 };
 
 @documentation{
+    The smoothtime directive can be used to enable smoothing of the time that chronyd serves to its clients to make it
+    easier for them to track it and keep their clocks close together even when large offset or frequency corrections
+    are applied to the server’s clock, for example after being offline for a longer time.
+}
+type chrony_service_smoothtime = {
+    @{ Maximum frequency offset of the smoothed time to the tracked NTP time (in ppm) }
+    'max_freq' : double(0..100000)
+    @{ Maximum rate at which the frequency offset is allowed to change (in ppm per second) }
+    'max_wander' : double(0..100000)
+    @{ Only smooth leap seconds, ignore normal offset and frequency changes }
+    'leaponly' : boolean
+};
+
+@documentation{
     the crony.conf configuration
 }
 type chrony_service = {
@@ -80,4 +95,10 @@ type chrony_service = {
     'keyfile' ? absolute_file_path
     'logdir' ? absolute_file_path
     'leapsectz' ? string
+    @{ Select how errors caused by inerting leap seconds are corrected for }
+    'leapsecmode' ? choice('system', 'step', 'slew', 'ignore')
+    @{ Maximum rate at which chronyd is allowed to slew the time (in ppm), defaults to 83333.333 (i.e. 1000000/12)}
+    'maxslewrate' ? double(0..100000)
+    @{ Control smoothing of the time that chronyd serves to its clients }
+    'smoothtime' ? chrony_service_smoothtime
 };

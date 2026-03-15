@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
+# spma, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
 #
 
 unique template components/spma/ips/config;

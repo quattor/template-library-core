@@ -11,7 +11,7 @@
 
 # 
 # #
-# dirperm, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
+# dirperm, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
 #
 
 unique template components/dirperm/config;
@@ -19,7 +19,7 @@ unique template components/dirperm/config;
 include "components/dirperm/schema";
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-dirperm", "26.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-dirperm", "26.2.0-rc2_1", "noarch");
 
 prefix '/software/components/dirperm';
 

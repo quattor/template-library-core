@@ -4,22 +4,27 @@ declaration template metaconfig/httpd/schema;
 include 'pan/types';
 include 'components/accounts/functions';
 
-type httpd_sslprotocol = choice("all", "-SSLv3", "-TLSv1", "TLSv1", "-TLSv1.1", "TLSv1.1", "TLSv1.2", "TLSv1.3");
+type httpd_sslprotocol = choice("all", "-SSLv3", "-TLSv1", "TLSv1", "-TLSv1.1", "TLSv1.1", "TLSv1.2", "TLSv1.3",
+    "+TLSv1.2", "+TLSv1.3", "-all"
+);
 
 type httpd_ciphersuite = choice("TLSv1", "ECDHE-ECDSA-CHACHA20-POLY1305", "ECDHE-RSA-CHACHA20-POLY1305",
-    "DHE-RSA-CHACHA20-POLY1305", "ECDHE-ECDSA-AES128-GCM-SHA256", "ECDHE-RSA-AES128-GCM-SHA256",
-    "ECDHE-ECDSA-AES256-GCM-SHA384", "ECDHE-RSA-AES256-GCM-SHA384", "DHE-RSA-AES128-GCM-SHA256",
-    "DHE-RSA-AES256-GCM-SHA384", "ECDHE-ECDSA-AES128-SHA256", "ECDHE-RSA-AES128-SHA256",
-    "ECDHE-ECDSA-AES128-SHA", "ECDHE-RSA-AES256-SHA384", "ECDHE-RSA-AES128-SHA",
-    "ECDHE-ECDSA-AES256-SHA384", "ECDHE-ECDSA-AES256-SHA", "ECDHE-RSA-AES256-SHA",
+    "ECDHE-ECDSA-AES128-GCM-SHA256", "ECDHE-RSA-AES128-GCM-SHA256", "ECDHE-ECDSA-AES256-GCM-SHA384",
+    "ECDHE-RSA-AES256-GCM-SHA384", "DHE-RSA-AES128-GCM-SHA256", "DHE-RSA-AES256-GCM-SHA384",
+    "ECDHE-ECDSA-AES128-SHA256", "ECDHE-RSA-AES128-SHA256", "ECDHE-ECDSA-AES128-SHA", "ECDHE-RSA-AES256-SHA384",
+    "ECDHE-RSA-AES128-SHA", "ECDHE-ECDSA-AES256-SHA384", "ECDHE-ECDSA-AES256-SHA", "ECDHE-RSA-AES256-SHA",
     "DHE-RSA-AES128-SHA256", "DHE-RSA-AES128-SHA", "DHE-RSA-AES256-SHA256", "DHE-RSA-AES256-SHA",
     "ECDHE-ECDSA-DES-CBC3-SHA", "ECDHE-RSA-DES-CBC3-SHA", "EDH-RSA-DES-CBC3-SHA", "AES128-GCM-SHA256",
-    "AES256-GCM-SHA384", "AES128-SHA256", "AES256-SHA256", "AES128-SHA", "AES256-SHA", "DES-CBC3-SHA", "!RC4",
-    "!LOW", "!aNULL", "!eNULL", "!MD5", "!EXP", "!3DES", "!IDEA", "!SEED", "!CAMELLIA", "!DSS");
+    "AES256-GCM-SHA384", "AES128-SHA256", "AES256-SHA256", "AES128-SHA", "AES256-SHA", "DES-CBC3-SHA",
+    "DHE-RSA-CHACHA20-POLY1305", "!RC4", "!LOW", "!aNULL", "!eNULL", "!MD5", "!EXP", "!3DES", "!IDEA",
+    "!SEED", "!CAMELLIA", "!DSS"
+);
 
 # These are the settings for old clients, see https://access.redhat.com/articles/1467293 for stricter values.
-type httpd_nss_protocol = string with match(SELF, '^(TLSv1\.[012]|SSLv3)$')
-    || error("Use a modern cipher suite, for Pete's sake! see https://access.redhat.com/articles/1467293");
+type httpd_nss_protocol = string with {
+    match(SELF, '^(TLSv1\.[012]|SSLv3)$') ||
+    error("Use a modern cipher suite, for Pete's sake! see https://access.redhat.com/articles/1467293");
+};
 
 # only allow -(bad ciphers) and +(good ciphers) where good ciphers are from https://access.redhat.com/articles/1467293
 # minues rc4, since the Bar Mitzvah attack
@@ -30,7 +35,8 @@ type httpd_nss_cipherstring = string with match(SELF, '^(-(rsa_3des_sha|rsa_des_
     'ecdhe_ecdsa_aes_128_sha_256|ecdhe_ecdsa_aes_256_gcm_sha_384|ecdhe_ecdsa_aes_256_sha|ecdhe_ecdsa_aes_256_sha_384|' +
     'ecdhe_rsa_aes_128_gcm_sha_256|ecdhe_rsa_aes_128_sha|ecdhe_rsa_aes_128_sha_256|ecdhe_rsa_aes_256_gcm_sha_384|' +
     'ecdhe_rsa_aes_256_sha|ecdhe_rsa_aes_256_sha_384|ecdh_rsa_aes_128_sha|ecdh_rsa_aes_256_sha|' +
-    'rsa_aes_128_gcm_sha_256|rsa_aes_128_sha|rsa_aes_256_gcm_sha_384|rsa_aes_256_sha))$');
+    'rsa_aes_128_gcm_sha_256|rsa_aes_128_sha|rsa_aes_256_gcm_sha_384|rsa_aes_256_sha))$'
+);
 
 type httpd_protocols = choice("h2", "h2c", "http/1.1");
 
@@ -47,7 +53,8 @@ type httpd_option_plusminus_none = string[] with {
         pm = match(opt, '^(\+|-)');
         if (to_long(plusminus) != to_long(pm)) {
             error('Either all options must start with + or -, or no option may: got %s compared with first %s',
-                opt, SELF[0]);
+                opt, SELF[0]
+            );
         };
     };
     true;
@@ -120,8 +127,14 @@ type httpd_oidc = {
     "statemaxnumberofcookies" ? httpd_oidc_state_cookies
 } with {
     if (!exists(SELF['providermetadataurl'])) {
-        provs = list('issuer', 'authorizationendpoint', 'tokenendpoint',
-                        'tokenendpointauth', 'userinfoendpoint', 'jwksuri');
+        provs = list(
+            'issuer',
+            'authorizationendpoint',
+            'tokenendpoint',
+            'tokenendpointauth',
+            'userinfoendpoint',
+            'jwksuri',
+        );
         foreach (i; prov; provs) {
             if (!exists(SELF["provider" + prov])) {
                 error("oidc attribute provider%s must be configured when providermetadataurl is absent", prov);
@@ -246,9 +259,18 @@ type httpd_nss_vhost = {
     include httpd_ssl_nss_vhost
 
     "protocol" : httpd_nss_protocol[] = list("TLSv1.0", "TLSv1.1", "TLSv1.2")
-    "ciphersuite" : httpd_nss_cipherstring[] = list('+rsa_aes_128_sha', '+rsa_aes_256_sha', '+ecdhe_rsa_aes_256_sha',
-        '+ecdhe_rsa_aes_128_sha', '+ecdh_rsa_aes_256_sha', '+ecdh_rsa_aes_128_sha', '+ecdhe_ecdsa_aes_256_sha',
-        '+ecdhe_ecdsa_aes_128_sha', '+ecdh_ecdsa_aes_256_sha', '+ecdh_ecdsa_aes_128_sha')
+    "ciphersuite" : httpd_nss_cipherstring[] = list(
+        '+rsa_aes_128_sha',
+        '+rsa_aes_256_sha',
+        '+ecdhe_rsa_aes_256_sha',
+        '+ecdhe_rsa_aes_128_sha',
+        '+ecdh_rsa_aes_256_sha',
+        '+ecdh_rsa_aes_128_sha',
+        '+ecdhe_ecdsa_aes_256_sha',
+        '+ecdhe_ecdsa_aes_128_sha',
+        '+ecdh_ecdsa_aes_256_sha',
+        '+ecdh_ecdsa_aes_128_sha',
+    )
 
     "nickname" : string
     "eccnickname" ? string
@@ -264,8 +286,18 @@ type httpd_nss_vhost = {
 type httpd_ssl_vhost = {
     include httpd_ssl_global
     include httpd_ssl_nss_vhost
-    "protocol" : httpd_sslprotocol[] = list("TLSv1")
-    "ciphersuite" : httpd_ciphersuite[] = list("TLSv1")
+    "protocol" : httpd_sslprotocol[] = list("-all", "+TLSv1.2", "+TLSv1.3")
+    "ciphersuite" : httpd_ciphersuite[] = list(
+        "ECDHE-ECDSA-AES128-GCM-SHA256",
+        "ECDHE-RSA-AES128-GCM-SHA256",
+        "ECDHE-ECDSA-AES256-GCM-SHA384",
+        "ECDHE-RSA-AES256-GCM-SHA384",
+        "ECDHE-ECDSA-CHACHA20-POLY1305",
+        "ECDHE-RSA-CHACHA20-POLY1305",
+        "DHE-RSA-AES128-GCM-SHA256",
+        "DHE-RSA-AES256-GCM-SHA384",
+        "DHE-RSA-CHACHA20-POLY1305"
+    )
     "honorcipherorder" ? string with match(SELF, '^(on|off)$')
     "compression" ? boolean
     "sessiontickets" ? boolean
@@ -299,7 +331,8 @@ type httpd_authz = {
 };
 
 type httpd_limit_value = string with match(SELF, '^GET|POST|PUT|DELETE|CONNECT|OPTIONS|PATCH|PROPFIND|PROPPATCH|' +
-    'MKCOL|COPY|MOVE|LOCK|UNLOCK$');
+    'MKCOL|COPY|MOVE|LOCK|UNLOCK$'
+);
 
 type httpd_limit = {
     "name" : httpd_limit_value[]
@@ -588,9 +621,16 @@ type httpd_expires = {
     "default" ? string
     "bytype" ? string{}
 };
-
+type httpd_cas = {
+    "casscope" ? string_trimmed
+    "cascookie" ? string_trimmed
+    "cassecurecookie" ? string_trimmed
+    "casgatewaycookie" ? string_trimmed
+    "casssoenabled" ? boolean
+};
 type httpd_directory = {
     include httpd_file
+    include httpd_cas
     "rewrite" ? httpd_rewrite
     "handler" ? httpd_handler
     "outputfilter" ? httpd_outputfilter
@@ -608,12 +648,21 @@ type httpd_directory = {
 
 type httpd_vhost_ip = string with is_ip(SELF) || SELF == '*';
 
-type httpd_header = {
+type httpd_header_base = {
     "name" : string
-    "action" : choice('add', 'append', 'echo', 'edit', 'edit*', 'merge', 'set', 'setifempty', 'unset', 'note')
     "value" : string
     "quotes" : string = '"'
     "always" ? boolean
+};
+
+type httpd_header = {
+    include httpd_header_base
+    "action" : choice('add', 'append', 'echo', 'edit', 'edit*', 'merge', 'set', 'setifempty', 'unset', 'note')
+};
+
+type httpd_requestheader = {
+    include httpd_header_base
+    "action" : choice('add', 'append', 'edit', 'edit*', 'merge', 'set', 'setifempty', 'unset')
 };
 
 type httpd_serveralias = string with match(SELF, '^[\w.*]+$');  # serveralias supports wildcards
@@ -642,6 +691,7 @@ type httpd_vhost = {
     "browsermatch" ? httpd_browsermatch[]
     "passenger" ? httpd_passenger_vhost
     "header" ? httpd_header[]
+    "requestheader" ? httpd_requestheader[]
     "protocols" ? httpd_protocols[]
 };
 
@@ -676,6 +726,7 @@ type httpd_global_system = {
     "indexignore" : string[] = list(".??*", "*~", "*#", "HEADER*", "README*", "RCS", "CVS", "*,v", "*,t")
     "readmename" : string = "README.html"
     "headername" : string = "HEADER.html"
+    "header" ? httpd_header[]
     "adddefaultcharset" : string = "UTF-8"
 
     "limitrequestfieldsize" ? long

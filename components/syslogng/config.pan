@@ -11,7 +11,7 @@
 
 # 
 # #
-# syslogng, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
+# syslogng, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
 #
 
 unique template components/syslogng/config;

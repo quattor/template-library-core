@@ -11,7 +11,7 @@
 
 # 
 # #
-# opennebula, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
+# opennebula, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
 #
 
 unique template components/opennebula/config;
@@ -29,6 +29,6 @@ prefix '/software/components/opennebula';
 'dependencies/pre' ?= list('spma', 'accounts', 'sudo', 'useraccess');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-opennebula", "26.2.0-rc1_1", "noarch");
+"/software/packages" = pkg_repl("ncm-opennebula", "26.2.0-rc2_1", "noarch");
 
 include 'components/opennebula/sudo';

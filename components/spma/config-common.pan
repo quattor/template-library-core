@@ -14,7 +14,7 @@
 #
 
 # #
-# spma, 26.2.0-rc1, rc1_1, Mon Feb 23 2026
+# spma, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
 #
 
 unique template components/spma/config-common;
@@ -22,7 +22,7 @@ unique template components/spma/config-common;
 # Set prefix to root of component configuration.
 prefix '/software/components/spma';
 
-#'version' = '26.2.0-rc1';
+#'version' = '26.2.0-rc2';
 #'package' = 'NCM::Component';
 
 'run' ?= "yes";

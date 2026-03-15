@@ -43,7 +43,7 @@ type conntrackd_service_sync = {
 
 @documentation{
     Unix socket configuration.
-    This socket is used by conntrackd to listen to external commands like `conntrackd -k' or `conntrackd -n'.
+    This socket is used by conntrackd to listen to external commands like `conntrackd -k` or `conntrackd -n`.
 }
 type conntrackd_service_general_unix = {
     'Path' : string = '/var/run/conntrackd.ctl'
@@ -56,7 +56,8 @@ type conntrackd_service_general_filter_action = {
 type conntrackd_service_general_filter_protocol_option = choice('TCP', 'SCTP', 'DCCP', 'UDP', 'ICMP', 'IPv6-ICMP');
 
 type conntrackd_service_general_filter_state_option = choice(
-    'SYN_SENT', 'SYN_RECV', 'ESTABLISHED', 'FIN_WAIT', 'CLOSE_WAIT', 'LAST_ACK', 'TIME_WAIT', 'CLOSED', 'LISTEN');
+    'SYN_SENT', 'SYN_RECV', 'ESTABLISHED', 'FIN_WAIT', 'CLOSE_WAIT', 'LAST_ACK', 'TIME_WAIT', 'CLOSED', 'LISTEN'
+);
 
 type conntrackd_service_general_filter_state = {
     include conntrackd_service_general_filter_action
