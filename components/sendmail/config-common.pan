@@ -11,7 +11,7 @@
 
 # 
 # #
-# sendmail, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
+# sendmail, 26.2.0, 1, Thu Apr 02 2026
 #
 
 unique template components/sendmail/config-common;
@@ -21,7 +21,7 @@ include 'components/sendmail/schema';
 # Set prefix to root of component configuration.
 prefix '/software/components/sendmail';
 
-#'version' = '26.2.0-rc2';
+#'version' = '26.2.0';
 #'package' = 'NCM::Component';
 
 'active' ?= true;

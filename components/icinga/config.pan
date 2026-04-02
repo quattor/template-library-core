@@ -11,7 +11,7 @@
 
 # 
 # #
-# icinga, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
+# icinga, 26.2.0, 1, Thu Apr 02 2026
 #
 
 unique template components/icinga/config;
@@ -28,4 +28,4 @@ prefix '/software/components/icinga';
 'dependencies/pre' ?= list('spma');
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-icinga", "26.2.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-icinga", "26.2.0-1", "noarch");

@@ -12,7 +12,7 @@
 
 # 
 # #
-# named, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
+# named, 26.2.0, 1, Thu Apr 02 2026
 #
 
 unique template components/named/config;
@@ -20,7 +20,7 @@ unique template components/named/config;
 include 'components/named/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-named", "26.2.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-named", "26.2.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/named';

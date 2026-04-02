@@ -11,7 +11,7 @@
 
 # 
 # #
-# mysql, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
+# mysql, 26.2.0, 1, Thu Apr 02 2026
 #
 
 unique template components/mysql/config;
@@ -19,7 +19,7 @@ unique template components/mysql/config;
 include 'components/mysql/schema';
 
 # Package to install
-"/software/packages" = pkg_repl("ncm-mysql", "26.2.0-rc2_1", "noarch");
+"/software/packages" = pkg_repl("ncm-mysql", "26.2.0-1", "noarch");
 
 # Set prefix to root of component configuration.
 prefix '/software/components/mysql';

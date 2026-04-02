@@ -11,7 +11,7 @@
 
 # 
 # #
-# hostsaccess, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
+# hostsaccess, 26.2.0, 1, Thu Apr 02 2026
 #
 
 unique template components/hostsaccess/config;
