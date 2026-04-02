@@ -16,7 +16,7 @@
 #
 
 # #
-# server, 26.2.0-rc2, rc2_1, Sun Mar 15 2026
+# server, 26.2.0, 1, Thu Apr 02 2026
 #
 #
 # This file is the standard aii configuration. It only performs some
