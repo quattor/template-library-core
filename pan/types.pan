@@ -1017,9 +1017,19 @@ type absolute_file_path = string with is_absolute_file_path(SELF);
 
 
 @documentation{
-    desc = Type that enforces the existence of a named interface.
+    desc = Type that enforces the existence of a named interface. \
+        Also accepts SR-IOV virtual function references of the form sriov:<interface>:<index>, \
+        where <index> is the position (starting at 0) of the VF in the sriov list of the physical interface.
 }
 type valid_interface = string with {
+    sriov_type = matches(SELF, '^sriov:([^:]+):(\d+)$');
+    if (length(sriov_type) > 0) {
+        sriov_path = format('/system/network/interfaces/%s/sriov/%s', sriov_type[1], sriov_type[2]);
+        if (path_exists(sriov_path)) {
+            return(true);
+        };
+        return(false);
+    };
     if (exists(format('/system/network/interfaces/%s', SELF))) {
         return(true);
     };
